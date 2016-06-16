@@ -1,14 +1,15 @@
-NovDoc
-======
+# SUSE Schemas
 
-This is the Novdoc and geekodoc schemas. Although Novdoc is technically not
+
+## NovDoc
+
+This is the Novdoc and Geekodoc schemas. Although Novdoc is technically not
 based on DocBook the tags and structure are.
 
 In general, XML instances of Novdoc should be compatible to DocBook.
 
 
-GeekoDoc
-=======
+## GeekoDoc
 
 GeekoDoc is a RELAX NG schema and a subset of DocBook 5. Currently, it can be
 used in two variants:
@@ -23,8 +24,7 @@ Both variants contain the same structure, elements, and attributes. They
 serve different purposes.
 
 
-Creating Flat GeekoDoc
-----------------------
+## Creating Flat GeekoDoc
 
 Creating the flat GeekoDoc schema requires the `rnginline` tool at
 https://github.com/h4l/rnginline/
@@ -35,66 +35,80 @@ Use one of the following methods to install `rnginline`:
 * Install it in a Python virtual environment
 
 
-Installing rnginline from RPM Package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Installing rnginline from RPM Package
 
 The following procedure can be used for openSUSE Leap 42.1:
 
 1. Add the repository:
 
+   ```
    $ sudo zypper ar http://download.opensuse.org/repositories/home:/thomas-schraitle/openSUSE_Leap_42.1/home:thomas-schraitle.repo
+   ```
 
 2. Install it:
 
+   ```
    $ sudo zypper in python3-rnginline
-
+   ```
 
 The executable can be found in `/usr/bin/rnginline`.
 
 
-Installing rnginline using a Python Virtual Environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Installing rnginline using a Python Virtual Environment
 
 1. Install the RPM packages `python3-devel`, `libxml2-devel`, and `libxslt-devel`.
 
 2. Create a Python3 virtual environment:
 
+   ```
    $ python3 -m venv .env3
+   ```
 
 3. Activate the virtual environment:
 
+   ```
    $ source .env3/bin/activate
+   ```
 
    => You should see a changed prompt (look for the "(.env3)" part).
 
 3. Install the `rnginline` library from PyPi:
 
+   ```
    $ pip install rnginline
+   ```
 
 
 The executable can be found in `.env3/bin/rnginline`.
 
 
-Creating a Flat GeekoDoc Schema
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Creating a Flat GeekoDoc Schema
 
-1. Update your `suse-xsl` GitHub repository.
+1. Update your GitHub repository.
 
 2. Convert the official compact version into the XML version with trang:
 
+   ```
    $ trang geekodoc.rnc geekodoc5.rng
+   ```
 
 3. Create the flat RNG version:
 
+   ```
    $ rnginline geekodoc5.rng geekodoc5-flat.rng
+   ```
 
 4. Optional: Cleanup and remove unnecessary namespaces:
 
+   ```
    $ mv geekodoc5-flat.rng _flat.rng
    $ xmllint -o geekodoc5-flat.rng --nsclean --format flat.rng
    $ rm _flat.rng
+   ```
 
 5. Optional: Create the compact version:
 
+   ```
    $ trang geekodoc5-flat.rng geekodoc5-flat.rnc
+   ```
 
