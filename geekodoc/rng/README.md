@@ -1,13 +1,12 @@
-######
-README
-######
+# README
 
-# What?
+
+## What?
 This directory contains RELAX NG files to validate the SUSE
 documentation.
 
 
-# Where?
+## Where?
 
 There are two incarnations of the SUSE schema:
 
