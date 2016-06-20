@@ -1,13 +1,19 @@
-<?xml version='1.0'?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-<!-- XML Catalog data for GeekoDoc XML Relax NG schema -->
-
-<!-- See XML Catalogs at http://www.oasis-open.org/committees/entity/ for
-     detailed information on supplying and using catalog data. -->
-
- <group xml:base="./">
-  <rewriteSystem
-    systemIdStartString="https://raw.githubusercontent.com/openSUSE/suse-xsl/develop/schema/geekodoc/rng/"
-    rewritePrefix="."/>
- </group>
+  <group id="suse-xsl">
+   <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5.rnc"
+    uri="geekodoc5.rnc"/>
+   <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5-flat.rnc"
+    uri="geekodoc5-flat.rnc"/>
+   <uri
+    name="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5.rnc"
+    uri="geekodoc5.rnc"/>
+   <uri
+    name="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5-flat.rnc"
+    uri="geekodoc5-flat.rnc"/>
+   <!--  -->
+   <uri name="urn:x-suse:rng:geekodoc5.rnc" uri="geekodoc5-flat.rnc"/>
+   <uri name="urn:x-suse:rng:geekodoc5-flat.rnc" uri="geekodoc5-flat.rnc"/>
+  </group>
 </catalog>
