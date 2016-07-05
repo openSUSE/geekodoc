@@ -1085,7 +1085,7 @@ include "docbookxi.rnc"
     ]
     element step {
       db.step.attlist,
-      db.step.info,
+      db.titleforbidden.info?,
       ((db.step.blocks+,
         ((db.substeps | db.stepalternatives), db.step.blocks*)?,
         db.result?)
