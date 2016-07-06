@@ -75,6 +75,7 @@ db.step.blocks =
    | db.figure
    | db.informalexample
    | db.informalfigure
+   | db.informaltable
    | db.admonition.blocks
    | db.graphic.blocks
    | db.verbatim.blocks
@@ -151,7 +152,7 @@ include "docbookxi.rnc"
   db.bibliosource = notAllowed
   db.blockquote = notAllowed
   # db.book = notAllowed
-  db.bridgehead = notAllowed
+  # db.bridgehead = notAllowed
   # db.callout = notAllowed
   # db.calloutlist = notAllowed
   db.caption = notAllowed
@@ -472,18 +473,9 @@ include "docbookxi.rnc"
      | db.indexterm
      | db.synopsis.blocks
      | db.admonition.blocks
-     # | db.bridgehead
+     | db.bridgehead
      # | db.revhistory
 
-  db.admonition.contentmodel = db._info.title.only,
-    (db.para
-     | db.simplelist
-     | db.itemizedlist
-     | db.variablelist
-     | db.orderedlist
-     | db.verbatim.blocks
-     | db.remark
-    )
 
   #======== Removed Attribute
 
@@ -1085,7 +1077,7 @@ include "docbookxi.rnc"
     ]
     element step {
       db.step.attlist,
-      db.titleforbidden.info?,
+      # db.step.info?,
       ((db.step.blocks+,
         ((db.substeps | db.stepalternatives), db.step.blocks*)?,
         db.result?)

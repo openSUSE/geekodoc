@@ -112,6 +112,7 @@ div {
     | db.figure
     | db.informalexample
     | db.informalfigure
+    | db.informaltable
     | db.admonition.blocks
     | db.graphic.blocks
     | db.verbatim.blocks
@@ -1252,6 +1253,10 @@ div {
         db.bridgehead.renderas-enum.attribute
         | db.bridgehead.renderas-other.attributes
       db.bridgehead.role.attribute = attribute role { text }
+      db.bridgehead =
+
+        ## A free-floating heading
+        element bridgehead { db.bridgehead.attlist, db.all.inlines* }
     }
     div {
       db.remark.role.attribute = attribute role { text }
@@ -8756,6 +8761,7 @@ div {
           db.programlisting.attlist, db.verbatim.contentmodel
         }
     }
+    db.admonition.contentmodel = db._info.title.only, db.all.blocks+
     div {
       db.caution.role.attribute = attribute role { text }
       db.caution =
@@ -9611,7 +9617,7 @@ div {
     db.bibliosource = notAllowed
     db.blockquote = notAllowed
     # db.book = notAllowed
-    db.bridgehead = notAllowed
+    # db.bridgehead = notAllowed
     # db.callout = notAllowed
     # db.calloutlist = notAllowed
     db.caption = notAllowed
@@ -9931,17 +9937,9 @@ div {
     | db.indexterm
     | db.synopsis.blocks
     | db.admonition.blocks
-  # | db.bridgehead
+    | db.bridgehead
   # | db.revhistory
-  db.admonition.contentmodel =
-    db._info.title.only,
-    (db.para
-     | db.simplelist
-     | db.itemizedlist
-     | db.variablelist
-     | db.orderedlist
-     | db.verbatim.blocks
-     | db.remark)
+
   # ======== Removed Attribute
   db.rdfalite.attributes = empty
   db.xlink.attributes = empty
@@ -10425,7 +10423,7 @@ div {
       ]
       element step {
         db.step.attlist,
-        db.titleforbidden.info?,
+        # db.step.info?,
         ((db.step.blocks+,
           ((db.substeps | db.stepalternatives), db.step.blocks*)?,
           db.result?)
