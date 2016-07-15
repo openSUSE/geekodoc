@@ -13,7 +13,7 @@ namespace trans = "http://docbook.org/ns/transclusion"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-suse.schema.version = "5.1-subset GeekoDoc-0.9.4"
+suse.schema.version = "5.1-subset GeekoDoc-0.9.5"
 #
 div {
   div {
@@ -125,6 +125,7 @@ div {
     | db.calloutlist
     | db.annotation
     | db.xi.include
+    | db.table
   # no db.publishing.blocks, db.technical.blocks
   # | db.formal.blocks - db.table - db.equation
   # | db.informal.blocks - db.informaltable - db.informalequation

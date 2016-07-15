@@ -25,7 +25,7 @@ namespace trans="http://docbook.org/ns/transclusion"
 
 datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
-suse.schema.version = "5.1-subset GeekoDoc-0.9.4"
+suse.schema.version = "5.1-subset GeekoDoc-0.9.5"
 
 #
 include "transclusion.rnc"
@@ -88,6 +88,7 @@ db.step.blocks =
    | db.calloutlist
    | db.annotation
    | db.xi.include
+   | db.table
    # no db.publishing.blocks, db.technical.blocks
    #| db.formal.blocks - db.table - db.equation
    #| db.informal.blocks - db.informaltable - db.informalequation
