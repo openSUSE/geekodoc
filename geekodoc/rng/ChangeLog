@@ -1,0 +1,47 @@
+-------------------------------------------------------------------
+Wed Jul  6 13:21:00 UTC 2010 - toms@opensuse.org
+
+Created 0.9.4
+
+* Fixes several problems
+  * allow informaltable in db.step.blocks
+  * allow bridgeheads
+  * remove db.admonition.contentmodel (using standard admon
+	contentmodel)
+  * remove info inside steps (db.step.info)
+
+
+-------------------------------------------------------------------
+Tue Jul  5 13:31:00 UTC 2010 - toms@opensuse.org
+
+Created 0.9.3
+
+* Fixes #4 to remove title in step
+* Rename SUSEDoc -> GeekoDoc
+
+
+-------------------------------------------------------------------
+Tue May 12 16:06:38 UTC 2010 - toms@opensuse.org
+
+Created 0.9.2
+
+* Allow footnote again (for Meike!)
+* Change content model for admonitions: allow only db.para
+  db.simplelist, db.itemizedlist, db.variablelist,
+  db.orderedlist, db.verbatim.blocks, db.remark (together
+  with db._info.title.only)
+
+
+-------------------------------------------------------------------
+Tue May 12 16:06:38 UTC 2010 - toms@opensuse.org
+
+Created 0.9.1
+
+* Adapt version attribute to "5.1-subset SUSEDoc-0.9.1"
+* Remove bridgehead and revhistory in db.nopara.blocks
+* Remove blockquote, bridgehead, and msgset
+* Correct step
+  * Introduce db.step.blocks pattern
+  * Redefine db.step to use db.step.blocks pattern
+  * Remove db.procedure, db.segmentedlist, db.glosslist,
+    db.bibliolist, and db.qandaset

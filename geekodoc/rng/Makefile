@@ -33,7 +33,7 @@ $(DOCBOOKXI_RNC): $(DOCBOOKXI_RNC_PATH)
 	@echo "* Linking $< -> $@"
 	ln -sf $<
 
-$(SUSESCHEMA).rng: $(DOCBOOKXI_RNC) $(SUSESCHEMA).rnc
+$(SUSESCHEMA).rng: $(SUSESCHEMA).rnc $(DOCBOOKXI_RNC)
 	@echo "* Converting $< -> $@"
 	trang $< $@
 

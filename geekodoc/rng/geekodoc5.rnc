@@ -25,7 +25,7 @@ namespace trans="http://docbook.org/ns/transclusion"
 
 datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
-suse.schema.version = "5.1-subset GeekoDoc-0.9.2"
+suse.schema.version = "5.1-subset GeekoDoc-0.9.5"
 
 #
 include "transclusion.rnc"
@@ -75,6 +75,7 @@ db.step.blocks =
    | db.figure
    | db.informalexample
    | db.informalfigure
+   | db.informaltable
    | db.admonition.blocks
    | db.graphic.blocks
    | db.verbatim.blocks
@@ -87,6 +88,7 @@ db.step.blocks =
    | db.calloutlist
    | db.annotation
    | db.xi.include
+   | db.table
    # no db.publishing.blocks, db.technical.blocks
    #| db.formal.blocks - db.table - db.equation
    #| db.informal.blocks - db.informaltable - db.informalequation
@@ -151,7 +153,7 @@ include "docbookxi.rnc"
   db.bibliosource = notAllowed
   db.blockquote = notAllowed
   # db.book = notAllowed
-  db.bridgehead = notAllowed
+  # db.bridgehead = notAllowed
   # db.callout = notAllowed
   # db.calloutlist = notAllowed
   db.caption = notAllowed
@@ -472,18 +474,9 @@ include "docbookxi.rnc"
      | db.indexterm
      | db.synopsis.blocks
      | db.admonition.blocks
-     # | db.bridgehead
+     | db.bridgehead
      # | db.revhistory
 
-  db.admonition.contentmodel = db._info.title.only,
-    (db.para
-     | db.simplelist
-     | db.itemizedlist
-     | db.variablelist
-     | db.orderedlist
-     | db.verbatim.blocks
-     | db.remark
-    )
 
   #======== Removed Attribute
 
@@ -1085,7 +1078,7 @@ include "docbookxi.rnc"
     ]
     element step {
       db.step.attlist,
-      db.step.info,
+      # db.step.info?,
       ((db.step.blocks+,
         ((db.substeps | db.stepalternatives), db.step.blocks*)?,
         db.result?)
