@@ -1,0 +1,6 @@
+------------------------------------------------------------------
+Fri Aug 19 13:55:00 UTC 2016 - toms@opensuse.org
+
+- First release on OBS, Documentation:Tools
+- Use catalog.d directory for GeekoDoc and Novdoc catalog files
+
