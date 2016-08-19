@@ -8,7 +8,31 @@
 
  <!-- xml:base="file:///usr/share/xml/suse/schema/dtd/1.0/" -->
  <group id="novdoc">
+  <!-- DTD -->
   <public publicId="-//Novell//DTD NovDoc XML V1.0//EN" uri="../novdoc/dtd/novdocx.dtd"/>
   <system systemId="novdocx.dtd" uri="../novdoc/dtd/novdocx.dtd"/>
+
+  <!-- RNC/RNG -->
+  <system systemId="https://github.com/openSUSE/geekodoc/raw/master/novdoc/rng/novdocxi.rnc"
+     uri="../novdoc/rng/novdocxi.rnc"/>
+  <system systemId="https://github.com/openSUSE/geekodoc/raw/master/novdoc/rng/novdocx.rnc"
+     uri="../novdoc/rng/novdocx.rnc"/>
+  <system systemId="https://github.com/openSUSE/geekodoc/raw/master/novdoc/rng/novdocxi.rng"
+     uri="../novdoc/rng/novdocxi.rng"/>
+  <system systemId="https://github.com/openSUSE/geekodoc/raw/master/novdoc/rng/novdocx.rng"
+     uri="../novdoc/rng/novdocx.rng"/>
+
+  <uri
+     name="https://github.com/openSUSE/geekodoc/raw/master/novdoc/rng/novdocxi.rnc"
+     uri="../novdoc/rng/novdocxi.rnc"/>
+  <uri
+     name="https://github.com/openSUSE/geekodoc/raw/master/novdoc/rng/novdocx.rnc"
+     uri="../novdoc/rng/novdocx.rnc"/>
+  <uri
+     name="https://github.com/openSUSE/geekodoc/raw/master/novdoc/rng/novdocxi.rng"
+     uri="../novdoc/rng/novdocxi.rng"/>
+  <uri
+     name="https://github.com/openSUSE/geekodoc/raw/master/novdoc/rng/novdocx.rng"
+     uri="../novdoc/rng/novdocx.rng"/>
  </group>
 </catalog>
