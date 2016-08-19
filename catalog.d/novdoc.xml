@@ -7,8 +7,8 @@
      detailed information on supplying and using catalog data. -->
 
  <!-- xml:base="file:///usr/share/xml/suse/schema/dtd/1.0/" -->
- <group xml:base="./">
-  <public publicId="-//Novell//DTD NovDoc XML V1.0//EN" uri="novdocx.dtd"/>
-  <system systemId="novdocx.dtd" uri="novdocx.dtd"/>
+ <group id="novdoc">
+  <public publicId="-//Novell//DTD NovDoc XML V1.0//EN" uri="../novdoc/dtd/novdocx.dtd"/>
+  <system systemId="novdocx.dtd" uri="../novdoc/dtd/novdocx.dtd"/>
  </group>
 </catalog>
