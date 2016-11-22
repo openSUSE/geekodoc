@@ -945,6 +945,9 @@ include "docbookxi.rnc"
     ## Specifies the DocBook version of the element and its descendants
     attribute version { suse.schema.version | text }
 
+  # We don't want/need xreflabel
+  db.xreflabel.attribute = empty
+
   #======== Changed Content Model
 
   # Admonitions

@@ -393,10 +393,6 @@ div {
 
       ## Provides the name or similar semantic identifier assigned to the content in some previous markup scheme
       attribute remap { text }
-    db.xreflabel.attribute =
-
-      ## Provides the text that is to be generated for a cross reference to the element
-      attribute xreflabel { text }
     db.xrefstyle.attribute =
 
       ## Specifies a keyword or keywords identifying additional style information
@@ -10295,6 +10291,8 @@ div {
 
     ## Specifies the DocBook version of the element and its descendants
     attribute version { suse.schema.version | text }
+  # We don't want/need xreflabel
+  db.xreflabel.attribute = empty
   # ======== Changed Content Model
 
   # Admonitions
