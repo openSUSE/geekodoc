@@ -943,7 +943,7 @@ include "docbookxi.rnc"
     & db.common.attributes
 
   #========= Changed attributes
-  db.link.attlist &= db.xlink.simple.link.attributes
+  db.link.attlist &= db.xlink.simple.link.attributes & db.common.base.attributes
 
   db.version.attribute =
     ## Specifies the DocBook version of the element and its descendants
