@@ -1118,14 +1118,6 @@ div {
     }
     div {
       db.result.role.attribute = attribute role { text }
-      db.result.attlist =
-        db.result.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-      db.result =
-
-        ## A wrapper for identifying the results of a procedure or step
-        element result { db.result.attlist, db.all.blocks+ }
     }
     div {
       db.sidebar.floatstyle.attribute = db.floatstyle.attribute
@@ -9908,6 +9900,7 @@ div {
     db.refnamediv.role.attribute? & db.common.attributes
   db.refsynopsisdiv.attlist =
     db.refsynopsisdiv.role.attribute? & db.common.attributes
+  db.result.attlist = db.result.role.attribute? & db.common.attributes
   db.section.attlist =
     db.section.role.attribute?
     & db.common.attributes
@@ -10404,6 +10397,24 @@ div {
 
       ## A question in a QandASet
       element question { db.question.attlist, db.para, db.all.blocks* }
+  }
+  # result: restrict content model and allow only certain elements
+  div {
+    db.result =
+
+      ## A wrapper for identifying the results of a procedure or step
+      element result {
+        db.result.attlist,
+        (db.para
+         | db.formalpara
+         | db.screen
+         | db.remark
+         | db.figure
+         | db.informalfigure
+         | db.orderedlist
+         | db.itemizedlist
+         | db.simplelist)+
+      }
   }
   # step
   div {

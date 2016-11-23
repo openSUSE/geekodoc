@@ -611,6 +611,10 @@ include "docbookxi.rnc"
     db.refsynopsisdiv.role.attribute?
     & db.common.attributes
 
+  db.result.attlist =
+    db.result.role.attribute?
+    & db.common.attributes
+
   db.section.attlist =
     db.section.role.attribute?
     & db.common.attributes
@@ -1196,6 +1200,19 @@ include "docbookxi.rnc"
         db.para,
         db.all.blocks*
       }
+  }
+
+  # result: restrict content model and allow only certain elements
+  div {
+   db.result =
+    ## A wrapper for identifying the results of a procedure or step
+    element result {
+    db.result.attlist,
+    (db.para | db.formalpara | db.screen | db.remark |
+     db.figure | db.informalfigure |
+     db.orderedlist | db.itemizedlist | db.simplelist
+     )+
+    }
   }
 
   # step
