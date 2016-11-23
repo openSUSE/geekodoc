@@ -235,7 +235,10 @@
 
 <!-- procedure -->
 <!ELEMENT procedure   (title? , (%all;)* , step+) >
-<!ELEMENT step        ((para | formalpara) , (%all;)*, substeps*) >
+<!ELEMENT step        ((para | formalpara) , (%all;)*, substeps*,
+                       (para | formalpara | screen | 
+                        remark | figure | informalfigure |
+                        orderedlist | itemizedlist | simplelist )*) >
 <!ELEMENT substeps    (step+) >
 
 
