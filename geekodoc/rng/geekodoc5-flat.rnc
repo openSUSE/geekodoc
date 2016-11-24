@@ -13,7 +13,7 @@ namespace trans = "http://docbook.org/ns/transclusion"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-suse.schema.version = "5.1-subset GeekoDoc-0.9.5"
+suse.schema.version = "5.1-subset GeekoDoc-0.9.6"
 #
 div {
   div {
