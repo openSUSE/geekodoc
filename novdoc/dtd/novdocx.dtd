@@ -171,7 +171,7 @@
 <!ELEMENT menuchoice      (shortcut?, guimenu+) ><!-- toms -->
 <!ELEMENT option          (#PCDATA | phrase | replaceable | remark)* >
 <!ELEMENT productname     (#PCDATA | phrase | remark | superscript)* >
-<!ELEMENT productnumber   (#PCDATA | remark | superscript)* >
+<!ELEMENT productnumber   (#PCDATA | phrase | remark | superscript)* >
 <!ELEMENT quote           (#PCDATA | %allinlines;)* >
 <!ELEMENT replaceable     (#PCDATA | phrase | remark)* >
 <!ELEMENT phrase          (#PCDATA | %allinlines;)* >
@@ -235,7 +235,10 @@
 
 <!-- procedure -->
 <!ELEMENT procedure   (title? , (%all;)* , step+) >
-<!ELEMENT step        ((para | formalpara) , (%all;)*, substeps*) >
+<!ELEMENT step        ((para | formalpara) , (%all;)*, substeps*,
+                       (para | formalpara | screen | 
+                        remark | figure | informalfigure |
+                        orderedlist | itemizedlist | simplelist )*) >
 <!ELEMENT substeps    (step+) >
 
 

@@ -13,7 +13,7 @@ namespace trans = "http://docbook.org/ns/transclusion"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-suse.schema.version = "5.1-subset GeekoDoc-0.9.5"
+suse.schema.version = "5.1-subset GeekoDoc-0.9.6"
 #
 div {
   div {
@@ -138,7 +138,7 @@ div {
 
 }
 # Use a catalog entry to resolve this:
-# include "http://docbook.org/xml/5.1CR3/rng/docbook.rnc"
+# include "http://docbook.org/xml/5.1/rng/docbook.rnc"
 div {
   div {
     # This file is part of DocBook XInclude V5.1CR3
@@ -393,10 +393,6 @@ div {
 
       ## Provides the name or similar semantic identifier assigned to the content in some previous markup scheme
       attribute remap { text }
-    db.xreflabel.attribute =
-
-      ## Provides the text that is to be generated for a cross reference to the element
-      attribute xreflabel { text }
     db.xrefstyle.attribute =
 
       ## Specifies a keyword or keywords identifying additional style information
@@ -801,7 +797,6 @@ div {
       | db.informalequation
     db.publishing.blocks =
       db.sidebar | db.blockquote | db.address | db.epigraph
-    db.graphic.blocks = db.mediaobject | db.screenshot
     db.technical.blocks =
       db.procedure
       | db.task
@@ -1123,14 +1118,6 @@ div {
     }
     div {
       db.result.role.attribute = attribute role { text }
-      db.result.attlist =
-        db.result.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-      db.result =
-
-        ## A wrapper for identifying the results of a procedure or step
-        element result { db.result.attlist, db.all.blocks+ }
     }
     div {
       db.sidebar.floatstyle.attribute = db.floatstyle.attribute
@@ -1966,104 +1953,6 @@ div {
       db.figure.pgwide.attribute = db.pgwide.attribute
       db.figure.floatstyle.attribute = db.floatstyle.attribute
       db.figure.info = db._info.title.onlyreq
-      db.figure =
-
-        ## A formal figure, generally an illustration, with a title
-        [
-          s:pattern [
-            name = "Element exclusion"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "db:figure"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "not(.//db:example)"
-                "example must not occur among the children or descendants of figure"
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-          s:pattern [
-            name = "Element exclusion"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "db:figure"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "not(.//db:figure)"
-                "figure must not occur among the children or descendants of figure"
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-          s:pattern [
-            name = "Element exclusion"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "db:figure"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "not(.//db:table)"
-                "table must not occur among the children or descendants of figure"
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-          s:pattern [
-            name = "Element exclusion"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "db:figure"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "not(.//db:equation)"
-                "equation must not occur among the children or descendants of figure"
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-          s:pattern [
-            name = "Root must have version"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:figure"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element figure {
-          db.figure.attlist, db.figure.info, db.all.blocks+, db.caption?
-        }
     }
     div {
       db.informalfigure.role.attribute = attribute role { text }
@@ -2071,35 +1960,6 @@ div {
       db.informalfigure.pgwide.attribute = db.pgwide.attribute
       db.informalfigure.floatstyle.attribute = db.floatstyle.attribute
       db.informalfigure.info = db._info.title.forbidden
-      db.informalfigure =
-
-        ## A untitled figure
-        [
-          s:pattern [
-            name = "Root must have version"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:informalfigure"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element informalfigure {
-          db.informalfigure.attlist,
-          db.informalfigure.info,
-          db.all.blocks+,
-          db.caption?
-        }
     }
     db.mediaobject.content =
       (db.videoobject | db.audioobject | db.imageobject | db.textobject)
@@ -3671,12 +3531,6 @@ div {
       db.xref.role.attribute = attribute role { text }
       db.xref.xrefstyle.attribute = db.xrefstyle.attribute
       db.xref.endterm.attribute = db.endterm.attribute
-      db.xref.attlist =
-        db.xref.role.attribute?
-        & db.common.attributes
-        & db.common.req.linking.attributes
-        & db.xref.xrefstyle.attribute?
-        & db.xref.endterm.attribute?
       db.xref =
 
         ## A cross reference to another part of the document
@@ -9941,9 +9795,13 @@ div {
     | db.bridgehead
   # | db.revhistory
 
+  # Disallow mediaobject in certain contexts
+  db.graphic.blocks = notAllowed
   # ======== Removed Attribute
   db.rdfalite.attributes = empty
   db.xlink.attributes = empty
+  # We don't want/need xreflabel
+  db.xreflabel.attribute = empty
   # Removed all db.common.linking.attributes from division elements
   db.acknowledgements.attlist =
     db.acknowledgements.role.attribute?
@@ -10042,6 +9900,7 @@ div {
     db.refnamediv.role.attribute? & db.common.attributes
   db.refsynopsisdiv.attlist =
     db.refsynopsisdiv.role.attribute? & db.common.attributes
+  db.result.attlist = db.result.role.attribute? & db.common.attributes
   db.section.attlist =
     db.section.role.attribute?
     & db.common.attributes
@@ -10165,7 +10024,7 @@ div {
        | db.informalexample.pgwide.attribute)?
   db.informalfigure.attlist =
     db.informalfigure.role.attribute?
-    & db.common.attributes
+    & db.common.base.attributes
     & db.informalfigure.label.attribute?
     & db.informalfigure.pgwide.attribute?
     & db.informalfigure.floatstyle.attribute?
@@ -10191,8 +10050,9 @@ div {
     & db.common.linking.attributes
     & db.verbatim.attributes
     & db.literallayout.class.attribute?
+  # Disallow xml:id
   db.mediaobject.attlist =
-    db.mediaobject.role.attribute? & db.common.attributes
+    db.mediaobject.role.attribute? & db.common.base.attributes
   db.methodsynopsis.attlist =
     db.methodsynopsis.role.attribute?
     & db.common.attributes
@@ -10290,11 +10150,20 @@ div {
     & db.variablelist.termlength.attribute?
   db.warning.attlist = db.warning.role.attribute? & db.common.attributes
   # ========= Changed attributes
-  db.link.attlist &= db.xlink.simple.link.attributes
+  db.link.attlist &=
+    db.xlink.simple.link.attributes & db.common.base.attributes
   db.version.attribute =
 
     ## Specifies the DocBook version of the element and its descendants
     attribute version { suse.schema.version | text }
+  # Replaced db.common.req.linking.attributes with db.linkend.attribute
+  # to force linkend attribute
+  db.xref.attlist =
+    db.xref.role.attribute?
+    & db.common.attributes
+    & db.linkend.attribute
+    & db.xref.xrefstyle.attribute?
+    & db.xref.endterm.attribute?
   # ======== Changed Content Model
 
   # Admonitions
@@ -10321,6 +10190,139 @@ div {
     db.table.choice = notAllowed | db.cals.table
     db.html.table = notAllowed
     db.html.informaltable = notAllowed
+  }
+  # informalfigure: We allow only one mediaobject inside
+  div {
+    db.informalfigure =
+
+      ## A untitled figure
+      [
+        s:pattern [
+          name = "Root must have version"
+          "\x{a}" ~
+          "            "
+          s:rule [
+            context = "/db:informalfigure"
+            "\x{a}" ~
+            "              "
+            s:assert [
+              test = "@version"
+              "If this element is the root element, it must have a version attribute."
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+      ]
+      element informalfigure {
+        db.informalfigure.attlist,
+        db.informalfigure.info,
+        db.mediaobject,
+        db.caption?
+      }
+  }
+  # figure: We allow one mediaobject inside figure
+  div {
+    db.figure =
+
+      ## A formal figure, generally an illustration, with a title
+      [
+        s:pattern [
+          name = "Element exclusion"
+          "\x{a}" ~
+          "            "
+          s:rule [
+            context = "db:figure"
+            "\x{a}" ~
+            "              "
+            s:assert [
+              test = "not(.//db:example)"
+              "example must not occur among the children or descendants of figure"
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        s:pattern [
+          name = "Element exclusion"
+          "\x{a}" ~
+          "            "
+          s:rule [
+            context = "db:figure"
+            "\x{a}" ~
+            "              "
+            s:assert [
+              test = "not(.//db:figure)"
+              "figure must not occur among the children or descendants of figure"
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        s:pattern [
+          name = "Element exclusion"
+          "\x{a}" ~
+          "            "
+          s:rule [
+            context = "db:figure"
+            "\x{a}" ~
+            "              "
+            s:assert [
+              test = "not(.//db:table)"
+              "table must not occur among the children or descendants of figure"
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        s:pattern [
+          name = "Element exclusion"
+          "\x{a}" ~
+          "            "
+          s:rule [
+            context = "db:figure"
+            "\x{a}" ~
+            "              "
+            s:assert [
+              test = "not(.//db:equation)"
+              "equation must not occur among the children or descendants of figure"
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        s:pattern [
+          name = "Root must have version"
+          "\x{a}" ~
+          "            "
+          s:rule [
+            context = "/db:figure"
+            "\x{a}" ~
+            "              "
+            s:assert [
+              test = "@version"
+              "If this element is the root element, it must have a version attribute."
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+      ]
+      element figure {
+        db.figure.attlist, db.figure.info, db.mediaobject, db.caption?
+      }
   }
   # para
   div {
@@ -10395,6 +10397,24 @@ div {
 
       ## A question in a QandASet
       element question { db.question.attlist, db.para, db.all.blocks* }
+  }
+  # result: restrict content model and allow only certain elements
+  div {
+    db.result =
+
+      ## A wrapper for identifying the results of a procedure or step
+      element result {
+        db.result.attlist,
+        (db.para
+         | db.formalpara
+         | db.screen
+         | db.remark
+         | db.figure
+         | db.informalfigure
+         | db.orderedlist
+         | db.itemizedlist
+         | db.simplelist)+
+      }
   }
   # step
   div {

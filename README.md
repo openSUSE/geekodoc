@@ -1,6 +1,7 @@
 # SUSE Schemas
 
 
+
 ## NovDoc
 
 This is the Novdoc and Geekodoc schemas. Although Novdoc is technically not
