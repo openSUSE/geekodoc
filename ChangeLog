@@ -16,10 +16,6 @@ Release 0.9.6
   * Fix content model for step to allow para, substeps, para (#12)
   * Allow phrase inside productnumber (#13)
 
-* Both
-  * Update Novdoc/GeekoDoc to disallow screen in entry (#2)
-
-
 ------------------------------------------------------------------
 Fri Aug 19 13:55:00 UTC 2016 - toms@opensuse.org
 
