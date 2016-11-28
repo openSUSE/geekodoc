@@ -31,7 +31,14 @@
 
  <!-- =================================================================== -->
  <xsl:template name="vim.header">
-  <xsl:text>let g:xmldata_</xsl:text>
+  <xsl:text>" Vim XML data file
+" Language:    GeekoDoc5
+" Maintainer:  Thomas Schraitle &lt;tom@opensuse.org>
+" URL:         https://github.com/openSUSE/geekodo
+" Last Change: November 2016
+" Description: An XML data file for the GeekoDoc5 markup language.
+
+let g:xmldata_</xsl:text>
   <xsl:value-of select="$schemaname"/>
   <xsl:text> = {&#10;</xsl:text>
   <xsl:text>\ 'vimxmlentities': [''],&#10;</xsl:text>
