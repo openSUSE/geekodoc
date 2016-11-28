@@ -8,7 +8,7 @@
 # * trang
 # * rng2srng
 # * docbook_5
-# * python3-rnginline (from obs://home:thomas-schraitle/python3-rnginline)
+# * python3-rnginline (from obs://devel:languages:python3/python3-rnginline)
 
 
 .SUFFIXES: .rng rnc
