@@ -137,6 +137,16 @@ div {
   # - - - -
 
 }
+div {
+  db.xlink.hrefreq.simple.link.attributes =
+    db.xlink.simple.type.attribute?
+    & db.xlink.href.attribute
+    & db.xlink.role.attribute?
+    & db.xlink.arcrole.attribute?
+    & db.xlink.title.attribute?
+    & db.xlink.show.attribute?
+    & db.xlink.actuate.attribute?
+}
 # Use a catalog entry to resolve this:
 # include "http://docbook.org/xml/5.1/rng/docbook.rnc"
 div {
@@ -10150,8 +10160,12 @@ div {
     & db.variablelist.termlength.attribute?
   db.warning.attlist = db.warning.role.attribute? & db.common.attributes
   # ========= Changed attributes
-  db.link.attlist &=
-    db.xlink.simple.link.attributes & db.common.base.attributes
+
+  # Require xlink:href
+  db.link.attlist =
+    db.link.role.attribute?
+    & db.common.attributes
+    & db.xlink.hrefreq.simple.link.attributes
   db.version.attribute =
 
     ## Specifies the DocBook version of the element and its descendants
