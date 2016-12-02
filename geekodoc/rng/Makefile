@@ -15,32 +15,36 @@
 SUSESCHEMA := geekodoc5
 DOCBOOKXI_RNC_PATH  := /usr/share/xml/docbook/schema/rng/5.1/docbookxi.rnc
 DOCBOOKXI_RNC := $(notdir $(DOCBOOKXI_RNC_PATH))
-DOCBOOKXI_RNG := $(patsubst .rnc,.rng,$(DOCBOOKXI_RNC))
+DOCBOOKXI_RNG := $(patsubst %.rnc, %.rng, $(DOCBOOKXI_RNC))
 
 
 .PHONY: all clean
 
-all: $(SUSESCHEMA)-flat.rnc
+all: $(SUSESCHEMA)-flat.rnc $(SUSESCHEMA)-flat.rng
 
 clean:
-	rm $(SUSESCHEMA)-flat.rnc $(DOCBOOKXI_RNC) $(DOCBOOKXI_RNG) 2>/dev/null || true
-
-
-.INTERMEDIATE: $(SUSESCHEMA).rng $(SUSESCHEMA)-flat.rni $(SUSESCHEMA)-flat.rng
+	rm $(DOCBOOKXI_RNC) $(DOCBOOKXI_RNG) \
+	$(SUSESCHEMA)*.rng \
+	transclusion.rng \
+	2>/dev/null || true
 
 
 $(DOCBOOKXI_RNC): $(DOCBOOKXI_RNC_PATH)
 	@echo "* Linking $< -> $@"
 	ln -sf $<
 
+
+# .INTERMEDIATE: $(SUSESCHEMA).rng
 $(SUSESCHEMA).rng: $(SUSESCHEMA).rnc $(DOCBOOKXI_RNC)
 	@echo "* Converting $< -> $@"
 	trang $< $@
 
+.INTERMEDIATE: $(SUSESCHEMA)-flat.rni
 $(SUSESCHEMA)-flat.rni: $(SUSESCHEMA).rng
 	@echo "* Flattening $< -> $@"
 	rnginline $< $@
 
+# .INTERMEDIATE: $(SUSESCHEMA)-flat.rng
 $(SUSESCHEMA)-flat.rng: $(SUSESCHEMA)-flat.rni
 	echo '* Cleaning up schema contents $< -> $@'
 	xmllint -o $@ --nsclean --format $<
@@ -49,4 +53,3 @@ $(SUSESCHEMA)-flat.rnc: $(SUSESCHEMA)-flat.rng
 	@echo "* Converting $< -> $@"
 	trang $< $@
 	@sed -i -r 's_\s+$$__' $@
-
