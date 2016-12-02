@@ -1,0 +1,19 @@
+# config file for automatic testing at travis-ci.org
+language: bash
+
+env:
+    global:
+        - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+
+
+# command to install dependencies
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libxml2-dev
+
+
+# command to run tests
+script:
+    - ./geekodoc/tests/run-tests.sh
+
+
