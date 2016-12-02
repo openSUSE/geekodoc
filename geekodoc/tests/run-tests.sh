@@ -5,6 +5,7 @@
 # Author: Thomas Schraitle
 # Date:   December 2016
 
+VALIDATOR="xmllint"
 PROG=${0##*/}
 PROGDIR=${0%/*}
 # Needed to be able to run it from different directories
@@ -16,7 +17,8 @@ function validate_with_jing {
     local _RNG=$1
     local _XML=$2
     local _ERROR=${2%*.xml}.err
-    jing $_RNG $_XML
+    jing $_RNG $_XML >$_ERROR
+    echo $?
 }
 
 function validate_with_xmllint {
@@ -25,6 +27,20 @@ function validate_with_xmllint {
     local _ERROR=${2%*.xml}.err
     xmllint --noout --relaxng $_RNG $_XML 2>$_ERROR
     echo $?
+}
+
+function validator {
+    case "$VALIDATOR" in
+     "xmllint")
+        validate_with_xmllint "$1" "$2"
+        ;;
+     "jing")
+        validate_with_jing "$1" "$2"
+        ;;
+     *)
+        echo "Wrong validator: $VALIDATOR" 1>&2
+        ;;
+    esac
 }
 
 function print_help {
@@ -36,12 +52,17 @@ Usage:
 
 Options:
    -h, --help  Shows this help message
+   -V VALIDATOR, --validator VALIDATOR
+               Choose to validate either with "jing" or "xmllint"
 EOF_helptext
 }
 
+
+VALIDATOR_FUNC=validate_with_xmllint
+
 # -----
 #
-ARGS=$(getopt -o h -l help -n "$PROG" -- "$@")
+ARGS=$(getopt -o h,V: -l help,validator: -n "$PROG" -- "$@")
 eval set -- "$ARGS"
 while true ; do
     case "$1" in
@@ -50,6 +71,16 @@ while true ; do
             exit
             shift
             ;;
+        -V|--validator)
+            if [ 'xmllint' = "$2" ] || [ 'jing' = "$2" ]; then
+                VALIDATOR="$2"
+            else
+               echo "ERROR: Wrong validator '$2' Choose either " \
+                    "'xmllint' or 'jing'" 2>/dev/stderr
+               exit 10
+            fi
+            shift 2
+            ;;
         --)
             shift
             break
@@ -57,25 +88,32 @@ while true ; do
     esac
 done
 
+echo "Using validator '$VALIDATOR'..."
+
+# Cleanup any *.err files first...
+rm -f $PROGDIR/*.err 2>/dev/null
+
 # Iterating over all XML files inside this directory...
 for xmlfile in $PROGDIR/*.xml; do
-    result=$(validate_with_xmllint $SCHEMA $xmlfile )
+    result=$(validator $SCHEMA $xmlfile )
     if [[ $result = '0' ]]; then
-        result="\e[1;32mPASSED\e[0m"
+        RESULTSTR="\e[1;32mPASSED\e[0m"
     else
-        result="\e[1;31mFAILED\e[0m"
+        RESULTSTR="\e[1;31mFAILED\e[0m"
         ERRORS=$(($ERROR + 1))
     fi
-    echo -e "Validating '$xmlfile'... $result"
+    echo -e "Validating '$xmlfile'... $RESULTSTR"
+    if [[ $result != '0' ]]; then
+        cat "${xmlfile%*.xml}.err" 1>&2
+        echo "----------------------------------------------"
+    fi
 done
 
 echo
 if [[ $ERRORS -eq 0 ]]; then
-    echo -e -n "Found\e[1;32m $ERRORS error(s)\e[0m. "
-    echo "Congratulations! :-)"
+    echo -e "Found\e[1;32m $ERRORS errors\e[0m. Congratulations! :-)"
     exit 0
 else
-    echo -e -n "Found\e[1;31m $ERRORS error(s)\e[0m. "
-    echo ":-("
+    echo -e "Found\e[1;31m $ERRORS error(s)\e[0m. :-("
     exit 1
 fi
