@@ -1,5 +1,7 @@
 # config file for automatic testing at travis-ci.org
-language: bash
+language: python
+python:
+    - 3.5
 
 env:
     global:
@@ -9,8 +11,12 @@ env:
 # command to install dependencies
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get install -y libxml2-dev jing trang make docbook5-xml
 
+
+install:
+  - pip install rnginline
+  # - make VERBOSE=1 -C geekodoc/rng
 
 # command to run tests
 script:
