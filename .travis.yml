@@ -15,5 +15,3 @@ before_install:
 # command to run tests
 script:
     - ./geekodoc/tests/run-tests.sh
-
-
