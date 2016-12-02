@@ -31,7 +31,7 @@ clean:
 
 $(DOCBOOKXI_RNC): $(DOCBOOKXI_RNC_PATH)
 	@echo "* Linking $< -> $@"
-	ln -s $<
+	ln -sf $<
 
 
 # .INTERMEDIATE: $(SUSESCHEMA).rng
