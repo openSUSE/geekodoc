@@ -5,8 +5,11 @@
 # Author: Thomas Schraitle
 # Date:   December 2016
 
-SCHEMA=../rng/geekodoc5-flat.rng
 PROG=${0##*/}
+PROGDIR=${0%/*}
+# Needed to be able to run it from different directories
+SCHEMA=${PROGDIR}/../rng/geekodoc5-flat.rng
+SCHEMA=$(readlink -f ${SCHEMA})
 ERRORS=0
 
 function validate_with_jing {
@@ -26,7 +29,7 @@ function validate_with_xmllint {
 
 function print_help {
     cat <<EOF_helptext
-Run all the test cases
+Run all the test cases using ${SCHEMA}
 
 Usage:
    ${PROG} [-h|--help] [OPTIONS]
@@ -55,7 +58,7 @@ while true ; do
 done
 
 # Iterating over all XML files inside this directory...
-for xmlfile in *.xml; do
+for xmlfile in $PROGDIR/*.xml; do
     result=$(validate_with_xmllint $SCHEMA $xmlfile )
     if [[ $result = '0' ]]; then
         result="\e[1;32mPASSED\e[0m"
