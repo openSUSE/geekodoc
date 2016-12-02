@@ -18,7 +18,7 @@ before_install:
 install:
   - pip install rnginline
   # Workaround to download DocBook 5.1 schema directly
-  - (cd geekodoc/test; wget http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc)
+  - (cd geekodoc/tests; wget http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc)
   - make VERBOSE=1 DOCBOOKXI_RNC_PATH=$PWD/geekodoc/tests/docbookxi.rnc -C geekodoc/rng
 
 # command to run tests
