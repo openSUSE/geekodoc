@@ -6,17 +6,21 @@ python:
 env:
     global:
         - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+        - DB5="http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc"
 
 
 # command to install dependencies
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev jing trang make docbook5-xml
-
+  - sudo apt-get install -y libxml2-dev jing trang make
+  # docbook5-xml
+  - cat /etc/os-release
 
 install:
   - pip install rnginline
-  # - make VERBOSE=1 -C geekodoc/rng
+  # Workaround to download DocBook 5.1 schema directly
+  - (cd geekodoc/rng; wget $DB)
+  - make VERBOSE=1 -C geekodoc/rng
 
 # command to run tests
 script:
