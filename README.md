@@ -1,5 +1,6 @@
 # SUSE Schemas
 
+[![Build Status](https://travis-ci.org/openSUSE/geekodoc.svg?branch=develop)](https://travis-ci.org/openSUSE/geekodoc)
 
 
 ## NovDoc
