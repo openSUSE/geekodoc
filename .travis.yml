@@ -1,0 +1,26 @@
+# config file for automatic testing at travis-ci.org
+language: python
+python:
+    - 3.5
+
+env:
+    global:
+        - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+
+
+# command to install dependencies
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libxml2-dev jing trang make
+  # docbook5-xml
+  - cat /etc/os-release
+
+install:
+  - pip install rnginline
+  # Workaround to download DocBook 5.1 schema directly
+  - wget -P geekodoc/tests http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc
+  - make VERBOSE=1 DOCBOOKXI_RNC_PATH=$PWD/geekodoc/tests/docbookxi.rnc -C geekodoc/rng
+
+# command to run tests
+script:
+    - ./geekodoc/tests/run-tests.sh
