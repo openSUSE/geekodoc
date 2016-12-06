@@ -8,7 +8,9 @@
 # Author: Thomas Schraitle, 2015-2016
 #
 default namespace db = "http://docbook.org/ns/docbook"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
+# Namespaces
 namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
 namespace ctrl = "http://nwalsh.com/xmlns/schema-control/"
 namespace html = "http://www.w3.org/1999/xhtml"
@@ -18,14 +20,16 @@ namespace s = "http://purl.oclc.org/dsdl/schematron"
 namespace xlink = "http://www.w3.org/1999/xlink"
 namespace local = ""
 
+
 # Namespace for DocBook Transclusions
 # See http://docbook.org/docs/transclusion/
 namespace locattr="http://www.w3.org/2001/XInclude/local-attributes"
 namespace trans="http://docbook.org/ns/transclusion"
 
-datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
+# Constants
 suse.schema.version = "5.1-subset GeekoDoc-0.9.6"
+
 
 #
 include "transclusion.rnc"
@@ -1266,6 +1270,44 @@ include "docbookxi.rnc"
        | ((db.substeps | db.stepalternatives),
           db.step.blocks*,
           db.result?))
+    }
+  }
+
+  # task* elements
+  div {
+   # Require title or info/title in task
+   db.task.info = db._info.title.onlyreq
+  
+   # tasksummary: Only certain elements are allowed
+   db.tasksummary =
+    ## A summary of a task
+    element tasksummary {
+      db.tasksummary.attlist,
+      db.tasksummary.info,
+      (db.para | db.formalpara | 
+       db.itemizedlist | db.orderedlist | db.simplelist | db.variablelist |
+       db.admonition.blocks
+       )+
+    }
+
+   # taskprerequisites: We allow only paras
+   db.taskprerequisites =
+    ## The prerequisites for a task
+    element taskprerequisites {
+      db.taskprerequisites.attlist,
+      db.taskprerequisites.info,
+      (db.para | db.formalpara)+
+    }
+
+   # taskrelated: allow only paras and lists
+   db.taskrelated =
+    ## Information related to a task
+    element taskrelated {
+      db.taskrelated.attlist,
+      db.taskrelated.info,
+      (db.para | db.formalpara |
+       db.itemizedlist | db.orderedlist | db.simplelist | db.variablelist
+       )+
     }
   }
 
