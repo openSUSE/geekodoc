@@ -1283,7 +1283,7 @@ include "docbookxi.rnc"
     ## A summary of a task
     element tasksummary {
       db.tasksummary.attlist,
-      db.tasksummary.info,
+      # db.tasksummary.info,
       (db.para | db.formalpara | 
        db.itemizedlist | db.orderedlist | db.simplelist | db.variablelist |
        db.admonition.blocks
@@ -1295,7 +1295,7 @@ include "docbookxi.rnc"
     ## The prerequisites for a task
     element taskprerequisites {
       db.taskprerequisites.attlist,
-      db.taskprerequisites.info,
+      # db.taskprerequisites.info,
       (db.para | db.formalpara)+
     }
 
@@ -1304,7 +1304,7 @@ include "docbookxi.rnc"
     ## Information related to a task
     element taskrelated {
       db.taskrelated.attlist,
-      db.taskrelated.info,
+      # db.taskrelated.info,
       (db.para | db.formalpara |
        db.itemizedlist | db.orderedlist | db.simplelist | db.variablelist
        )+
