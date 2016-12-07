@@ -21,6 +21,7 @@ install:
   - wget -P geekodoc/tests http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc
   - make VERBOSE=1 DOCBOOKXI_RNC_PATH=$PWD/geekodoc/tests/docbookxi.rnc -C geekodoc/rng
 
-# command to run tests
+# commands to run tests
 script:
     - ./geekodoc/tests/run-tests.sh
+    - ./novdoc/tests/run-tests.sh
