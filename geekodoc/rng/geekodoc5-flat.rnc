@@ -13,6 +13,7 @@ namespace trans = "http://docbook.org/ns/transclusion"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
+# Constants
 suse.schema.version = "5.1-subset GeekoDoc-0.9.6"
 #
 div {
@@ -5623,7 +5624,6 @@ div {
         & db.tocentry.pagenum.attribute?
         & db.linkend.attribute?
     }
-    db.task.info = db._info.title.req
     div {
       db.task.role.attribute = attribute role { text }
       db.task =
@@ -5666,32 +5666,6 @@ div {
         & db.common.attributes
         & db.common.linking.attributes
       db.tasksummary.info = db._info.title.only
-      db.tasksummary =
-
-        ## A summary of a task
-        [
-          s:pattern [
-            name = "Root must have version"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:tasksummary"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element tasksummary {
-          db.tasksummary.attlist, db.tasksummary.info, db.all.blocks+
-        }
     }
     div {
       db.taskprerequisites.role.attribute = attribute role { text }
@@ -5700,34 +5674,6 @@ div {
         & db.common.attributes
         & db.common.linking.attributes
       db.taskprerequisites.info = db._info.title.only
-      db.taskprerequisites =
-
-        ## The prerequisites for a task
-        [
-          s:pattern [
-            name = "Root must have version"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:taskprerequisites"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element taskprerequisites {
-          db.taskprerequisites.attlist,
-          db.taskprerequisites.info,
-          db.all.blocks+
-        }
     }
     div {
       db.taskrelated.role.attribute = attribute role { text }
@@ -5736,32 +5682,6 @@ div {
         & db.common.attributes
         & db.common.linking.attributes
       db.taskrelated.info = db._info.title.only
-      db.taskrelated =
-
-        ## Information related to a task
-        [
-          s:pattern [
-            name = "Root must have version"
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:taskrelated"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element taskrelated {
-          db.taskrelated.attlist, db.taskrelated.info, db.all.blocks+
-        }
     }
     db.area.units.enumeration =
 
@@ -10465,6 +10385,49 @@ div {
          | ((db.substeps | db.stepalternatives),
             db.step.blocks*,
             db.result?))
+      }
+  }
+  # task* elements
+  div {
+    # Require title or info/title in task
+    db.task.info = db._info.title.onlyreq
+    # tasksummary: Only certain elements are allowed
+    db.tasksummary =
+
+      ## A summary of a task
+      element tasksummary {
+        db.tasksummary.attlist,
+        # db.tasksummary.info,
+        (db.para
+         | db.formalpara
+         | db.itemizedlist
+         | db.orderedlist
+         | db.simplelist
+         | db.variablelist
+         | db.admonition.blocks)+
+      }
+    # taskprerequisites: We allow only paras
+    db.taskprerequisites =
+
+      ## The prerequisites for a task
+      element taskprerequisites {
+        db.taskprerequisites.attlist,
+        # db.taskprerequisites.info,
+        (db.para | db.formalpara)+
+      }
+    # taskrelated: allow only paras and lists
+    db.taskrelated =
+
+      ## Information related to a task
+      element taskrelated {
+        db.taskrelated.attlist,
+        # db.taskrelated.info,
+        (db.para
+         | db.formalpara
+         | db.itemizedlist
+         | db.orderedlist
+         | db.simplelist
+         | db.variablelist)+
       }
   }
   # lists: itemizedlist, orderedlist, variablelist
