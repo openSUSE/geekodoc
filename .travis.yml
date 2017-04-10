@@ -2,7 +2,8 @@
 language: python
 python:
     - 3.5
-
+sudo:
+    required
 env:
     global:
         - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
@@ -10,16 +11,17 @@ env:
 
 # command to install dependencies
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev jing trang make
+  # - sudo apt-get -qq update
+  - sudo apt-get install -y libxml2-dev xsltproc jing trang make
   # docbook5-xml
   - cat /etc/os-release
 
 install:
   - pip install rnginline
   # Workaround to download DocBook 5.1 schema directly
-  - wget -P geekodoc/tests http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc
-  - make VERBOSE=1 DOCBOOKXI_RNC_PATH=$PWD/geekodoc/tests/docbookxi.rnc -C geekodoc/rng
+  - sudo mkdir -p /usr/share/xml/docbook/schema/rng/5.1/
+  - sudo wget -P /usr/share/xml/docbook/schema/rng/5.1/ http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rng
+  - make VERBOSE=1 -C geekodoc/rng
 
 # commands to run tests
 script:
