@@ -118,6 +118,33 @@ div {
      & db.xlink.actuate.attribute?
 }
 
+div {
+ 
+  db.format.enumeration =
+     ## Allowed formats for SUSE documentation
+     (
+     ## Format of the dia tool
+     "DIA" |
+     ## Encapsulated PostScript
+     "EPS" |
+     ## Format of the xfig tool
+     "FIG" |
+     ## LibreOffice illustration format
+     "ODG" |
+     ## Portable Document Format
+     "PDF" |
+     ## Portable Network Graphics
+     "PNG" |
+     ## Scalable Vector Graphics
+     "SVG" )
+  # The original list from the DocBook 4.5 DTD was:
+  # "BMP| CGM-CHAR | CGM-BINARY | CGM-CLEAR | DITROFF | DVI
+  #  | EPS | EQN | FAX | GIF | GIF87a | GIF89a
+  #  | JPG | JPEG | IGES | PCX
+  #  | PIC | PNG | PS | SGML | TBL | TEX | TIFF | WMF | WPG
+  #  | SVG | PDF | SWF
+  #  | linespecific
+}
 # Use a catalog entry to resolve this:
 # include "http://docbook.org/xml/5.1/rng/docbook.rnc"
 include "docbookxi.rnc"
@@ -965,6 +992,19 @@ include "docbookxi.rnc"
     & db.common.attributes
 
   #========= Changed attributes
+  #
+  db.common.data.attributes =
+   ## Specifies the format of the data
+   attribute format { db.format.enumeration }?,
+   (
+    ## Indentifies the location of the data by URI
+    attribute fileref { xsd:anyURI }
+    |
+    ## Identifies the location of the data by external identifier (entity name)
+    attribute entityref { xsd:ENTITY }
+   )
+
+  
 
   # Require xlink:href
   db.link.attlist =

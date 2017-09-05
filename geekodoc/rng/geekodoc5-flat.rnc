@@ -152,13 +152,54 @@ div {
     & db.xlink.show.attribute?
     & db.xlink.actuate.attribute?
 }
+div {
+  db.format.enumeration =
+
+    ## Allowed formats for SUSE documentation
+    (
+     ## Format of the dia tool
+     "DIA"
+     |
+       ## Encapsulated PostScript
+       "EPS"
+     |
+       ## Format of the xfig tool
+       "FIG"
+     |
+       ## LibreOffice illustration format
+       "ODG"
+     |
+       ## Portable Document Format
+       "PDF"
+     |
+       ## Portable Network Graphics
+       "PNG"
+     |
+       ## Scalable Vector Graphics
+       "SVG")
+  # The original list from the DocBook 4.5 DTD was:
+  # "BMP| CGM-CHAR | CGM-BINARY | CGM-CLEAR | DITROFF | DVI
+  #  | EPS | EQN | FAX | GIF | GIF87a | GIF89a
+  #  | JPG | JPEG | IGES | PCX
+  #  | PIC | PNG | PS | SGML | TBL | TEX | TIFF | WMF | WPG
+  #  | SVG | PDF | SWF
+  #  | linespecific
+
+}
 # Use a catalog entry to resolve this:
 # include "http://docbook.org/xml/5.1/rng/docbook.rnc"
 div {
-  div {
-    # This file is part of DocBook XInclude V5.1CR3
+  [
+    # DocBook Version 5.1
+    # Candidate OASIS Standard 01
+    # 23 June 2016
+    # Copyright (c) OASIS Open 2016. All Rights Reserved.
+    # Source: http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/
+    # Link to latest version of specification: http://docs.oasis-open.org/docbook/docbook/v5.1/docbook-v5.1.html
     #
-    # Copyright 1992-2011 HaL Computer Systems, Inc.,
+    # This file is part of DocBook XInclude V5.1-COS01
+    #
+    # Copyright 1992-2016 HaL Computer Systems, Inc.,
     # O'Reilly & Associates, Inc., ArborText, Inc., Fujitsu Software
     # Corporation, Norman Walsh, Sun Microsystems, Inc., and the
     # Organization for the Advancement of Structured Information
@@ -178,10 +219,29 @@ div {
     # for more information.
     #
     # Please direct all questions, bug reports, or suggestions for changes
-    # to the docbook@lists.oasis-open.org mailing list. For more
+    # to the docbook-comment@lists.oasis-open.org mailing list. For more
     # information, see http://www.oasis-open.org/docbook/.
     #
     # ======================================================================
+
+    s:ns [ prefix = "rng" uri = "http://relaxng.org/ns/structure/1.0" ]
+    s:ns [ prefix = "s" uri = "http://purl.oclc.org/dsdl/schematron" ]
+    s:ns [ prefix = "db" uri = "http://docbook.org/ns/docbook" ]
+    s:ns [
+      prefix = "a"
+      uri = "http://relaxng.org/ns/compatibility/annotations/1.0"
+    ]
+    s:ns [ prefix = "xlink" uri = "http://www.w3.org/1999/xlink" ]
+    s:ns [ prefix = "html" uri = "http://www.w3.org/1999/xhtml" ]
+    s:ns [
+      prefix = "ctrl"
+      uri = "http://nwalsh.com/xmlns/schema-control/"
+    ]
+    s:ns [ prefix = "xi" uri = "http://www.w3.org/2001/XInclude" ]
+    s:ns [ prefix = "mml" uri = "http://www.w3.org/1998/Math/MathML" ]
+    s:ns [ prefix = "svg" uri = "http://www.w3.org/2000/svg" ]
+  ]
+  div {
     start =
       (db.set
        | db.book
@@ -488,16 +548,6 @@ div {
       (db.linkend.attribute | db.xlink.attributes)?
     db.common.req.linking.attributes =
       db.linkend.attribute | db.xlink.attributes
-    db.common.data.attributes =
-
-      ## Specifies the format of the data
-      attribute format { text }?,
-      (
-       ## Indentifies the location of the data by URI
-       attribute fileref { xsd:anyURI }
-       |
-         ## Identifies the location of the data by external identifier (entity name)
-         attribute entityref { xsd:ENTITY })
     db.verbatim.continuation.enumeration =
 
       ## Line numbering continues from the immediately preceding element with the same name.
@@ -1046,7 +1096,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -1099,7 +1149,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -1157,7 +1207,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -1193,7 +1243,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -1576,7 +1626,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -1743,7 +1793,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -1900,7 +1950,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -1938,7 +1988,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -1990,7 +2040,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -2041,7 +2091,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -2081,7 +2131,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -2141,7 +2191,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -2179,7 +2229,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -2325,7 +2375,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -2927,7 +2977,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -3148,7 +3198,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -3709,9 +3759,7 @@ div {
       db.navigation.components*
     db.setindex.components = notAllowed | db.setindex
     db.toc.components = notAllowed | db.toc
-    db.set.components =
-      ((db.set | db.book)+ | db.article+)
-      | db.xi.include
+    db.set.components = (db.set | db.book | db.article) | db.xi.include
     div {
       db.set.status.attribute = db.status.attribute
       db.set.role.attribute = attribute role { text }
@@ -3723,7 +3771,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -3745,7 +3793,7 @@ div {
           db.set.attlist,
           db.set.info,
           db.toc.components?,
-          db.set.components,
+          db.set.components+,
           db.setindex.components?
         }
     }
@@ -3763,7 +3811,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -3812,7 +3860,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -3848,7 +3896,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -3886,7 +3934,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -3922,7 +3970,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -3963,7 +4011,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4045,7 +4093,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4114,7 +4162,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4391,7 +4439,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4431,7 +4479,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4471,7 +4519,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4511,7 +4559,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4550,7 +4598,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4598,7 +4646,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4634,7 +4682,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4787,7 +4835,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4823,7 +4871,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4859,7 +4907,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4896,7 +4944,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4938,7 +4986,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -4976,7 +5024,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -5242,7 +5290,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -5279,7 +5327,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -5519,6 +5567,36 @@ div {
       db.indexterm.endofrange =
 
         ## Identifies the end of a range associated with an indexed term
+        [
+          s:pattern [
+            "\x{a}" ~
+            "              "
+            s:title [ "Indexterm 'startref' type constraint" ]
+            "\x{a}" ~
+            "              "
+            s:rule [
+              context = "db:indexterm[@startref]"
+              "\x{a}" ~
+              "                "
+              s:assert [
+                test =
+                  "local-name(//*[@xml:id=current()/@startref]) = 'indexterm' and namespace-uri(//*[@xml:id=current()/@startref]) = 'http://docbook.org/ns/docbook'"
+                "@startref on indexterm must point to an indexterm."
+              ]
+              "\x{a}" ~
+              "                "
+              s:assert [
+                test =
+                  "//*[@xml:id=current()/@startref]/@class='startofrange'"
+                "@startref on indexterm must point to a startofrange indexterm."
+              ]
+              "\x{a}" ~
+              "              "
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+        ]
         element indexterm { db.indexterm.endofrange.attlist, empty }
     }
     div {
@@ -5565,7 +5643,17 @@ div {
     }
     div {
       db.see.role.attribute = attribute role { text }
-      db.see.class.attribute = attribute class { "normal" | "under" }
+      db.see.class.attribute =
+
+        ## Identifies the class of 'see'
+        attribute class {
+
+          ## Normal
+          "normal"
+          |
+            ## See 'under'
+            "under"
+        }
       db.see.attlist =
         db.see.role.attribute?
         & db.see.class.attribute?
@@ -5579,7 +5667,16 @@ div {
     div {
       db.seealso.role.attribute = attribute role { text }
       db.seealso.class.attribute =
-        attribute class { "normal" | "under" }
+
+        ## Identifies the class of 'seealso'
+        attribute class {
+
+          ## Normal
+          "normal"
+          |
+            ## See 'under'
+            "under"
+        }
       db.seealso.attlist =
         db.seealso.role.attribute?
         & db.seealso.class.attribute?
@@ -5607,7 +5704,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -5661,7 +5758,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -5777,7 +5874,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -6571,7 +6668,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -6607,7 +6704,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -7118,7 +7215,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -7366,7 +7463,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -7412,7 +7509,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -7451,7 +7548,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -7574,7 +7671,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -7633,7 +7730,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -8720,7 +8817,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -8852,7 +8949,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -8983,7 +9080,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -9114,7 +9211,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -9243,7 +9340,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -9372,7 +9469,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -9570,7 +9667,7 @@ div {
           s:pattern [
             "\x{a}" ~
             "              "
-            s:title [ "Root must have version" ]
+            rng:title [ "Root must have version" ]
             "\x{a}" ~
             "              "
             s:rule [
@@ -10338,7 +10435,17 @@ div {
     & db.variablelist.termlength.attribute?
   db.warning.attlist = db.warning.role.attribute? & db.common.attributes
   # ========= Changed attributes
+  #
+  db.common.data.attributes =
 
+    ## Specifies the format of the data
+    attribute format { db.format.enumeration }?,
+    (
+     ## Indentifies the location of the data by URI
+     attribute fileref { xsd:anyURI }
+     |
+       ## Identifies the location of the data by external identifier (entity name)
+       attribute entityref { xsd:ENTITY })
   # Require xlink:href
   db.link.attlist =
     db.link.role.attribute?
