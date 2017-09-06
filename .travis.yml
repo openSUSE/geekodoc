@@ -12,7 +12,7 @@ env:
 # command to install dependencies
 before_install:
   # - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev xsltproc jing trang make
+  - sudo apt-get install -y libxml2-dev libxml2-utils xsltproc jing trang make
   # docbook5-xml
   - cat /etc/os-release
 
