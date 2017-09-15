@@ -31,7 +31,7 @@ s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink"  prefix = "xlink" ]
 
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-0.9.6"
+suse.schema.version = "5.1-subset GeekoDoc-0.9.8"
 
 
 #

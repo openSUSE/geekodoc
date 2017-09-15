@@ -1,4 +1,16 @@
 ------------------------------------------------------------------
+Fri Sept 15 09:16:00 UTC 2016 - toms@opensuse.org
+
+Release 0.9.8
+
+* GeekoDoc
+  * Restrict Possible Values in format Attribute (#24)
+  * Fix outdated Schematron rules (#22)
+  * Implement task elements (#20)
+  * Adapt content model of task* elements (#1)
+  * Add test cases and use Travis to check schema
+
+------------------------------------------------------------------
 Thu Dec 01 09:52:00 UTC 2016 - toms@opensuse.org
 
 Release 0.9.7
