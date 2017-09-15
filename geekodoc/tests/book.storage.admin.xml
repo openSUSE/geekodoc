@@ -2344,10 +2344,10 @@ screen install-ses-admin</screen>
       <title>Discovered Nodes</title>
       <mediaobject>
        <imageobject role="fo">
-        <imagedata fileref="depl_node_dashboard_initial_nodes.png" width="100%" format="png"/>
+        <imagedata fileref="depl_node_dashboard_initial_nodes.png" width="100%" format="PNG"/>
        </imageobject>
        <imageobject role="html">
-        <imagedata fileref="depl_node_dashboard_initial_nodes.png" width="75%" format="png"/>
+        <imagedata fileref="depl_node_dashboard_initial_nodes.png" width="75%" format="PNG"/>
        </imageobject>
       </mediaobject>
      </figure>
@@ -2375,10 +2375,10 @@ screen install-ses-admin</screen>
         <title>Grouping Nodes</title>
         <mediaobject>
          <imageobject role="fo">
-          <imagedata fileref="depl_node_dashboard_groups_initial.png" width="100%" format="png"/>
+          <imagedata fileref="depl_node_dashboard_groups_initial.png" width="100%" format="PNG"/>
          </imageobject>
          <imageobject role="html">
-          <imagedata fileref="depl_node_dashboard_groups_initial.png" width="75%" format="png"/>
+          <imagedata fileref="depl_node_dashboard_groups_initial.png" width="75%" format="PNG"/>
          </imageobject>
         </mediaobject>
        </figure>
@@ -2395,10 +2395,10 @@ screen install-ses-admin</screen>
       <title>Editing a Single Node</title>
       <mediaobject>
        <imageobject role="fo">
-        <imagedata fileref="depl_node_edit.png" width="100%" format="png"/>
+        <imagedata fileref="depl_node_edit.png" width="100%" format="PNG"/>
        </imageobject>
        <imageobject role="html">
-        <imagedata fileref="depl_node_edit.png" width="75%" format="png"/>
+        <imagedata fileref="depl_node_edit.png" width="75%" format="PNG"/>
        </imageobject>
       </mediaobject>
      </figure>
@@ -2452,10 +2452,10 @@ screen install-ses-admin</screen>
       <title>Bulk Editing Nodes</title>
       <mediaobject>
        <imageobject role="fo">
-        <imagedata fileref="depl_node_bulk_edit_allocate.png" width="100%" format="png"/>
+        <imagedata fileref="depl_node_bulk_edit_allocate.png" width="100%" format="PNG"/>
        </imageobject>
        <imageobject role="html">
-        <imagedata fileref="depl_node_bulk_edit_allocate.png" width="75%" format="png"/>
+        <imagedata fileref="depl_node_bulk_edit_allocate.png" width="75%" format="PNG"/>
        </imageobject>
       </mediaobject>
      </figure>
@@ -2482,10 +2482,10 @@ screen install-ses-admin</screen>
       <title>All Nodes Have Been Installed</title>
       <mediaobject>
        <imageobject role="fo">
-        <imagedata fileref="depl_node_dashboard_groups_installed.png" width="100%" format="png"/>
+        <imagedata fileref="depl_node_dashboard_groups_installed.png" width="100%" format="PNG"/>
        </imageobject>
        <imageobject role="html">
-        <imagedata fileref="depl_node_dashboard_groups_installed.png" width="75%" format="png"/>
+        <imagedata fileref="depl_node_dashboard_groups_installed.png" width="75%" format="PNG"/>
        </imageobject>
       </mediaobject>
      </figure>
@@ -2700,10 +2700,10 @@ screen install-ses-admin</screen>
     <title>The Ceph Barclamp</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="depl_barclamp_ceph.png" width="100%" format="png"/>
+      <imagedata fileref="depl_barclamp_ceph.png" width="100%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="depl_barclamp_ceph.png" width="75%" format="png"/>
+      <imagedata fileref="depl_barclamp_ceph.png" width="75%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -2773,10 +2773,10 @@ screen install-ses-admin</screen>
     <title>The Ceph Barclamp: Node Deployment Example</title>
     <mediaobject>
      <imageobject role="fo">
-      <imagedata fileref="depl_barclamp_ceph_node_deployment.png" width="100%" format="png"/>
+      <imagedata fileref="depl_barclamp_ceph_node_deployment.png" width="100%" format="PNG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="depl_barclamp_ceph_node_deployment.png" width="75%" format="png"/>
+      <imagedata fileref="depl_barclamp_ceph_node_deployment.png" width="75%" format="PNG"/>
      </imageobject>
     </mediaobject>
    </figure>
@@ -10575,40 +10575,40 @@ Password changed successfully for user 'openattic'
    <para>
     Click <inlinemediaobject>
     <imageobject role="fo">
-     <imagedata fileref="oa_widget_reload.png" width="1.2em" format="png"/>
+     <imagedata fileref="oa_widget_reload.png" width="1.2em" format="PNG"/>
     </imageobject>
     <imageobject role="html">
-     <imagedata fileref="oa_widget_reload.png" width="1.2em" format="png"/>
+     <imagedata fileref="oa_widget_reload.png" width="1.2em" format="PNG"/>
     </imageobject>
     </inlinemediaobject> to refresh the list of items.
    </para>
    <para>
     Click <inlinemediaobject>
     <imageobject role="fo">
-     <imagedata fileref="oa_widget_columns.png" width="1.3em" format="png"/>
+     <imagedata fileref="oa_widget_columns.png" width="1.3em" format="PNG"/>
     </imageobject>
     <imageobject role="html">
-     <imagedata fileref="oa_widget_columns.png" width="1.3em" format="png"/>
+     <imagedata fileref="oa_widget_columns.png" width="1.3em" format="PNG"/>
     </imageobject>
     </inlinemediaobject> to display or hide individual table columns.
    </para>
    <para>
     Click <inlinemediaobject>
     <imageobject role="fo">
-     <imagedata fileref="oa_widget_rows.png" width="1.8em" format="png"/>
+     <imagedata fileref="oa_widget_rows.png" width="1.8em" format="PNG"/>
     </imageobject>
     <imageobject role="html">
-     <imagedata fileref="oa_widget_rows.png" width="1.8em" format="png"/>
+     <imagedata fileref="oa_widget_rows.png" width="1.8em" format="PNG"/>
     </imageobject>
     </inlinemediaobject> and select how many rows to display on a single page.
    </para>
    <para>
     Click inside <inlinemediaobject>
     <imageobject role="fo">
-     <imagedata fileref="oa_widget_search.png" width="5em" format="png"/>
+     <imagedata fileref="oa_widget_search.png" width="5em" format="PNG"/>
     </imageobject>
     <imageobject role="html">
-     <imagedata fileref="oa_widget_search.png" width="5em" format="png"/>
+     <imagedata fileref="oa_widget_search.png" width="5em" format="PNG"/>
     </imageobject>
     </inlinemediaobject> and filter the rows by the typing the string to search
     for.
@@ -10616,10 +10616,10 @@ Password changed successfully for user 'openattic'
    <para>
     Use <inlinemediaobject>
     <imageobject role="fo">
-     <imagedata fileref="oa_widget_pager.png" width="6em" format="png"/>
+     <imagedata fileref="oa_widget_pager.png" width="6em" format="PNG"/>
     </imageobject>
     <imageobject role="html">
-     <imagedata fileref="oa_widget_pager.png" width="6em" format="png"/>
+     <imagedata fileref="oa_widget_pager.png" width="6em" format="PNG"/>
     </imageobject>
     </inlinemediaobject> to change the currently displayed page if the list
     spans across multiple pages.

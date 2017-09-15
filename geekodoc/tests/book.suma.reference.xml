@@ -774,10 +774,10 @@
        <phrase>Security Alert</phrase>
       </textobject>
       <imageobject role="fo">
-       <imagedata fileref="fa-shield.svg" width="1.2em" format="svg"/>
+       <imagedata fileref="fa-shield.svg" width="1.2em" format="SVG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="fa-shield.png" width="1em" format="png"/>
+       <imagedata fileref="fa-shield.png" width="1em" format="PNG"/>
       </imageobject>
      </inlinemediaobject> — represents a security alert.
    </member>
@@ -787,10 +787,10 @@
        <phrase>Bug Fix Alert</phrase>
       </textobject>
       <imageobject role="fo">
-       <imagedata fileref="fa-bug.svg" width="1.6em" format="svg"/>
+       <imagedata fileref="fa-bug.svg" width="1.6em" format="SVG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="fa-bug.png" width="1em" format="png"/>
+       <imagedata fileref="fa-bug.png" width="1em" format="PNG"/>
       </imageobject>
      </inlinemediaobject> — represents a bug fix alert.
    </member>
@@ -800,10 +800,10 @@
        <phrase>Enhancement Alert</phrase>
       </textobject>
       <imageobject role="fo">
-       <imagedata fileref="spacewalk-icon-enhancement.svg" width="1.4em" format="svg"/>
+       <imagedata fileref="spacewalk-icon-enhancement.svg" width="1.4em" format="SVG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="spacewalk-icon-enhancement.png" width="1em" format="png"/>
+       <imagedata fileref="spacewalk-icon-enhancement.png" width="1em" format="PNG"/>
       </imageobject>
      </inlinemediaobject> — represents an enhancement alert.
    </member>
@@ -1344,10 +1344,10 @@
          <phrase>Check Circle</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-check-circle.svg" width="1.6em" format="svg"/>
+         <imagedata fileref="fa-check-circle.svg" width="1.6em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-check-circle.png" width="1em" format="png"/>
+         <imagedata fileref="fa-check-circle.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — System is up-to-date.
      </member>
@@ -1357,10 +1357,10 @@
          <phrase>Exclamation Circle</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-exclamation-circle.svg" width="1.6em" format="svg"/>
+         <imagedata fileref="fa-exclamation-circle.svg" width="1.6em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-exclamation-circle.png" width="1em" format="png"/>
+         <imagedata fileref="fa-exclamation-circle.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Critical patch (errata) available, update
        <emphasis>strongly</emphasis> recommended.
@@ -1371,10 +1371,10 @@
          <phrase>Warning</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-warning.svg" width="1.6em" format="svg"/>
+         <imagedata fileref="fa-warning.svg" width="1.6em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-warning.png" width="1em" format="png"/>
+         <imagedata fileref="fa-warning.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Updates available and recommended. </member>
                 <member>
@@ -1383,10 +1383,10 @@
          <phrase>Question</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-question-circle.svg" width="1.8em" format="svg"/>
+         <imagedata fileref="fa-question-circle.svg" width="1.8em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-question-circle.png" width="1em" format="png"/>
+         <imagedata fileref="fa-question-circle.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — System not checking in properly (for 24 hours or more). </member>
                 <member>
@@ -1395,10 +1395,10 @@
          <phrase>Lock</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-lock.svg" width="1.8em" format="svg"/>
+         <imagedata fileref="fa-lock.svg" width="1.8em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-lock.png" width="1em" format="png"/>
+         <imagedata fileref="fa-lock.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — System is locked; actions prohibited. </member>
                 <member>
@@ -1407,10 +1407,10 @@
          <phrase>Rocket</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-rocket.svg" width="1.6em" format="svg"/>
+         <imagedata fileref="fa-rocket.svg" width="1.6em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-rocket.png" width="1em" format="png"/>
+         <imagedata fileref="fa-rocket.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — System is being deployed using AutoYaST or Kickstart. </member>
                 <member>
@@ -1419,10 +1419,10 @@
          <phrase>Clock</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-clock-o.svg" width="1.8em" format="svg"/>
+         <imagedata fileref="fa-clock-o.svg" width="1.8em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-clock-o.png" width="1em" format="png"/>
+         <imagedata fileref="fa-clock-o.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Updates have been scheduled. </member>
            <member>
@@ -1431,10 +1431,10 @@
          <phrase>Times</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-times-circle.svg" width="1.8em" format="svg"/>
+         <imagedata fileref="fa-times-circle.svg" width="1.8em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-times-circle.png" width="1em" format="png"/>
+         <imagedata fileref="fa-times-circle.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — System not entitled to any update service. </member>
           
@@ -3124,10 +3124,10 @@ GATEWAY=192.168.0.1</screen>
          <phrase>Check Circle</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-check-circle.svg" width="1.6em" format="svg"/>
+         <imagedata fileref="fa-check-circle.svg" width="1.6em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-check-circle.png" width="1em" format="png"/>
+         <imagedata fileref="fa-check-circle.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — All systems in the group are up-to-date. </para>
      </listitem>
@@ -3138,10 +3138,10 @@ GATEWAY=192.168.0.1</screen>
          <phrase>Exclamation Circle</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-exclamation-circle.svg" width="1.6em" format="svg"/>
+         <imagedata fileref="fa-exclamation-circle.svg" width="1.6em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-exclamation-circle.png" width="1em" format="png"/>
+         <imagedata fileref="fa-exclamation-circle.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Critical patches available, update <emphasis>strongly</emphasis>
        recommended. </para>
@@ -3153,10 +3153,10 @@ GATEWAY=192.168.0.1</screen>
          <phrase>Warning</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-warning.svg" width="1.6em" format="svg"/>
+         <imagedata fileref="fa-warning.svg" width="1.6em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-warning.png" width="1em" format="png"/>
+         <imagedata fileref="fa-warning.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Updates available and recommended. </para>
      </listitem>
@@ -6539,10 +6539,10 @@ GATEWAY=192.168.0.1</screen>
      <textobject role="description"><phrase>Security Alert</phrase>
      </textobject>
      <imageobject role="fo">
-      <imagedata fileref="fa-shield.svg" width="1.2em" format="svg"/>
+      <imagedata fileref="fa-shield.svg" width="1.2em" format="SVG"/>
      </imageobject>
      <imageobject role="html">
-      <imagedata fileref="fa-shield.png" width="1em" format="png"/>
+      <imagedata fileref="fa-shield.png" width="1em" format="PNG"/>
      </imageobject>
     </inlinemediaobject>
      — Security Updates available,
@@ -6555,10 +6555,10 @@ GATEWAY=192.168.0.1</screen>
       <textobject role="description"><phrase>Bug Fix Alert</phrase>
       </textobject>
       <imageobject role="fo">
-       <imagedata fileref="fa-bug.svg" width="1.6em" format="svg"/>
+       <imagedata fileref="fa-bug.svg" width="1.6em" format="SVG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="fa-bug.png" width="1em" format="png"/>
+       <imagedata fileref="fa-bug.png" width="1em" format="PNG"/>
       </imageobject>
      </inlinemediaobject>
      — Bug Fix Updates available, recommended
@@ -6570,10 +6570,10 @@ GATEWAY=192.168.0.1</screen>
       <textobject role="description"><phrase>Enhancement Alert</phrase>
       </textobject>
       <imageobject role="fo">
-       <imagedata fileref="spacewalk-icon-enhancement.svg" width="1.4em" format="svg"/>
+       <imagedata fileref="spacewalk-icon-enhancement.svg" width="1.4em" format="SVG"/>
       </imageobject>
       <imageobject role="html">
-       <imagedata fileref="spacewalk-icon-enhancement.png" width="1em" format="png"/>
+       <imagedata fileref="spacewalk-icon-enhancement.png" width="1em" format="PNG"/>
       </imageobject>
     </inlinemediaobject> — Enhancement Updates available, optional
    </para>
@@ -7966,10 +7966,10 @@ Text from the rh docs:
          <phrase>[red]</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="patch-status-affected-patch-inapplicable.png" width="1.6em" format="png"/>
+         <imagedata fileref="patch-status-affected-patch-inapplicable.png" width="1.6em" format="PNG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="patch-status-affected-patch-inapplicable.png" width="1em" format="png"/>
+         <imagedata fileref="patch-status-affected-patch-inapplicable.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Affected, patches are available in
        channels that are not assigned:</term>
@@ -7985,10 +7985,10 @@ Text from the rh docs:
          <phrase>[orange]</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="patch-status-affected-patch-applicable.png" width="1.6em" format="png"/>
+         <imagedata fileref="patch-status-affected-patch-applicable.png" width="1.6em" format="PNG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="patch-status-affected-patch-applicable.png" width="1em" format="png"/>
+         <imagedata fileref="patch-status-affected-patch-applicable.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Affected, at least one patch available in
        an assigned channel:</term>
@@ -8003,10 +8003,10 @@ Text from the rh docs:
          <phrase>[grey]</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="patch-status-not-affected.png" width="1.6em" format="png"/>
+         <imagedata fileref="patch-status-not-affected.png" width="1.6em" format="PNG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="patch-status-not-affected.png" width="1em" format="png"/>
+         <imagedata fileref="patch-status-not-affected.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Not affected:</term>
      <listitem>
@@ -8019,10 +8019,10 @@ Text from the rh docs:
          <phrase>[green]</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="patch-status-patched.png" width="1.6em" format="png"/>
+         <imagedata fileref="patch-status-patched.png" width="1.6em" format="PNG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="patch-status-patched.png" width="1em" format="png"/>
+         <imagedata fileref="patch-status-patched.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> — Patched:</term>
      <listitem>
@@ -8042,10 +8042,10 @@ Text from the rh docs:
          <phrase>[orange]</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="patch-status-affected-patch-applicable.png" width="1.6em" format="png"/>
+         <imagedata fileref="patch-status-affected-patch-applicable.png" width="1.6em" format="PNG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="patch-status-affected-patch-applicable.png" width="1em" format="png"/>
+         <imagedata fileref="patch-status-affected-patch-applicable.png" width="1em" format="PNG"/>
         </imageobject>
        </inlinemediaobject> state is displayed as soon as <phrase><phrase>SUSE</phrase> Manager</phrase> has at least one patch in an
       assigned channel. This might mean that, after installing such patch, others might be
@@ -8233,10 +8233,10 @@ Text from the rh docs:
         <phrase>Warning</phrase>
        </textobject>
        <imageobject role="fo">
-        <imagedata fileref="fa-warning.svg" width="1.6em" format="svg"/>
+        <imagedata fileref="fa-warning.svg" width="1.6em" format="SVG"/>
        </imageobject>
        <imageobject role="html">
-        <imagedata fileref="fa-warning.png" width="1em" format="png"/>
+        <imagedata fileref="fa-warning.png" width="1em" format="PNG"/>
        </imageobject>
       </inlinemediaobject></para>
     </listitem>
@@ -9554,10 +9554,10 @@ Profiles: SLES12-Default</screen>
         <phrase>Spacewalk Icon Software Channels</phrase>
        </textobject>
        <imageobject role="fo">
-        <imagedata fileref="spacewalk-icon-software-channels.svg" width="1.6em" format="svg"/>
+        <imagedata fileref="spacewalk-icon-software-channels.svg" width="1.6em" format="SVG"/>
        </imageobject>
        <imageobject role="html">
-        <imagedata fileref="spacewalk-icon-software-channels.png" width="1em" format="png"/>
+        <imagedata fileref="spacewalk-icon-software-channels.png" width="1em" format="PNG"/>
        </imageobject>
        </inlinemediaobject> — Centrally-managed configuration file
        provided by a global configuration channel.
@@ -9568,10 +9568,10 @@ Profiles: SLES12-Default</screen>
          <phrase>FA Desktop</phrase>
         </textobject>
         <imageobject role="fo">
-         <imagedata fileref="fa-desktop.svg" width="1.6em" format="svg"/>
+         <imagedata fileref="fa-desktop.svg" width="1.6em" format="SVG"/>
         </imageobject>
         <imageobject role="html">
-         <imagedata fileref="fa-desktop.png" width="1em" format="png"/>
+         <imagedata fileref="fa-desktop.png" width="1em" format="PNG"/>
         </imageobject>
         </inlinemediaobject> — Locally-managed configuration file,
         maybe overriding a centrally-managed file.
@@ -9582,10 +9582,10 @@ Profiles: SLES12-Default</screen>
           <phrase>Spacewalk Icon Sandbox</phrase>
          </textobject>
          <imageobject role="fo">
-          <imagedata fileref="spacewalk-icon-sandbox.svg" width="1.6em" format="svg"/>
+          <imagedata fileref="spacewalk-icon-sandbox.svg" width="1.6em" format="SVG"/>
          </imageobject>
          <imageobject role="html">
-          <imagedata fileref="spacewalk-icon-sandbox.png" width="1em" format="png"/>
+          <imagedata fileref="spacewalk-icon-sandbox.png" width="1em" format="PNG"/>
          </imageobject>
          </inlinemediaobject> — Sandbox configuration file.
       </member>
@@ -9809,10 +9809,10 @@ Profiles: SLES12-Default</screen>
           <phrase>Spacewalk Icon Sandbox</phrase>
            </textobject>
            <imageobject role="fo">
-            <imagedata fileref="spacewalk-icon-sandbox.svg" width="0.9em" format="svg"/>
+            <imagedata fileref="spacewalk-icon-sandbox.svg" width="0.9em" format="SVG"/>
            </imageobject>
            <imageobject role="html">
-            <imagedata fileref="spacewalk-icon-sandbox.png" width="0.9em" format="png"/>
+            <imagedata fileref="spacewalk-icon-sandbox.png" width="0.9em" format="PNG"/>
            </imageobject>
            </inlinemediaobject>) indicates that the listed file is
            currently located in a local sandbox. Files in a system's
