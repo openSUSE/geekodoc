@@ -1339,7 +1339,9 @@ include "docbookxi.rnc"
     element taskprerequisites {
       db.taskprerequisites.attlist,
       # db.taskprerequisites.info,
-      (db.para | db.formalpara)+
+      (db.para | db.formalpara |
+       db.itemizedlist | db.orderedlist | db.simplelist | db.variablelist
+       )+
     }
 
    # taskrelated: allow only paras and lists
