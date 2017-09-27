@@ -25,5 +25,5 @@ install:
 
 # commands to run tests
 script:
-    - ./geekodoc/tests/run-tests.sh
+    - ./geekodoc/tests/run-tests.sh -V jing
     - ./novdoc/tests/run-tests.sh
