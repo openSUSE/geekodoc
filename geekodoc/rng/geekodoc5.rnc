@@ -135,6 +135,8 @@ div {
      "PDF" |
      ## Portable Network Graphics
      "PNG" |
+     ## Joint Photography Experts Group format
+     "JPG" |
      ## Scalable Vector Graphics
      "SVG" )
   # The original list from the DocBook 4.5 DTD was:
