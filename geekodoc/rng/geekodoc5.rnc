@@ -137,6 +137,8 @@ div {
      "PNG" |
      ## Joint Photography Experts Group format
      "JPG" |
+     ## Joint Photographic Experts Group
+     "JPEG" |
      ## Scalable Vector Graphics
      "SVG" )
   # The original list from the DocBook 4.5 DTD was:
