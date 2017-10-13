@@ -67,7 +67,7 @@ while true ; do
     esac
 done
 
-echo "Using validator '$VALIDATOR'..."
+echo "INFO: Using validator '$VALIDATOR'..."
 
 # Cleanup any *.err files first...
 rm -f $PROGDIR/*.err 2>/dev/null

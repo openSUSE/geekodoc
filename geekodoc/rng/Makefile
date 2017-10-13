@@ -6,8 +6,8 @@
 #
 # Requirements:
 # * trang
-# * docbook_5
-# * python3-rnginline (from obs://devel:languages:python3/python3-rnginline)
+# * docbook_5 (from obs://Publishing)
+# * python3-rnginline (from obs://devel:languages:python/python3-rnginline)
 
 
 .SUFFIXES: .rng rnc
