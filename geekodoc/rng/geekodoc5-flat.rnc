@@ -160,8 +160,14 @@ div {
      ## Format of the dia tool
      "DIA"
      |
+       ## Format of the dia tool
+       "dia"
+     |
        ## Encapsulated PostScript
        "EPS"
+     |
+       ## Encapsulated PostScript
+       "eps"
      |
        ## Format of the xfig tool
        "FIG"
@@ -169,20 +175,38 @@ div {
        ## LibreOffice illustration format
        "ODG"
      |
+       ## LibreOffice illustration format
+       "odg"
+     |
        ## Portable Document Format
        "PDF"
+     |
+       ## Portable Document Format
+       "pdf"
      |
        ## Portable Network Graphics
        "PNG"
      |
+       ## Portable Network Graphics
+       "png"
+     |
        ## Joint Photography Experts Group format
        "JPG"
+     |
+       ## Joint Photography Experts Group format
+       "jpg"
      |
        ## Joint Photographic Experts Group
        "JPEG"
      |
+       ## Joint Photographic Experts Group
+       "jpeg"
+     |
        ## Scalable Vector Graphics
-       "SVG")
+       "SVG"
+     |
+       ## Scalable Vector Graphics
+       "svg")
   # The original list from the DocBook 4.5 DTD was:
   # "BMP| CGM-CHAR | CGM-BINARY | CGM-CLEAR | DITROFF | DVI
   #  | EPS | EQN | FAX | GIF | GIF87a | GIF89a
