@@ -72,13 +72,16 @@ while true ; do
             shift
             ;;
         -V|--validator)
-            if [ 'xmllint' = "$2" ] || [ 'jing' = "$2" ]; then
-                VALIDATOR="$2"
-            else
-               echo "ERROR: Wrong validator '$2' Choose either " \
-                    "'xmllint' or 'jing'" 2>/dev/stderr
-               exit 10
-            fi
+            case "$2" in
+              'xmllint' | 'jing')
+                 VALIDATOR="$2"
+                 ;;
+               *)
+                 print_help
+                 echo "ERROR: Wrong validator '$2'" 2>/dev/stderr
+                 exit 10
+                 ;;
+            esac
             shift 2
             ;;
         --)
