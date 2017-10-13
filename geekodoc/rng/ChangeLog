@@ -1,4 +1,18 @@
 -------------------------------------------------------------------
+Fri Oct 13 09:52:00 UTC 2017 - toms@opensuse.org
+
+Created 0.9.9
+https://github.com/openSUSE/geekodoc/releases/tag/v0.9.9
+
+* Geekodoc
+  * Allow Lowercase Values in format Attribute (#29)
+  * Add list elements in taskprerequisites (#25)
+
+* Novdoc
+  * No changes
+
+
+-------------------------------------------------------------------
 Fri Sep 15 09:49:37 UTC 2017 - toms@opensuse.org
 
 Created 0.9.8
@@ -12,7 +26,7 @@ https://github.com/openSUSE/geekodoc/releases/tag/v0.9.8
   * Add test cases and use Travis to check schema
 
 * Novdoc
-  No changes
+  * No changes
 
 
 -------------------------------------------------------------------
