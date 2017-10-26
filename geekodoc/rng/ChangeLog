@@ -1,4 +1,17 @@
 -------------------------------------------------------------------
+Thu Oct 26 11:20:00 UTC 2017 - toms@opensuse.org
+
+Created 1.0.0
+https://github.com/openSUSE/geekodoc/releases/tag/v1.0.0
+
+* Geekodoc
+  * Missing mediaobject in cover (#30)
+
+* Novdoc
+  no changes
+
+
+-------------------------------------------------------------------
 Fri Oct 13 09:52:00 UTC 2017 - toms@opensuse.org
 
 Created 0.9.9

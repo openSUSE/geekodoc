@@ -18,7 +18,7 @@ namespace xlink = "http://www.w3.org/1999/xlink"
 s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink" prefix = "xlink" ]
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-0.9.9"
+suse.schema.version = "5.1-subset GeekoDoc-1.0.0"
 #
 div {
   div {
@@ -2772,19 +2772,6 @@ div {
         & db.common.attributes
         & db.common.linking.attributes
     }
-    db.cover.contentmodel =
-      (db.para.blocks
-       | db.extension.blocks
-       | db.list.blocks
-       | db.informal.blocks
-       | db.publishing.blocks
-       | db.graphic.blocks
-       | db.technical.blocks
-       | db.verbatim.blocks
-       | db.bridgehead
-       | db.remark
-       | db.revhistory)
-      | db.synopsis.blocks
     div {
       db.cover.role.attribute = attribute role { text }
       db.cover.attlist =
@@ -10086,6 +10073,7 @@ div {
 
   }
   # ======== General Patterns
+  db.cover.contentmodel = db.mediaobject+
   db.nopara.blocks =
     db.list.blocks
     | db.formal.blocks
