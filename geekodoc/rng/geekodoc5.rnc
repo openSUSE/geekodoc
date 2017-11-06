@@ -42,7 +42,7 @@ div
 {
   db.xi.href.attribute =
     ## reference to your included source (absence of this attribute
-    ## means the same than href=""
+    ## means the same as href=""
     attribute href {
       ""
       |
