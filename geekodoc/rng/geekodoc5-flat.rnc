@@ -4047,6 +4047,38 @@ div {
       db.section.status.attribute = db.status.attribute
       db.section.role.attribute = attribute role { text }
       db.section.info = db._info.title.req
+      db.section =
+
+        ## A recursive section
+        [
+          s:pattern [
+            "\x{a}" ~
+            "              "
+            rng:title [ "Root must have version" ]
+            "\x{a}" ~
+            "              "
+            s:rule [
+              context = "/db:section"
+              "\x{a}" ~
+              "                "
+              s:assert [
+                test = "@version"
+                "If this element is the root element, it must have a version attribute."
+              ]
+              "\x{a}" ~
+              "              "
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+        ]
+        element section {
+          db.section.attlist,
+          db.section.info,
+          db.navigation.components*,
+          db.recursive.blocks.or.sections?,
+          db.navigation.components*
+        }
     }
     div {
       db.simplesect.status.attribute = db.status.attribute
@@ -9996,7 +10028,7 @@ div {
     db.screenshot = notAllowed
     # db.secondary = notAllowed
     db.secondaryie = notAllowed
-    db.section = notAllowed
+    # db.section = notAllowed
     # db.see = notAllowed
     db.seealso = notAllowed
     db.seealsoie = notAllowed

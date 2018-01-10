@@ -449,7 +449,7 @@ include "docbookxi.rnc"
   db.screenshot = notAllowed
   # db.secondary = notAllowed
   db.secondaryie = notAllowed
-  db.section = notAllowed
+  # db.section = notAllowed
   # db.see = notAllowed
   db.seealso = notAllowed
   db.seealsoie = notAllowed
