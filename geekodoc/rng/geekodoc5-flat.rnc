@@ -1344,10 +1344,6 @@ div {
     }
     div {
       db.remark.role.attribute = attribute role { text }
-      db.remark.attlist =
-        db.remark.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
       db.remark =
 
         ## A remark (or comment) intended for presentation in a draft manuscript
@@ -10504,6 +10500,11 @@ div {
     & db.linkend.attribute
     & db.xref.xrefstyle.attribute?
     & db.xref.endterm.attribute?
+  # Don't allow xml:id's on remarks:
+  db.remark.attlist =
+    db.remark.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
   # ======== Changed Content Model
 
   # Admonitions

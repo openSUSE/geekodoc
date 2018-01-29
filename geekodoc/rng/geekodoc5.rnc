@@ -1048,6 +1048,11 @@ include "docbookxi.rnc"
     & db.xref.xrefstyle.attribute?
     & db.xref.endterm.attribute?
 
+  # Don't allow xml:id's on remarks:
+  db.remark.attlist =
+    db.remark.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
 
   #======== Changed Content Model
 
