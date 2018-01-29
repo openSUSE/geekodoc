@@ -183,7 +183,7 @@ include "docbookxi.rnc"
   db.acknowledgements = notAllowed
   db.acronym = notAllowed
   db.address = notAllowed
-  db.affiliation = notAllowed
+  # db.affiliation = notAllowed
   # db.alt = notAllowed
   db.anchor = notAllowed
   # db.annotation = notAllowed
@@ -329,7 +329,7 @@ include "docbookxi.rnc"
   db.issuenum = notAllowed
   # db.itemizedlist = notAllowed
   db.itermset = notAllowed
-  db.jobtitle = notAllowed
+  # db.jobtitle = notAllowed
   # db.keycap = notAllowed
   db.keycode = notAllowed
   # db.keycombo = notAllowed
@@ -380,7 +380,7 @@ include "docbookxi.rnc"
   # db.orderedlist = notAllowed
   db.org = notAllowed
   db.orgdiv = notAllowed
-  db.orgname = notAllowed
+  # db.orgname = notAllowed
   db.otheraddr = notAllowed
   # db.othercredit = notAllowed
   db.othername = notAllowed
@@ -1063,6 +1063,23 @@ include "docbookxi.rnc"
       db.important | db.note | db.tip | db.warning
   }
 
+  # affiliation
+  div {
+    db.affiliation =
+      ## The institutional affiliation of an individual
+      element affiliation {
+        db.affiliation.attlist,
+        (db.jobtitle | db.orgname | (db.jobtitle & db.orgname))
+    }
+  }
+
+  # contrib
+  div {
+    db.contrib =
+    ## A summary of the contributions made to a document by a credited source
+    element contrib { db.contrib.attlist, text }
+  }
+
   # entry
   #div {
   #  # Disallow admonitions in table <entry>s
@@ -1266,6 +1283,11 @@ include "docbookxi.rnc"
       | db.lineage
       | db.othername)+
     }
+    db.person.author.contentmodel =
+      db.personname,
+      (db.email?
+       & db.affiliation?
+       & db.contrib?)
   }
 
   # qandaentry
