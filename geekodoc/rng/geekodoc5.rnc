@@ -851,7 +851,7 @@ include "docbookxi.rnc"
 
   db.cals.informaltable.attlist =
     db.cals.informaltable.role.attribute?
-    & db.common.attributes
+    & db.common.base.attributes
     & db.tabstyle.attribute?
     & db.floatstyle.attribute?
     & db.orient.attribute?
