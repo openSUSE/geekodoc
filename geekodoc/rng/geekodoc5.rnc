@@ -1026,7 +1026,22 @@ include "docbookxi.rnc"
     attribute entityref { xsd:ENTITY }
    )
 
-  
+  # Disallow xml:id
+  db.entry.attlist =
+    db.entry.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+    & db.char.attribute?
+    & db.colsep.attribute?
+    & db.charoff.attribute?
+    & db.entry.morerows.attribute?
+    & db.column-spec.attributes?
+    & db.rowsep.attribute?
+    & db.entry.rotate.attribute?
+    & db.align.attribute?
+    & db.entry.scope.attribute?
+    & db.entry.headers.attribute?
 
   # Require xlink:href
   db.link.attlist =
@@ -1034,6 +1049,13 @@ include "docbookxi.rnc"
     & db.common.attributes
     & db.xlink.hrefreq.simple.link.attributes
 
+  # Disallow xml:id
+  db.row.attlist =
+    db.row.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.rowsep.attribute?
+    & db.valign.attribute?
 
   db.version.attribute =
     ## Specifies the DocBook version of the element and its descendants
