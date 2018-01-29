@@ -1,4 +1,20 @@
 -------------------------------------------------------------------
+Mon Jan 29 16:32:00 UTC 2018 - toms@opensuse.org
+
+Created 1.0.1
+https://github.com/openSUSE/geekodoc/releases/tag/v1.0.1
+
+* Geekodoc
+  * Forbid xml:id on row and entry (#37)
+  * Allow affiliation inside author (#36)
+  * Forbid xml:id on remark (#32)
+  * Inconsistency between informalfigure and informaltable (#35)
+  * Allow sections (#34)
+
+* Novdoc
+  no changes
+
+-------------------------------------------------------------------
 Thu Oct 26 11:20:00 UTC 2017 - toms@opensuse.org
 
 Created 1.0.0

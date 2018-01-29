@@ -44,7 +44,7 @@ The following procedure can be used for openSUSE Leap 42.1:
 1. Add the repository:
 
    ```
-   $ sudo zypper ar http://download.opensuse.org/repositories/home:/thomas-schraitle/openSUSE_Leap_42.1/home:thomas-schraitle.repo
+   $ sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/python/openSUSE_Leap_42.3/devel:languages:python.repo
    ```
 
 2. Install it:
@@ -114,3 +114,16 @@ The executable can be found in `.env3/bin/rnginline`.
    $ trang geekodoc5-flat.rng geekodoc5-flat.rnc
    ```
 
+## Supporting Vim
+
+To work with RELAX NG and vim, you need a `.vim` file. This file
+is generated from the flat RNG schema.
+
+To extract all relevant information for Vim, use the `rng2vim` tool
+from https://github.com/jhradilek/rng2vim.
+
+```
+$ rng2vim geekodoc5-flat.rng geekodoc
+```
+
+The file `geekodoc.vim` can be used with vim.
