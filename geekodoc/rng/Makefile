@@ -19,17 +19,22 @@ DOCBOOKXI_RNC_PATH  := /usr/share/xml/docbook/schema/rng/5.1/docbookxi.rnc
 DOCBOOKXI_RNG_PATH  := $(patsubst %.rnc, %.rng, $(DOCBOOKXI_RNC_PATH))
 DOCBOOKXI_RNC := $(notdir $(DOCBOOKXI_RNC_PATH))
 DOCBOOKXI_RNG := $(patsubst %.rnc, %.rng, $(DOCBOOKXI_RNC))
-
+RELAXNG_RNG := relaxng.rng
 
 .PHONY: all clean
 
-all: $(SUSESCHEMA_RNC) $(SUSESCHEMA_RNG)
+all: $(SUSESCHEMA_RNC) $(SUSESCHEMA_RNG) validate
 
+.PHONY: clean
 clean:
 	rm $(DOCBOOKXI_RNC) $(DOCBOOKXI_RNG) $(SUSESCHEMA)*.rng \
 	transclusion.rng \
 	2>/dev/null || true
 
+.PHONY: validate
+validate: $(SUSESCHEMA_RNG)
+	@echo "* Validating $< with jing..."
+	jing $(RELAXNG_RNG) $<
 
 #
 # HINT:
