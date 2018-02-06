@@ -1,5 +1,46 @@
 ------------------------------------------------------------------
-Fri Sept 15 09:16:00 UTC 2016 - toms@opensuse.org
+Thu Oct 26 00:00:00 UTC 2018 - toms@opensuse.org
+
+Release 1.0.1
+
+* Geekodoc
+  * Forbid xml:id on row and entry (#37)
+  * Allow affiliation inside author (#36)
+  * Forbid xml:id on remark (#32)
+  * Inconsistency between informalfigure and informaltable (#35)
+  * Allow sections (#34)
+
+* Novdoc
+  no changes
+
+
+------------------------------------------------------------------
+Thu Oct 26 00:00:00 UTC 2017 - toms@opensuse.org
+
+Release 1.0.0
+
+* Geekodoc
+  Missing mediaobject in cover bug (#30)
+
+* Novdoc
+  no changes
+
+
+------------------------------------------------------------------
+Fri Oct 13 00:00:00 UTC 2017 - toms@opensuse.org
+
+Release 0.9.9
+
+* Geekodoc
+  * Allow lowercase Values in format attribute (#29)
+  * Add list elements in taskprerequisites (#25)
+
+* Novdoc
+  No changes
+
+
+------------------------------------------------------------------
+Fri Sept 15 09:16:00 UTC 2017 - toms@opensuse.org
 
 Release 0.9.8
 
