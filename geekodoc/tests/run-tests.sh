@@ -38,42 +38,30 @@ function logerror() {
 }
 
 function loginfo() {
-    echo -e "\e[1;39mINFO: $1\e[0m"
+    local extraoptions=
+    if [[ $1 == '-n' ]]; then
+        extraoptions='-n'
+        shift
+    fi
+    echo -e $extraoptions "\e[1;39mINFO: $1\e[0m"
 }
 
 function logwarn() {
     echo -e "\e[1;95mWARN: $1\e[0m"
 }
 
-function validate_with_jing {
-    local _RNG=$1
-    local _XML=$2
-    local _ERROR=${2%*.xml}.err
-    local result
-    jing $_RNG $_XML >$_ERROR
-    return $?
-}
-
-function validate_with_xmllint {
-    local _RNG=$1
-    local _XML=$2
-    local _ERROR=${2%*.xml}.err
-    xmllint --noout --relaxng $_RNG $_XML 2>$_ERROR
-    return $?
-}
-
-function validator {
+function validator() {
     case "$VALIDATOR" in
      "xmllint")
-        validate_with_xmllint "$1" "$2"
-        return $?
+        # sed '$ d' removes the last line in which xmllint just prints the
+        # validation status (which we don't want cluttering our output).
+        xmllint --noout --relaxng "$1" "$2" 2>&1 | sed '$ d'
         ;;
      "jing")
-        validate_with_jing "$1" "$2"
-        return $?
+        jing "$1" "$2"
         ;;
      *)
-        echo "Wrong validator: $VALIDATOR" 1>&2
+        echo "Unrecognized validator: $VALIDATOR" 1>&2
         ;;
     esac
     return 1
@@ -109,12 +97,12 @@ function test_check()
     RESULTSTR="\e[1;32mPASSED\e[0m"
     case "$1" in
         good)
-            if [ "$RESULT" -ne 0 ]; then
+            if [[ ! "$RESULT" == '' ]]; then
                 RESULTSTR="\e[1;31mFAILED\e[0m"
             fi
             ;;
         bad)
-            if [ "$RESULT" -eq 0 ]; then
+            if [[ "$RESULT" == '' ]]; then
                 RESULTSTR="\e[1;31mFAILED\e[0m"
             fi
             ;;
@@ -128,12 +116,12 @@ function count_errors()
 {
     case "$1" in
         good)
-            if [ "$2" -ne 0 ]; then
+            if [[ ! "$2" == '' ]]; then
                 ERRORS=$(($ERRORS + 1))
             fi
             ;;
         bad)
-            if [ "$2" -eq 0 ]; then
+            if [[ "$2" == '' ]]; then
                 ERRORS=$(($ERRORS + 1))
             fi
             ;;
@@ -149,11 +137,14 @@ function test_files() {
     local re='^[0-9]+$'
 
     for xmlfile in $DIR/*.xml; do
-       validator $SCHEMA $xmlfile
-       result=$?
-       resultstr=$(test_check $GOOD_OR_BAD $result)
-       count_errors $GOOD_OR_BAD $result
-       loginfo "Validating '$xmlfile'... $resultstr"
+       loginfo -n "Validating '$xmlfile'..."
+       result=$(validator $SCHEMA $xmlfile)
+       resultstr=$(test_check $GOOD_OR_BAD "$result")
+       count_errors $GOOD_OR_BAD "$result"
+       echo -e " $resultstr"
+       if [[ $GOOD_OR_BAD == 'good' ]] && [[ ! "$result" == '' ]]; then
+         echo -e "$result"
+       fi
     done
 }
 
@@ -175,7 +166,7 @@ while true ; do
                  ;;
                *)
                  print_help
-                 echo "ERROR: Wrong validator '$2'" 2>/dev/stderr
+                 echo "ERROR: Unrecognized validator '$2'" 2>/dev/stderr
                  exit 10
                  ;;
             esac
@@ -222,9 +213,6 @@ fi
 loginfo "Using validator '$VALIDATOR'"
 loginfo "Selected category: '$TEST_CATEGORY'"
 
-# Cleanup any *.err files first...
-rm -f $PROGDIR/*.err 2>/dev/null
-
 
 case "$TEST_CATEGORY" in
   all)
@@ -240,12 +228,6 @@ case "$TEST_CATEGORY" in
     ;;
 esac
 
-
-# Remove any error files which are zero bytes, but keep the ones which
-# contains error messages
-for errfile in $PROGDIR/*.err; do
-    [[ -s $errfile ]] || rm $errfile 2>/dev/null
-done
 
 echo
 if [ 0 -eq "$ERRORS" ]; then
