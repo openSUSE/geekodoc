@@ -133,6 +133,8 @@ div {
      "eps" |
      ## Format of the xfig tool
      "FIG" |
+     ## Format of the xfig tool
+     "fig" |
      ## LibreOffice illustration format
      "ODG" |
      ## LibreOffice illustration format

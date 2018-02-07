@@ -19,9 +19,9 @@
    <imageobject>
     <imagedata fileref="foo.fig" format="FIG"/>
    </imageobject>
-   <!--<imageobject>
+   <imageobject>
     <imagedata fileref="foo.fig" format="fig"/>
-   </imageobject>-->
+   </imageobject>
    <imageobject>
     <imagedata fileref="foo.odg" format="ODG"/>
    </imageobject>
