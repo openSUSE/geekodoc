@@ -5,7 +5,7 @@ geekodoc/rng/docbookxi.rng
 geekodoc/rng/*.srng
 geekodoc/rng/catalog.dtd
 geekodoc/rng/geekodoc5*.rng
-geekodoc/tests/*.err
+geekodoc/tests/*/*.err
 
 build/
 autom4te.cache/
