@@ -110,7 +110,7 @@ function test_check()
         *)
             ;;
     esac
-    echo $RESULTSTR
+    echo -e $RESULTSTR
 }
 
 function count_errors()
@@ -138,11 +138,18 @@ function test_files() {
     local re='^[0-9]+$'
 
     for xmlfile in $DIR/*.xml; do
-       loginfo -n "Validating '$xmlfile'..."
+       loginfo -n "Validating '$xmlfile'... "
+       wellformedness=$(xmllint --noout --noent $xmlfile 2>&1)
+       if [[ ! $wellformedness == '' ]]; then
+           # In this case, we always want to say "FAILED", so this usage is correct.
+           # (But we are abusing the existing test_check() function somewhat.)
+           test_check good 'not good'
+           echo -e "$wellformedness"
+           logerror --fatal "Test case is not well-formed: '$xmlfile'. Quitting."
+       fi
        result=$(validator $SCHEMA $xmlfile)
-       resultstr=$(test_check $GOOD_OR_BAD "$result")
+       test_check $GOOD_OR_BAD "$result"
        count_errors $GOOD_OR_BAD "$result"
-       echo -e " $resultstr"
        if [[ ! "$result" == '' ]]; then
            [[ $GOOD_OR_BAD == 'good' ]] && echo -e "$result"
            echo "###### Errors in '$xmlfile' ######" >> $ERRORFILE
