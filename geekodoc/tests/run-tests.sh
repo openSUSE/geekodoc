@@ -21,12 +21,20 @@ ERRORS=0
 SUCCESS=0
 FAILURE=1
 
+MAKE=1
+
 TEST_CATEGORY=all
 
 export LANG=C
 
 function logerror() {
+    local fatal=0
+    if [[ $1 == '--fatal' ]]; then
+        fatal=1
+        shift
+    fi
     echo -e "\e[1;31mERROR: $1\e[0m"
+    [[ $fatal -ne 0 ]] && exit 1
 }
 
 function loginfo() {
@@ -86,6 +94,8 @@ Options:
                * 'bad' check only tests which are expected to fail
                * 'good' check only tests which are expected to succeed
                * 'all' chooses both (default)
+   -n, --noremake Do not run make on the geekodoc/rng/ directory
+               (useful for running this in the RPM %check section)
 EOF_helptext
 }
 
@@ -149,7 +159,7 @@ function test_files() {
 
 # -----
 #
-ARGS=$(getopt -o h,V:,t: -l help,validator:,test: -n "$PROG" -- "$@")
+ARGS=$(getopt -o h,V:,t:,n -l help,validator:,test:,nomake -n "$PROG" -- "$@")
 eval set -- "$ARGS"
 while true ; do
     case "$1" in
@@ -190,6 +200,10 @@ while true ; do
                 ;;
             esac
             ;;
+        -n|--nomake)
+            MAKE=0
+            shift
+            ;;
         --)
             shift
             break
@@ -197,9 +211,16 @@ while true ; do
     esac
 done
 
+if [[ $MAKE -eq 1 ]]; then
+  loginfo "Making flat GeekoDoc..."
+  make -C "$PROGDIR/../rng" > /dev/null
+  [[ ! $? -eq 0 ]] && logerror --fatal "Make error. Quitting."
+else
+  loginfo "Not making flat GeekoDoc"
+fi
+
 loginfo "Using validator '$VALIDATOR'"
 loginfo "Selected category: '$TEST_CATEGORY'"
-
 
 # Cleanup any *.err files first...
 rm -f $PROGDIR/*.err 2>/dev/null
