@@ -17,6 +17,7 @@ PROGDIR=${0%/*}
 SCHEMA=${PROGDIR}/../rng/geekodoc5-flat.rng
 SCHEMA=$(readlink -f ${SCHEMA})
 ERRORS=0
+ERRORFILE=${PROGDIR}/last-test-run-errors
 
 SUCCESS=0
 FAILURE=1
@@ -142,8 +143,10 @@ function test_files() {
        resultstr=$(test_check $GOOD_OR_BAD "$result")
        count_errors $GOOD_OR_BAD "$result"
        echo -e " $resultstr"
-       if [[ $GOOD_OR_BAD == 'good' ]] && [[ ! "$result" == '' ]]; then
-         echo -e "$result"
+       if [[ ! "$result" == '' ]]; then
+           [[ $GOOD_OR_BAD == 'good' ]] && echo -e "$result"
+           echo "###### Errors in '$xmlfile' ######" >> $ERRORFILE
+           echo -e "\n$result\n\n" >> $ERRORFILE
        fi
     done
 }
@@ -213,6 +216,7 @@ fi
 loginfo "Using validator '$VALIDATOR'"
 loginfo "Selected category: '$TEST_CATEGORY'"
 
+rm -r "$ERRORFILE" 2> /dev/null
 
 case "$TEST_CATEGORY" in
   all)
@@ -230,6 +234,7 @@ esac
 
 
 echo
+loginfo "Find all validation errors in $ERRORFILE"
 if [ 0 -eq "$ERRORS" ]; then
     loginfo "Found\e[1;32m $ERRORS errors\e[0m. Congratulations! :-)"
     exit 0
