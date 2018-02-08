@@ -100,33 +100,19 @@ function test_check()
         good)
             if [[ ! "$RESULT" == '' ]]; then
                 RESULTSTR="\e[1;31mFAILED\e[0m"
+                ERRORS=$(($ERRORS + 1))
             fi
             ;;
         bad)
             if [[ "$RESULT" == '' ]]; then
                 RESULTSTR="\e[1;31mFAILED\e[0m"
+                ERRORS=$(($ERRORS + 1))
             fi
             ;;
         *)
             ;;
     esac
     echo -e $RESULTSTR
-}
-
-function count_errors()
-{
-    case "$1" in
-        good)
-            if [[ ! "$2" == '' ]]; then
-                ERRORS=$(($ERRORS + 1))
-            fi
-            ;;
-        bad)
-            if [[ "$2" == '' ]]; then
-                ERRORS=$(($ERRORS + 1))
-            fi
-            ;;
-    esac
 }
 
 function test_files() {
@@ -149,7 +135,6 @@ function test_files() {
        fi
        result=$(validator $SCHEMA $xmlfile)
        test_check $GOOD_OR_BAD "$result"
-       count_errors $GOOD_OR_BAD "$result"
        if [[ ! "$result" == '' ]]; then
            [[ $GOOD_OR_BAD == 'good' ]] && echo -e "$result"
            echo "###### Errors in '$xmlfile' ######" >> $ERRORFILE
