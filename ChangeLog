@@ -1,4 +1,23 @@
 ------------------------------------------------------------------
+Fri Jan 09 13:23:00 UTC 2018 - toms@opensuse.org
+
+Bugfix release 1.0.2.1
+
+* Correct version in GeekoDoc schema
+* Add missing 'fig' value (#43)
+* Improve test suite
+
+
+------------------------------------------------------------------
+Tue Oct 06 00:00:00 UTC 2018 - toms@opensuse.org
+
+Release 1.0.2
+
+* Only a package release without any changes in the schemas.
+* Fixes issue #41 to reduce number of files in packages
+
+
+------------------------------------------------------------------
 Thu Oct 26 00:00:00 UTC 2018 - toms@opensuse.org
 
 Release 1.0.1

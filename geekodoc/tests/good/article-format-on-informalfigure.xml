@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+ <title>Test xml:id on an informalfigure</title>
+ <informalfigure>
+  <mediaobject>
+   <imageobject>
+    <imagedata fileref="foo.dia" format="DIA"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.dia" format="dia"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.eps" format="EPS"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.eps" format="eps"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.fig" format="FIG"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.fig" format="fig"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.odg" format="ODG"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.odg" format="odg"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.jpg" format="JPG"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.jpg" format="JPEG"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.jpg" format="jpg"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.jpg" format="jpeg"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.svg" format="SVG"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.svg" format="svg"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.pdf" format="PDF"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.pdf" format="pdf"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.png" format="PNG"/>
+   </imageobject>
+   <imageobject>
+    <imagedata fileref="foo.png" format="png"/>
+   </imageobject>
+  </mediaobject>
+ </informalfigure>
+</article>

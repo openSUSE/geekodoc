@@ -18,7 +18,7 @@ namespace xlink = "http://www.w3.org/1999/xlink"
 s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink" prefix = "xlink" ]
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.0.1"
+suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
 #
 div {
   div {
@@ -171,6 +171,9 @@ div {
      |
        ## Format of the xfig tool
        "FIG"
+     |
+       ## Format of the xfig tool
+       "fig"
      |
        ## LibreOffice illustration format
        "ODG"

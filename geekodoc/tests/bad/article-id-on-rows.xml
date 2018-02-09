@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+ <title>Test xml:id on rows</title>
+ <table>
+  <title>A Title with an xml:id on a row</title>
+  <tgroup cols="2">
+   <tbody>
+    <row xml:id="should-not-be-there">
+     <entry>A</entry>
+     <entry>B</entry>
+    </row>
+   </tbody>
+  </tgroup>
+ </table>
+</article>
