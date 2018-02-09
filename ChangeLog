@@ -1,9 +1,11 @@
 ------------------------------------------------------------------
-Fri Jan 09 12:46:00 UTC 2018 - toms@opensuse.org
+Fri Jan 09 13:23:00 UTC 2018 - toms@opensuse.org
 
 Bugfix release 1.0.2.1
 
-Correct version in GeekoDoc schema
+* Correct version in GeekoDoc schema
+* Add missing 'fig' value (#43)
+* Improve test suite
 
 
 ------------------------------------------------------------------
