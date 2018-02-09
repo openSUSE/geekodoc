@@ -3,10 +3,21 @@
 <article xmlns="http://docbook.org/ns/docbook">
  <title>Test missing xml:id on Tables</title>
  <table>
-  <title>A Title with an xml:id on a row</title>
+  <title>A Title with an xml:id on a tbody</title>
   <tgroup cols="2">
+   <thead xml:id="should-not-be-there">
+    <row>
+     <entry>Head A</entry>
+     <entry>Head B</entry>
+    </row>
+   </thead>
+   <tfoot xml:id="should-also-not-be-there">
+    <row>
+     <entry></entry>
+    </row>
+   </tfoot>
    <tbody>
-    <row xml:id="should-not-be-there">
+    <row>
      <entry>A</entry>
      <entry>B</entry>
     </row>
