@@ -5,7 +5,7 @@
 #
 # This schema is a customization of DocBook for SUSE documents
 #
-# Author: Thomas Schraitle, 2015-2017
+# Author: Thomas Schraitle, 2015-2018
 #
 default namespace db = "http://docbook.org/ns/docbook"
 datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
@@ -31,7 +31,7 @@ s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink"  prefix = "xlink" ]
 
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.0.1"
+suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
 
 
 #
