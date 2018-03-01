@@ -2,6 +2,7 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
 namespace ctrl = "http://nwalsh.com/xmlns/schema-control/"
 default namespace db = "http://docbook.org/ns/docbook"
 namespace html = "http://www.w3.org/1999/xhtml"
+namespace its = "http://www.w3.org/2005/11/its"
 namespace local = "http://www.w3.org/2001/XInclude/local-attributes"
 namespace locattr = "http://www.w3.org/2001/XInclude/local-attributes"
 namespace mml = "http://www.w3.org/1998/Math/MathML"
@@ -17,6 +18,7 @@ namespace xlink = "http://www.w3.org/1999/xlink"
 
 s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink" prefix = "xlink" ]
+s:ns [ uri = "http://www.w3.org/2005/11/its" prefix = "its" ]
 # Constants
 suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
 #
@@ -65,6 +67,22 @@ div {
         & db.trans.suffix.attribute?
         & db.trans.linkscope.attribute?
     }
+  }
+}
+#
+div {
+  div {
+    its-translate.type =
+
+      ## The nodes need to be translated
+      "yes"
+      |
+        ## The nodes must not be translated
+        "no"
+    its-attribute.translate =
+
+      ## The Translate data category information to be attached to the current node
+      attribute its:translate { its-translate.type }
   }
 }
 # XInclude 1.1
@@ -552,16 +570,6 @@ div {
 
       ## The RDFa Lite prefix
       attribute prefix { text }
-    db.common.base.attributes =
-      db.version.attribute?
-      & db.xml.lang.attribute?
-      & db.xml.base.attribute?
-      & db.remap.attribute?
-      & db.xreflabel.attribute?
-      & db.revisionflag.attribute?
-      & db.dir.attribute?
-      & db.effectivity.attributes
-      & db.rdfalite.attributes
     db.common.attributes =
       db.xml.id.attribute?
       & db.common.base.attributes
@@ -10454,7 +10462,18 @@ div {
     & db.variablelist.termlength.attribute?
   db.warning.attlist = db.warning.role.attribute? & db.common.attributes
   # ========= Changed attributes
-  #
+  # Introduce optional its:translate attribute:
+  db.common.base.attributes =
+    db.version.attribute?
+    & db.xml.lang.attribute?
+    & db.xml.base.attribute?
+    & db.remap.attribute?
+    & db.xreflabel.attribute?
+    & db.revisionflag.attribute?
+    & db.dir.attribute?
+    & db.effectivity.attributes
+    & db.rdfalite.attributes
+    & its-attribute.translate?
   db.common.data.attributes =
 
     ## Specifies the format of the data
@@ -10927,7 +10946,12 @@ div {
   # see https://www.w3.org/TR/xinclude-11/
   #
   db.any.other.attribute =
-    attribute * - (local:* | trans:* | ns1:* | xlink:* | xml:*) { text }
+    attribute * - (local:*
+                   | trans:*
+                   | ns1:*
+                   | xlink:*
+                   | xml:*
+                   | its:*) { text }
   db.xi.include.attlist =
     db.xi.href.attribute?
     & # (db.xi.href-empty.attribute | db.xi.href-uri.attribute)? &

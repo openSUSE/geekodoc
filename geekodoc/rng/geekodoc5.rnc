@@ -14,6 +14,7 @@ datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
 namespace ctrl = "http://nwalsh.com/xmlns/schema-control/"
 namespace html = "http://www.w3.org/1999/xhtml"
+namespace its = "http://www.w3.org/2005/11/its"
 namespace mml = "http://www.w3.org/1998/Math/MathML"
 namespace svg = "http://www.w3.org/2000/svg"
 namespace s = "http://purl.oclc.org/dsdl/schematron"
@@ -29,6 +30,7 @@ namespace trans="http://docbook.org/ns/transclusion"
 # Define some namespaces for Schematron
 s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink"  prefix = "xlink" ]
+s:ns [ uri = "http://www.w3.org/2005/11/its"  prefix = "its" ]
 
 # Constants
 suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
@@ -36,6 +38,8 @@ suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
 
 #
 include "transclusion.rnc"
+#
+include "its.rnc"
 
 # XInclude 1.1
 div
@@ -527,7 +531,6 @@ include "docbookxi.rnc"
   # db.year = notAllowed
   }
 
-
   #======== General Patterns
   db.cover.contentmodel = db.mediaobject+
 
@@ -1016,7 +1019,19 @@ include "docbookxi.rnc"
     & db.common.attributes
 
   #========= Changed attributes
-  #
+  # Introduce optional its:translate attribute:
+  db.common.base.attributes =
+      db.version.attribute?
+      & db.xml.lang.attribute?
+      & db.xml.base.attribute?
+      & db.remap.attribute?
+      & db.xreflabel.attribute?
+      & db.revisionflag.attribute?
+      & db.dir.attribute?
+      & db.effectivity.attributes
+      & db.rdfalite.attributes
+      & its-attribute.translate?
+
   db.common.data.attributes =
    ## Specifies the format of the data
    attribute format { db.format.enumeration }?,
@@ -1475,7 +1490,7 @@ include "docbookxi.rnc"
   # see https://www.w3.org/TR/xinclude-11/
   #
   db.any.other.attribute = attribute *
-                           - (locattr:* | trans:* | local:* | xlink:* | xml:* )
+                           - (locattr:* | trans:* | local:* | xlink:* | xml:* | its:*)
                            { text }
   db.xi.include.attlist =
     db.xi.href.attribute? &
