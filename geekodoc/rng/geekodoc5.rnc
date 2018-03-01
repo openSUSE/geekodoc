@@ -36,6 +36,8 @@ suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
 
 #
 include "transclusion.rnc"
+#
+include "its.rnc"
 
 # XInclude 1.1
 div
@@ -1017,6 +1019,9 @@ include "docbookxi.rnc"
 
   #========= Changed attributes
   #
+  # Introduce optional its:translate attribute:
+  db.common.base.attributes &= its-attribute.translate?
+
   db.common.data.attributes =
    ## Specifies the format of the data
    attribute format { db.format.enumeration }?,
