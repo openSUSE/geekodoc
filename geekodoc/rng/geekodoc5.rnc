@@ -310,7 +310,7 @@ include "docbookxi.rnc"
   db.guimenuitem = notAllowed
   db.guisubmenu = notAllowed
   db.hardware = notAllowed
-  db.holder = notAllowed
+  # db.holder = notAllowed
   db.honorific = notAllowed
   # db.imagedata = notAllowed
   # db.imageobject = notAllowed

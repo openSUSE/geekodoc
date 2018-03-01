@@ -2770,6 +2770,10 @@ div {
         db.holder.role.attribute?
         & db.common.attributes
         & db.common.linking.attributes
+      db.holder =
+
+        ## The name of the individual or organization that holds a copyright
+        element holder { db.holder.attlist, db._text }
     }
     div {
       db.cover.role.attribute = attribute role { text }
@@ -9861,7 +9865,7 @@ div {
     db.guimenuitem = notAllowed
     db.guisubmenu = notAllowed
     db.hardware = notAllowed
-    db.holder = notAllowed
+    # db.holder = notAllowed
     db.honorific = notAllowed
     # db.imagedata = notAllowed
     # db.imageobject = notAllowed
