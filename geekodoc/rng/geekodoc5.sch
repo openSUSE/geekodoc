@@ -36,4 +36,20 @@
    <s:assert test="@xml:id">a <s:value-of select="local-name()"/> with a title must have a xml:id attribute</s:assert>
   </s:rule>
  </s:pattern>
+
+ <s:pattern id="list-checks">
+  <s:title>Checks for amount of child elements in lists</s:title>
+  <s:rule id="procedure-one-step" context="db:procedure">
+   <s:assert test="not(count(db:step) = 1)">A procedure must contain more than one step</s:assert>
+  </s:rule>
+  <s:rule id="orderedlist-one-listitem" context="db:orderedlist">
+   <s:assert test="not(count(db:listitem) = 1)">An orderedlist must contain more than one listitems</s:assert>
+  </s:rule>
+  <s:rule id="itemizedlist-one-listitem" context="db:itemizedlist">
+   <s:assert test="not(count(db:listitem) = 1)">An orderedlist must contain more than one listitems</s:assert>
+  </s:rule>
+  <s:rule id="simplelist-one-member" context="db:simplelist">
+   <s:assert test="not(count(db:member) = 1)">A simplelist must contain more than one member</s:assert>
+  </s:rule>
+ </s:pattern>
 </s:schema>
