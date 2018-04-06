@@ -2,6 +2,7 @@
 
 geekodoc/rng/docbookxi.rnc
 geekodoc/rng/docbookxi.rng
+geekodoc/rng/its.rng
 geekodoc/rng/*.srng
 geekodoc/rng/catalog.dtd
 geekodoc/rng/geekodoc5*.rng
