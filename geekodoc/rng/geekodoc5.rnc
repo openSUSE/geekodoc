@@ -33,7 +33,7 @@ s:ns [ uri = "http://www.w3.org/1999/xlink"  prefix = "xlink" ]
 s:ns [ uri = "http://www.w3.org/2005/11/its"  prefix = "its" ]
 
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
+suse.schema.version = "5.1-subset GeekoDoc-1.0.3"
 
 
 #
@@ -1485,6 +1485,14 @@ include "docbookxi.rnc"
         db.varlistentry+
       }
   }
+
+  # screen/programlisting content model
+  db.verbatim.inlines = (text | db.co | db.code | db.command | db.constant
+                         | db.email | db.emphasis | db.envar | db.filename
+                         | db.footnote | db.option | db.package | db.parameter
+                         | db.phrase | db.prompt | db.property | db.remark
+                         | db.replaceable | db.systemitem | db.tag
+                         | db.uri | db.varname | db.xref)
 
   # XIncludes 1.1
   # see https://www.w3.org/TR/xinclude-11/
