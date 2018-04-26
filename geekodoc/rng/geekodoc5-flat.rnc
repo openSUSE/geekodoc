@@ -20,7 +20,7 @@ s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink" prefix = "xlink" ]
 s:ns [ uri = "http://www.w3.org/2005/11/its" prefix = "its" ]
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
+suse.schema.version = "5.1-subset GeekoDoc-1.0.3"
 #
 div {
   div {
@@ -10965,6 +10965,7 @@ div {
     | db.tag
     | db.uri
     | db.varname
+    | db.xref
   # XIncludes 1.1
   # see https://www.w3.org/TR/xinclude-11/
   #

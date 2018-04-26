@@ -24,4 +24,5 @@
 <screen><tag>text</tag></screen>
 <screen><uri>text</uri></screen>
 <screen><varname>text</varname></screen>
+<screen><xref linkend="co"/></screen>
 </article>
