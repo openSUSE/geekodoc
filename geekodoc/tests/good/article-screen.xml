@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+ <title>Test xml:id on an informaltable</title>
+ <screen>Only text</screen>
+
+<screen><co xml:id="co"/></screen>
+<screen><code>text</code></screen>
+<screen><command>ls</command> <option>--help</option></screen>
+<screen><constant>text</constant></screen>
+<screen><email>text</email></screen>
+<screen><emphasis>text</emphasis></screen>
+<screen><envar>text</envar></screen>
+<screen><filename>text</filename></screen>
+<screen><footnote><para>text</para></footnote></screen>
+<screen><package>text</package></screen>
+<screen><parameter>text</parameter></screen>
+<screen><phrase>text</phrase></screen>
+<screen><prompt>text</prompt></screen>
+<screen><property>text</property></screen>
+<screen><remark>text</remark></screen>
+<screen><replaceable>text</replaceable></screen>
+<screen><systemitem>text</systemitem></screen>
+<screen><tag>text</tag></screen>
+<screen><uri>text</uri></screen>
+<screen><varname>text</varname></screen>
+</article>
