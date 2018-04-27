@@ -8270,9 +8270,6 @@ div {
 
         ## Identifies the non-standard action in some unspecified way.
         attribute otheraction { text }
-      db.keycombo.action.attrib =
-        db.keycombo.action-enum.attribute
-        | db.keycombo.action-other.attributes
       db.keycombo.role.attribute = attribute role { text }
       db.keycombo.attlist =
         db.keycombo.role.attribute?
@@ -10716,6 +10713,10 @@ div {
       element figure {
         db.figure.attlist, db.figure.info, db.mediaobject, db.caption?
       }
+  }
+  # keycombo
+  div {
+    db.keycombo.action.attrib = empty
   }
   # para
   div {

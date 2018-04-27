@@ -1310,6 +1310,12 @@ include "docbookxi.rnc"
     }
   }
 
+  # keycombo
+  div {
+    db.keycombo.action.attrib = empty
+  }
+
+
   # para
   div {
     # Disallow xml:id in paras
