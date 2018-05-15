@@ -784,6 +784,20 @@ include "docbookxi.rnc"
     & db.cmdsynopsis.cmdlength.attribute?
     & db.cmdsynopsis.label.attribute?
 
+  db.colspec.attlist =
+    db.colspec.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.colspec.colnum.attribute?
+    & db.char.attribute?
+    & db.colsep.attribute?
+    & db.colspec.colwidth.attribute?
+    & db.charoff.attribute?
+    & db.colname.attribute?
+    & db.rowsep.attribute?
+    & db.align.attribute?
+    & db.rowheader.attribute?
+
   db.constraintdef.attlist =
     db.constraintdef.role.attribute?
     & db.common.attributes
@@ -865,6 +879,53 @@ include "docbookxi.rnc"
     & db.frame.attribute?
     & db.pgwide.attribute?
     & db.rowheader.attribute?
+
+  db.cals.table.attlist =
+    db.cals.table.role.attribute?
+    & db.cals.table.label.attribute?
+    & db.common.attributes
+    & db.tabstyle.attribute?
+    & db.floatstyle.attribute?
+    & db.orient.attribute?
+    & db.colsep.attribute?
+    & db.rowsep.attribute?
+    & db.frame.attribute?
+    & db.pgwide.attribute?
+    &
+      ## Indicates if the short or long title should be used in a List of Tables
+      attribute shortentry {
+        ## Indicates that the full title should be used.
+        "0"
+        |
+        ## Indicates that the short short title (titleabbrev) should be used.
+        "1"
+      }?
+    &
+      ## Indicates if the table should appear in a List of Tables
+      attribute tocentry {
+        ## Indicates that the table should not occur in the List of Tables.
+        "0"
+        |
+        ## Indicates that the table should appear in the List of Tables.
+        "1"
+      }?
+    & db.rowheader.attribute?
+
+  db.cals.tbody.attlist =
+    db.cals.tbody.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+  db.cals.thead.attlist =
+    db.cals.thead.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+  db.cals.tfoot.attlist =
+    db.cals.tfoot.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
 
   db.itemizedlist.attlist =
     db.itemizedlist.role.attribute?
@@ -967,39 +1028,6 @@ include "docbookxi.rnc"
     & db.verbatim.attributes
     & db.synopsis.label.attribute?
 
-  db.cals.table.attlist =
-    db.cals.table.role.attribute?
-    & db.cals.table.label.attribute?
-    & db.common.attributes
-    & db.tabstyle.attribute?
-    & db.floatstyle.attribute?
-    & db.orient.attribute?
-    & db.colsep.attribute?
-    & db.rowsep.attribute?
-    & db.frame.attribute?
-    & db.pgwide.attribute?
-    &
-      ## Indicates if the short or long title should be used in a List of Tables
-      attribute shortentry {
-
-        ## Indicates that the full title should be used.
-        "0"
-        |
-          ## Indicates that the short short title (titleabbrev) should be used.
-          "1"
-      }?
-    &
-      ## Indicates if the table should appear in a List of Tables
-      attribute tocentry {
-
-        ## Indicates that the table should not occur in the List of Tables.
-        "0"
-        |
-          ## Indicates that the table should appear in the List of Tables.
-          "1"
-      }?
-    & db.rowheader.attribute?
-
   db.task.attlist =
     db.task.role.attribute?
     & db.common.attributes
@@ -1007,6 +1035,18 @@ include "docbookxi.rnc"
   db.tip.attlist =
     db.tip.role.attribute?
     & db.common.attributes
+
+  db.tgroup.attlist =
+    db.tgroup.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.char.attribute?
+    & db.charoff.attribute?
+    & db.tgroup.tgroupstyle.attribute?
+    & db.tgroup.cols.attribute
+    & db.colsep.attribute?
+    & db.rowsep.attribute?
+    & db.align.attribute?
 
   db.variablelist.attlist =
     db.variablelist.role.attribute?

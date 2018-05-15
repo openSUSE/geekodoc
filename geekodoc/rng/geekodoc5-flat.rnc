@@ -6350,17 +6350,6 @@ div {
 
         ## The number of columns in the table. Must be an integer greater than zero.
         attribute cols { xsd:positiveInteger }
-      db.tgroup.attlist =
-        db.tgroup.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.char.attribute?
-        & db.charoff.attribute?
-        & db.tgroup.tgroupstyle.attribute?
-        & db.tgroup.cols.attribute
-        & db.colsep.attribute?
-        & db.rowsep.attribute?
-        & db.align.attribute?
       db.tgroup =
 
         ## A wrapper for the main content of a table, or part of a table
@@ -6383,19 +6372,6 @@ div {
 
         ## Specifies the width of the column.
         attribute colwidth { text }
-      db.colspec.attlist =
-        db.colspec.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.colspec.colnum.attribute?
-        & db.char.attribute?
-        & db.colsep.attribute?
-        & db.colspec.colwidth.attribute?
-        & db.charoff.attribute?
-        & db.colname.attribute?
-        & db.rowsep.attribute?
-        & db.align.attribute?
-        & db.rowheader.attribute?
       db.colspec =
 
         ## Specifications for a column in a table
@@ -6430,11 +6406,6 @@ div {
     }
     div {
       db.cals.thead.role.attribute = attribute role { text }
-      db.cals.thead.attlist =
-        db.cals.thead.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.valign.attribute?
       db.cals.thead =
 
         ## A table header consisting of one or more rows
@@ -6442,11 +6413,6 @@ div {
     }
     div {
       db.cals.tfoot.role.attribute = attribute role { text }
-      db.cals.tfoot.attlist =
-        db.cals.tfoot.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.valign.attribute?
       db.cals.tfoot =
 
         ## A table footer consisting of one or more rows
@@ -6454,11 +6420,6 @@ div {
     }
     div {
       db.cals.tbody.role.attribute = attribute role { text }
-      db.cals.tbody.attlist =
-        db.cals.tbody.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.valign.attribute?
       db.cals.tbody =
 
         ## A wrapper for the rows of a table or informal table
@@ -10285,6 +10246,19 @@ div {
     & db.cmdsynopsis.sepchar.attribute?
     & db.cmdsynopsis.cmdlength.attribute?
     & db.cmdsynopsis.label.attribute?
+  db.colspec.attlist =
+    db.colspec.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.colspec.colnum.attribute?
+    & db.char.attribute?
+    & db.colsep.attribute?
+    & db.colspec.colwidth.attribute?
+    & db.charoff.attribute?
+    & db.colname.attribute?
+    & db.rowsep.attribute?
+    & db.align.attribute?
+    & db.rowheader.attribute?
   db.constraintdef.attlist =
     db.constraintdef.role.attribute? & db.common.attributes
   db.classsynopsisinfo.attlist =
@@ -10350,6 +10324,53 @@ div {
     & db.frame.attribute?
     & db.pgwide.attribute?
     & db.rowheader.attribute?
+  db.cals.table.attlist =
+    db.cals.table.role.attribute?
+    & db.cals.table.label.attribute?
+    & db.common.attributes
+    & db.tabstyle.attribute?
+    & db.floatstyle.attribute?
+    & db.orient.attribute?
+    & db.colsep.attribute?
+    & db.rowsep.attribute?
+    & db.frame.attribute?
+    & db.pgwide.attribute?
+    &
+      ## Indicates if the short or long title should be used in a List of Tables
+      attribute shortentry {
+
+        ## Indicates that the full title should be used.
+        "0"
+        |
+          ## Indicates that the short short title (titleabbrev) should be used.
+          "1"
+      }?
+    &
+      ## Indicates if the table should appear in a List of Tables
+      attribute tocentry {
+
+        ## Indicates that the table should not occur in the List of Tables.
+        "0"
+        |
+          ## Indicates that the table should appear in the List of Tables.
+          "1"
+      }?
+    & db.rowheader.attribute?
+  db.cals.tbody.attlist =
+    db.cals.tbody.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+  db.cals.thead.attlist =
+    db.cals.thead.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+  db.cals.tfoot.attlist =
+    db.cals.tfoot.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
   db.itemizedlist.attlist =
     db.itemizedlist.role.attribute?
     & db.common.attributes
@@ -10420,40 +10441,19 @@ div {
     & db.common.attributes
     & db.verbatim.attributes
     & db.synopsis.label.attribute?
-  db.cals.table.attlist =
-    db.cals.table.role.attribute?
-    & db.cals.table.label.attribute?
-    & db.common.attributes
-    & db.tabstyle.attribute?
-    & db.floatstyle.attribute?
-    & db.orient.attribute?
-    & db.colsep.attribute?
-    & db.rowsep.attribute?
-    & db.frame.attribute?
-    & db.pgwide.attribute?
-    &
-      ## Indicates if the short or long title should be used in a List of Tables
-      attribute shortentry {
-
-        ## Indicates that the full title should be used.
-        "0"
-        |
-          ## Indicates that the short short title (titleabbrev) should be used.
-          "1"
-      }?
-    &
-      ## Indicates if the table should appear in a List of Tables
-      attribute tocentry {
-
-        ## Indicates that the table should not occur in the List of Tables.
-        "0"
-        |
-          ## Indicates that the table should appear in the List of Tables.
-          "1"
-      }?
-    & db.rowheader.attribute?
   db.task.attlist = db.task.role.attribute? & db.common.attributes
   db.tip.attlist = db.tip.role.attribute? & db.common.attributes
+  db.tgroup.attlist =
+    db.tgroup.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.char.attribute?
+    & db.charoff.attribute?
+    & db.tgroup.tgroupstyle.attribute?
+    & db.tgroup.cols.attribute
+    & db.colsep.attribute?
+    & db.rowsep.attribute?
+    & db.align.attribute?
   db.variablelist.attlist =
     db.variablelist.role.attribute?
     & db.common.attributes
