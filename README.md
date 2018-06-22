@@ -44,7 +44,7 @@ The following procedure can be used for openSUSE Leap 42.1:
 1. Add the repository:
 
    ```
-   $ sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/python/openSUSE_Leap_42.3/devel:languages:python.repo
+   $ sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/python/openSUSE_Leap_\$releasever/devel:languages:python.repo
    ```
 
 2. Install it:
@@ -88,31 +88,10 @@ The executable can be found in `.env3/bin/rnginline`.
 
 1. Update your GitHub repository.
 
-2. Convert the official compact version into the XML version with trang:
+2. Change the directory to `geekodoc/rng`.
 
-   ```
-   $ trang geekodoc.rnc geekodoc5.rng
-   ```
+3. Run `make`.
 
-3. Create the flat RNG version:
-
-   ```
-   $ rnginline geekodoc5.rng geekodoc5-flat.rng
-   ```
-
-4. Optional: Cleanup and remove unnecessary namespaces:
-
-   ```
-   $ mv geekodoc5-flat.rng _flat.rng
-   $ xmllint -o geekodoc5-flat.rng --nsclean --format flat.rng
-   $ rm _flat.rng
-   ```
-
-5. Optional: Create the compact version:
-
-   ```
-   $ trang geekodoc5-flat.rng geekodoc5-flat.rnc
-   ```
 
 ## Supporting Vim
 

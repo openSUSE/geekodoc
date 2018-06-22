@@ -14,6 +14,7 @@ datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
 namespace ctrl = "http://nwalsh.com/xmlns/schema-control/"
 namespace html = "http://www.w3.org/1999/xhtml"
+namespace its = "http://www.w3.org/2005/11/its"
 namespace mml = "http://www.w3.org/1998/Math/MathML"
 namespace svg = "http://www.w3.org/2000/svg"
 namespace s = "http://purl.oclc.org/dsdl/schematron"
@@ -29,13 +30,16 @@ namespace trans="http://docbook.org/ns/transclusion"
 # Define some namespaces for Schematron
 s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink"  prefix = "xlink" ]
+s:ns [ uri = "http://www.w3.org/2005/11/its"  prefix = "its" ]
 
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
+suse.schema.version = "5.1-subset GeekoDoc-1.0.3"
 
 
 #
 include "transclusion.rnc"
+#
+include "its.rnc"
 
 # XInclude 1.1
 div
@@ -74,6 +78,37 @@ div
 #======== Our own patterns
 div
 {
+db.entry.model =
+     # This pattern is used to restrict the <entry> element
+     # - no procedures
+     # Original definition:
+     # (db.nopara.blocks | db.para.blocks | db.extension.blocks)
+     #
+     # We need to resolve the db.list.blocks patterns to avoid adding
+     # <procedures>:
+      (
+      db.para.blocks
+      | db.itemizedlist
+      | db.orderedlist
+      | db.simplelist
+      | db.variablelist
+      | db.segmentedlist
+      | db.glosslist
+      | db.bibliolist
+      | db.calloutlist
+      | db.qandaset
+      | db.formal.blocks
+      | db.publishing.blocks
+      | db.graphic.blocks
+      | db.verbatim.blocks
+      | db.synopsis.blocks
+      | db.annotation
+      | db.xi.include
+      | db.extension.blocks
+      | db.admonition.blocks
+      )*
+      | (db.all.inlines*)
+
 db.step.blocks =
    db.para.blocks
    | db.remark
@@ -310,7 +345,7 @@ include "docbookxi.rnc"
   db.guimenuitem = notAllowed
   db.guisubmenu = notAllowed
   db.hardware = notAllowed
-  db.holder = notAllowed
+  # db.holder = notAllowed
   db.honorific = notAllowed
   # db.imagedata = notAllowed
   # db.imageobject = notAllowed
@@ -526,7 +561,6 @@ include "docbookxi.rnc"
   # db.xref = notAllowed
   # db.year = notAllowed
   }
-
 
   #======== General Patterns
   db.cover.contentmodel = db.mediaobject+
@@ -781,6 +815,20 @@ include "docbookxi.rnc"
     & db.cmdsynopsis.cmdlength.attribute?
     & db.cmdsynopsis.label.attribute?
 
+  db.colspec.attlist =
+    db.colspec.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.colspec.colnum.attribute?
+    & db.char.attribute?
+    & db.colsep.attribute?
+    & db.colspec.colwidth.attribute?
+    & db.charoff.attribute?
+    & db.colname.attribute?
+    & db.rowsep.attribute?
+    & db.align.attribute?
+    & db.rowheader.attribute?
+
   db.constraintdef.attlist =
     db.constraintdef.role.attribute?
     & db.common.attributes
@@ -862,6 +910,53 @@ include "docbookxi.rnc"
     & db.frame.attribute?
     & db.pgwide.attribute?
     & db.rowheader.attribute?
+
+  db.cals.table.attlist =
+    db.cals.table.role.attribute?
+    & db.cals.table.label.attribute?
+    & db.common.attributes
+    & db.tabstyle.attribute?
+    & db.floatstyle.attribute?
+    & db.orient.attribute?
+    & db.colsep.attribute?
+    & db.rowsep.attribute?
+    & db.frame.attribute?
+    & db.pgwide.attribute?
+    &
+      ## Indicates if the short or long title should be used in a List of Tables
+      attribute shortentry {
+        ## Indicates that the full title should be used.
+        "0"
+        |
+        ## Indicates that the short short title (titleabbrev) should be used.
+        "1"
+      }?
+    &
+      ## Indicates if the table should appear in a List of Tables
+      attribute tocentry {
+        ## Indicates that the table should not occur in the List of Tables.
+        "0"
+        |
+        ## Indicates that the table should appear in the List of Tables.
+        "1"
+      }?
+    & db.rowheader.attribute?
+
+  db.cals.tbody.attlist =
+    db.cals.tbody.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+  db.cals.thead.attlist =
+    db.cals.thead.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+  db.cals.tfoot.attlist =
+    db.cals.tfoot.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
 
   db.itemizedlist.attlist =
     db.itemizedlist.role.attribute?
@@ -964,39 +1059,6 @@ include "docbookxi.rnc"
     & db.verbatim.attributes
     & db.synopsis.label.attribute?
 
-  db.cals.table.attlist =
-    db.cals.table.role.attribute?
-    & db.cals.table.label.attribute?
-    & db.common.attributes
-    & db.tabstyle.attribute?
-    & db.floatstyle.attribute?
-    & db.orient.attribute?
-    & db.colsep.attribute?
-    & db.rowsep.attribute?
-    & db.frame.attribute?
-    & db.pgwide.attribute?
-    &
-      ## Indicates if the short or long title should be used in a List of Tables
-      attribute shortentry {
-
-        ## Indicates that the full title should be used.
-        "0"
-        |
-          ## Indicates that the short short title (titleabbrev) should be used.
-          "1"
-      }?
-    &
-      ## Indicates if the table should appear in a List of Tables
-      attribute tocentry {
-
-        ## Indicates that the table should not occur in the List of Tables.
-        "0"
-        |
-          ## Indicates that the table should appear in the List of Tables.
-          "1"
-      }?
-    & db.rowheader.attribute?
-
   db.task.attlist =
     db.task.role.attribute?
     & db.common.attributes
@@ -1004,6 +1066,18 @@ include "docbookxi.rnc"
   db.tip.attlist =
     db.tip.role.attribute?
     & db.common.attributes
+
+  db.tgroup.attlist =
+    db.tgroup.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.char.attribute?
+    & db.charoff.attribute?
+    & db.tgroup.tgroupstyle.attribute?
+    & db.tgroup.cols.attribute
+    & db.colsep.attribute?
+    & db.rowsep.attribute?
+    & db.align.attribute?
 
   db.variablelist.attlist =
     db.variablelist.role.attribute?
@@ -1016,7 +1090,19 @@ include "docbookxi.rnc"
     & db.common.attributes
 
   #========= Changed attributes
-  #
+  # Introduce optional its:translate attribute:
+  db.common.base.attributes =
+      db.version.attribute?
+      & db.xml.lang.attribute?
+      & db.xml.base.attribute?
+      & db.remap.attribute?
+      & db.xreflabel.attribute?
+      & db.revisionflag.attribute?
+      & db.dir.attribute?
+      & db.effectivity.attributes
+      & db.rdfalite.attributes
+      & its-attribute.translate?
+
   db.common.data.attributes =
    ## Specifies the format of the data
    attribute format { db.format.enumeration }?,
@@ -1105,13 +1191,41 @@ include "docbookxi.rnc"
   }
 
   # entry
-  #div {
-  #  # Disallow admonitions in table <entry>s
-  #  db.entry = element entry {
-  #    db.entry.attlist,
-  #    (db.all.inlines* | db.some.blocks*)
-  #  }
-  #}
+  div {
+    # Disallow procedure in table <entry>s
+    ## A cell in a table
+    db.entry = element entry {
+    [
+      s:pattern [
+        s:title [ "Element exclusion" ]
+        s:rule [
+          context = "db:entry"
+          s:assert [
+            test = "not(.//db:table)"
+            "table must not occur among the children or descendants of entry"
+          ]
+        ]
+      ]
+      s:pattern [
+        "\x{a}" ~
+        "               "
+        s:title [ "Element exclusion" ]
+        "               "
+        s:rule [
+          context = "db:entry"
+          "\x{a}" ~
+          "                  "
+          s:assert [
+            test = "not(.//db:informaltable)"
+            "informaltable must not occur among the children or descendants of entry"
+          ]
+        ]
+      ]
+    ]
+      db.entry.attlist,
+      db.entry.model
+    }
+  }
 
   # We only want to support CALS tables
   div {
@@ -1254,6 +1368,12 @@ include "docbookxi.rnc"
       db.figure.attlist, db.figure.info, db.mediaobject, db.caption?
     }
   }
+
+  # keycombo
+  div {
+    db.keycombo.action.attrib = empty
+  }
+
 
   # para
   div {
@@ -1471,11 +1591,19 @@ include "docbookxi.rnc"
       }
   }
 
+  # screen/programlisting content model
+  db.verbatim.inlines = (text | db.co | db.code | db.command | db.constant
+                         | db.email | db.emphasis | db.envar | db.filename
+                         | db.footnote | db.option | db.package | db.parameter
+                         | db.phrase | db.prompt | db.property | db.remark
+                         | db.replaceable | db.systemitem | db.tag
+                         | db.uri | db.varname | db.xref)
+
   # XIncludes 1.1
   # see https://www.w3.org/TR/xinclude-11/
   #
   db.any.other.attribute = attribute *
-                           - (locattr:* | trans:* | local:* | xlink:* | xml:* )
+                           - (locattr:* | trans:* | local:* | xlink:* | xml:* | its:*)
                            { text }
   db.xi.include.attlist =
     db.xi.href.attribute? &

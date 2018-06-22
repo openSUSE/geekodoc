@@ -2,6 +2,7 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
 namespace ctrl = "http://nwalsh.com/xmlns/schema-control/"
 default namespace db = "http://docbook.org/ns/docbook"
 namespace html = "http://www.w3.org/1999/xhtml"
+namespace its = "http://www.w3.org/2005/11/its"
 namespace local = "http://www.w3.org/2001/XInclude/local-attributes"
 namespace locattr = "http://www.w3.org/2001/XInclude/local-attributes"
 namespace mml = "http://www.w3.org/1998/Math/MathML"
@@ -17,8 +18,9 @@ namespace xlink = "http://www.w3.org/1999/xlink"
 
 s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink" prefix = "xlink" ]
+s:ns [ uri = "http://www.w3.org/2005/11/its" prefix = "its" ]
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.0.2.1"
+suse.schema.version = "5.1-subset GeekoDoc-1.0.3"
 #
 div {
   div {
@@ -67,6 +69,22 @@ div {
     }
   }
 }
+#
+div {
+  div {
+    its-translate.type =
+
+      ## The nodes need to be translated
+      "yes"
+      |
+        ## The nodes must not be translated
+        "no"
+    its-attribute.translate =
+
+      ## The Translate data category information to be attached to the current node
+      attribute its:translate { its-translate.type }
+  }
+}
 # XInclude 1.1
 div {
   db.xi.href.attribute =
@@ -108,6 +126,34 @@ div {
 }
 # ======== Our own patterns
 div {
+  db.entry.model =
+    # This pattern is used to restrict the <entry> element
+    # - no procedures
+    # Original definition:
+    # (db.nopara.blocks | db.para.blocks | db.extension.blocks)
+    #
+    # We need to resolve the db.list.blocks patterns to avoid adding
+    # <procedures>:
+    (db.para.blocks
+     | db.itemizedlist
+     | db.orderedlist
+     | db.simplelist
+     | db.variablelist
+     | db.segmentedlist
+     | db.glosslist
+     | db.bibliolist
+     | db.calloutlist
+     | db.qandaset
+     | db.formal.blocks
+     | db.publishing.blocks
+     | db.graphic.blocks
+     | db.verbatim.blocks
+     | db.synopsis.blocks
+     | db.annotation
+     | db.xi.include
+     | db.extension.blocks
+     | db.admonition.blocks)*
+    | db.all.inlines*
   db.step.blocks =
     db.para.blocks
     | db.remark
@@ -552,16 +598,6 @@ div {
 
       ## The RDFa Lite prefix
       attribute prefix { text }
-    db.common.base.attributes =
-      db.version.attribute?
-      & db.xml.lang.attribute?
-      & db.xml.base.attribute?
-      & db.remap.attribute?
-      & db.xreflabel.attribute?
-      & db.revisionflag.attribute?
-      & db.dir.attribute?
-      & db.effectivity.attributes
-      & db.rdfalite.attributes
     db.common.attributes =
       db.xml.id.attribute?
       & db.common.base.attributes
@@ -2035,7 +2071,6 @@ div {
           db.caption?
         }
     }
-    db.verbatim.inlines = (db.all.inlines | db.lineannotation) | db.co
     db.verbatim.contentmodel =
       db._info.title.forbidden, (db.textobject | db.verbatim.inlines*)
     div {
@@ -2770,6 +2805,10 @@ div {
         db.holder.role.attribute?
         & db.common.attributes
         & db.common.linking.attributes
+      db.holder =
+
+        ## The name of the individual or organization that holds a copyright
+        element holder { db.holder.attlist, db._text }
     }
     div {
       db.cover.role.attribute = attribute role { text }
@@ -6339,17 +6378,6 @@ div {
 
         ## The number of columns in the table. Must be an integer greater than zero.
         attribute cols { xsd:positiveInteger }
-      db.tgroup.attlist =
-        db.tgroup.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.char.attribute?
-        & db.charoff.attribute?
-        & db.tgroup.tgroupstyle.attribute?
-        & db.tgroup.cols.attribute
-        & db.colsep.attribute?
-        & db.rowsep.attribute?
-        & db.align.attribute?
       db.tgroup =
 
         ## A wrapper for the main content of a table, or part of a table
@@ -6372,19 +6400,6 @@ div {
 
         ## Specifies the width of the column.
         attribute colwidth { text }
-      db.colspec.attlist =
-        db.colspec.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.colspec.colnum.attribute?
-        & db.char.attribute?
-        & db.colsep.attribute?
-        & db.colspec.colwidth.attribute?
-        & db.charoff.attribute?
-        & db.colname.attribute?
-        & db.rowsep.attribute?
-        & db.align.attribute?
-        & db.rowheader.attribute?
       db.colspec =
 
         ## Specifications for a column in a table
@@ -6419,11 +6434,6 @@ div {
     }
     div {
       db.cals.thead.role.attribute = attribute role { text }
-      db.cals.thead.attlist =
-        db.cals.thead.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.valign.attribute?
       db.cals.thead =
 
         ## A table header consisting of one or more rows
@@ -6431,11 +6441,6 @@ div {
     }
     div {
       db.cals.tfoot.role.attribute = attribute role { text }
-      db.cals.tfoot.attlist =
-        db.cals.tfoot.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.valign.attribute?
       db.cals.tfoot =
 
         ## A table footer consisting of one or more rows
@@ -6443,11 +6448,6 @@ div {
     }
     div {
       db.cals.tbody.role.attribute = attribute role { text }
-      db.cals.tbody.attlist =
-        db.cals.tbody.role.attribute?
-        & db.common.attributes
-        & db.common.linking.attributes
-        & db.valign.attribute?
       db.cals.tbody =
 
         ## A wrapper for the rows of a table or informal table
@@ -6498,54 +6498,6 @@ div {
 
         ## Specifies the entry or entries which serve as headers for this element.
         attribute headers { xsd:IDREFS }
-      db.entry =
-
-        ## A cell in a table
-        [
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            s:title [ "Element exclusion" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "db:entry"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "not(.//db:table)"
-                "table must not occur among the children or descendants of entry"
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            s:title [ "Element exclusion" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "db:entry"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "not(.//db:informaltable)"
-                "informaltable must not occur among the children or descendants of entry"
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element entry {
-          db.entry.attlist, (db.all.inlines* | db.all.blocks*)
-        }
     }
     div {
       db.entrytbl.role.attribute = attribute role { text }
@@ -8298,9 +8250,6 @@ div {
 
         ## Identifies the non-standard action in some unspecified way.
         attribute otheraction { text }
-      db.keycombo.action.attrib =
-        db.keycombo.action-enum.attribute
-        | db.keycombo.action-other.attributes
       db.keycombo.role.attribute = attribute role { text }
       db.keycombo.attlist =
         db.keycombo.role.attribute?
@@ -9861,7 +9810,7 @@ div {
     db.guimenuitem = notAllowed
     db.guisubmenu = notAllowed
     db.hardware = notAllowed
-    db.holder = notAllowed
+    # db.holder = notAllowed
     db.honorific = notAllowed
     # db.imagedata = notAllowed
     # db.imageobject = notAllowed
@@ -10274,6 +10223,19 @@ div {
     & db.cmdsynopsis.sepchar.attribute?
     & db.cmdsynopsis.cmdlength.attribute?
     & db.cmdsynopsis.label.attribute?
+  db.colspec.attlist =
+    db.colspec.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.colspec.colnum.attribute?
+    & db.char.attribute?
+    & db.colsep.attribute?
+    & db.colspec.colwidth.attribute?
+    & db.charoff.attribute?
+    & db.colname.attribute?
+    & db.rowsep.attribute?
+    & db.align.attribute?
+    & db.rowheader.attribute?
   db.constraintdef.attlist =
     db.constraintdef.role.attribute? & db.common.attributes
   db.classsynopsisinfo.attlist =
@@ -10339,6 +10301,53 @@ div {
     & db.frame.attribute?
     & db.pgwide.attribute?
     & db.rowheader.attribute?
+  db.cals.table.attlist =
+    db.cals.table.role.attribute?
+    & db.cals.table.label.attribute?
+    & db.common.attributes
+    & db.tabstyle.attribute?
+    & db.floatstyle.attribute?
+    & db.orient.attribute?
+    & db.colsep.attribute?
+    & db.rowsep.attribute?
+    & db.frame.attribute?
+    & db.pgwide.attribute?
+    &
+      ## Indicates if the short or long title should be used in a List of Tables
+      attribute shortentry {
+
+        ## Indicates that the full title should be used.
+        "0"
+        |
+          ## Indicates that the short short title (titleabbrev) should be used.
+          "1"
+      }?
+    &
+      ## Indicates if the table should appear in a List of Tables
+      attribute tocentry {
+
+        ## Indicates that the table should not occur in the List of Tables.
+        "0"
+        |
+          ## Indicates that the table should appear in the List of Tables.
+          "1"
+      }?
+    & db.rowheader.attribute?
+  db.cals.tbody.attlist =
+    db.cals.tbody.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+  db.cals.thead.attlist =
+    db.cals.thead.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
+  db.cals.tfoot.attlist =
+    db.cals.tfoot.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.valign.attribute?
   db.itemizedlist.attlist =
     db.itemizedlist.role.attribute?
     & db.common.attributes
@@ -10409,40 +10418,19 @@ div {
     & db.common.attributes
     & db.verbatim.attributes
     & db.synopsis.label.attribute?
-  db.cals.table.attlist =
-    db.cals.table.role.attribute?
-    & db.cals.table.label.attribute?
-    & db.common.attributes
-    & db.tabstyle.attribute?
-    & db.floatstyle.attribute?
-    & db.orient.attribute?
-    & db.colsep.attribute?
-    & db.rowsep.attribute?
-    & db.frame.attribute?
-    & db.pgwide.attribute?
-    &
-      ## Indicates if the short or long title should be used in a List of Tables
-      attribute shortentry {
-
-        ## Indicates that the full title should be used.
-        "0"
-        |
-          ## Indicates that the short short title (titleabbrev) should be used.
-          "1"
-      }?
-    &
-      ## Indicates if the table should appear in a List of Tables
-      attribute tocentry {
-
-        ## Indicates that the table should not occur in the List of Tables.
-        "0"
-        |
-          ## Indicates that the table should appear in the List of Tables.
-          "1"
-      }?
-    & db.rowheader.attribute?
   db.task.attlist = db.task.role.attribute? & db.common.attributes
   db.tip.attlist = db.tip.role.attribute? & db.common.attributes
+  db.tgroup.attlist =
+    db.tgroup.role.attribute?
+    & db.common.base.attributes
+    & db.common.linking.attributes
+    & db.char.attribute?
+    & db.charoff.attribute?
+    & db.tgroup.tgroupstyle.attribute?
+    & db.tgroup.cols.attribute
+    & db.colsep.attribute?
+    & db.rowsep.attribute?
+    & db.align.attribute?
   db.variablelist.attlist =
     db.variablelist.role.attribute?
     & db.common.attributes
@@ -10450,7 +10438,18 @@ div {
     & db.variablelist.termlength.attribute?
   db.warning.attlist = db.warning.role.attribute? & db.common.attributes
   # ========= Changed attributes
-  #
+  # Introduce optional its:translate attribute:
+  db.common.base.attributes =
+    db.version.attribute?
+    & db.xml.lang.attribute?
+    & db.xml.base.attribute?
+    & db.remap.attribute?
+    & db.xreflabel.attribute?
+    & db.revisionflag.attribute?
+    & db.dir.attribute?
+    & db.effectivity.attributes
+    & db.rdfalite.attributes
+    & its-attribute.translate?
   db.common.data.attributes =
 
     ## Specifies the format of the data
@@ -10535,14 +10534,58 @@ div {
       element contrib { db.contrib.attlist, text }
   }
   # entry
-  # div {
-  #  # Disallow admonitions in table <entry>s
-  #  db.entry = element entry {
-  #    db.entry.attlist,
-  #    (db.all.inlines* | db.some.blocks*)
-  #  }
-  # }
+  div {
+    # Disallow procedure in table <entry>s
 
+    ## A cell in a table
+    db.entry =
+      element entry {
+        [
+          s:pattern [
+            "\x{a}" ~
+            "              "
+            s:title [ "Element exclusion" ]
+            "\x{a}" ~
+            "              "
+            s:rule [
+              context = "db:entry"
+              "\x{a}" ~
+              "                "
+              s:assert [
+                test = "not(.//db:table)"
+                "table must not occur among the children or descendants of entry"
+              ]
+              "\x{a}" ~
+              "              "
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+          s:pattern [
+            "\x{a}" ~
+            "              "
+            s:title [ "Element exclusion" ]
+            "\x{a}" ~
+            "              "
+            s:rule [
+              context = "db:entry"
+              "\x{a}" ~
+              "                "
+              s:assert [
+                test = "not(.//db:informaltable)"
+                "informaltable must not occur among the children or descendants of entry"
+              ]
+              "\x{a}" ~
+              "              "
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+        ]
+        db.entry.attlist,
+        db.entry.model
+      }
+  }
   # We only want to support CALS tables
   div {
     db.informaltable.choice = notAllowed | db.cals.informaltable
@@ -10694,6 +10737,10 @@ div {
       element figure {
         db.figure.attlist, db.figure.info, db.mediaobject, db.caption?
       }
+  }
+  # keycombo
+  div {
+    db.keycombo.action.attrib = empty
   }
   # para
   div {
@@ -10919,11 +10966,41 @@ div {
         db.varlistentry+
       }
   }
+  # screen/programlisting content model
+  db.verbatim.inlines =
+    text
+    | db.co
+    | db.code
+    | db.command
+    | db.constant
+    | db.email
+    | db.emphasis
+    | db.envar
+    | db.filename
+    | db.footnote
+    | db.option
+    | db.package
+    | db.parameter
+    | db.phrase
+    | db.prompt
+    | db.property
+    | db.remark
+    | db.replaceable
+    | db.systemitem
+    | db.tag
+    | db.uri
+    | db.varname
+    | db.xref
   # XIncludes 1.1
   # see https://www.w3.org/TR/xinclude-11/
   #
   db.any.other.attribute =
-    attribute * - (local:* | trans:* | ns1:* | xlink:* | xml:*) { text }
+    attribute * - (local:*
+                   | trans:*
+                   | ns1:*
+                   | xlink:*
+                   | xml:*
+                   | its:*) { text }
   db.xi.include.attlist =
     db.xi.href.attribute?
     & # (db.xi.href-empty.attribute | db.xi.href-uri.attribute)? &
