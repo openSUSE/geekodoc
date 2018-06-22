@@ -1,4 +1,26 @@
 ------------------------------------------------------------------
+Fri Jun 22 13:54:00 UTC 2018 - toms@opensuse.org
+
+Bugfix release 1.0.3
+
+Geekodoc:
+ * disallow xml:id on child elements of table (#39)
+ * Missing "fig" value in format attribute of imagedta (#43)
+ * add missing holder tag (#46)
+ * integrate its:translate (#45)
+ * output XSLT stylesheet from Schematron validation (#49)
+ * remove action in keycombo (#50) 
+ * reduce content model in screen (#51)
+ * remove procedure from table entry (#56)
+
+ Others:
+ * Make sure GeekoDoc is available in OBS/IBS, so we can use
+   it from DC file (#33)
+
+Novdoc:
+  no changes
+
+------------------------------------------------------------------
 Fri Jan 09 13:23:00 UTC 2018 - toms@opensuse.org
 
 Bugfix release 1.0.2.1
