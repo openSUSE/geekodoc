@@ -126,6 +126,33 @@ div {
 }
 # ======== Our own patterns
 div {
+  db.entry.model =
+    # This pattern is used to restrict the <entry> element
+    # Original definition:
+    # (db.nopara.blocks | db.para.blocks | db.extension.blocks)
+    #
+    #
+    # We do not want procedures
+    (db.para.blocks
+     | db.itemizedlist
+     | db.orderedlist
+     | db.simplelist
+     | db.variablelist
+     | db.segmentedlist
+     | db.glosslist
+     | db.bibliolist
+     | db.calloutlist
+     | db.qandaset
+     | db.formal.blocks
+     | db.publishing.blocks
+     | db.graphic.blocks
+     | db.verbatim.blocks
+     | db.synopsis.blocks
+     | db.annotation
+     | db.xi.include
+     | db.extension.blocks
+     | db.admonition.blocks)*
+    | db.all.inlines*
   db.step.blocks =
     db.para.blocks
     | db.remark
@@ -6470,54 +6497,6 @@ div {
 
         ## Specifies the entry or entries which serve as headers for this element.
         attribute headers { xsd:IDREFS }
-      db.entry =
-
-        ## A cell in a table
-        [
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            s:title [ "Element exclusion" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "db:entry"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "not(.//db:table)"
-                "table must not occur among the children or descendants of entry"
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            s:title [ "Element exclusion" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "db:entry"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "not(.//db:informaltable)"
-                "informaltable must not occur among the children or descendants of entry"
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element entry {
-          db.entry.attlist, (db.all.inlines* | db.all.blocks*)
-        }
     }
     div {
       db.entrytbl.role.attribute = attribute role { text }
@@ -10554,14 +10533,58 @@ div {
       element contrib { db.contrib.attlist, text }
   }
   # entry
-  # div {
-  #  # Disallow admonitions in table <entry>s
-  #  db.entry = element entry {
-  #    db.entry.attlist,
-  #    (db.all.inlines* | db.some.blocks*)
-  #  }
-  # }
+  div {
+    # Disallow procedure in table <entry>s
 
+    ## A cell in a table
+    db.entry =
+      element entry {
+        [
+          s:pattern [
+            "\x{a}" ~
+            "              "
+            s:title [ "Element exclusion" ]
+            "\x{a}" ~
+            "              "
+            s:rule [
+              context = "db:entry"
+              "\x{a}" ~
+              "                "
+              s:assert [
+                test = "not(.//db:table)"
+                "table must not occur among the children or descendants of entry"
+              ]
+              "\x{a}" ~
+              "              "
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+          s:pattern [
+            "\x{a}" ~
+            "              "
+            s:title [ "Element exclusion" ]
+            "\x{a}" ~
+            "              "
+            s:rule [
+              context = "db:entry"
+              "\x{a}" ~
+              "                "
+              s:assert [
+                test = "not(.//db:informaltable)"
+                "informaltable must not occur among the children or descendants of entry"
+              ]
+              "\x{a}" ~
+              "              "
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+        ]
+        db.entry.attlist,
+        db.entry.model
+      }
+  }
   # We only want to support CALS tables
   div {
     db.informaltable.choice = notAllowed | db.cals.informaltable
