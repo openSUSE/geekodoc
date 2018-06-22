@@ -128,11 +128,12 @@ div {
 div {
   db.entry.model =
     # This pattern is used to restrict the <entry> element
+    # - no procedures
     # Original definition:
     # (db.nopara.blocks | db.para.blocks | db.extension.blocks)
     #
-    #
-    # We do not want procedures
+    # We need to resolve the db.list.blocks patterns to avoid adding
+    # <procedures>:
     (db.para.blocks
      | db.itemizedlist
      | db.orderedlist
