@@ -1,7 +1,17 @@
 ------------------------------------------------------------------
+Mon Jun 25 10:54:00 UTC 2018 - toms@opensuse.org
+
+Bugfix release 1.0.3.1
+
+Geekodoc:
+ * Allow remark in entry
+ * Adapt content model in entry to allow both inline and block
+   remarks
+
+------------------------------------------------------------------
 Fri Jun 22 13:54:00 UTC 2018 - toms@opensuse.org
 
-Bugfix release 1.0.3
+Release 1.0.3
 
 Geekodoc:
  * disallow xml:id on child elements of table (#39)

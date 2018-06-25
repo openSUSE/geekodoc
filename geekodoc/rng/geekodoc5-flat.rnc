@@ -134,26 +134,33 @@ div {
     #
     # We need to resolve the db.list.blocks patterns to avoid adding
     # <procedures>:
-    (db.para.blocks
-     | db.itemizedlist
-     | db.orderedlist
-     | db.simplelist
-     | db.variablelist
-     | db.segmentedlist
-     | db.glosslist
-     | db.bibliolist
-     | db.calloutlist
-     | db.qandaset
-     | db.formal.blocks
-     | db.publishing.blocks
-     | db.graphic.blocks
-     | db.verbatim.blocks
-     | db.synopsis.blocks
-     | db.annotation
-     | db.xi.include
-     | db.extension.blocks
-     | db.admonition.blocks)*
-    | db.all.inlines*
+    (db.remark
+     | text
+     | db.ubiq.inlines
+     | db.general.inlines
+     | db.domain.inlines
+     | db.extension.inlines
+     | db.xi.include)*
+    | (db.para.blocks
+       | db.remark
+       | db.itemizedlist
+       | db.orderedlist
+       | db.simplelist
+       | db.variablelist
+       | db.segmentedlist
+       | db.glosslist
+       | db.bibliolist
+       | db.calloutlist
+       | db.qandaset
+       | db.formal.blocks
+       | db.publishing.blocks
+       | db.graphic.blocks
+       | db.verbatim.blocks
+       | db.synopsis.blocks
+       | db.annotation
+       | db.xi.include
+       | db.extension.blocks
+       | db.admonition.blocks)*
   db.step.blocks =
     db.para.blocks
     | db.remark
