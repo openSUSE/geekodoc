@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<table xmlns="http://docbook.org/ns/docbook" xml:lang="en">
+ <title>Remarks in entry elements</title>
+  <tgroup cols="2">
+   <tbody>
+    <row>
+     <entry>
+      <remark>This is a (block) remark before a para</remark>
+      <para>A para</para>
+     </entry>
+     <entry>
+      <para>A para</para>
+      <remark>This is a (block) remark after para</remark>
+     </entry>
+    </row>
+    <row>
+     <entry>This is a normal text with <remark/></entry>
+     <entry>Text with inline elements like <command/>,
+     <envar/>.
+     </entry>
+    </row>
+   </tbody>
+  </tgroup>
+</table>
