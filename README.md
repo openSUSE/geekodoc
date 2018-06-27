@@ -39,7 +39,7 @@ Use one of the following methods to install `rnginline`:
 
 ### Installing rnginline from RPM Package
 
-The following procedure can be used for openSUSE Leap 42.1:
+The following procedure can be used for the latest openSUSE Leap release:
 
 1. Add the repository:
 
