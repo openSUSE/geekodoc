@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<procedure version="5.1"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>A procedure with valid steps</title>
+    <step>
+     <remark>Just a remark before a para</remark>
+     <para>A</para>
+    </step>
+    <step>
+     <para>B</para>
+     <remark>A remark after the para</remark>
+    </step>
+    <step>
+     <para>C</para>
+     <result>
+      <para/>
+     </result>
+    </step>
+    <step>
+     <para>D</para>
+     <screen/>
+     <substeps>
+      <step>
+       <para/>
+      </step>
+      <step>
+       <para/>
+      </step>
+     </substeps>
+     <para></para>
+    </step>
+    <step>
+     <para>E</para>
+     <itemizedlist>
+      <listitem>
+       <para/>
+      </listitem>
+     </itemizedlist>
+    </step>
+</procedure>

@@ -162,38 +162,39 @@ div {
        | db.extension.blocks
        | db.admonition.blocks)*
   db.step.blocks =
-    db.para.blocks
-    | db.remark
-    | db.indexterm
-    | # TODO: Remove that (currently we have too much of that)
-      db.example
-    | db.figure
-    | db.informalexample
-    | db.informalfigure
-    | db.informaltable
-    | db.admonition.blocks
-    | db.graphic.blocks
-    | db.verbatim.blocks
-    | db.extension.blocks
-    | db.itemizedlist
-    | db.orderedlist
-    | db.simplelist
-    | db.variablelist
-    | db.calloutlist
-    | db.calloutlist
-    | db.annotation
-    | db.xi.include
-    | db.table
-  # no db.publishing.blocks, db.technical.blocks
-  # | db.formal.blocks - db.table - db.equation
-  # | db.informal.blocks - db.informaltable - db.informalequation
-  # | db.procedure
-  # | db.segmentedlist
-  # | db.glosslist
-  # | db.bibliolist
-  # | db.qandaset
-  # - - - -
-
+    (db.para.blocks
+     | db.remark
+     | db.indexterm
+     | # TODO: Remove that (currently we have too much of that)
+       db.example
+     | db.figure
+     | db.informalexample
+     | db.informalfigure
+     | db.informaltable
+     | db.admonition.blocks
+     | db.graphic.blocks
+     | db.verbatim.blocks
+     | db.extension.blocks
+     | db.itemizedlist
+     | db.orderedlist
+     | db.simplelist
+     | db.variablelist
+     | db.calloutlist
+     | db.calloutlist
+     | db.annotation
+     | db.xi.include
+     | db.table
+     | db.screen)
+    # no db.publishing.blocks, db.technical.blocks
+    # | db.formal.blocks - db.table - db.equation
+    # | db.informal.blocks - db.informaltable - db.informalequation
+    # | db.procedure
+    # | db.segmentedlist
+    # | db.glosslist
+    # | db.bibliolist
+    # | db.qandaset
+    # - - - -
+    *
 }
 div {
   db.xlink.hrefreq.simple.link.attributes =
@@ -10876,7 +10877,9 @@ div {
       element step {
         db.step.attlist,
         # db.step.info?,
-        ((db.step.blocks+,
+        db.remark?,
+        db.para,
+        ((db.step.blocks?,
           ((db.substeps | db.stepalternatives), db.step.blocks*)?,
           db.result?)
          | ((db.substeps | db.stepalternatives),

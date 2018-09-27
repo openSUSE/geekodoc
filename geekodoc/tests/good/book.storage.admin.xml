@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="book_storage_admin.xml" version="5.0" xml:lang="en" xml:id="book.storage.admin">
  <info>
   <title>Administration and Deployment Guide</title><productname>SUSE Enterprise Storage</productname><productname role="abbrev">SES</productname>
@@ -2892,8 +2893,7 @@ screen install-ses-admin</screen>
   </para>
 
   <procedure>
-   <step>
-    <warning>
+   <warning>
      <title>Do Not Run <command>zypper dup</command> or Reboot the Node</title>
      <para>
       After you prepare for the upgrade to SUSE Linux Enterprise Server 12 SP2 as suggested later in
@@ -2902,6 +2902,7 @@ screen install-ses-admin</screen>
       correctly.
      </para>
     </warning>
+   <step>
     <para>
      Upgrade the current SUSE Linux Enterprise Server to version 12 SP2. Refer to
      <link xlink:href="https://www.suse.com/documentation/sles-12/book_sle_deployment/data/cha_update_sle.html"/>
@@ -11018,6 +11019,7 @@ Superuser created successfully.
     </para>
    </step>
    <step>
+    <para/>
     <tip>
      <para>
       In order for Calamari to work correctly, the admin keyring needs to be
