@@ -1628,7 +1628,7 @@ include "docbookxi.rnc"
 } # end of include
 
 
-# Redefine content modell here:
+# Redefine content model here:
 
 
 # --- EOF ---
