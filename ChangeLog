@@ -1,4 +1,15 @@
 ------------------------------------------------------------------
+Fri Feb 01 14:48:00 UTC 2018 - toms@opensuse.org
+
+Release 1.0.4
+
+GeekoDoc:
+ * No changes
+
+Novdoc:
+ * Move it into maintenance/novdoc-2019-02-01 branch
+
+------------------------------------------------------------------
 Mon Jun 25 10:54:00 UTC 2018 - toms@opensuse.org
 
 Bugfix release 1.0.3.1
