@@ -3,14 +3,6 @@
 [![Build Status](https://travis-ci.org/openSUSE/geekodoc.svg?branch=develop)](https://travis-ci.org/openSUSE/geekodoc)
 
 
-## NovDoc
-
-This is the Novdoc and Geekodoc schemas. Although Novdoc is technically not
-based on DocBook the tags and structure are.
-
-In general, XML instances of Novdoc should be compatible to DocBook.
-
-
 ## GeekoDoc
 
 GeekoDoc is a RELAX NG schema and a subset of DocBook 5. Currently, it can be
@@ -39,7 +31,7 @@ Use one of the following methods to install `rnginline`:
 
 ### Installing rnginline from RPM Package
 
-The following procedure can be used for openSUSE Leap 42.1:
+The following procedure can be used for the latest openSUSE Leap release:
 
 1. Add the repository:
 
