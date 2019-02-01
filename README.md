@@ -3,14 +3,6 @@
 [![Build Status](https://travis-ci.org/openSUSE/geekodoc.svg?branch=develop)](https://travis-ci.org/openSUSE/geekodoc)
 
 
-## NovDoc
-
-This is the Novdoc and Geekodoc schemas. Although Novdoc is technically not
-based on DocBook the tags and structure are.
-
-In general, XML instances of Novdoc should be compatible to DocBook.
-
-
 ## GeekoDoc
 
 GeekoDoc is a RELAX NG schema and a subset of DocBook 5. Currently, it can be
