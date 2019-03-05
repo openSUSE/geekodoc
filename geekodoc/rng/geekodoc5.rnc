@@ -33,7 +33,7 @@ s:ns [ uri = "http://www.w3.org/1999/xlink"  prefix = "xlink" ]
 s:ns [ uri = "http://www.w3.org/2005/11/its"  prefix = "its" ]
 
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.0.4"
+suse.schema.version = "5.1-subset GeekoDoc-1.1.0"
 
 
 #
@@ -1188,6 +1188,18 @@ include "docbookxi.rnc"
         db.affiliation.attlist,
         (db.jobtitle | db.orgname | (db.jobtitle & db.orgname))
     }
+  }
+
+  div {
+    db.book.components =
+     # (db.navigation.components | db.components | db.divisions)* | db.topic*
+     ((db.article | db.xi.include)*
+      |
+      ((db.preface| db.xi.include)*,
+        db.chapter*,
+        (db.part | db.xi.include)*)
+     ),
+     (db.navigation.components | db.appendix | db.xi.include)*
   }
 
   # contrib
