@@ -1196,11 +1196,9 @@ include "docbookxi.rnc"
      (db.preface | db.xi.include)*,
      ((db.article | db.xi.include)*
       |
-      (db.part | db.xi.include)*
-      |
-      (db.chapter | db.xi.include)*
-      ),
-      (db.navigation.components | db.appendix | db.xi.include)*
+      (db.chapter*, (db.part | db.xi.include)*)
+     ),
+     (db.navigation.components | db.appendix | db.xi.include)*
   }
 
   # contrib
