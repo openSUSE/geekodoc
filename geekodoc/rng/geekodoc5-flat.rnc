@@ -8378,10 +8378,6 @@ div {
         db.command.role.attribute?
         & db.common.attributes
         & db.common.linking.attributes
-      db.command =
-
-        ## The name of an executable program or other software command
-        element command { db.command.attlist, db._text }
     }
     div {
       db.computeroutput.role.attribute = attribute role { text }
@@ -10538,6 +10534,15 @@ div {
           db.chapter*,
           (db.part | db.xi.include)*)),
       (db.navigation.components | db.appendix | db.xi.include)*
+  }
+  # command
+  div {
+    db.command =
+
+      ## The name of an executable program or other software command
+      element command {
+        (text | db.emphasis | db.phrase | db.replaceable)*
+      }
   }
   # contrib
   div {
