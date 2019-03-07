@@ -10514,11 +10514,14 @@ div {
   div {
     db.admonition.contentmodel =
       db._info.title.only,
+      db.remark*,
+      db.para,
       (db.list.blocks
+       | db.formalpara
        | db.verbatim.blocks
        | db.remark
        | db.para
-       | db.xi.include)+
+       | db.xi.include)*
     db.admonition.blocks =
       # Removed caution
       db.important
