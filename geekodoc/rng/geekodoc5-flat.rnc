@@ -8806,7 +8806,6 @@ div {
           db.programlisting.attlist, db.verbatim.contentmodel
         }
     }
-    db.admonition.contentmodel = db._info.title.only, db.all.blocks+
     div {
       db.caution.role.attribute = attribute role { text }
       db.caution =
@@ -10513,6 +10512,13 @@ div {
 
   # Admonitions
   div {
+    db.admonition.contentmodel =
+      db._info.title.only,
+      (db.list.blocks
+       | db.verbatim.blocks
+       | db.remark
+       | db.para
+       | db.xi.include)+
     db.admonition.blocks =
       # Removed caution
       db.important
