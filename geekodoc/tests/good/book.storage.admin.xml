@@ -12306,6 +12306,7 @@ c70c032a-6e88-4962-8376-4aa119cb52ee</screen>
   </para>
 
   <important>
+   <para/>
    <itemizedlist mark="bullet" spacing="normal">
     <listitem>
      <para>
@@ -13007,6 +13008,7 @@ created = bucket.creation_date,
   <title>Adding Disks</title>
 
   <important>
+   <para/>
    <itemizedlist mark="bullet" spacing="normal">
     <listitem>
      <para>
@@ -13122,6 +13124,7 @@ created = bucket.creation_date,
   <title>Deleting disks</title>
 
   <important>
+   <para/>
    <itemizedlist mark="bullet" spacing="normal">
     <listitem>
      <para>

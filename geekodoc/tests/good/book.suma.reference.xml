@@ -1,22 +1,11 @@
 <?xml version="1.0"?>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="book_suma_reference_manual.xml" version="5.0" xml:lang="en" xml:id="book.suma.reference.manual">
     <?dbjsp dir="reference/en-US" ?>
-
     <?dbjsp filename="index.jsp"?>
-
-
-    
-    
-    
-    
-
     <info>
         <title>Reference Manual</title>
-        
-
         <productname><phrase>SUSE Manager</phrase></productname>
         <productnumber><phrase>3</phrase></productnumber>
-
         <date><?dbtimestamp format="Y-m-d"?>
 </date>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
@@ -2791,8 +2780,8 @@ GATEWAY=192.168.0.1</screen>
      each snapshot. </para>
     <note>
      <title>Technical Details</title>
+     <para/>
      <itemizedlist mark="bullet" spacing="normal">
-      
       <listitem>
        <para> A snapshots is always done <emphasis>after</emphasis> a successful operation and not
         before, as you might expect. One consequence of the fact that snapshots are taken after the
