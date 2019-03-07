@@ -1185,6 +1185,8 @@ include "docbookxi.rnc"
       | db.remark
       | db.para
       | db.xi.include
+      | db.informalexample
+      | db.informalfigure
       )*
 
     db.admonition.blocks =

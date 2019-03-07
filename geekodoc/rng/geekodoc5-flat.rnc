@@ -10521,7 +10521,9 @@ div {
        | db.verbatim.blocks
        | db.remark
        | db.para
-       | db.xi.include)*
+       | db.xi.include
+       | db.informalexample
+       | db.informalfigure)*
     db.admonition.blocks =
       # Removed caution
       db.important
