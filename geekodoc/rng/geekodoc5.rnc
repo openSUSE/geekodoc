@@ -33,7 +33,7 @@ s:ns [ uri = "http://www.w3.org/1999/xlink"  prefix = "xlink" ]
 s:ns [ uri = "http://www.w3.org/2005/11/its"  prefix = "its" ]
 
 # Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.1.0"
+suse.schema.version = "5.1-subset GeekoDoc-1.0.4"
 
 
 #
