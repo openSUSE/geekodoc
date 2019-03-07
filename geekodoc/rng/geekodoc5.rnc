@@ -1202,6 +1202,13 @@ include "docbookxi.rnc"
      (db.navigation.components | db.appendix | db.xi.include)*
   }
 
+  # command
+  div {
+    db.command =
+      ## The name of an executable program or other software command
+      element command { (text | db.emphasis | db.phrase | db.replaceable)* }
+  }
+
   # contrib
   div {
     db.contrib =
