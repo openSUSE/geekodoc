@@ -592,6 +592,7 @@ include "docbookxi.rnc"
 
   #======== Removed Attribute
 
+  db.imagedata.depth.attribute = empty
   db.rdfalite.attributes = empty
   db.xlink.attributes = empty
   # We don't want/need xreflabel

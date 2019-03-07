@@ -2410,7 +2410,6 @@ div {
         ## Specifies the vertical alignment of the image data
         attribute valign { db.imagedata.valign.enumeration }
       db.imagedata.width.attribute = db.width.attribute
-      db.imagedata.depth.attribute = db.depth.attribute
       db.imagedata.contentwidth.attribute = db.contentwidth.attribute
       db.imagedata.contentdepth.attribute = db.contentdepth.attribute
       db.imagedata.scalefit.enumeration = db.scalefit.enumeration
@@ -10051,6 +10050,7 @@ div {
   # Disallow mediaobject in certain contexts
   db.graphic.blocks = notAllowed
   # ======== Removed Attribute
+  db.imagedata.depth.attribute = empty
   db.rdfalite.attributes = empty
   db.xlink.attributes = empty
   # We don't want/need xreflabel
