@@ -3423,12 +3423,6 @@ div {
         & db.common.attributes
         & db.common.linking.attributes
         & db.replaceable.class.attribute?
-      db.replaceable =
-
-        ## Content that may or must be replaced by the user
-        element replaceable {
-          db.replaceable.attlist, db.replaceable.inlines*
-        }
     }
     div {
       db.uri.type.attribute =
@@ -10837,6 +10831,15 @@ div {
 
       ## A question in a QandASet
       element question { db.question.attlist, db.para, db.all.blocks* }
+  }
+  # replaceable
+  div {
+    db.replaceable =
+
+      ## Content that may or must be replaced by the user
+      element replaceable {
+        db.replaceable.attlist, (text | db.emphasis | db.phrase)*
+      }
   }
   # result: restrict content model and allow only certain elements
   div {
