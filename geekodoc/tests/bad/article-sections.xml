@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?> 
+<article xmlns="http://docbook.org/ns/docbook" version="5.1">
+ <title>Test for invalid sections</title>
+ <section>
+  <title/>
+ </section>
+</article>

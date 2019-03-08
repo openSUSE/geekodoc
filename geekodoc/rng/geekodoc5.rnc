@@ -1499,6 +1499,69 @@ include "docbookxi.rnc"
     }
   }
 
+  # sect1, sect2, sect3, section
+  div {
+    db.sect1 =
+      ## A top-level section of document
+      element sect1 {
+        db.sect1.attlist,
+        db.sect1.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect1.sections?) | db.sect1.sections),
+        db.navigation.components*
+      }
+
+    db.sect2 =
+      ## A subsection within a sect1
+      element sect2 {
+        db.sect2.attlist,
+        db.sect2.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect2.sections?) | db.sect2.sections),
+        db.navigation.components*
+      }
+
+    db.sect3 =
+      ## A subsection within a sect2
+      element sect3 {
+        db.sect3.attlist,
+        db.sect3.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect3.sections?) | db.sect3.sections),
+        db.navigation.components*
+      }
+
+    db.sect4 =
+      ## A subsection within a sect3
+      element sect4 {
+        db.sect4.attlist,
+        db.sect4.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect4.sections?) | db.sect4.sections),
+        db.navigation.components*
+      }
+
+    db.sect5 =
+      ## A subsection within a sect4
+      element sect5 {
+        db.sect5.attlist,
+        db.sect5.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect5.sections?) | db.sect5.sections),
+        db.navigation.components*
+      }
+
+    db.section =
+      ## A recursive section
+      element section {
+        db.section.attlist,
+        db.section.info,
+        db.navigation.components*,
+        db.recursive.blocks.or.sections,
+        db.navigation.components*
+      }
+  }
+
   # step
   div {
     # Replaced db.all.blocks -> db.step.blocks

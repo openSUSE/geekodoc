@@ -4084,38 +4084,6 @@ div {
       db.section.status.attribute = db.status.attribute
       db.section.role.attribute = attribute role { text }
       db.section.info = db._info.title.req
-      db.section =
-
-        ## A recursive section
-        [
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            rng:title [ "Root must have version" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:section"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element section {
-          db.section.attlist,
-          db.section.info,
-          db.navigation.components*,
-          db.recursive.blocks.or.sections?,
-          db.navigation.components*
-        }
     }
     div {
       db.simplesect.status.attribute = db.status.attribute
@@ -4509,38 +4477,6 @@ div {
       db.sect1.status.attribute = db.status.attribute
       db.sect1.role.attribute = attribute role { text }
       db.sect1.info = db._info.title.req
-      db.sect1 =
-
-        ## A top-level section of document
-        [
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            rng:title [ "Root must have version" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:sect1"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element sect1 {
-          db.sect1.attlist,
-          db.sect1.info,
-          db.navigation.components*,
-          ((db.all.blocks+, db.sect1.sections?) | db.sect1.sections)?,
-          db.navigation.components*
-        }
     }
     db.sect2.sections =
       ((db.sect3+, db.simplesect*) | db.simplesect+)
@@ -4549,38 +4485,6 @@ div {
       db.sect2.status.attribute = db.status.attribute
       db.sect2.role.attribute = attribute role { text }
       db.sect2.info = db._info.title.req
-      db.sect2 =
-
-        ## A subsection within a sect1
-        [
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            rng:title [ "Root must have version" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:sect2"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element sect2 {
-          db.sect2.attlist,
-          db.sect2.info,
-          db.navigation.components*,
-          ((db.all.blocks+, db.sect2.sections?) | db.sect2.sections)?,
-          db.navigation.components*
-        }
     }
     db.sect3.sections =
       ((db.sect4+, db.simplesect*) | db.simplesect+)
@@ -4589,38 +4493,6 @@ div {
       db.sect3.status.attribute = db.status.attribute
       db.sect3.role.attribute = attribute role { text }
       db.sect3.info = db._info.title.req
-      db.sect3 =
-
-        ## A subsection within a sect2
-        [
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            rng:title [ "Root must have version" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:sect3"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element sect3 {
-          db.sect3.attlist,
-          db.sect3.info,
-          db.navigation.components*,
-          ((db.all.blocks+, db.sect3.sections?) | db.sect3.sections)?,
-          db.navigation.components*
-        }
     }
     db.sect4.sections =
       ((db.sect5+, db.simplesect*) | db.simplesect+)
@@ -4629,38 +4501,6 @@ div {
       db.sect4.status.attribute = db.status.attribute
       db.sect4.role.attribute = attribute role { text }
       db.sect4.info = db._info.title.req
-      db.sect4 =
-
-        ## A subsection within a sect3
-        [
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            rng:title [ "Root must have version" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:sect4"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element sect4 {
-          db.sect4.attlist,
-          db.sect4.info,
-          db.navigation.components*,
-          ((db.all.blocks+, db.sect4.sections?) | db.sect4.sections)?,
-          db.navigation.components*
-        }
     }
     db.sect5.sections =
       db.simplesect+ | (db.simplesect | db.xi.include)+
@@ -4668,38 +4508,6 @@ div {
       db.sect5.status.attribute = db.status.attribute
       db.sect5.role.attribute = attribute role { text }
       db.sect5.info = db._info.title.req
-      db.sect5 =
-
-        ## A subsection within a sect4
-        [
-          s:pattern [
-            "\x{a}" ~
-            "              "
-            rng:title [ "Root must have version" ]
-            "\x{a}" ~
-            "              "
-            s:rule [
-              context = "/db:sect5"
-              "\x{a}" ~
-              "                "
-              s:assert [
-                test = "@version"
-                "If this element is the root element, it must have a version attribute."
-              ]
-              "\x{a}" ~
-              "              "
-            ]
-            "\x{a}" ~
-            "            "
-          ]
-        ]
-        element sect5 {
-          db.sect5.attlist,
-          db.sect5.info,
-          db.navigation.components*,
-          ((db.all.blocks+, db.sect5.sections?) | db.sect5.sections)?,
-          db.navigation.components*
-        }
     }
     db.toplevel.refsection =
       db.refsection+
@@ -10854,6 +10662,69 @@ div {
          | db.orderedlist
          | db.itemizedlist
          | db.simplelist)+
+      }
+  }
+  # sect1, sect2, sect3, section
+  div {
+    db.sect1 =
+
+      ## A top-level section of document
+      element sect1 {
+        db.sect1.attlist,
+        db.sect1.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect1.sections?) | db.sect1.sections),
+        db.navigation.components*
+      }
+    db.sect2 =
+
+      ## A subsection within a sect1
+      element sect2 {
+        db.sect2.attlist,
+        db.sect2.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect2.sections?) | db.sect2.sections),
+        db.navigation.components*
+      }
+    db.sect3 =
+
+      ## A subsection within a sect2
+      element sect3 {
+        db.sect3.attlist,
+        db.sect3.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect3.sections?) | db.sect3.sections),
+        db.navigation.components*
+      }
+    db.sect4 =
+
+      ## A subsection within a sect3
+      element sect4 {
+        db.sect4.attlist,
+        db.sect4.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect4.sections?) | db.sect4.sections),
+        db.navigation.components*
+      }
+    db.sect5 =
+
+      ## A subsection within a sect4
+      element sect5 {
+        db.sect5.attlist,
+        db.sect5.info,
+        db.navigation.components*,
+        ((db.all.blocks+, db.sect5.sections?) | db.sect5.sections),
+        db.navigation.components*
+      }
+    db.section =
+
+      ## A recursive section
+      element section {
+        db.section.attlist,
+        db.section.info,
+        db.navigation.components*,
+        db.recursive.blocks.or.sections,
+        db.navigation.components*
       }
   }
   # step
