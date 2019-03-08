@@ -1486,6 +1486,16 @@ include "docbookxi.rnc"
       }
   }
 
+  # replaceable
+  div {
+    db.replaceable =
+      ## Content that may or must be replaced by the user
+      element replaceable {
+        db.replaceable.attlist,
+        (text | db.emphasis | db.phrase)*
+      }
+  }
+
   # result: restrict content model and allow only certain elements
   div {
    db.result =
