@@ -117,7 +117,7 @@ db.entry.model =
 
 
 db.step.blocks =
-   db.para.blocks
+  ( db.para.blocks
    | db.remark
    | db.indexterm # TODO: Remove that (currently we have too much of that)
    | db.example
@@ -138,6 +138,7 @@ db.step.blocks =
    | db.annotation
    | db.xi.include
    | db.table
+   | db.screen
    # no db.publishing.blocks, db.technical.blocks
    #| db.formal.blocks - db.table - db.equation
    #| db.informal.blocks - db.informaltable - db.informalequation
@@ -147,6 +148,7 @@ db.step.blocks =
    #| db.bibliolist
    #| db.qandaset
    # ----
+   )*
 }
 
 div {
@@ -1600,12 +1602,17 @@ include "docbookxi.rnc"
     element step {
       db.step.attlist,
       # db.step.info?,
-      ((db.step.blocks+,
+      db.remark?,
+      db.para,
+      (
+       (db.step.blocks?,
         ((db.substeps | db.stepalternatives), db.step.blocks*)?,
         db.result?)
-       | ((db.substeps | db.stepalternatives),
+       |
+       ((db.substeps | db.stepalternatives),
           db.step.blocks*,
-          db.result?))
+          db.result?)
+      )
     }
   }
 
