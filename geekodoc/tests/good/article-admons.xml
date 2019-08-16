@@ -2,6 +2,17 @@
 <?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
 <article xmlns="http://docbook.org/ns/docbook" xml:lang="en" xml:id="article-admons">
  <title>Test Article for Admonitions</title>
+ <important>
+   <title/>
+   <para/>
+   <formalpara>
+    <title/><para/>
+   </formalpara>
+  </important>
+  <tip>
+   <remark/>
+   <para/>
+  </tip>
  <note>
   <title>Note Title</title>
   <para>bla</para>
