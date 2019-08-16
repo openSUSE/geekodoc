@@ -41,4 +41,26 @@
  <warning>
   <para>bla</para>
  </warning>
+ <tip>
+  <remark/>
+  <para/>
+  <screen/>
+  <informalexample><screen/></informalexample>
+  <informalfigure>
+   <mediaobject>
+    <textobject>
+     <phrase/>
+    </textobject>
+   </mediaobject>
+  </informalfigure>
+  <informaltable>
+   <tgroup cols="1">
+    <tbody>
+     <row>
+      <entry/>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </tip>
 </article>
