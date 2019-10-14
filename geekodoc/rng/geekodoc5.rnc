@@ -1176,6 +1176,25 @@ include "docbookxi.rnc"
 
   # Admonitions
   div {
+    db.admonition.contentmodel =
+      db._info.title.only,
+      (db.remark*,
+       (db.para | db.xi.include),
+       (db.list.blocks
+       | db.informalexample
+       | db.informalfigure
+       | db.informaltable
+       | db.informalequation
+       | db.informal.blocks
+       | db.publishing.blocks
+       | db.graphic.blocks
+       | db.technical.blocks
+       | db.verbatim.blocks
+       | db.remark
+       | db.para | db.formalpara | db.simpara
+       | db.extension.blocks
+       | db.xi.include)*)
+
     db.admonition.blocks =
       # Removed caution
       db.important | db.note | db.tip | db.warning
