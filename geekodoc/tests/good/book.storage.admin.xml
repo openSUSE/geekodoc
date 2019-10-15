@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="book_storage_admin.xml" version="5.0" xml:lang="en" xml:id="book.storage.admin">
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="book_storage_admin.xml" version="5.0" xml:lang="en" xml:id="book-storage-admin">
  <info>
   <title>Administration and Deployment Guide</title><productname>SUSE Enterprise Storage</productname><productname role="abbrev">SES</productname>
   <productnumber>4</productnumber>
@@ -76,7 +77,7 @@
  </para>
 </legalnotice>
  </info>
- <preface xml:base="admin_intro.xml" version="5.0" xml:id="pre.cloud.admin">
+ <preface xml:base="admin_intro.xml" version="5.0" xml:id="pre-cloud-admin">
  <title>About This Guide</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -134,7 +135,7 @@
 
  <variablelist>
   <varlistentry>
-   <term><xref linkend="book.storage.admin" role="internalbook"/>
+   <term><xref linkend="book-storage-admin" role="internalbook"/>
    </term>
    <listitem>
     <para>
@@ -145,7 +146,7 @@
      iSCSI and RADOS gateways.
     </para>
     <para>
-     The <emphasis>Best Practice</emphasis> chapter (see <xref linkend="cha.storage.bestpractice" role="internalbook"/>)
+     The <emphasis>Best Practice</emphasis> chapter (see <xref linkend="cha-storage-bestpractice" role="internalbook"/>)
      includes selected practical topics sorted by categories, so that you can easily
      find a solution or more information to a specific problem.
     </para>
@@ -329,9 +330,9 @@
  </para>
 </sect1>
 </preface>
- <part xml:id="part.ses">
+ <part xml:id="part-ses">
   <title>SUSE Enterprise Storage</title>
-  <chapter xml:base="admin_about.xml" version="5.0" xml:id="cha.storage.about">
+  <chapter xml:base="admin_about.xml" version="5.0" xml:id="cha-storage-about">
  <title>About SUSE Enterprise Storage</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -344,7 +345,7 @@
    <dm:release>SES4</dm:release>
   </dm:docmanager>
  </info>
- <sect1 xml:id="storage.intro">
+ <sect1 xml:id="storage-intro">
   <title>Introduction</title>
 
   <para>
@@ -547,7 +548,7 @@
    </listitem>
   </itemizedlist>
  </sect1>
- <sect1 xml:id="storage.moreinfo">
+ <sect1 xml:id="storage-moreinfo">
   <title>Additional Information</title>
 
   <para>
@@ -557,7 +558,7 @@
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_sysreq.xml" version="5.0" xml:id="cha.ceph.sysreq">
+  <chapter xml:base="admin_sysreq.xml" version="5.0" xml:id="cha-ceph-sysreq">
  <title>System Requirements</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -570,7 +571,7 @@
    <dm:release>SES4</dm:release>
   </dm:docmanager>
  </info>
- <sect1 xml:id="sysreq.osd">
+ <sect1 xml:id="sysreq-osd">
   <title>Minimal Recommendations per Storage Node</title>
 
   <itemizedlist mark="bullet" spacing="normal">
@@ -612,7 +613,7 @@
    </listitem>
   </itemizedlist>
  </sect1>
- <sect1 xml:id="sysreq.mon">
+ <sect1 xml:id="sysreq-mon">
   <title>Minimal Recommendations per Monitor Node</title>
 
   <itemizedlist mark="bullet" spacing="normal">
@@ -662,21 +663,21 @@
    </listitem>
   </itemizedlist>
  </sect1>
- <sect1 xml:id="sysreq.rgw">
+ <sect1 xml:id="sysreq-rgw">
   <title>Minimal Recommendations for <phrase>RADOS Gateway</phrase> Nodes</title>
 
   <para>
    <phrase>RADOS Gateway</phrase> nodes should have 6-8 CPU cores and 32 GB of RAM (64 GB recommended).
   </para>
  </sect1>
- <sect1 xml:id="sysreq.iscsi">
+ <sect1 xml:id="sysreq-iscsi">
   <title>Minimal Recommendations for iSCSI Nodes</title>
 
   <para>
    iSCSI nodes should have 6-8 CPU cores and 16 GB of RAM.
   </para>
  </sect1>
- <sect1 xml:id="sysreq.naming">
+ <sect1 xml:id="sysreq-naming">
   <title>Naming Limitations</title>
 
   <para>
@@ -689,9 +690,9 @@
  </sect1>
 </chapter>
  </part>
- <part xml:id="part.deploy">
+ <part xml:id="part-deploy">
   <title>Cluster Deployment and Upgrade</title>
-  <chapter xml:base="admin_ceph_installation.xml" version="5.0" xml:id="cha.ceph.install">
+  <chapter xml:base="admin_ceph_installation.xml" version="5.0" xml:id="cha-ceph-install">
  <title>Introduction</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -711,17 +712,17 @@
  <itemizedlist>
  <listitem>
  	<para>
- 	<xref linkend="ceph.install.saltstack" role="internalbook"/>
+ 	<xref linkend="ceph-install-saltstack" role="internalbook"/>
  	</para>
  </listitem>
   <listitem>
    <para>
-    <xref linkend="ceph.install.ceph-deploy" role="internalbook"/>
+    <xref linkend="ceph-install-ceph-deploy" role="internalbook"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="ceph.install.crowbar" role="internalbook"/>
+    <xref linkend="ceph-install-crowbar" role="internalbook"/>
    </para>
   </listitem>
  </itemizedlist>
@@ -735,7 +736,7 @@
  </important>          
   			
 </chapter>
-  <chapter xml:base="admin_install_salt.xml" version="5.0" xml:id="ceph.install.saltstack">
+  <chapter xml:base="admin_install_salt.xml" version="5.0" xml:id="ceph-install-saltstack">
  <title>Deploying with DeepSea and Salt</title>
  <para>
   Salt along with DeepSea is a <emphasis>stack</emphasis> of components
@@ -766,7 +767,7 @@
    </para>
   </listitem>
  </itemizedlist>
- <sect1 xml:id="deepsea.description">
+ <sect1 xml:id="deepsea-description">
   <title>Introduction to DeepSea</title>
 
   <para>
@@ -824,7 +825,7 @@
         <emphasis role="bold">discovery</emphasis>— here you detect all
         hardware in your cluster and collect necessary information for the
         Ceph configuration. For details about configuration refer to
-        <xref linkend="deepsea.pillar.salt.configuration" role="internalbook"/>.
+        <xref linkend="deepsea-pillar-salt-configuration" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
@@ -856,14 +857,14 @@
         needed. In this stage the roles of minions and also the cluster
         configuration are removed. This stage is usually need when you need to
         remove a storage node from your cluster, for details refer to
-        <xref linkend="salt.node.removing" role="internalbook"/>.
+        <xref linkend="salt-node-removing" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
   
    
 
-  <sect2 xml:id="deepsea.organisation.locations">
+  <sect2 xml:id="deepsea-organisation-locations">
    <title>Organization and Important Locations</title>
    <para>
     Salt has several standard locations and several naming conventions used
@@ -941,7 +942,7 @@
    </variablelist>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.install.stack">
+ <sect1 xml:id="ceph-install-stack">
   <title>Deploying with DeepSea and Salt</title>
 
   <para>
@@ -1074,7 +1075,7 @@
      After the previous command finishes successfully, create a
      <filename>policy.cfg</filename> file in
      <filename>/srv/pillar/ceph/proposals</filename>. For details refer to
-     <xref linkend="policy.configuration" role="internalbook"/>.
+     <xref linkend="policy-configuration" role="internalbook"/>.
     </para>
    </step>
    <step>
@@ -1104,7 +1105,7 @@
      <para>
       As soon as the command finishes, you can view the default configuration
       and change it to suit your needs. For details refer to
-      <xref linkend="custom.configuration" role="internalbook"/>.
+      <xref linkend="custom-configuration" role="internalbook"/>.
      </para>
     </note>
    </step>
@@ -1146,10 +1147,10 @@
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="deepsea.pillar.salt.configuration">
+ <sect1 xml:id="deepsea-pillar-salt-configuration">
   <title>Configuration</title>
 
-  <sect2 xml:id="policy.configuration">
+  <sect2 xml:id="policy-configuration">
    <title>The <filename>policy.cfg</filename> File</title>
    <para>
     The <filename>/srv/pillar/ceph/proposals/policy.cfg</filename>
@@ -1165,22 +1166,22 @@
    <itemizedlist>
     <listitem>
      <para>
-      <xref linkend="policy.cluster.assignment" xrefstyle="select: title" role="internalbook"/>.
+      <xref linkend="policy-cluster-assignment" xrefstyle="select: title" role="internalbook"/>.
      </para>
     </listitem>
     <listitem>
      <para>
-      <xref linkend="policy.role.assignment" xrefstyle="select: title" role="internalbook"/>.
+      <xref linkend="policy-role-assignment" xrefstyle="select: title" role="internalbook"/>.
      </para>
     </listitem>
     <listitem>
      <para>
-      <xref linkend="policy.common.configuration" xrefstyle="select: title" role="internalbook"/>.
+      <xref linkend="policy-common-configuration" xrefstyle="select: title" role="internalbook"/>.
      </para>
     </listitem>
     <listitem>
      <para>
-      <xref linkend="policy.profile.assignment" xrefstyle="select: title" role="internalbook"/>.
+      <xref linkend="policy-profile-assignment" xrefstyle="select: title" role="internalbook"/>.
      </para>
     </listitem>
    </itemizedlist>
@@ -1188,7 +1189,7 @@
     The order of the sections is arbitrary, but the content of included lines
     overwrites matching keys from the contents of previous lines.
    </para>
-   <sect3 xml:id="policy.cluster.assignment">
+   <sect3 xml:id="policy-cluster-assignment">
     <title>Cluster Assignment</title>
     <para>
      In the <emphasis role="bold">cluster</emphasis> section you select minions
@@ -1216,7 +1217,7 @@
     </para>
 <screen>cluster-unassigned/cluster/client*.sls</screen>
    </sect3>
-   <sect3 xml:id="policy.role.assignment">
+   <sect3 xml:id="policy-role-assignment">
     <title>Role Assignment</title>
     <para>
      In the <emphasis role="bold"/> section you need to assign roles
@@ -1310,7 +1311,7 @@ role-igw/cluster/*.sls</screen>
 <screen>role-mds/cluster/mon[12]*.sls</screen>
     </note>
    </sect3>
-   <sect3 xml:id="policy.common.configuration">
+   <sect3 xml:id="policy-common-configuration">
     <title>Common Configuration</title>
     <para>
      The common configuration section includes configuration files generated
@@ -1323,7 +1324,7 @@ role-igw/cluster/*.sls</screen>
 config/stack/default/ceph/cluster.yml</screen>
 
    </sect3>
-   <sect3 xml:id="policy.profile.assignment">
+   <sect3 xml:id="policy-profile-assignment">
     <title>Profile Assignment</title>
     <para>
      In Ceph, a single storage role would be insufficient to describe the
@@ -1394,7 +1395,7 @@ profile-18HP5588-6INTEL372GB-2/stack/default/ceph/minions/data*.yml</screen>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="custom.configuration">
+  <sect2 xml:id="custom-configuration">
    <title>Customizing the Default Configuration</title>
    <para>
     You can change the default configuration generated in the stage 2. The
@@ -1522,13 +1523,13 @@ profile-18HP5588-6INTEL372GB-2/stack/default/ceph/minions/data*.yml</screen>
   </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_install_ceph-deploy.xml" version="5.0" xml:id="ceph.install.ceph-deploy">
+  <chapter xml:base="admin_install_ceph-deploy.xml" version="5.0" xml:id="ceph-install-ceph-deploy">
  <title>Deploying with <command>ceph-deploy</command></title>
  <para>
   <command>ceph-deploy</command> is a command line utility to simplify the way
   you deploy Ceph cluster in small scale setups.
  </para>
- <sect1 xml:id="ceph.install.ceph-deploy.layout">
+ <sect1 xml:id="ceph-install-ceph-deploy-layout">
   <title>Ceph Layout</title>
 
   <para>
@@ -1557,7 +1558,7 @@ profile-18HP5588-6INTEL372GB-2/stack/default/ceph/minions/data*.yml</screen>
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="ceph.install.ceph-deploy.network">
+ <sect1 xml:id="ceph-install-ceph-deploy-network">
   <title>Network Recommendations</title>
 
   <para>
@@ -1598,7 +1599,7 @@ profile-18HP5588-6INTEL372GB-2/stack/default/ceph/minions/data*.yml</screen>
 <screen>WAIT_FOR_INTERFACES="60"</screen>
   </tip>
  </sect1>
- <sect1 xml:id="ceph.install.ceph-deploy.eachnode">
+ <sect1 xml:id="ceph-install-ceph-deploy-eachnode">
   <title>Preparing Each Ceph Node</title>
 
   <para>
@@ -1657,7 +1658,7 @@ profile-18HP5588-6INTEL372GB-2/stack/default/ceph/minions/data*.yml</screen>
     <para>
      or, if you want to keep it on, enable the appropriate set of ports. You
      can find detailed information in
-     <xref linkend="storage.bp.net.firewall" role="internalbook"/>.
+     <xref linkend="storage-bp-net-firewall" role="internalbook"/>.
     </para>
    </step>
    <step>
@@ -1671,7 +1672,7 @@ profile-18HP5588-6INTEL372GB-2/stack/default/ceph/minions/data*.yml</screen>
      <title>Calamari Node</title>
      <para>
       If you plan to deploy the Calamari monitoring and management environment
-      (refer to <xref linkend="ceph.install.calamari" role="internalbook"/> for more information),
+      (refer to <xref linkend="ceph-install-calamari" role="internalbook"/> for more information),
       each Ceph node needs to reach the Calamari node as well.
      </para>
     </tip>
@@ -1781,7 +1782,7 @@ Host ceph-node1
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="ceph.install.ceph-deploy.purge">
+ <sect1 xml:id="ceph-install-ceph-deploy-purge">
   <title>Cleaning Previous Ceph Environment</title>
 
   <para>
@@ -1802,12 +1803,12 @@ Host ceph-node1
 <prompt>cephadm &gt; </prompt>ceph-deploy purgedata <replaceable>node1</replaceable> <replaceable>node2</replaceable> <replaceable>node3</replaceable>
 <prompt>cephadm &gt; </prompt>ceph-deploy forgetkeys</screen>
  </sect1>
- <sect1 xml:id="ceph.install.ceph-deploy.cephdeploy">
+ <sect1 xml:id="ceph-install-ceph-deploy-cephdeploy">
   <title>Running <command>ceph-deploy</command></title>
 
   <para>
    After you prepared each Ceph node as described in
-   <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/>, you are ready to deploy
+   <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/>, you are ready to deploy
    Ceph from the admin node with <command>ceph-deploy</command>. Note that
    <command>ceph-deploy</command> will not successfully install an OSD on disks
    that have been previously used, unless you first 'zap' them. Be aware that
@@ -1923,7 +1924,7 @@ net.ipv6.conf.lo.disable_ipv6 = 1</screen>
 <screen>sudo /sbin/SuSEfirewall2 on</screen>
     <para>
      You can find detailed information in
-     <xref linkend="storage.bp.net.firewall" role="internalbook"/>.
+     <xref linkend="storage-bp-net-firewall" role="internalbook"/>.
     </para>
    </step>
    <step>
@@ -1953,7 +1954,7 @@ major minor  #blocks  name
      <para>
       If you need to create OSDs on already existing partitions, you need to
       set their GUIDs correctly. See
-      <xref linkend="bp.osd_on_exisitng_partitions" role="internalbook"/> for more details.
+      <xref linkend="bp-osd-on-exisitng-partitions" role="internalbook"/> for more details.
      </para>
     </tip>
     <tip>
@@ -2014,7 +2015,7 @@ ceph-deploy --ceph-conf my_cluster.conf osd activate [...]</screen>
   </tip>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_install_crowbar.xml" version="5.0" xml:id="ceph.install.crowbar">
+  <chapter xml:base="admin_install_crowbar.xml" version="5.0" xml:id="ceph-install-crowbar">
  <title>Deploying with Crowbar</title>
  <para>
   Crowbar (<link xlink:href="http://crowbar.github.io/"/>) is a framework to
@@ -2026,7 +2027,7 @@ ceph-deploy --ceph-conf my_cluster.conf osd activate [...]</screen>
   and set up the Crowbar admin server, then use it to deploy the available
   OSD/monitor nodes.
  </para>
- <sect1 xml:id="ceph.install.crowbar.admin_server">
+ <sect1 xml:id="ceph-install-crowbar-admin-server">
   <title>Installing and Setting Up the Crowbar Admin Server</title>
 
   <para>
@@ -2055,7 +2056,7 @@ ceph-deploy --ceph-conf my_cluster.conf osd activate [...]</screen>
       Storage Crowbar</guimenu> patterns from the <guimenu>Software Selection
       and System Tasks</guimenu> window. If you plan to synchronize
       repositories (see
-      <xref linkend="ceph.install.crowbar.admin_server.repos" role="internalbook"/>) with SMT,
+      <xref linkend="ceph-install-crowbar-admin-server-repos" role="internalbook"/>) with SMT,
       add the <guimenu>Subscription Management Tool</guimenu> pattern as well.
      </para>
     </tip>
@@ -2103,7 +2104,7 @@ ceph-deploy --ceph-conf my_cluster.conf osd activate [...]</screen>
    <step>
     <para>
      Mount software repositories required for Ceph nodes deployment with
-     Crowbar. See <xref linkend="ceph.install.crowbar.admin_server.repos" role="internalbook"/> for
+     Crowbar. See <xref linkend="ceph-install-crowbar-admin-server-repos" role="internalbook"/> for
      more detailed information.
     </para>
    </step>
@@ -2140,7 +2141,7 @@ screen install-ses-admin</screen>
    </step>
   </procedure>
 
-  <sect2 xml:id="ceph.install.crowbar.admin_server.repos">
+  <sect2 xml:id="ceph-install-crowbar-admin-server-repos">
    <title>Prepare Software Repositories</title>
    <para>
     Crowbar admin server needs to provide several software repositories so that
@@ -2205,7 +2206,7 @@ screen install-ses-admin</screen>
    </variablelist>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.install.crowbar.deploy_nodes">
+ <sect1 xml:id="ceph-install-crowbar-deploy-nodes">
   <title>Deploying the Ceph Nodes</title>
 
   <para>
@@ -2220,12 +2221,12 @@ screen install-ses-admin</screen>
    files.
   </para>
 
-  <sect2 xml:id="sec.depl.crow.login">
+  <sect2 xml:id="sec-depl-crow-login">
    <title>Logging In</title>
    <para>
     The Crowbar Web interface uses the HTTP protocol and port <literal>80</literal>.
    </para>
-   <procedure xml:id="pro.depl.crow.login">
+   <procedure xml:id="pro-depl-crow-login">
     <title>Logging In to the Crowbar Web Interface</title>
     <step>
      <para>
@@ -2248,7 +2249,7 @@ screen install-ses-admin</screen>
     </step>
    </procedure>
 
-   <procedure xml:id="pro.depl.crow.password">
+   <procedure xml:id="pro-depl-crow-password">
     <title>Changing the Password for the Crowbar Web Interface</title>
     <step>
      <para>
@@ -2289,7 +2290,7 @@ screen install-ses-admin</screen>
    </procedure>
   </sect2>
 
-  <sect2 xml:id="sec.depl.inst.nodes.install">
+  <sect2 xml:id="sec-depl-inst-nodes-install">
    <title>Node Installation</title>
    <para>
     The Ceph nodes represent the actual cluster infrastructure. Node
@@ -2493,7 +2494,7 @@ screen install-ses-admin</screen>
    </procedure>
   </sect2>
 
-  <sect2 xml:id="sec.depl.ceph.barclamps">
+  <sect2 xml:id="sec-depl-ceph-barclamps">
    <title>Barclamps</title>
    <para>
     The Ceph service is automatically installed on the nodes by using
@@ -2578,7 +2579,7 @@ screen install-ses-admin</screen>
       your changes without deploying them, click <guimenu>Save</guimenu>. To
       remove the complete proposal, click <guimenu>Delete</guimenu>. A proposal
       that already has been deployed can only be deleted manually, see
-      <xref linkend="sec.depl.ceph.barclamps.delete" role="internalbook"/> for details.
+      <xref linkend="sec-depl-ceph-barclamps-delete" role="internalbook"/> for details.
      </para>
      <para>
       If you deploy a proposal onto a node where a previous one is still
@@ -2595,7 +2596,7 @@ screen install-ses-admin</screen>
      </note>
     </step>
    </procedure>
-   <sect3 xml:id="sec.depl.ceph.barclamps.delete">
+   <sect3 xml:id="sec-depl-ceph-barclamps-delete">
     <title>Delete a Proposal That Already Has Been Deployed</title>
     <para>
      To delete a proposal that already has been deployed, you first need to
@@ -2618,7 +2619,7 @@ screen install-ses-admin</screen>
      should not be necessary.
     </para>
    </sect3>
-   <sect3 xml:id="sec.depl.ceph.barclamps.queues">
+   <sect3 xml:id="sec-depl-ceph-barclamps-queues">
     <title>Queuing/Dequeuing Proposals</title>
     <para>
      When a proposal is applied to one or more nodes that are nor yet available
@@ -2634,7 +2635,7 @@ screen install-ses-admin</screen>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="sec.depl.ceph.ceph">
+  <sect2 xml:id="sec-depl-ceph-ceph">
    <title>Deploying Ceph</title>
    <para>
     For Ceph at least four nodes are required. If deploying the optional
@@ -2764,7 +2765,7 @@ screen install-ses-admin</screen>
       <para>
        The metadata server daemon for the CephFS. Install it on a dedicated
        node. For more information on CephFS refer to
-       <xref linkend="cha.ceph.cephfs" role="internalbook"/>.
+       <xref linkend="cha-ceph-cephfs" role="internalbook"/>.
       </para>
      </listitem>
     </varlistentry>
@@ -2783,7 +2784,7 @@ screen install-ses-admin</screen>
   </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_ceph_upgrade.xml" version="5.0" xml:id="cha.ceph.upgrade">
+  <chapter xml:base="admin_ceph_upgrade.xml" version="5.0" xml:id="cha-ceph-upgrade">
  <title>Upgrading from Previous Releases</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -2800,7 +2801,7 @@ screen install-ses-admin</screen>
   This chapter introduces steps to upgrade SUSE Enterprise Storage from the previous
   release(s) to the current one.
  </para>
- <sect1 xml:id="ceph.upgrade.general">
+ <sect1 xml:id="ceph-upgrade-general">
   <title>General Upgrade Procedure</title>
 
   <para>
@@ -2858,7 +2859,7 @@ screen install-ses-admin</screen>
 <screen>ceph osd stat</screen>
   </tip>
  </sect1>
- <sect1 xml:id="ceph.upgrade.to4">
+ <sect1 xml:id="ceph-upgrade-to4">
   <title>Upgrade from SUSE Enterprise Storage 2.1/3 to 4</title>
 
   <para>
@@ -2963,7 +2964,7 @@ screen install-ses-admin</screen>
    </step>
   </procedure>
 
-  <sect2 xml:id="ceph.upgrade.2.1to3.iscsi_up">
+  <sect2 xml:id="ceph-upgrade-2-1to3-iscsi-up">
    <title>iSCSI Gateways Upgrade</title>
    <para>
     For iSCSI gateways, consider the following points during upgrades:
@@ -3020,7 +3021,7 @@ screen install-ses-admin</screen>
      </itemizedlist>
     </listitem>
    </itemizedlist>
-   <sect3 xml:id="ceph.upgrade.2.1to3.iscsi">
+   <sect3 xml:id="ceph-upgrade-2-1to3-iscsi">
     <title>Updated Behavior for iSCSI Gateways</title>
     <itemizedlist>
      <listitem>
@@ -3083,12 +3084,12 @@ screen install-ses-admin</screen>
    </sect3>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.upgrade.2to4">
+ <sect1 xml:id="ceph-upgrade-2to4">
   <title>Upgrade from SUSE Enterprise Storage 2.1 to 4</title>
   <para>
   This section includes tasks specific to upgrading SUSE Enterprise Storage 2.1 to 4.
  </para>
- <sect2 xml:id="ceph.upgrade.2to4.jewel">
+ <sect2 xml:id="ceph-upgrade-2to4-jewel">
   <title>Set <option>require_jewel_osds</option> osdmap Flag</title>
   <para>
    When the last OSD is upgraded from SUSE Enterprise Storage 2.1 to 4, the monitor nodes will
@@ -3111,9 +3112,9 @@ screen install-ses-admin</screen>
  </sect1>
 </chapter>
  </part>
- <part xml:id="part.operate">
+ <part xml:id="part-operate">
   <title>Operating a Cluster</title>
-  <chapter xml:base="admin_operating_intro.xml" version="5.0" xml:id="cha.ceph.operating">
+  <chapter xml:base="admin_operating_intro.xml" version="5.0" xml:id="cha-ceph-operating">
  <title>Introduction</title>
  <para>
   In this part of the manual you will learn how to start or stop Ceph
@@ -3127,7 +3128,7 @@ screen install-ses-admin</screen>
   with cache tiering.
  </para>
 </chapter>
-  <chapter xml:base="admin_operating_services.xml" version="5.0" xml:id="ceph.operating.services">
+  <chapter xml:base="admin_operating_services.xml" version="5.0" xml:id="ceph-operating-services">
  <title>Operating Ceph Services</title>
  <para>
   Ceph related services are operated with the <command>systemctl</command>
@@ -3135,7 +3136,7 @@ screen install-ses-admin</screen>
   to. You need to have <systemitem class="username">root</systemitem> privileges to be able to operate on Ceph
   services.
  </para>
- <sect1 xml:id="ceph.operating.services.targets">
+ <sect1 xml:id="ceph-operating-services-targets">
   <title>Starting, Stopping, and Restarting Services using Targets</title>
 
   <para>
@@ -3171,7 +3172,7 @@ systemctl restart ceph-osd.target</screen>
    Commands for the other targets are analogous.
   </para>
  </sect1>
- <sect1 xml:id="ceph.operating.services.individual">
+ <sect1 xml:id="ceph-operating-services-individual">
   <title>Starting, Stopping, and Restarting Individual Services</title>
 
   <para>
@@ -3188,7 +3189,7 @@ ceph-rbd-mirror@.service</screen>
   <para>
    To use these commands, you first need to identify the name of the service
    you want to operate. See
-   <xref linkend="ceph.operating.services.finding_names" role="internalbook"/> to learn more about
+   <xref linkend="ceph-operating-services-finding-names" role="internalbook"/> to learn more about
    services identification.
   </para>
 
@@ -3204,7 +3205,7 @@ systemctl restart ceph-osd@1.service</screen>
    Commands for the other service types are analogous.
   </para>
  </sect1>
- <sect1 xml:id="ceph.operating.services.finding_names">
+ <sect1 xml:id="ceph-operating-services-finding-names">
   <title>Identifying Individual Services</title>
 
   <para>
@@ -3217,7 +3218,7 @@ systemctl restart ceph-osd@1.service</screen>
 systemctl | grep -i 'ceph-mon.*service'
 [...]</screen>
  </sect1>
- <sect1 xml:id="ceph.operating.services.status">
+ <sect1 xml:id="ceph-operating-services-status">
   <title>Service Status</title>
 
   <para>
@@ -3229,11 +3230,11 @@ systemctl status ceph-mon@vanguard2.service</screen>
 
   <para>
    If you do not know the exact name/number of the service, see
-   <xref linkend="ceph.operating.services.finding_names" role="internalbook"/>.
+   <xref linkend="ceph-operating-services-finding-names" role="internalbook"/>.
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_operating_monitor.xml" version="5.0" xml:id="ceph.monitor">
+  <chapter xml:base="admin_operating_monitor.xml" version="5.0" xml:id="ceph-monitor">
  <title>Determining Cluster State</title>
  <para>
   Once you have a running cluster, you may use the <command>ceph</command> tool
@@ -3255,7 +3256,7 @@ ceph&gt; status
 ceph&gt; quorum_status
 ceph&gt; mon_status</screen>
  </tip>
- <sect1 xml:id="monitor.health">
+ <sect1 xml:id="monitor-health">
   <title>Checking Cluster Health</title>
 
   <para>
@@ -3284,7 +3285,7 @@ node-1,node-2,node-3</screen>
    cluster.
   </para>
  </sect1>
- <sect1 xml:id="monitor.watch">
+ <sect1 xml:id="monitor-watch">
   <title>Watching a Cluster</title>
 
   <para>
@@ -3377,7 +3378,7 @@ node-1,node-2,node-3</screen>
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="monitor.stats">
+ <sect1 xml:id="monitor-stats">
   <title>Checking a Cluster’s Usage Stats</title>
 
   <para>
@@ -3482,7 +3483,7 @@ POOLS:
    </para>
   </note>
  </sect1>
- <sect1 xml:id="monitor.status">
+ <sect1 xml:id="monitor-status">
   <title>Checking a Cluster’s Status</title>
 
   <para>
@@ -3518,7 +3519,7 @@ POOLS:
                1 active+clean+scrubbing+deep
              951 active+clean</screen>
  </sect1>
- <sect1 xml:id="monitor.osdstatus">
+ <sect1 xml:id="monitor-osdstatus">
   <title>Checking OSD Status</title>
 
   <para>
@@ -3552,7 +3553,7 @@ POOLS:
 1       1                               osd.1   up      1
 2       1                               osd.2   up      1</screen>
  </sect1>
- <sect1 xml:id="monitor.monstatus">
+ <sect1 xml:id="monitor-monstatus">
   <title>Checking Monitor Status</title>
 
   <para>
@@ -3610,7 +3611,7 @@ POOLS:
 }</screen>
  </sect1>
 
- <sect1 xml:id="monitor.pgroupstatus">
+ <sect1 xml:id="monitor-pgroupstatus">
   <title>Checking Placement Group States</title>
 
   <para>
@@ -3621,7 +3622,7 @@ POOLS:
    OSDs and Placement Groups.</link>
   </para>
  </sect1>
- <sect1 xml:id="monitor.adminsocket">
+ <sect1 xml:id="monitor-adminsocket">
   <title>Using the Admin Socket</title>
 
   <para>
@@ -3654,7 +3655,7 @@ POOLS:
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_cephx.xml" version="5.0" xml:id="cha.storage.cephx">
+  <chapter xml:base="admin_cephx.xml" version="5.0" xml:id="cha-storage-cephx">
  <title>Authentication with <systemitem class="service">cephx</systemitem></title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -3679,7 +3680,7 @@ POOLS:
    TLS/SSL.
   </para>
  </note>
- <sect1 xml:id="storage.cephx.arch">
+ <sect1 xml:id="storage-cephx-arch">
 
 
   <title>Authentication Architecture</title>
@@ -3798,7 +3799,7 @@ POOLS:
    </para>
   </important>
  </sect1>
- <sect1 xml:id="storage.cephx.keymgmt">
+ <sect1 xml:id="storage-cephx-keymgmt">
 
 
   <title>Key Management</title>
@@ -3829,7 +3830,7 @@ POOLS:
    variable to avoid re-entering the user name and secret.
   </para>
 
-  <sect2 xml:id="storage.cephx.keymgmt.backgrnd">
+  <sect2 xml:id="storage-cephx-keymgmt-backgrnd">
    <title>Background Information</title>
    <para>
     Regardless of the type of Ceph client (for example, block device, object
@@ -4042,7 +4043,7 @@ mon 'allow profile osd'</screen>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="storage.cephx.keymgmt.usermgmt">
+  <sect2 xml:id="storage-cephx-keymgmt-usermgmt">
    <title>Managing Users</title>
    <para>
     User management functionality provides Ceph cluster administrators with
@@ -4052,7 +4053,7 @@ mon 'allow profile osd'</screen>
    <para>
     When you create or delete users in the Ceph cluster, you may need to
     distribute keys to clients so that they can be added to keyrings. See
-    <xref linkend="storage.cephx.keymgmt.keyringmgmt" role="internalbook"/> for details.
+    <xref linkend="storage-cephx-keymgmt-keyringmgmt" role="internalbook"/> for details.
    </para>
    <sect3>
     <title>Listing Users</title>
@@ -4129,7 +4130,7 @@ exported keyring for client.admin
      get</command>, but also prints the internal authentication ID.
     </para>
    </sect3>
-   <sect3 xml:id="storage.cephx.keymgmt.usermgmt.useradd">
+   <sect3 xml:id="storage-cephx-keymgmt-usermgmt-useradd">
     <title>Adding Users</title>
     <para>
      Adding a user creates a user name (<literal>TYPE.ID</literal>), a secret
@@ -4272,7 +4273,7 @@ ceph auth caps client.brian-manager mon 'allow *' osd 'allow *'</screen>
 <screen>mount -t ceph host:/ mount_point \
 -o name=client.user,secret=`ceph auth print-key client.user`</screen>
    </sect3>
-   <sect3 xml:id="storage.cephx.keymgmt.usermgmt.userimp">
+   <sect3 xml:id="storage-cephx-keymgmt-usermgmt-userimp">
     <title>Importing Users</title>
     <para>
      To import one or more users, use <command>ceph auth import</command> and
@@ -4289,7 +4290,7 @@ ceph auth caps client.brian-manager mon 'allow *' osd 'allow *'</screen>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="storage.cephx.keymgmt.keyringmgmt">
+  <sect2 xml:id="storage-cephx-keymgmt-keyringmgmt">
    <title>Keyring Management</title>
    <para>
     When you access Ceph via a Ceph client, the client will look for a
@@ -4317,7 +4318,7 @@ ceph auth caps client.brian-manager mon 'allow *' osd 'allow *'</screen>
     the Ceph storage cluster.
    </para>
    <para>
-    <xref linkend="storage.cephx.keymgmt" role="internalbook"/> details how to list, get, add,
+    <xref linkend="storage-cephx-keymgmt" role="internalbook"/> details how to list, get, add,
     modify and delete users directly in the Ceph storage cluster. However,
     Ceph also provides the <command>ceph-authtool</command> utility to allow
     you to manage keyrings from a Ceph client.
@@ -4325,7 +4326,7 @@ ceph auth caps client.brian-manager mon 'allow *' osd 'allow *'</screen>
    <sect3>
     <title>Creating a Keyring</title>
     <para>
-     When you use the procedures in <xref linkend="storage.cephx.keymgmt" role="internalbook"/> to
+     When you use the procedures in <xref linkend="storage-cephx-keymgmt" role="internalbook"/> to
      create users, you need to provide user keys to the Ceph client(s) so
      that the client can retrieve the key for the specified user and
      authenticate with the Ceph storage cluster. Ceph clients access
@@ -4354,7 +4355,7 @@ ceph auth caps client.brian-manager mon 'allow *' osd 'allow *'</screen>
     <title>Adding a User to a Keyring</title>
     <para>
      When you add a user to the Ceph storage cluster (see
-     <xref linkend="storage.cephx.keymgmt.usermgmt.useradd" role="internalbook"/>), you can
+     <xref linkend="storage-cephx-keymgmt-usermgmt-useradd" role="internalbook"/>), you can
      retrieve the user, key and capabilities, and save the user to a keyring.
     </para>
     <para>
@@ -4412,13 +4413,13 @@ ceph auth caps client.brian-manager mon 'allow *' osd 'allow *'</screen>
     </para>
 <screen>ceph auth import -i /etc/ceph/ceph.keyring</screen>
     <para>
-     See <xref linkend="storage.cephx.keymgmt.usermgmt.userimp" role="internalbook"/> for details
+     See <xref linkend="storage-cephx-keymgmt-usermgmt-userimp" role="internalbook"/> for details
      on updating a Ceph storage cluster user from a keyring.
     </para>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="storage.cephx.keymgmt.cmdline">
+  <sect2 xml:id="storage-cephx-keymgmt-cmdline">
    <title>Command Line Usage</title>
    <para>
     The <command>ceph</command> command supports the following options related
@@ -4482,7 +4483,7 @@ ceph -n client.foo --keyring /path/to/keyring health</screen>
   </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_ceph_datamgm.xml" version="5.0" xml:id="cha.storage.datamgm">
+  <chapter xml:base="admin_ceph_datamgm.xml" version="5.0" xml:id="cha-storage-datamgm">
  <title>Stored Data Management</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -4553,26 +4554,26 @@ ceph -n client.foo --keyring /path/to/keyring health</screen>
  <itemizedlist mark="bullet" spacing="normal">
   <listitem>
    <para>
-    <xref linkend="datamgm.devices" xrefstyle="select: title" role="internalbook"/> consist of any
+    <xref linkend="datamgm-devices" xrefstyle="select: title" role="internalbook"/> consist of any
     object storage device, that is, the hard disk corresponding to a
     <systemitem>ceph-osd</systemitem> daemon.
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="datamgm.buckets" xrefstyle="select: title" role="internalbook"/> consist of a
+    <xref linkend="datamgm-buckets" xrefstyle="select: title" role="internalbook"/> consist of a
     hierarchical aggregation of storage locations (for example rows, racks,
     hosts, etc.) and their assigned weights.
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="datamgm.rules" xrefstyle="select: title" role="internalbook"/> consist of the
+    <xref linkend="datamgm-rules" xrefstyle="select: title" role="internalbook"/> consist of the
     manner of selecting buckets.
    </para>
   </listitem>
  </itemizedlist>
- <sect1 xml:id="datamgm.devices">
+ <sect1 xml:id="datamgm-devices">
   <title>Devices</title>
 
   <para>
@@ -4598,7 +4599,7 @@ device 3 osd.3</screen>
    As a general rule, an OSD daemon maps to a single disk.
   </para>
  </sect1>
- <sect1 xml:id="datamgm.buckets">
+ <sect1 xml:id="datamgm-buckets">
   <title>Buckets</title>
 
   <para>
@@ -4909,7 +4910,7 @@ pool data {
         item dc-2 weight 60.00
 }</screen>
  </sect1>
- <sect1 xml:id="datamgm.rules">
+ <sect1 xml:id="datamgm-rules">
   <title>Rule Sets</title>
 
   <para>
@@ -5030,7 +5031,7 @@ pool data {
    </para>
   </important>
  </sect1>
- <sect1 xml:id="op.crush">
+ <sect1 xml:id="op-crush">
   <title>CRUSH Map Manipulation</title>
 
   <para>
@@ -5098,7 +5099,7 @@ pool data {
    </procedure>
   </sect2>
 
-  <sect2 xml:id="op.crush.addosd">
+  <sect2 xml:id="op-crush-addosd">
    <title>Add/Move an OSD</title>
    <para>
     To add or move an OSD in the CRUSH map of a running cluster, execute the
@@ -5158,7 +5159,7 @@ pool data {
 row=foo rack=bar host=foo-bar-1</screen>
   </sect2>
 
-  <sect2 xml:id="op.crush.osdweight">
+  <sect2 xml:id="op-crush-osdweight">
    <title>Adjust an OSD’s CRUSH Weight</title>
    <para>
     To adjust an OSD’s crush weight in the CRUSH map of a running cluster,
@@ -5185,7 +5186,7 @@ row=foo rack=bar host=foo-bar-1</screen>
    </variablelist>
   </sect2>
 
-  <sect2 xml:id="op.crush.osdremove">
+  <sect2 xml:id="op-crush-osdremove">
    <title>Remove an OSD</title>
    <para>
     To remove an OSD from the CRUSH map of a running cluster, execute the
@@ -5204,7 +5205,7 @@ row=foo rack=bar host=foo-bar-1</screen>
    </variablelist>
   </sect2>
 
-  <sect2 xml:id="op.crush.movebucket">
+  <sect2 xml:id="op-crush-movebucket">
    <title>Move a Bucket</title>
    <para>
     To move a bucket to a different location or position in the CRUSH map
@@ -5233,7 +5234,7 @@ row=foo rack=bar host=foo-bar-1</screen>
    </variablelist>
   </sect2>
  </sect1>
- <sect1 xml:id="op.mixed_ssd_hdd">
+ <sect1 xml:id="op-mixed-ssd-hdd">
   <title>Mixed SSDs and HDDs on the Same Node</title>
 
   <para>
@@ -5362,7 +5363,7 @@ ID WEIGHT  TYPE NAME                   UP/DOWN REWEIGHT PRIMARY-AFFINITY
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_operating_pools.xml" version="5.0" xml:id="ceph.pools">
+  <chapter xml:base="admin_operating_pools.xml" version="5.0" xml:id="ceph-pools">
  <title>Managing Storage Pools</title>
  <para>
   When you first deploy a cluster without creating a pool, Ceph uses the
@@ -5416,7 +5417,7 @@ ID WEIGHT  TYPE NAME                   UP/DOWN REWEIGHT PRIMARY-AFFINITY
   To organize data into pools, you can list, create, and remove pools. You can
   also view the usage statistics for each pool.
  </para>
- <sect1 xml:id="ceph.pools.operate">
+ <sect1 xml:id="ceph-pools-operate">
   <title>Operating Pools</title>
 
   <para>
@@ -5434,7 +5435,7 @@ ID WEIGHT  TYPE NAME                   UP/DOWN REWEIGHT PRIMARY-AFFINITY
 0 rbd, 1 photo_collection, 2 foo_pool,</screen>
   </sect2>
 
-  <sect2 xml:id="ceph.pools.operate.add_pool">
+  <sect2 xml:id="ceph-pools-operate-add-pool">
    <title>Create a Pool</title>
    <para>
     To create a replicated pool, execute:
@@ -5555,7 +5556,7 @@ ID WEIGHT  TYPE NAME                   UP/DOWN REWEIGHT PRIMARY-AFFINITY
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.pools.operate.del_pool">
+  <sect2 xml:id="ceph-pools-operate-del-pool">
    <title>Delete a Pool</title>
    <para>
     To delete a pool, execute:
@@ -5600,7 +5601,7 @@ total avail       27966296
 total space       28232564</screen>
   </sect2>
 
-  <sect2 xml:id="ceph.pools.values">
+  <sect2 xml:id="ceph-pools-values">
    <title>Set Pool Values</title>
    <para>
     To set a value to a pool, execute:
@@ -5615,7 +5616,7 @@ total space       28232564</screen>
      <listitem>
       <para>
        Sets the number of replicas for objects in the pool. See
-       <xref linkend="ceph.pools.options.num_of_replicas" role="internalbook"/> for further
+       <xref linkend="ceph-pools-options-num-of-replicas" role="internalbook"/> for further
        details. Replicated pools only.
       </para>
      </listitem>
@@ -5625,7 +5626,7 @@ total space       28232564</screen>
      <listitem>
       <para>
        Sets the minimum number of replicas required for I/O. See
-       <xref linkend="ceph.pools.options.num_of_replicas" role="internalbook"/> for further
+       <xref linkend="ceph-pools-options-num-of-replicas" role="internalbook"/> for further
        details. Replicated pools only.
       </para>
      </listitem>
@@ -5908,7 +5909,7 @@ total space       28232564</screen>
    </para>
 <screen>ceph osd pool get <replaceable>pool-name</replaceable> <replaceable>key</replaceable></screen>
    <para>
-    You can get values for keys listed in <xref linkend="ceph.pools.values" role="internalbook"/>
+    You can get values for keys listed in <xref linkend="ceph-pools-values" role="internalbook"/>
     plus the following keys:
    </para>
    <variablelist>
@@ -5933,7 +5934,7 @@ total space       28232564</screen>
    </variablelist>
   </sect2>
 
-  <sect2 xml:id="ceph.pools.options.num_of_replicas">
+  <sect2 xml:id="ceph-pools-options-num-of-replicas">
    <title>Set the Number of Object Replicas</title>
    <para>
     To set the number of object replicas on a replicated pool, execute the
@@ -5982,7 +5983,7 @@ total space       28232564</screen>
   </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_operating_snapshots.xml" version="5.0" xml:id="cha.ceph.snapshots">
+  <chapter xml:base="admin_operating_snapshots.xml" version="5.0" xml:id="cha-ceph-snapshots">
  <title>Snapshots</title>
  <para>
   A snapshot is a read-only copy of the state of an object—a pool or an
@@ -5990,7 +5991,7 @@ total space       28232564</screen>
   of its state. There are two types of snapshots in Ceph—RBD snapshots
   and pool snapshots.
  </para>
- <sect1 xml:id="cha.ceph.snapshots.rbd">
+ <sect1 xml:id="cha-ceph-snapshots-rbd">
   <title>RBD Snapshots</title>
 
   <para>
@@ -6131,7 +6132,7 @@ rbd snap purge pool1/image1</screen>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="ceph.snapshoti.layering">
+  <sect2 xml:id="ceph-snapshoti-layering">
    <title>Layering</title>
    <para>
     Ceph supports the ability to create many copy-on-write (COW) clones of a
@@ -6321,7 +6322,7 @@ rbd flatten pool1/image1</screen>
    </sect3>
   </sect2>
  </sect1>
- <sect1 xml:id="cha.ceph.snapshots.pool">
+ <sect1 xml:id="cha-ceph-snapshots-pool">
   <title>Pool Snapshots</title>
 
   <para>
@@ -6354,7 +6355,7 @@ created pool pool1 snap snapshot1</screen>
   </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_ceph_erasure.xml" version="5.0" xml:id="cha.ceph.erasure">
+  <chapter xml:base="admin_ceph_erasure.xml" version="5.0" xml:id="cha-ceph-erasure">
  <title>Erasure Coded Pools</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -6380,7 +6381,7 @@ created pool pool1 snap snapshot1</screen>
  <note>
   <para>
    You cannot access erasure coded pools with the rbd interface unless you have
-   a cache tier configured. Refer to <xref linkend="ceph.tier.erasure" role="internalbook"/> for
+   a cache tier configured. Refer to <xref linkend="ceph-tier-erasure" role="internalbook"/> for
    more details.
   </para>
  </note>
@@ -6506,7 +6507,7 @@ ABCDEFGHI</screen>
    <link xlink:href="http://docs.ceph.com/docs/master/rados/operations/erasure-code-profile"/>.
   </para>
  </sect1>
- <sect1 xml:id="ceph.tier.erasure">
+ <sect1 xml:id="ceph-tier-erasure">
   <title>Erasure Coded Pool And Cache Tiering</title>
 
   <para>
@@ -6539,11 +6540,11 @@ ABCDEFGHI</screen>
 
   <para>
    For more information about cache tiering, see
-   <xref linkend="cha.ceph.tiered" role="internalbook"/>.
+   <xref linkend="cha-ceph-tiered" role="internalbook"/>.
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_ceph_tiered_storage.xml" version="5.0" xml:id="cha.ceph.tiered">
+  <chapter xml:base="admin_ceph_tiered_storage.xml" version="5.0" xml:id="cha-ceph-tiered">
 
  <title>Cache Tiering</title>
  <info>
@@ -6578,7 +6579,7 @@ ABCDEFGHI</screen>
 
   <tip>
    <para>
-    For general information on pools, see <xref linkend="ceph.pools" role="internalbook"/>.
+    For general information on pools, see <xref linkend="ceph-pools" role="internalbook"/>.
    </para>
   </tip>
 
@@ -6589,7 +6590,7 @@ ABCDEFGHI</screen>
      <para>
       Either a standard replicated pool that stores several copies of an object
       in the Ceph storage cluster, or an erasure coded pool (see
-      <xref linkend="cha.ceph.erasure" role="internalbook"/>).
+      <xref linkend="cha-ceph-erasure" role="internalbook"/>).
      </para>
      <para>
       The storage pool is sometimes referred to as a 'backing' or 'cold'
@@ -6611,7 +6612,7 @@ ABCDEFGHI</screen>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="sec.ceph.tiered.caution">
+ <sect1 xml:id="sec-ceph-tiered-caution">
   <title>Points to Consider</title>
 
   <para>
@@ -6673,7 +6674,7 @@ ABCDEFGHI</screen>
     <para>
      You need to access erasure coded pools via iSCSI as it inherits the
      limitations of RBD. For more information on iSCSI, refer to
-     <xref linkend="cha.ceph.iscsi" role="internalbook"/>.
+     <xref linkend="cha-ceph-iscsi" role="internalbook"/>.
     </para>
    </listitem>
    <listitem>
@@ -6685,7 +6686,7 @@ ABCDEFGHI</screen>
    </listitem>
   </itemizedlist>
  </sect1>
- <sect1 xml:id="sec.ceph.tiered.cachemodes">
+ <sect1 xml:id="sec-ceph-tiered-cachemodes">
   <title>Cache Modes</title>
 
   <para>
@@ -6729,7 +6730,7 @@ ABCDEFGHI</screen>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="ses.tiered.storage">
+ <sect1 xml:id="ses-tiered-storage">
   <title>Setting Up an Example Tiered Storage</title>
 
   <para>
@@ -6761,7 +6762,7 @@ ABCDEFGHI</screen>
     <para>
      Turn the machine into a Ceph node. Install the software and configure
      the host machine as described in
-     <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/>. Let us assume that
+     <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/>. Let us assume that
      its name is <replaceable>node-4</replaceable>.
     </para>
    </step>
@@ -6769,7 +6770,7 @@ ABCDEFGHI</screen>
     <para>
      You need to create 4 OSDs nodes. For this purpose run
      <command>ceph-deploy</command> from the admin server (refer to
-     <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>). Remember to
+     <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>). Remember to
      replace <replaceable>node-4</replaceable> with the actual node name and
      device with the actual device name:
     </para>
@@ -6893,7 +6894,7 @@ rule ssd {
 <screen>sudo ceph osd tier cache-mode hot-storage writeback</screen>
     <para>
      For more information about cache modes, see
-     <xref linkend="sec.ceph.tiered.cachemodes" role="internalbook"/>.
+     <xref linkend="sec-ceph-tiered-cachemodes" role="internalbook"/>.
     </para>
     <para>
      Writeback cache tiers overlay the backing storage tier, so they require
@@ -6905,7 +6906,7 @@ rule ssd {
    </step>
   </procedure>
 
-  <sect2 xml:id="cache.tier.configure">
+  <sect2 xml:id="cache-tier-configure">
    <title>Configuring a Cache Tier</title>
    <para>
     There are several options you can use to configure cache tiers. Use the
@@ -6987,7 +6988,7 @@ sudo ceph osd pool set <replaceable>cachepool</replaceable> min_write_recency_fo
       </listitem>
      </varlistentry>
     </variablelist>
-    <sect4 xml:id="cache.tier.config.absizing">
+    <sect4 xml:id="cache-tier-config-absizing">
      <title>Absolute Sizing</title>
      <para>
       The cache tiering agent can flush or evict objects based upon the total
@@ -7016,13 +7017,13 @@ sudo ceph osd pool set <replaceable>cachepool</replaceable> min_write_recency_fo
       </para>
      </note>
     </sect4>
-    <sect4 xml:id="cache.tier.config.relsizing">
+    <sect4 xml:id="cache-tier-config-relsizing">
      <title>Relative Sizing</title>
      <para>
       The cache tiering agent can flush or evict objects relative to the size
       of the cache pool (specified by <option>target_max_bytes</option> /
       <option>target_max_objects</option> in
-      <xref linkend="cache.tier.config.absizing" role="internalbook"/>). When the cache pool
+      <xref linkend="cache-tier-config-absizing" role="internalbook"/>). When the cache pool
       consists of a certain percentage of modified (or dirty) objects, the
       cache tiering agent will flush them to the storage pool. To set the
       <option>cache_target_dirty_ratio</option>, execute the following:
@@ -7065,9 +7066,9 @@ sudo ceph osd pool set <replaceable>cachepool</replaceable> min_write_recency_fo
  </sect1>
 </chapter>
  </part>
- <part xml:id="part.dataccess">
+ <part xml:id="part-dataccess">
   <title>Accessing Cluster Data</title>
-  <chapter xml:base="admin_ceph_gateway.xml" version="5.0" xml:id="cha.ceph.gw">
+  <chapter xml:base="admin_ceph_gateway.xml" version="5.0" xml:id="cha-ceph-gw">
 
  <title>Ceph <phrase>RADOS Gateway</phrase></title>
  <info>
@@ -7121,10 +7122,10 @@ sudo ceph osd pool set <replaceable>cachepool</replaceable> min_write_recency_fo
  <important>
   <para>
    Before installing <phrase>RADOS Gateway</phrase>, you need to have the Ceph cluster installed first
-   (see <xref linkend="cha.ceph.install" role="internalbook"/> for more information).
+   (see <xref linkend="cha-ceph-install" role="internalbook"/> for more information).
   </para>
  </important>
- <sect1 xml:id="ceph.rgw.cephdeploy">
+ <sect1 xml:id="ceph-rgw-cephdeploy">
   <title>Managing <phrase>RADOS Gateway</phrase> with <command>ceph-deploy</command></title>
 
   <para>
@@ -7132,7 +7133,7 @@ sudo ceph osd pool set <replaceable>cachepool</replaceable> min_write_recency_fo
    <command>ceph-deploy</command>.
   </para>
 
-  <sect2 xml:id="ceph.rgw.cephdeploy.install">
+  <sect2 xml:id="ceph-rgw-cephdeploy-install">
    <title>Installation</title>
    <para>
     The <command>ceph-deploy</command> script includes the
@@ -7164,7 +7165,7 @@ sudo ceph osd pool set <replaceable>cachepool</replaceable> min_write_recency_fo
    <para>
     You now have a working <phrase>RADOS Gateway</phrase> on the specified nodes, and you need to give
     access to a client. For more information, see
-    <xref linkend="ceph.rgw.access" role="internalbook"/>.
+    <xref linkend="ceph-rgw-access" role="internalbook"/>.
    </para>
   </sect2>
 
@@ -7197,7 +7198,7 @@ sudo ceph osd pool set <replaceable>cachepool</replaceable> min_write_recency_fo
    </tip>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.rgw.manual">
+ <sect1 xml:id="ceph-rgw-manual">
   <title>Managing <phrase>RADOS Gateway</phrase> Manually</title>
 
   <para>
@@ -7237,14 +7238,14 @@ sudo ceph osd pool set <replaceable>cachepool</replaceable> min_write_recency_fo
     </step>
     <step>
      <para>
-      Restart the <phrase>RADOS Gateway</phrase> service. See <xref linkend="ceph.rgw.operating" role="internalbook"/> for
+      Restart the <phrase>RADOS Gateway</phrase> service. See <xref linkend="ceph-rgw-operating" role="internalbook"/> for
       more information.
      </para>
     </step>
    </procedure>
   </sect2>
 
-  <sect2 xml:id="ses.rgw.config">
+  <sect2 xml:id="ses-rgw-config">
    <title>Configuring <phrase>RADOS Gateway</phrase></title>
    <para>
     Several steps are required to configure a <phrase>RADOS Gateway</phrase>.
@@ -7411,7 +7412,7 @@ default.rgw.meta
 default.rgw.users.swift</screen>
     <para>
      To create the pools manually, see
-     <xref linkend="ceph.pools.operate.add_pool" role="internalbook"/>.
+     <xref linkend="ceph-pools-operate-add-pool" role="internalbook"/>.
     </para>
    </sect3>
    <sect3>
@@ -7508,8 +7509,8 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
      To ensure that all components have reloaded their configurations, we
      recommend restarting your Ceph Storage Cluster service. Then, start up
      the <systemitem>radosgw</systemitem> service. For more information, see
-     <xref linkend="cha.ceph.operating" role="internalbook"/> and
-     <xref linkend="ceph.rgw.operating" role="internalbook"/>.
+     <xref linkend="cha-ceph-operating" role="internalbook"/> and
+     <xref linkend="ceph-rgw-operating" role="internalbook"/>.
     </para>
     <para>
      After the service is up and running, you can make an anonymous GET request
@@ -7526,7 +7527,7 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
    </sect3>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.rgw.operating">
+ <sect1 xml:id="ceph-rgw-operating">
   <title>Operating the <phrase>RADOS Gateway</phrase> Service</title>
 
   <para>
@@ -7599,7 +7600,7 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="ceph.rgw.access">
+ <sect1 xml:id="ceph-rgw-access">
   <title>Managing <phrase>RADOS Gateway</phrase> Access</title>
 
   <para>
@@ -7611,7 +7612,7 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
 
   <para>
    For an introduction and a few practical examples on <phrase>RADOS Gateway</phrase> access, see
-   <xref linkend="storage.bp.inst.rgw_client" role="internalbook"/>.
+   <xref linkend="storage-bp-inst-rgw-client" role="internalbook"/>.
   </para>
 
   <sect2>
@@ -7631,25 +7632,25 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
    <sect3>
     <title>Adding Users</title>
     <para>
-     See <xref linkend="storage.bp.account.s3add" role="internalbook"/>.
+     See <xref linkend="storage-bp-account-s3add" role="internalbook"/>.
     </para>
    </sect3>
    <sect3>
     <title>Removing Users</title>
     <para>
-     See <xref linkend="storage.bp.account.s3rm" role="internalbook"/>.
+     See <xref linkend="storage-bp-account-s3rm" role="internalbook"/>.
     </para>
    </sect3>
    <sect3>
     <title>Changing User Passwords</title>
     <para>
-     See <xref linkend="storage.bp.account.user_pwd" role="internalbook"/>.
+     See <xref linkend="storage-bp-account-user-pwd" role="internalbook"/>.
     </para>
    </sect3>
    <sect3>
     <title>Setting Quotas</title>
     <para>
-     See <xref linkend="storage.bp.account.s3quota" role="internalbook"/>.
+     See <xref linkend="storage-bp-account-s3quota" role="internalbook"/>.
     </para>
    </sect3>
   </sect2>
@@ -7663,24 +7664,24 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
    <sect3>
     <title>Adding Users</title>
     <para>
-     See <xref linkend="storage.bp.account.swiftadd" role="internalbook"/>.
+     See <xref linkend="storage-bp-account-swiftadd" role="internalbook"/>.
     </para>
    </sect3>
    <sect3>
     <title>Removing Users</title>
     <para>
-     See <xref linkend="storage.bp.account.swiftrm" role="internalbook"/>.
+     See <xref linkend="storage-bp-account-swiftrm" role="internalbook"/>.
     </para>
    </sect3>
    <sect3>
     <title>Changing Passwords</title>
     <para>
-     See <xref linkend="storage.bp.account.user_pwd" role="internalbook"/>.
+     See <xref linkend="storage-bp-account-user-pwd" role="internalbook"/>.
     </para>
    </sect3>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.rgw.fed">
+ <sect1 xml:id="ceph-rgw-fed">
 
 
   <title>Multisite Object Storage Gateways</title>
@@ -7691,7 +7692,7 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
    non-master zones.
   </para>
 
-  <sect2 xml:id="ceph.rgw.fed.term">
+  <sect2 xml:id="ceph-rgw-fed-term">
    <title>Terminology</title>
    <para>
     A description of terms specific to a federated architecture follows:
@@ -7771,7 +7772,7 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
    </variablelist>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.intro">
+  <sect2 xml:id="ceph-rgw-fed-intro">
    <title>Example Cluster Setup</title>
    <para>
     In this example, we will focus on creating a single zone group with three
@@ -7786,14 +7787,14 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.keys">
+  <sect2 xml:id="ceph-rgw-fed-keys">
    <title>System Keys</title>
    <para>
     While configuring zones, <phrase>RADOS Gateway</phrase> expects creation of an S3-compatible system
     user together with their access and secret keys. This allows another <phrase>RADOS Gateway</phrase>
     instance to pull the configuration remotely with the access and secret
     keys. For more information on creating S3 users, see
-    <xref linkend="storage.bp.account.s3add" role="internalbook"/>.
+    <xref linkend="storage-bp-account-s3add" role="internalbook"/>.
    </para>
    <tip>
     <para>
@@ -7817,7 +7818,7 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
 # SYSTEM_SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 40 | head -n 1)</screen>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.naming">
+  <sect2 xml:id="ceph-rgw-fed-naming">
    <title>Naming Conventions</title>
    <para>
     This example describes the process of setting up a master zone. We will
@@ -7858,7 +7859,7 @@ listen-address=<replaceable>client-loopback-ip</replaceable></screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.pools">
+  <sect2 xml:id="ceph-rgw-fed-pools">
    <title>Default Pools</title>
    <para>
     When configured with the appropriate permissions, <phrase>RADOS Gateway</phrase> creates default
@@ -7890,7 +7891,7 @@ us-east-1.rgw.meta</screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.realm">
+  <sect2 xml:id="ceph-rgw-fed-realm">
    <title>Creating a Realm</title>
    <para>
     Configure a realm called <literal>gold</literal> and make it the default
@@ -7913,7 +7914,7 @@ us-east-1.rgw.meta</screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.deldefzonegrp">
+  <sect2 xml:id="ceph-rgw-fed-deldefzonegrp">
    <title>Deleting the Default Zonegroup</title>
    <para>
     The default installation of <phrase>RADOS Gateway</phrase> creates the default zonegroup called
@@ -7923,7 +7924,7 @@ us-east-1.rgw.meta</screen>
 <screen><prompt>cephadm &gt; </prompt>radosgw-admin zonegroup delete --rgw-zonegroup=default</screen>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.createmasterzonegrp">
+  <sect2 xml:id="ceph-rgw-fed-createmasterzonegrp">
    <title>Creating a Master Zonegroup</title>
    <para>
     Create a master zonegroup called <literal>us</literal>. The zonegroup will
@@ -7956,7 +7957,7 @@ us-east-1.rgw.meta</screen>
 <screen><prompt>cephadm &gt; </prompt>radosgw-admin zonegroup default --rgw-zonegroup=us</screen>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.masterzone">
+  <sect2 xml:id="ceph-rgw-fed-masterzone">
    <title>Creating a Master Zone</title>
    <para>
     Now create a default zone and add it to the default zonegroup. Note that
@@ -8003,7 +8004,7 @@ us-east-1.rgw.meta</screen>
    </para>
 <screen><prompt>cephadm &gt; </prompt>radosgw-admin zone default --rgw-zone=us-east-1
 <prompt>cephadm &gt; </prompt>radosgw-admin zonegroup add --rgw-zonegroup=us --rgw-zone=us-east-1</screen>
-   <sect3 xml:id="ceph.rgw.fed.masterzone.createuser">
+   <sect3 xml:id="ceph-rgw-fed-masterzone-createuser">
     <title>Creating System Users</title>
     <para>
      To access zone pools, you need to create a system user. Note that you will
@@ -8013,7 +8014,7 @@ us-east-1.rgw.meta</screen>
 --display-name="Zone User" --access-key=<replaceable>$SYSTEM_ACCESS_KEY</replaceable> \
 --secret=<replaceable>$SYSTEM_SECRET_KEY</replaceable> --system</screen>
    </sect3>
-   <sect3 xml:id="ceph.rgw.fed.masterzone.updateperiod">
+   <sect3 xml:id="ceph-rgw-fed-masterzone-updateperiod">
     <title>Update the Period</title>
     <para>
      Because you changed the master zone configuration, you need to commit the
@@ -8107,12 +8108,12 @@ us-east-1.rgw.meta</screen>
   "realm_epoch": 2
 }</screen>
    </sect3>
-   <sect3 xml:id="ceph.rgw.fed.masterzone.startrgw">
+   <sect3 xml:id="ceph-rgw-fed-masterzone-startrgw">
     <title>Start the <phrase>RADOS Gateway</phrase></title>
     <para>
      You need to mention the <phrase>RADOS Gateway</phrase> zone and port options in the configuration
      file before starting the <phrase>RADOS Gateway</phrase>. For more information on <phrase>RADOS Gateway</phrase> and its
-     configuration, see <xref linkend="cha.ceph.gw" role="internalbook"/>. The configuration
+     configuration, see <xref linkend="cha-ceph-gw" role="internalbook"/>. The configuration
      section of <phrase>RADOS Gateway</phrase> should look similar to this:
     </para>
 <screen>[client.rgw.us-east-1]
@@ -8125,7 +8126,7 @@ rgw_zone=us-east-1</screen>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.secondaryzone">
+  <sect2 xml:id="ceph-rgw-fed-secondaryzone">
    <title>Creating a Secondary Zone</title>
    <para>
     In the same cluster, create and configure the secondary zone named
@@ -8169,7 +8170,7 @@ rgw_zone=us-east-1</screen>
   "metadata_heap": "us-east-2.rgw.meta",
   "realm_id": "815d74c2-80d6-4e63-8cfc-232037f7ff5c"
 }</screen>
-   <sect3 xml:id="ceph.rgw.fed.secondzone.updateperiod">
+   <sect3 xml:id="ceph-rgw-fed-secondzone-updateperiod">
     <title>Update the Period</title>
     <para>
      Inform all the gateways of the new change in the system map by doing a
@@ -8262,7 +8263,7 @@ rgw_zone=us-east-1</screen>
   "realm_epoch": 2
 }</screen>
    </sect3>
-   <sect3 xml:id="ceph.rgw.fed.secondzone.startrgw">
+   <sect3 xml:id="ceph-rgw-fed-secondzone-startrgw">
     <title>Start the <phrase>RADOS Gateway</phrase></title>
     <para>
      Adjust the configuration of the <phrase>RADOS Gateway</phrase> for the secondary zone, and start
@@ -8275,13 +8276,13 @@ rgw_zone=us-east-2</screen>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="ceph.rgw.fed.seccluster">
+  <sect2 xml:id="ceph-rgw-fed-seccluster">
    <title>Adding <phrase>RADOS Gateway</phrase> to the Second Cluster</title>
    <para>
     The second Ceph cluster belongs to the same zonegroup as the initial one,
     but may be geographically located elsewhere.
    </para>
-   <sect3 xml:id="ceph.rgw.fed.seccluster.realm">
+   <sect3 xml:id="ceph-rgw-fed-seccluster-realm">
     <title>Default Realm and Zonegroup</title>
     <para>
      Since you already created the realm for the first gateway, pull the realm
@@ -8307,7 +8308,7 @@ rgw_zone=us-east-2</screen>
     </para>
 <screen><prompt>cephadm &gt; </prompt>radosgw-admin zonegroup default --rgw-zonegroup=us</screen>
    </sect3>
-   <sect3 xml:id="ceph.rgw.fed.seccluster.seczone">
+   <sect3 xml:id="ceph-rgw-fed-seccluster-seczone">
     <title>Secondary Zone Configuration</title>
     <para>
      Create a new zone named <literal>us-west</literal> with the same system
@@ -8348,7 +8349,7 @@ rgw_zone=us-east-2</screen>
   "realm_id": "4a367026-bd8f-40ee-b486-8212482ddcd7"
 }</screen>
    </sect3>
-   <sect3 xml:id="ceph.rgw.fed.seccluster.period">
+   <sect3 xml:id="ceph-rgw-fed-seccluster-period">
     <title>Update the Period</title>
     <para>
      To propagate the zonegroup map changes, we update and commit the period:
@@ -8458,7 +8459,7 @@ rgw_zone=us-east-2</screen>
      the configuration.
     </para>
    </sect3>
-   <sect3 xml:id="ceph.rgw.fed.seccluster.rgwstart">
+   <sect3 xml:id="ceph-rgw-fed-seccluster-rgwstart">
     <title>Start the <phrase>RADOS Gateway</phrase></title>
     <para>
      This is similar to starting the <phrase>RADOS Gateway</phrase> in the first zone. The only
@@ -8476,7 +8477,7 @@ rgw_zone=us-west</screen>
   </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_ceph_iscsi.xml" version="5.0" xml:id="cha.ceph.iscsi">
+  <chapter xml:base="admin_ceph_iscsi.xml" version="5.0" xml:id="cha-ceph-iscsi">
 
 
  <title>Ceph iSCSI Gateway</title>
@@ -8517,7 +8518,7 @@ rgw_zone=us-west</screen>
   infrastructure together with an iSCSI gateway so that the client hosts can
   use remotely stored data as local storage devices using the iSCSI protocol.
  </para>
- <sect1 xml:id="ceph.iscsi.iscsi">
+ <sect1 xml:id="ceph-iscsi-iscsi">
   <title>iSCSI Block Storage</title>
 
   <para>
@@ -8537,7 +8538,7 @@ rgw_zone=us-west</screen>
    the iSCSI gateway and the back-end Ceph cluster is strongly recommended.
   </para>
 
-  <sect2 xml:id="ceph.iscsi.iscsi.target">
+  <sect2 xml:id="ceph-iscsi-iscsi-target">
    <title>The Linux Kernel iSCSI Target</title>
    <para>
     The Linux kernel iSCSI target was originally named LIO for linux-iscsi.org,
@@ -8562,7 +8563,7 @@ rgw_zone=us-west</screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.iscsi.iscsi.initiators">
+  <sect2 xml:id="ceph-iscsi-iscsi-initiators">
    <title>iSCSI Initiators</title>
    <para>
     This section introduces a brief information on iSCSI initiators used on
@@ -8607,7 +8608,7 @@ rgw_zone=us-west</screen>
    </sect3>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.iscsi.lrdb">
+ <sect1 xml:id="ceph-iscsi-lrdb">
   <title>General Information about lrdb</title>
 
   <para>
@@ -8655,7 +8656,7 @@ rgw_zone=us-west</screen>
    </mediaobject>
   </figure>
  </sect1>
- <sect1 xml:id="ceph.iscsi.deploy">
+ <sect1 xml:id="ceph-iscsi-deploy">
   <title>Deployment Considerations</title>
 
   <para>
@@ -8719,7 +8720,7 @@ rgw_zone=us-west</screen>
    </listitem>
   </itemizedlist>
  </sect1>
- <sect1 xml:id="ceph.iscsi.install">
+ <sect1 xml:id="ceph-iscsi-install">
   <title>Installation and Configuration</title>
 
   <para>
@@ -8732,7 +8733,7 @@ rgw_zone=us-west</screen>
    <para>
     Before you start installing and configuring an iSCSI gateway, you need to
     install SUSE Enterprise Storage and deploy a Ceph cluster as described in
-    <xref linkend="cha.ceph.install" role="internalbook"/>.
+    <xref linkend="cha-ceph-install" role="internalbook"/>.
    </para>
   </sect2>
 
@@ -8780,7 +8781,7 @@ rgw_zone=us-west</screen>
    </note>
   </sect2>
 
-  <sect2 xml:id="ceph.iscsi.rbd.export">
+  <sect2 xml:id="ceph-iscsi-rbd-export">
    <title>Export RBD Images via iSCSI</title>
    <para>
     To export RBD images via iSCSI, use the <systemitem>lrbd</systemitem>
@@ -8936,7 +8937,7 @@ rgw_zone=us-west</screen>
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.iscsi.rbd.optional">
+  <sect2 xml:id="ceph-iscsi-rbd-optional">
    <title>Optional Settings</title>
    <para>
     The following settings may be useful for some environments. For images,
@@ -8972,7 +8973,7 @@ rgw_zone=us-west</screen>
 ]</screen>
   </sect2>
 
-  <sect2 xml:id="ceph.iscsi.rbd.advanced">
+  <sect2 xml:id="ceph-iscsi-rbd-advanced">
    <title>Advanced Settings</title>
    <para>
     <systemitem>lrdb</systemitem> can be configured with advanced parameters
@@ -9346,7 +9347,7 @@ rgw_zone=us-west</screen>
    </tip>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.iscsi.connect">
+ <sect1 xml:id="ceph-iscsi-connect">
   <title>Connecting to lrbd-managed Targets</title>
 
   <para>
@@ -9354,7 +9355,7 @@ rgw_zone=us-west</screen>
    running Linux, Microsoft Windows, or VMware.
   </para>
 
-  <sect2 xml:id="ceph.iscsi.connect.linux">
+  <sect2 xml:id="ceph-iscsi-connect-linux">
    <title>Linux (<systemitem>open-iscsi</systemitem>)</title>
    <para>
     Connecting to lrbd-backed iSCSI targets with
@@ -9462,7 +9463,7 @@ Logout of [sid: 18, target: iqn.2003-01.org.linux-iscsi.iscsi.x86:testvol, porta
     As with discovery and login, you must repeat the logout steps for all
     portal IP addresses or host names.
    </para>
-   <sect3 xml:id="ceph.iscsi.connect.linux.multipath">
+   <sect3 xml:id="ceph-iscsi-connect-linux-multipath">
     <title>Multipath Configuration</title>
     <para>
      The multipath configuration is maintained on the clients or initiators and
@@ -9527,7 +9528,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
    </sect3>
   </sect2>
 
-  <sect2 xml:id="ceph.iscsi.connect.win">
+  <sect2 xml:id="ceph-iscsi-connect-win">
    <title>Microsoft Windows (Microsoft iSCSI initiator)</title>
    <para>
     To connect to a SUSE Enterprise Storage iSCSI target from a Windows 2012 server, follow
@@ -9737,7 +9738,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
    </procedure>
   </sect2>
 
-  <sect2 xml:id="ceph.iscsi.connect.vmware">
+  <sect2 xml:id="ceph-iscsi-connect-vmware">
    <title>VMware</title>
    <para/>
    <procedure>
@@ -9902,7 +9903,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
    </procedure>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.iscsi.conclude">
+ <sect1 xml:id="ceph-iscsi-conclude">
   <title>Conclusion</title>
 
   <para>
@@ -9926,7 +9927,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_ceph_cephfs.xml" version="5.0" xml:id="cha.ceph.cephfs">
+  <chapter xml:base="admin_ceph_cephfs.xml" version="5.0" xml:id="cha-ceph-cephfs">
 
 
  <title>Clustered File System</title>
@@ -9960,7 +9961,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
    mounted by any clients.
   </para>
  </warning>
- <sect1 xml:id="ceph.cephfs.mds">
+ <sect1 xml:id="ceph-cephfs-mds">
   <title>Ceph Metadata Server</title>
 
   <para>
@@ -9972,7 +9973,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
    Ceph storage cluster.
   </para>
 
-  <sect2 xml:id="ceph.cephfs.mdf.add">
+  <sect2 xml:id="ceph-cephfs-mdf-add">
    <title>Adding a Metadata Server</title>
    <para>
     After you deploy OSDs and monitors, you can deploy metadata servers.
@@ -9999,7 +10000,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.cephfs.mdf.config">
+  <sect2 xml:id="ceph-cephfs-mdf-config">
    <title>Configuring a Metadata Server</title>
    <para>
     You can fine-tune the MDS behavior by inserting relevant options in the
@@ -10013,7 +10014,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
    </para>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.cephfs.cephfs">
+ <sect1 xml:id="ceph-cephfs-cephfs">
 
 
   <title>CephFS</title>
@@ -10025,7 +10026,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
    keyring.
   </para>
 
-  <sect2 xml:id="ceph.cephfs.cephfs.create">
+  <sect2 xml:id="ceph-cephfs-cephfs-create">
    <title>Creating CephFS</title>
    <para>
     A CephFS requires at least two RADOS pools: one for
@@ -10047,7 +10048,7 @@ size=2.0G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
     </listitem>
    </itemizedlist>
    <para>
-    For more information on managing pools, see <xref linkend="ceph.pools" role="internalbook"/>.
+    For more information on managing pools, see <xref linkend="ceph-pools" role="internalbook"/>.
    </para>
    <para>
     To create the two required pools—for example 'cephfs_data' and
@@ -10079,13 +10080,13 @@ ceph osd pool create cephfs_metadata <replaceable>pg_num</replaceable></screen>
  e5: 1/1/1 up</screen>
   </sect2>
 
-  <sect2 xml:id="ceph.cephfs.cephfs.mount">
+  <sect2 xml:id="ceph-cephfs-cephfs-mount">
    <title>Mounting CephFS</title>
    <para>
     Once the file system is created and the MDS is active, you are ready to
     mount the file system from a client host.
    </para>
-   <sect3 xml:id="Creating_Secret_File">
+   <sect3 xml:id="Creating-Secret-File">
     <title>Create a Secret File</title>
     <para>
      The Ceph cluster runs with authentication turned on by default. You
@@ -10180,7 +10181,7 @@ ceph osd pool create cephfs_metadata <replaceable>pg_num</replaceable></screen>
    </sect3>
   </sect2>
 
-  <sect2 xml:id="ceph.cephfs.cephfs.unmount">
+  <sect2 xml:id="ceph-cephfs-cephfs-unmount">
    <title>Unmounting CephFS</title>
    <para>
     To unmount the CephFS, use the <command>umount</command> command:
@@ -10188,7 +10189,7 @@ ceph osd pool create cephfs_metadata <replaceable>pg_num</replaceable></screen>
 <screen>sudo umount /mnt/cephfs</screen>
   </sect2>
 
-  <sect2 xml:id="ceph.cephfs.cephfs.fstab">
+  <sect2 xml:id="ceph-cephfs-cephfs-fstab">
    <title>CephFS in <filename>/etc/fstab</filename></title>
    <para>
     To mount CephFS automatically on the client start-up, insert the
@@ -10198,7 +10199,7 @@ ceph osd pool create cephfs_metadata <replaceable>pg_num</replaceable></screen>
 <screen>mon1:6790,mon2:/subdir /mnt/cephfs ceph name=admin,secretfile=/etc/ceph/secret.key,noatime 0 2</screen>
   </sect2>
  </sect1>
- <sect1 xml:id="ceph.cephfs.failover">
+ <sect1 xml:id="ceph-cephfs-failover">
   <title>Managing Failover</title>
 
   <para>
@@ -10209,7 +10210,7 @@ ceph osd pool create cephfs_metadata <replaceable>pg_num</replaceable></screen>
    failover.
   </para>
 
-  <sect2 xml:id="ceph.cephfs.failover.standby">
+  <sect2 xml:id="ceph-cephfs-failover-standby">
    <title>Configuring Standby Daemons</title>
    <para>
     There are several configuration settings that control how a daemon will
@@ -10308,7 +10309,7 @@ ceph osd pool create cephfs_metadata <replaceable>pg_num</replaceable></screen>
    </variablelist>
   </sect2>
 
-  <sect2 xml:id="ceph.cephfs.failover.examples">
+  <sect2 xml:id="ceph-cephfs-failover-examples">
    <title>Examples</title>
    <para>
     Several example <filename>ceph.conf</filename> configurations follow. You
@@ -10336,9 +10337,9 @@ mds standby for rank = 0</screen>
  </sect1>
 </chapter>
  </part>
- <part xml:id="part.gui">
+ <part xml:id="part-gui">
   <title>Managing Cluster with GUI Tools</title>
-  <chapter xml:base="admin_gui_oa.xml" version="5.0" xml:id="ceph.oa">
+  <chapter xml:base="admin_gui_oa.xml" version="5.0" xml:id="ceph-oa">
  <title>openATTIC</title>
  <para>
   openATTIC is a central storage management system which supports Ceph storage
@@ -10347,7 +10348,7 @@ mds standby for rank = 0</screen>
   of the Ceph storage tools. Cluster management tasks can be carried out by
   either using openATTIC's intuitive Web interface, or via its REST API.
  </para>
- <sect1 xml:id="ceph.oa.install.pkgs">
+ <sect1 xml:id="ceph-oa-install-pkgs">
   <title>Installing Required Packages</title>
 
   <para>
@@ -10366,7 +10367,7 @@ mds standby for rank = 0</screen>
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="ceph.oa.install.oa">
+ <sect1 xml:id="ceph-oa-install-oa">
   <title>openATTIC Initial Setup</title>
 
   <para>
@@ -10399,7 +10400,7 @@ Password changed successfully for user 'openattic'
    Now your openATTIC storage system can be managed by the Web user interface.
   </para>
  </sect1>
- <sect1 xml:id="ceph.oa.install.webui">
+ <sect1 xml:id="ceph-oa-install-webui">
   <title>openATTIC Web User Interface</title>
 
   <para>
@@ -10449,7 +10450,7 @@ Password changed successfully for user 'openattic'
    </mediaobject>
   </figure>
  </sect1>
- <sect1 xml:id="ceph.oa.webui.dash">
+ <sect1 xml:id="ceph-oa-webui-dash">
   <title>Dashboard</title>
 
   <para>
@@ -10555,7 +10556,7 @@ Password changed successfully for user 'openattic'
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="ceph.oa.webui.ceph">
+ <sect1 xml:id="ceph-oa-webui-ceph">
   <title>Ceph Related Tasks</title>
 
   <para>
@@ -10725,7 +10726,7 @@ Password changed successfully for user 'openattic'
      <step>
       <para>
        Enter the name of the new device. Refer to
-       <xref linkend="sysreq.naming" role="internalbook"/> for naming limitations.
+       <xref linkend="sysreq-naming" role="internalbook"/> for naming limitations.
       </para>
      </step>
      <step>
@@ -10765,8 +10766,8 @@ Password changed successfully for user 'openattic'
     <title>More Information on Pools</title>
     <para>
      For more general information about Ceph pools, refer to
-     <xref linkend="ceph.pools" role="internalbook"/>. For information specific to erasure coded
-     pools, refer to <xref linkend="cha.ceph.erasure" role="internalbook"/>.
+     <xref linkend="ceph-pools" role="internalbook"/>. For information specific to erasure coded
+     pools, refer to <xref linkend="cha-ceph-erasure" role="internalbook"/>.
     </para>
    </tip>
    <para>
@@ -10844,7 +10845,7 @@ Password changed successfully for user 'openattic'
     <procedure>
      <step>
       <para>
-       Enter the name of the new pool. Refer to <xref linkend="sysreq.naming" role="internalbook"/>
+       Enter the name of the new pool. Refer to <xref linkend="sysreq-naming" role="internalbook"/>
        for naming limitations.
       </para>
      </step>
@@ -10877,14 +10878,14 @@ Password changed successfully for user 'openattic'
    </sect3>
   </sect2>
 
-  <sect2 xml:id="ceph.oa.minions">
+  <sect2 xml:id="ceph-oa-minions">
    <title>Listing Nodes</title>
    <important>
     <title>Salt Only Deployment</title>
     <para>
      The <guimenu>Nodes</guimenu> tab is only available when the cluster is
      deployed via Salt. Refer to
-     <xref linkend="ceph.install.saltstack" role="internalbook"/> for more information on
+     <xref linkend="ceph-install-saltstack" role="internalbook"/> for more information on
      Salt.
     </para>
    </important>
@@ -10910,7 +10911,7 @@ Password changed successfully for user 'openattic'
    </para>
   </sect2>
 
-  <sect2 xml:id="ceph.oa.crushmap">
+  <sect2 xml:id="ceph-oa-crushmap">
    <title>Viewing the Cluster CRUSH Map</title>
    <para>
     Click <guimenu>CRUSH Map</guimenu> from the main menu to view cluster
@@ -10950,7 +10951,7 @@ Password changed successfully for user 'openattic'
   </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_gui_calamari.xml" version="5.0" xml:id="ceph.install.calamari">
+  <chapter xml:base="admin_gui_calamari.xml" version="5.0" xml:id="ceph-install-calamari">
  <title>Calamari</title>
  <para>
   Calamari is a management and monitoring system for Ceph storage cluster. It
@@ -10961,11 +10962,11 @@ Password changed successfully for user 'openattic'
   The Calamari installation procedure differs according to the used deployment
   procedure. If you deployed your Ceph by using
   <command>ceph-deploy</command>, refer to
-  <xref linkend="ceph-deploy.calamari.installation" role="internalbook"/>. If you deployed your
+  <xref linkend="ceph-deploy-calamari-installation" role="internalbook"/>. If you deployed your
   cluster by using Crowbar, refer to
-  <xref linkend="crowbar.calamari.installation" role="internalbook"/>.
+  <xref linkend="crowbar-calamari-installation" role="internalbook"/>.
  </para>
- <sect1 xml:id="ceph-deploy.calamari.installation">
+ <sect1 xml:id="ceph-deploy-calamari-installation">
   <title>Installing Calamari with <command>ceph-deploy</command></title>
 
   <para>
@@ -11014,7 +11015,7 @@ Superuser created successfully.
 <screen>sudo /sbin/SuSEfirewall2 on</screen>
     <para>
      You can find detailed information in
-     <xref linkend="storage.bp.net.firewall" role="internalbook"/>.
+     <xref linkend="storage-bp-net-firewall" role="internalbook"/>.
     </para>
    </step>
    <step>
@@ -11132,7 +11133,7 @@ Superuser created successfully.
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="crowbar.calamari.installation">
+ <sect1 xml:id="crowbar-calamari-installation">
   <title>Installing Calamari Using Crowbar</title>
 
   <note>
@@ -11145,14 +11146,14 @@ Superuser created successfully.
 
   <para>
    Use the Crowbar UI to deploy Calamari as described in
-   <xref linkend="sec.depl.ceph.ceph" role="internalbook"/>.
+   <xref linkend="sec-depl-ceph-ceph" role="internalbook"/>.
   </para>
  </sect1>
 </chapter>
  </part>
- <part xml:id="part.virt">
+ <part xml:id="part-virt">
   <title>Integration with Virtualization Tools</title>
-  <chapter xml:base="admin_ceph_libvirt.xml" version="5.0" xml:id="cha.ceph.libvirt">
+  <chapter xml:base="admin_ceph_libvirt.xml" version="5.0" xml:id="cha-ceph-libvirt">
  <title>Using <systemitem class="library">libvirt</systemitem> with Ceph</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -11188,7 +11189,7 @@ Superuser created successfully.
   value you like, but ensure you replace those values when executing commands
   in the subsequent procedures.
  </para>
- <sect1 xml:id="ceph.libvirt.cfg_ceph">
+ <sect1 xml:id="ceph-libvirt-cfg-ceph">
   <title>Configuring Ceph</title>
 
   <para>
@@ -11242,7 +11243,7 @@ Superuser created successfully.
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="ceph.libvirt.virt-manager">
+ <sect1 xml:id="ceph-libvirt-virt-manager">
   <title>Preparing the VM Manager</title>
 
   <para>
@@ -11270,7 +11271,7 @@ Superuser created successfully.
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="ceph.libvirt.create_vm">
+ <sect1 xml:id="ceph-libvirt-create-vm">
   <title>Creating a VM</title>
 
   <para>
@@ -11316,7 +11317,7 @@ Id    Name                           State
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="ceph.libvirt.cfg_vm">
+ <sect1 xml:id="ceph-libvirt-cfg-vm">
   <title>Configuring the VM</title>
 
   <para>
@@ -11449,7 +11450,7 @@ EOF</screen>
      <para>
       The exemplary ID is <literal>libvirt</literal>, not the Ceph name
       <literal>client.libvirt</literal> as generated at step 2 of
-      <xref linkend="ceph.libvirt.cfg_ceph" role="internalbook"/>. Ensure you use the ID component
+      <xref linkend="ceph-libvirt-cfg-ceph" role="internalbook"/>. Ensure you use the ID component
       of the Ceph name you generated. If for some reason you need to regenerate
       the secret, you will need to execute <command>sudo virsh
       secret-undefine</command> <replaceable>uuid</replaceable> before
@@ -11459,7 +11460,7 @@ EOF</screen>
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="ceph.libvirt.summary">
+ <sect1 xml:id="ceph-libvirt-summary">
   <title>Summary</title>
 
   <para>
@@ -11500,7 +11501,7 @@ cat /proc/partitions</screen>
   </procedure>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_ceph_kvm.xml" version="5.0" xml:id="cha.ceph.kvm">
+  <chapter xml:base="admin_ceph_kvm.xml" version="5.0" xml:id="cha-ceph-kvm">
  <title>Ceph as a Back-end for QEMU KVM Instance</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -11518,7 +11519,7 @@ cat /proc/partitions</screen>
   virtual machines. For example, a user may create a 'golden' image with an OS
   and any relevant software in an ideal configuration. Then, the user takes a
   snapshot of the image. Finally, the user clones the snapshot (usually many
-  times, see <xref linkend="cha.ceph.snapshots" role="internalbook"/> for details). The ability to
+  times, see <xref linkend="cha-ceph-snapshots" role="internalbook"/> for details). The ability to
   make copy-on-write clones of a snapshot means that Ceph can provision block
   device images to virtual machines quickly, because the client does not need
   to download an entire image each time it spins up a new virtual machine.
@@ -11528,7 +11529,7 @@ cat /proc/partitions</screen>
   information on QEMU KVM, see
   <link xlink:href="https://www.suse.com/documentation/sles-12/book_virt/data/part_virt_qemu.html"/>.
  </para>
- <sect1 xml:id="ceph.kvm.install">
+ <sect1 xml:id="ceph-kvm-install">
   <title>Installation</title>
 
   <para>
@@ -11539,7 +11540,7 @@ cat /proc/partitions</screen>
 
 <screen>sudo zypper install qemu-block-rbd</screen>
  </sect1>
- <sect1 xml:id="ceph.kvm.usage">
+ <sect1 xml:id="ceph-kvm-usage">
   <title>Usage</title>
 
   <para>
@@ -11741,9 +11742,9 @@ rbd_cache_max_dirty = 0</screen>
  </sect1>
 </chapter>
  </part>
- <part xml:id="part.best">
+ <part xml:id="part-best">
   <title>Best Practices</title>
-  <chapter xml:base="admin_bestpractices_intro.xml" version="5.0" xml:id="cha.storage.bestpractice">
+  <chapter xml:base="admin_bestpractices_intro.xml" version="5.0" xml:id="cha-storage-bestpractice">
  <title>Introduction</title>
  <para>
   This chapter introduces a list of selected topics which you may encounter
@@ -11751,7 +11752,7 @@ rbd_cache_max_dirty = 0</screen>
   solution that helps you understand or fix the existing problem. The topics
   are sorted into relevant categories.
  </para>
- <sect1 xml:id="storage.bp.report_bug">
+ <sect1 xml:id="storage-bp-report-bug">
   <title>Reporting Software Problems</title>
 
   <para>
@@ -11782,9 +11783,9 @@ rbd_cache_max_dirty = 0</screen>
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_hwrecommend.xml" version="5.0" xml:id="storage.bp.hwreq">
+  <chapter xml:base="admin_bestpractices_hwrecommend.xml" version="5.0" xml:id="storage-bp-hwreq">
  <title>Hardware Recommendations</title>
- <sect1 xml:id="storage.bp.hwreq.replicas">
+ <sect1 xml:id="storage-bp-hwreq-replicas">
   <title>Can I Reduce Data Replication</title>
 
   <para>
@@ -11798,7 +11799,7 @@ rbd_cache_max_dirty = 0</screen>
 
   <para>
    You can manually change the number of pool replicas (see
-   <xref linkend="ceph.pools.options.num_of_replicas" role="internalbook"/>). Setting a pool to two
+   <xref linkend="ceph-pools-options-num-of-replicas" role="internalbook"/>). Setting a pool to two
    replicas means that there is only <emphasis>one</emphasis> copy of the data
    object besides the object itself, so if you lose one object instance, you
    need to trust that the other copy has not been corrupted for example since
@@ -11819,7 +11820,7 @@ rbd_cache_max_dirty = 0</screen>
    reliability, but may be suitable in rare cases. Remember that the more
    replicas, tho more disk space needed for storing the object copies. If you
    need the ultimate data security, we recommend using erasure coded pools. For
-   more information, see <xref linkend="cha.ceph.erasure" role="internalbook"/>.
+   more information, see <xref linkend="cha-ceph-erasure" role="internalbook"/>.
   </para>
 
   <warning>
@@ -11831,7 +11832,7 @@ rbd_cache_max_dirty = 0</screen>
    </para>
   </warning>
  </sect1>
- <sect1 xml:id="storage.bp.hwreq.ec">
+ <sect1 xml:id="storage-bp-hwreq-ec">
   <title>Can I Reduce Redundancy Similar to RAID 6 Arrays?</title>
 
   <para>
@@ -11851,10 +11852,10 @@ rbd_cache_max_dirty = 0</screen>
   <para>
    As erasure coding is a complex topic, you need to study it properly to be
    able to deploy it for optimum performance. For more information, see
-   <xref linkend="cha.ceph.erasure" role="internalbook"/>.
+   <xref linkend="cha-ceph-erasure" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="ses.bp.mindisk">
+ <sect1 xml:id="ses-bp-mindisk">
   <title>What is the Minimum Disk Size for an OSD node?</title>
 
   <para>
@@ -11869,7 +11870,7 @@ rbd_cache_max_dirty = 0</screen>
    disk smaller than 20GB, even for testing purposes.
   </para>
  </sect1>
- <sect1 xml:id="ses.bp.ram">
+ <sect1 xml:id="ses-bp-ram">
   <title>How Much RAM Do I Need in a Storage Server?</title>
 
   <para>
@@ -11877,7 +11878,7 @@ rbd_cache_max_dirty = 0</screen>
    2GB of RAM per terabyte of OSD disk space is optimal.
   </para>
  </sect1>
- <sect1 xml:id="ses.bp.diskshare">
+ <sect1 xml:id="ses-bp-diskshare">
   <title>OSD and Monitor Sharing One Server</title>
 
   <para>
@@ -11910,7 +11911,7 @@ rbd_cache_max_dirty = 0</screen>
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="ses.bp.numofdisks">
+ <sect1 xml:id="ses-bp-numofdisks">
   <title>How Many Disks Can I Have in a Server</title>
 
   <para>
@@ -11942,7 +11943,7 @@ rbd_cache_max_dirty = 0</screen>
    </listitem>
   </itemizedlist>
  </sect1>
- <sect1 xml:id="ses.bp.share_ssd_journal">
+ <sect1 xml:id="ses-bp-share-ssd-journal">
   <title>How Many OSDs Can Share a Single SSD Journal</title>
 
   <para>
@@ -11972,18 +11973,18 @@ rbd_cache_max_dirty = 0</screen>
   </tip>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_install.xml" version="5.0" xml:id="storage.bp.inst">
+  <chapter xml:base="admin_bestpractices_install.xml" version="5.0" xml:id="storage-bp-inst">
  <title>Cluster Administration</title>
  <para>
   The chapter describes some useful operations that can be performed after the
   cluster is completely deployed and running, like adding nodes, disks.
  </para>
- <sect1 xml:id="storage.bp.inst.cephdeploy_usage">
+ <sect1 xml:id="storage-bp-inst-cephdeploy-usage">
   <title>Using <command>ceph-deploy</command> on an Already Setup Server</title>
 
   <para>
    <command>ceph-deploy</command> is a command line utility to easily deploy a
-   Ceph cluster (see <xref linkend="ceph.install.ceph-deploy" role="internalbook"/>). After the
+   Ceph cluster (see <xref linkend="ceph-install-ceph-deploy" role="internalbook"/>). After the
    cluster is deployed, you can use <command>ceph-deploy</command> to
    administer the clusters' nodes. You can add OSD nodes, monitor nodes, gather
    authentication keys, or purge a running cluster.
@@ -12129,7 +12130,7 @@ ceph-deploy mon add <replaceable>host</replaceable> <option>--address <replaceab
     <term>rgw prepare/activate/create</term>
     <listitem>
      <para>
-      Find more information in <xref linkend="storage.bp.inst.rgw" role="internalbook"/>.
+      Find more information in <xref linkend="storage-bp-inst-rgw" role="internalbook"/>.
      </para>
     </listitem>
    </varlistentry>
@@ -12146,7 +12147,7 @@ ceph-deploy mon add <replaceable>host</replaceable> <option>--address <replaceab
      </para>
      <para>
       For more information on purging the cluster or its nodes, see
-      <xref linkend="ceph.install.ceph-deploy.purge" role="internalbook"/>.
+      <xref linkend="ceph-install-ceph-deploy-purge" role="internalbook"/>.
      </para>
      <tip>
       <para>
@@ -12159,7 +12160,7 @@ ceph-deploy mon add <replaceable>host</replaceable> <option>--address <replaceab
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="storage.bp.inst.add_osd_cephdisk">
+ <sect1 xml:id="storage-bp-inst-add-osd-cephdisk">
   <title>Adding OSDs with <command>ceph-disk</command></title>
 
   <para>
@@ -12237,7 +12238,7 @@ c70c032a-6e88-4962-8376-4aa119cb52ee</screen>
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="storage.bp.inst.add_osd_cephdeploy">
+ <sect1 xml:id="storage-bp-inst-add-osd-cephdeploy">
   <title>Adding OSDs with <command>ceph-deploy</command></title>
 
   <para>
@@ -12296,7 +12297,7 @@ c70c032a-6e88-4962-8376-4aa119cb52ee</screen>
 
   </procedure>
  </sect1>
- <sect1 xml:id="storage.bp.inst.add_rm_monitor">
+ <sect1 xml:id="storage-bp-inst-add-rm-monitor">
   <title>Adding and Removing Monitors</title>
 
   <para>
@@ -12327,11 +12328,11 @@ c70c032a-6e88-4962-8376-4aa119cb52ee</screen>
    </itemizedlist>
   </important>
 
-  <sect2 xml:id="storage.bp.inst.add_rm_monitor.addmon">
+  <sect2 xml:id="storage-bp-inst-add-rm-monitor-addmon">
    <title>Adding a Monitor</title>
    <para>
     After you create a cluster and install Ceph packages to the monitor
-    host(s) (see <xref linkend="ceph.install.ceph-deploy" role="internalbook"/> for more
+    host(s) (see <xref linkend="ceph-install-ceph-deploy" role="internalbook"/> for more
     information), you may deploy the monitors to the monitor hosts. You may
     specify more monitor host names in the same command.
    </para>
@@ -12346,7 +12347,7 @@ c70c032a-6e88-4962-8376-4aa119cb52ee</screen>
    </note>
   </sect2>
 
-  <sect2 xml:id="storage.bp.inst.add_rm_monitor.rmmon">
+  <sect2 xml:id="storage-bp-inst-add-rm-monitor-rmmon">
    <title>Removing a Monitor</title>
    <para>
     If you have a monitor in your cluster that you want to remove, you may use
@@ -12363,7 +12364,7 @@ c70c032a-6e88-4962-8376-4aa119cb52ee</screen>
    </note>
   </sect2>
  </sect1>
- <sect1 xml:id="storage.bp.inst.rgw">
+ <sect1 xml:id="storage-bp-inst-rgw">
   <title>Usage of <command>ceph-deploy rgw</command></title>
 
   <para>
@@ -12451,17 +12452,17 @@ c70c032a-6e88-4962-8376-4aa119cb52ee</screen>
 
   <para>
    For a practical example of setting <phrase>RADOS Gateway</phrase> with
-   <command>ceph-deploy</command>, see <xref linkend="ses.rgw.config" role="internalbook"/>.
+   <command>ceph-deploy</command>, see <xref linkend="ses-rgw-config" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.inst.rgw_client">
+ <sect1 xml:id="storage-bp-inst-rgw-client">
   <title><phrase>RADOS Gateway</phrase> Client Usage</title>
 
   <para>
    To use <phrase>RADOS Gateway</phrase> REST interfaces, you need to create a user for the S3
    interface, then a subuser for the Swift interface. Find more information on
-   creating <phrase>RADOS Gateway</phrase> users in <xref linkend="storage.bp.account.swiftadd" role="internalbook"/> and
-   <xref linkend="storage.bp.account.s3add" role="internalbook"/>.
+   creating <phrase>RADOS Gateway</phrase> users in <xref linkend="storage-bp-account-swiftadd" role="internalbook"/> and
+   <xref linkend="storage-bp-account-s3add" role="internalbook"/>.
   </para>
 
   <sect2>
@@ -12473,7 +12474,7 @@ c70c032a-6e88-4962-8376-4aa119cb52ee</screen>
     <option>aws_secret_access_key</option> are taken from the values of
     <option>access_key</option> and <option>secret_key</option> returned by the
     <command>radosgw_admin</command> command from
-    <xref linkend="storage.bp.account.s3add" role="internalbook"/>.
+    <xref linkend="storage-bp-account-s3add" role="internalbook"/>.
    </para>
    <procedure>
     <step>
@@ -12544,7 +12545,7 @@ created = bucket.creation_date,
     gateway server, and <replaceable>swift_secret_key</replaceable> with its
     value from the output of the <command>radosgw-admin key create</command>
     command executed for the <systemitem>swift</systemitem> user in
-    <xref linkend="storage.bp.account.swiftadd" role="internalbook"/>.
+    <xref linkend="storage-bp-account-swiftadd" role="internalbook"/>.
    </para>
    <para>
     For example:
@@ -12557,7 +12558,7 @@ created = bucket.creation_date,
 <screen>my-new-bucket</screen>
   </sect2>
  </sect1>
- <sect1 xml:id="salt.automated.installation">
+ <sect1 xml:id="salt-automated-installation">
   <title>Automated Installation via Salt</title>
 
   <para>
@@ -12623,7 +12624,7 @@ created = bucket.creation_date,
 <screen>- /srv/salt/ceph/reactor/all_stages.sls</screen>
  </sect1>
  
- <sect1 xml:id="Deepsea.restart">
+ <sect1 xml:id="Deepsea-restart">
  	<title>Restarting Ceph services using DeepSea</title>
  	<para>
  	When you install updates, specifically ceph-&lt;mon,osd etc&gt; you need to restart the services to make use of the recently installed version. To do so, run:
@@ -12641,7 +12642,7 @@ created = bucket.creation_date,
  	</note>
  </sect1>
  
- <sect1 xml:id="bp.node.management">
+ <sect1 xml:id="bp-node-management">
   <title>Node Management</title>
 
   <para>
@@ -12655,19 +12656,19 @@ created = bucket.creation_date,
   <note>
    <title>Limitations</title>
    <para>
-    The procedures described in sections: <xref linkend="Adding.OSD.Nodes" role="internalbook"/>
-    and <xref linkend="Removing.OSD.Nodes" role="internalbook"/> can be performed only with the
+    The procedures described in sections: <xref linkend="Adding-OSD-Nodes" role="internalbook"/>
+    and <xref linkend="Removing-OSD-Nodes" role="internalbook"/> can be performed only with the
     default CRUSH map. The default CRUSH map must have been created by using
     <literal>Ceph-deploy</literal> or <emphasis>DeepSea</emphasis>.
    </para>
   </note>
 
-  <sect2 xml:id="Adding.OSD.Nodes">
+  <sect2 xml:id="Adding-OSD-Nodes">
    <title>Adding Ceph OSD Nodes</title>
    <para>
     The procedure below describes adding of a Ceph OSD node to your cluster.
    </para>
-   <procedure xml:id="proc.Adding.Ceph.Node">
+   <procedure xml:id="proc-Adding-Ceph-Node">
     <title>Adding a Ceph OSD Node</title>
     <step>
      <para>
@@ -12679,7 +12680,7 @@ created = bucket.creation_date,
     <step>
      <para>
       Inspect your CRUSH map to find out the bucket type, for a procedure refer
-      to <xref linkend="op.crush" role="internalbook"/>. Typically the bucket type is
+      to <xref linkend="op-crush" role="internalbook"/>. Typically the bucket type is
       <emphasis>host</emphasis>.
      </para>
     </step>
@@ -12696,23 +12697,23 @@ created = bucket.creation_date,
     <step>
      <para>
       Add all OSD that the new node should use. For a procedure refer to
-      <xref linkend="storage.bp.inst.add_osd_cephdeploy" role="internalbook"/>.
+      <xref linkend="storage-bp-inst-add-osd-cephdeploy" role="internalbook"/>.
      </para>
     </step>
    </procedure>
   </sect2>
 
-  <sect2 xml:id="Removing.OSD.Nodes">
+  <sect2 xml:id="Removing-OSD-Nodes">
    <title>Removing Ceph OSD Nodes</title>
    <para>
     To remove a Ceph OSD node follow the procedure:
    </para>
-   <procedure xml:id="proc.Removing.Ceph.Node">
+   <procedure xml:id="proc-Removing-Ceph-Node">
     <title>Removing a Ceph OSD Node</title>
     <step>
      <para>
       Remove all OSD on the node you want to delete as described in
-      <xref linkend="storage.bp.disk.del" role="internalbook"/>.
+      <xref linkend="storage-bp-disk-del" role="internalbook"/>.
      </para>
     </step>
     <step>
@@ -12733,7 +12734,7 @@ created = bucket.creation_date,
    </procedure>
   </sect2>
 
-  <sect2 xml:id="salt.node.removing">
+  <sect2 xml:id="salt-node-removing">
    <title>Removing and Reinstalling Salt Cluster Nodes</title>
    <para>
     You may want remove a role from your minion, to do so use the Stage 5
@@ -12763,10 +12764,10 @@ created = bucket.creation_date,
   </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_monitoring.xml" version="5.0" xml:id="storage.bp.monitoring">
+  <chapter xml:base="admin_bestpractices_monitoring.xml" version="5.0" xml:id="storage-bp-monitoring">
  <title>Monitoring</title>
  <para/>
- <sect1 xml:id="storage.bp.monitoring.calamari_usage_graphs">
+ <sect1 xml:id="storage-bp-monitoring-calamari-usage-graphs">
   <title>Usage Graphs on Calamari</title>
 
   <para>
@@ -12841,7 +12842,7 @@ created = bucket.creation_date,
    </mediaobject>
   </figure>
  </sect1>
- <sect1 xml:id="storage.bp.monitoring.fullosd">
+ <sect1 xml:id="storage-bp-monitoring-fullosd">
   <title>Checking for Full OSDs</title>
 
   <para>
@@ -12910,7 +12911,7 @@ created = bucket.creation_date,
    </itemizedlist>
   </tip>
  </sect1>
- <sect1 xml:id="storage.bp.monitoring.osd">
+ <sect1 xml:id="storage-bp-monitoring-osd">
   <title>Checking if OSD Daemons are Running on a Node</title>
 
   <para>
@@ -12927,10 +12928,10 @@ created = bucket.creation_date,
             └─1822 /usr/bin/ceph-osd -f --cluster ceph --id 0</screen>
 
   <para>
-   For more information, see <xref linkend="ceph.operating.services" role="internalbook"/>.
+   For more information, see <xref linkend="ceph-operating-services" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.monitoring.mon">
+ <sect1 xml:id="storage-bp-monitoring-mon">
   <title>Checking if Monitor Daemons are Running on a Node</title>
 
   <para>
@@ -12947,10 +12948,10 @@ created = bucket.creation_date,
             └─1203 /usr/bin/ceph-mon -f --cluster ceph --id doc-ceph1</screen>
 
   <para>
-   For more information, see <xref linkend="ceph.operating.services" role="internalbook"/>.
+   For more information, see <xref linkend="ceph-operating-services" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.monitoring.diskfails">
+ <sect1 xml:id="storage-bp-monitoring-diskfails">
   <title>What Happens When a Disk Fails?</title>
 
   <para>
@@ -12978,7 +12979,7 @@ created = bucket.creation_date,
    </listitem>
   </itemizedlist>
  </sect1>
- <sect1 xml:id="storage.bp.monitoring.journalfails">
+ <sect1 xml:id="storage-bp-monitoring-journalfails">
   <title>What Happens When a Journal Disk Fails?</title>
 
   <para>
@@ -12986,7 +12987,7 @@ created = bucket.creation_date,
    <link xlink:href="http://en.wikipedia.org/wiki/Journaling_file_system"/> for
    more information) to store data. When a disk dedicated to a journal fails,
    the related OSD(s) fail as well (see
-   <xref linkend="storage.bp.monitoring.diskfails" role="internalbook"/>).
+   <xref linkend="storage-bp-monitoring-diskfails" role="internalbook"/>).
   </para>
 
   <warning>
@@ -13000,10 +13001,10 @@ created = bucket.creation_date,
   </warning>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_diskmgmt.xml" version="5.0" xml:id="storage.bp.disk">
+  <chapter xml:base="admin_bestpractices_diskmgmt.xml" version="5.0" xml:id="storage-bp-disk">
  <title>Disk Management</title>
  <para/>
- <sect1 xml:id="storage.bp.disk.add">
+ <sect1 xml:id="storage-bp-disk-add">
   <title>Adding Disks</title>
 
   <important>
@@ -13118,7 +13119,7 @@ created = bucket.creation_date,
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="storage.bp.disk.del">
+ <sect1 xml:id="storage-bp-disk-del">
   <title>Deleting disks</title>
 
   <important>
@@ -13136,7 +13137,7 @@ created = bucket.creation_date,
     <listitem>
      <para>
       Be sure not to remove too many disks from your cluster to be able to keep
-      the replication rules. See <xref linkend="datamgm.rules" role="internalbook"/> for more
+      the replication rules. See <xref linkend="datamgm-rules" role="internalbook"/> for more
       information.
      </para>
     </listitem>
@@ -13212,7 +13213,7 @@ sudo sgdisk --clear --mbrtogpt -- <replaceable>disk_device_name</replaceable></s
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="bp.osd_on_exisitng_partitions">
+ <sect1 xml:id="bp-osd-on-exisitng-partitions">
   <title>How to Use Existing Partitions for OSDs Including OSD Journals</title>
 
   <important>
@@ -13275,10 +13276,10 @@ ACTION=="change", SUBSYSTEM=="block", \
   </tip>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_recovery.xml" version="5.0" xml:id="storage.bp.recover">
+  <chapter xml:base="admin_bestpractices_recovery.xml" version="5.0" xml:id="storage-bp-recover">
  <title>Recovery</title>
  <para/>
- <sect1 xml:id="storage.bp.recover.toomanypgs">
+ <sect1 xml:id="storage-bp-recover-toomanypgs">
   <title>'Too Many PGs per OSD' Status Message</title>
 
   <para>
@@ -13295,7 +13296,7 @@ ACTION=="change", SUBSYSTEM=="block", \
    becomes lower.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.recover.stalecalamari">
+ <sect1 xml:id="storage-bp-recover-stalecalamari">
   <title>Calamari Has a Stale Cluster</title>
 
   <para>
@@ -13321,7 +13322,7 @@ sudo calamari-ctl initialize</screen>
    you are reusing the same nodes for the new cluster.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.recover.stuckinactive">
+ <sect1 xml:id="storage-bp-recover-stuckinactive">
   <title>'<emphasis>nn</emphasis> pg stuck inactive' Status Message</title>
 
   <para>
@@ -13337,7 +13338,7 @@ sudo calamari-ctl initialize</screen>
   <para>
    If the placement groups are stuck perpetually, you need to check the output
    of <command>ceph osd tree</command>. The output should look tree-structured,
-   similar to the example in <xref linkend="storage.bp.recover.osddown" role="internalbook"/>.
+   similar to the example in <xref linkend="storage-bp-recover-osddown" role="internalbook"/>.
   </para>
 
   <para>
@@ -13358,7 +13359,7 @@ ID WEIGHT TYPE NAME    UP/DOWN REWEIGHT PRIMARY-AFFINITY
    name resolution is not working correctly across the cluster.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.recover.osdweight">
+ <sect1 xml:id="storage-bp-recover-osdweight">
   <title>OSD Weight is 0</title>
 
   <para>
@@ -13375,7 +13376,7 @@ ID WEIGHT TYPE NAME    UP/DOWN REWEIGHT PRIMARY-AFFINITY
    than 15GB) and should be replaced with a bigger one.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.recover.osddown">
+ <sect1 xml:id="storage-bp-recover-osddown">
   <title>OSD is Down</title>
 
   <para>
@@ -13439,7 +13440,7 @@ ID WEIGHT TYPE NAME    UP/DOWN REWEIGHT PRIMARY-AFFINITY
    stopped OSD.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.recover.clockskew">
+ <sect1 xml:id="storage-bp-recover-clockskew">
   <title>Fixing Clock Skew Warnings</title>
 
   <para>
@@ -13477,10 +13478,10 @@ systemctl start ceph-mon.target</screen>
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_accountancy.xml" version="5.0" xml:id="storage.bp.account">
+  <chapter xml:base="admin_bestpractices_accountancy.xml" version="5.0" xml:id="storage-bp-account">
  <title>Accountancy</title>
  <para/>
- <sect1 xml:id="storage.bp.account.s3add">
+ <sect1 xml:id="storage-bp-account-s3add">
   <title>Adding S3 Users</title>
 
   <para>
@@ -13519,7 +13520,7 @@ systemctl start ceph-mon.target</screen>
          "secret_key": "vzCEkuryfn060dfee4fgQPqFrncKEIkh3ZcdOANY"}],
  [...]</screen>
  </sect1>
- <sect1 xml:id="storage.bp.account.s3rm">
+ <sect1 xml:id="storage-bp-account-s3rm">
   <title>Removing S3 Users</title>
 
   <para>
@@ -13531,10 +13532,10 @@ systemctl start ceph-mon.target</screen>
 
   <para>
    For more information on the command's options, see
-   <xref linkend="storage.bp.account.swiftrm" role="internalbook"/>.
+   <xref linkend="storage-bp-account-swiftrm" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.account.s3quota">
+ <sect1 xml:id="storage-bp-account-s3quota">
   <title>User Quota Management</title>
 
   <para>
@@ -13608,7 +13609,7 @@ systemctl start ceph-mon.target</screen>
 
 <screen>radosgw-admin user stats --uid=<replaceable>example_user</replaceable> --sync-stats</screen>
  </sect1>
- <sect1 xml:id="storage.bp.account.swiftadd">
+ <sect1 xml:id="storage-bp-account-swiftadd">
   <title>Adding Swift Users</title>
 
   <para>
@@ -13676,10 +13677,10 @@ systemctl start ceph-mon.target</screen>
 
   <para>
    For more information on using Swift client, see
-   <xref linkend="ceph.rgw.access" role="internalbook"/>.
+   <xref linkend="ceph-rgw-access" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.account.swiftrm">
+ <sect1 xml:id="storage-bp-account-swiftrm">
   <title>Removing Swift Users</title>
 
   <para>
@@ -13743,7 +13744,7 @@ systemctl start ceph-mon.target</screen>
    </variablelist>
   </tip>
  </sect1>
- <sect1 xml:id="storage.bp.account.user_pwd">
+ <sect1 xml:id="storage-bp-account-user-pwd">
   <title>Changing S3 and Swift User Access and Secret Keys</title>
 
   <para>
@@ -13806,10 +13807,10 @@ systemctl start ceph-mon.target</screen>
   </variablelist>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_tuneups.xml" version="5.0" xml:id="storage.bp.tuneups">
+  <chapter xml:base="admin_bestpractices_tuneups.xml" version="5.0" xml:id="storage-bp-tuneups">
  <title>Tune-ups</title>
  <para/>
- <sect1 xml:id="storage.bp.tuneups.pg_num">
+ <sect1 xml:id="storage-bp-tuneups-pg-num">
   <title>How Does the Number of Placement Groups Affect the Cluster Performance?</title>
 
   <para>
@@ -13854,7 +13855,7 @@ systemctl start ceph-mon.target</screen>
    the <link xlink:href="http://ceph.com/pgcalc/">online calculator</link>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.tuneups.mix_ssd">
+ <sect1 xml:id="storage-bp-tuneups-mix-ssd">
   <title>Can I Use SSDs and Hard Disks on the Same Cluster?</title>
 
   <para>
@@ -13863,7 +13864,7 @@ systemctl start ceph-mon.target</screen>
    SSD disk will be slowed down by the hard disk performance. Thus, you should
    <emphasis>never mix SSDs and hard disks</emphasis> for data writing
    following <emphasis>the same rule</emphasis> (see
-   <xref linkend="datamgm.rules" role="internalbook"/> for more information on rules for storing
+   <xref linkend="datamgm-rules" role="internalbook"/> for more information on rules for storing
    data).
   </para>
 
@@ -13888,7 +13889,7 @@ systemctl start ceph-mon.target</screen>
    </listitem>
   </orderedlist>
  </sect1>
- <sect1 xml:id="storage.bp.tuneups.ssd_tradeoffs">
+ <sect1 xml:id="storage-bp-tuneups-ssd-tradeoffs">
   <title>What are the Trade-offs of Using a Journal on SSD?</title>
 
   <para>
@@ -13937,9 +13938,9 @@ systemctl start ceph-mon.target</screen>
   </itemizedlist>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_integration.xml" version="5.0" xml:id="storage.bp.integration">
+  <chapter xml:base="admin_bestpractices_integration.xml" version="5.0" xml:id="storage-bp-integration">
  <title>Integration</title>
- <sect1 xml:id="storage.bp.integration.kvm">
+ <sect1 xml:id="storage-bp-integration-kvm">
   <title>Storing KVM Disks in Ceph Cluster</title>
 
   <para>
@@ -13947,26 +13948,26 @@ systemctl start ceph-mon.target</screen>
    Ceph pool, optionally convert the content of an existing image to it, and
    then run the virtual machine with <command>qemu-kvm</command> making use of
    the disk image stored in the cluster. For more detailed information, see
-   <xref linkend="cha.ceph.kvm" role="internalbook"/>.
+   <xref linkend="cha-ceph-kvm" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.integration.libvirt">
+ <sect1 xml:id="storage-bp-integration-libvirt">
   <title>Storing <systemitem class="library">libvirt</systemitem> Disks in Ceph Cluster</title>
 
   <para>
-   Similar to KVM (see <xref linkend="storage.bp.integration.kvm" role="internalbook"/>), you can
+   Similar to KVM (see <xref linkend="storage-bp-integration-kvm" role="internalbook"/>), you can
    use Ceph to store virtual machines driven by <systemitem class="library">libvirt</systemitem>. The advantage is
    that you can run any <systemitem class="library">libvirt</systemitem>-supported virtualization solution, such as
    KVM, Xen, or LXC. For more information, see
-   <xref linkend="cha.ceph.libvirt" role="internalbook"/>.
+   <xref linkend="cha-ceph-libvirt" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.integration.xen">
+ <sect1 xml:id="storage-bp-integration-xen">
   <title>Storing Xen Disks in Ceph Cluster</title>
 
   <para>
    One way to use Ceph for storing Xen disks is to make use of <systemitem class="library">libvirt</systemitem> as
-   described in <xref linkend="cha.ceph.libvirt" role="internalbook"/>.
+   described in <xref linkend="cha-ceph-libvirt" role="internalbook"/>.
   </para>
 
   <para>
@@ -14028,7 +14029,7 @@ systemctl start ceph-mon.target</screen>
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="storage.bp.integration.mount_rbd">
+ <sect1 xml:id="storage-bp-integration-mount-rbd">
   <title>Mounting and Unmounting an RBD Image</title>
 
   <para>
@@ -14140,17 +14141,17 @@ systemctl start ceph-mon.target</screen>
   </procedure>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_maint.xml" version="5.0" xml:id="storage.bp.cluster_mntc">
+  <chapter xml:base="admin_bestpractices_maint.xml" version="5.0" xml:id="storage-bp-cluster-mntc">
  <title>Cluster Maintenance and Troubleshooting</title>
  <para/>
  
- <sect1 xml:id="storage.bp.cluster_mntc.calamari_addpool">
+ <sect1 xml:id="storage-bp-cluster-mntc-calamari-addpool">
   <title>Creating and Deleting Pools from Calamari</title>
 
   <para>
    Apart from using the command line to create or delete pools (see
-   <xref linkend="storage.bp.cluster_mntc.add_pool" role="internalbook"/> and
-   <xref linkend="storage.bp.cluster_mntc.del_pool" role="internalbook"/>), you can do the same
+   <xref linkend="storage-bp-cluster-mntc-add-pool" role="internalbook"/> and
+   <xref linkend="storage-bp-cluster-mntc-del-pool" role="internalbook"/>), you can do the same
    from within Calamari in a more comfortable user interface.
   </para>
 
@@ -14246,7 +14247,7 @@ systemctl start ceph-mon.target</screen>
    </step>
   </procedure>
  </sect1>
- <sect1 xml:id="storage.bp.cluster_mntc.mng_keyrings">
+ <sect1 xml:id="storage-bp-cluster-mntc-mng-keyrings">
   <title>Managing Keyring Files</title>
 
   <para>
@@ -14304,7 +14305,7 @@ systemctl start ceph-mon.target</screen>
    page <filename>man 8 ceph-authtool</filename>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.cluster_mntc.create_client_keys">
+ <sect1 xml:id="storage-bp-cluster-mntc-create-client-keys">
   <title>Creating Client Keys</title>
 
   <para>
@@ -14377,14 +14378,14 @@ systemctl start ceph-mon.target</screen>
    Management</link>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.cluster_mntc.revoke_client_keys">
+ <sect1 xml:id="storage-bp-cluster-mntc-revoke-client-keys">
   <title>Revoking Client Keys</title>
 
   <para>
    If you need to remove an already generated client key from the keyring file,
    use the <command>ceph auth del</command> command. To remove the key for user
    <literal>client.example1</literal> that we added in
-   <xref linkend="storage.bp.cluster_mntc.create_client_keys" role="internalbook"/>:
+   <xref linkend="storage-bp-cluster-mntc-create-client-keys" role="internalbook"/>:
   </para>
 
 <screen>ceph auth del client.example1</screen>
@@ -14400,7 +14401,7 @@ systemctl start ceph-mon.target</screen>
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="storage.bp.cluster_mntc.unbalanced">
+ <sect1 xml:id="storage-bp-cluster-mntc-unbalanced">
   <title>Checking for Unbalanced Data Writing</title>
 
   <para>
@@ -14452,7 +14453,7 @@ systemctl start ceph-mon.target</screen>
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="Cluster_Time_Setting">
+ <sect1 xml:id="Cluster-Time-Setting">
   	<title>Time Synchronization of Nodes</title>
   	<para>
   	Ceph requires precise time synchronization between particular nodes. You should set up a node with your own NTP server. Even though you can point all ntpd instances to a remote public time server, we do not recommend it with Ceph.  With such a configuration, each node in the cluster has its own NTP daemon that communicate continually over the Internet with a set of three or four time servers, all of which are quite some hops away. This solution introduces a large degree of latency variability that makes it difficult or impossible to keep the clock drift under 0.05 seconds (which is what the Ceph monitors require).
@@ -14531,7 +14532,7 @@ systemctl start ceph-mon.target</screen>
   </sect1>
 
  
- <sect1 xml:id="storage.bp.cluster_mntc.sw_upg">
+ <sect1 xml:id="storage-bp-cluster-mntc-sw-upg">
   <title>Upgrading Software</title>
 
   <para>
@@ -14546,12 +14547,12 @@ systemctl start ceph-mon.target</screen>
    then all the OSD nodes one by one.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.cluster_mntc.add_pgnum">
+ <sect1 xml:id="storage-bp-cluster-mntc-add-pgnum">
   <title>Increasing the Number of Placement Groups</title>
 
   <para>
    When creating a new pool, you specify the number of placement groups for the
-   pool (see <xref linkend="ceph.pools.operate.add_pool" role="internalbook"/>). After adding more
+   pool (see <xref linkend="ceph-pools-operate-add-pool" role="internalbook"/>). After adding more
    OSDs to the cluster, you usually need to increase the number of placement
    groups as well for performance and data durability reasons. For each
    placement group, OSD and monitor nodes need memory, network and CPU at all
@@ -14598,7 +14599,7 @@ systemctl start ceph-mon.target</screen>
 
 <screen>ceph osd pool set <replaceable>pool_name</replaceable> pg_num <replaceable>next_pg_num</replaceable></screen>
  </sect1>
- <sect1 xml:id="storage.bp.cluster_mntc.add_pool">
+ <sect1 xml:id="storage-bp-cluster-mntc-add-pool">
   <title>Adding a Pool</title>
 
   <para>
@@ -14610,10 +14611,10 @@ systemctl start ceph-mon.target</screen>
 
   <para>
    For more information on cluster pool creation, see
-   <xref linkend="ceph.pools.operate.add_pool" role="internalbook"/>.
+   <xref linkend="ceph-pools-operate-add-pool" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.cluster_mntc.del_pool">
+ <sect1 xml:id="storage-bp-cluster-mntc-del-pool">
   <title>Deleting a Pool</title>
 
   <para>
@@ -14625,16 +14626,16 @@ systemctl start ceph-mon.target</screen>
 
   <para>
    For more information on cluster pool deletion, see
-   <xref linkend="ceph.pools.operate.del_pool" role="internalbook"/>.
+   <xref linkend="ceph-pools-operate-del-pool" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="ceph.troubleshooting">
+ <sect1 xml:id="ceph-troubleshooting">
  	<title>Troubleshooting</title>
  	<para>
  	This section describes several issues that you may face when you operate a Ceph cluster.
  	</para>
  	
- 	<sect2 xml:id="storage.bp.cluster_mntc.rados_striping">
+ 	<sect2 xml:id="storage-bp-cluster-mntc-rados-striping">
   <title>Sending Large Objects with <command>rados</command> Fails with Full OSD</title>
 
   <para>
@@ -14660,7 +14661,7 @@ systemctl start ceph-mon.target</screen>
 <screen>rados --striper -p mypool put myobject /file/to/send</screen>
  </sect2>
  
- <sect2 xml:id="ceph.xfs.corruption">
+ <sect2 xml:id="ceph-xfs-corruption">
  	<title>Corrupted XFS Filesystem</title>
  	<para>
  	In rare circumstances like kernel bug or broken/misconfigured hardware, the underlying file system (XFS) in which an OSD stores its data might be damaged and unmountable.
@@ -14684,10 +14685,10 @@ systemctl start ceph-mon.target</screen>
  </sect2>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_perform.xml" version="5.0" xml:id="storage.bp.performance">
+  <chapter xml:base="admin_bestpractices_perform.xml" version="5.0" xml:id="storage-bp-performance">
  <title>Performance Diagnosis</title>
  <para/>
- <sect1 xml:id="storage.bp.performance.slowosd">
+ <sect1 xml:id="storage-bp-performance-slowosd">
   <title>Finding Slow OSDs</title>
 
   <para>
@@ -14719,7 +14720,7 @@ systemctl start ceph-mon.target</screen>
    <literal>bytes_per_sec</literal> value to get the slow(est) OSDs.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.performance.net_issues">
+ <sect1 xml:id="storage-bp-performance-net-issues">
   <title>Is My Network Causing Issues?</title>
 
   <para>
@@ -14756,7 +14757,7 @@ systemctl start ceph-mon.target</screen>
     <para>
      Check firewall settings on cluster nodes. Make sure they do not block
      ports/protocols required by Ceph operation. See
-     <xref linkend="storage.bp.net.firewall" role="internalbook"/> for more information on firewall
+     <xref linkend="storage-bp-net-firewall" role="internalbook"/> for more information on firewall
      settings.
     </para>
    </listitem>
@@ -14777,10 +14778,10 @@ systemctl start ceph-mon.target</screen>
   </tip>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_srvmaint.xml" version="5.0" xml:id="storage.bp.srv_maint">
+  <chapter xml:base="admin_bestpractices_srvmaint.xml" version="5.0" xml:id="storage-bp-srv-maint">
  <title>Server Maintenance</title>
  <para/>
- <sect1 xml:id="storage.bp.srv_maint.add_server">
+ <sect1 xml:id="storage-bp-srv-maint-add-server">
   <title>Adding a Server to a Cluster</title>
 
   <tip>
@@ -14793,12 +14794,12 @@ systemctl start ceph-mon.target</screen>
 
   <para>
    If you are adding an OSD to a cluster, follow
-   <xref linkend="storage.bp.inst.add_osd_cephdeploy" role="internalbook"/>.
+   <xref linkend="storage-bp-inst-add-osd-cephdeploy" role="internalbook"/>.
   </para>
 
   <para>
    If you are adding a monitor to a cluster, follow
-   <xref linkend="storage.bp.inst.add_rm_monitor" role="internalbook"/>.
+   <xref linkend="storage-bp-inst-add-rm-monitor" role="internalbook"/>.
   </para>
 
   <important>
@@ -14818,7 +14819,7 @@ systemctl start ceph-mon.target</screen>
    </para>
   </tip>
  </sect1>
- <sect1 xml:id="storage.bp.srv_maint.rm_server">
+ <sect1 xml:id="storage-bp-srv-maint-rm-server">
   <title>Removing a Server from a Cluster</title>
 
   <para>
@@ -14830,15 +14831,15 @@ systemctl start ceph-mon.target</screen>
 
   <para>
    If you are removing an OSD from a cluster, follow
-   <xref linkend="storage.bp.disk.del" role="internalbook"/>.
+   <xref linkend="storage-bp-disk-del" role="internalbook"/>.
   </para>
 
   <para>
    If you are removing a monitor from a cluster, follow
-   <xref linkend="storage.bp.inst.add_rm_monitor.rmmon" role="internalbook"/>.
+   <xref linkend="storage-bp-inst-add-rm-monitor-rmmon" role="internalbook"/>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.srv_maint.fds_inc">
+ <sect1 xml:id="storage-bp-srv-maint-fds-inc">
   <title>Increasing File Descriptors</title>
 
   <para>
@@ -14862,10 +14863,10 @@ systemctl start ceph-mon.target</screen>
   </para>
  </sect1>
 </chapter>
-  <chapter xml:base="admin_bestpractices_net.xml" version="5.0" xml:id="storage.bp.net">
+  <chapter xml:base="admin_bestpractices_net.xml" version="5.0" xml:id="storage-bp-net">
  <title>Networking</title>
  <para/>
- <sect1 xml:id="storage.bp.net.ntp">
+ <sect1 xml:id="storage-bp-net-ntp">
   <title>Setting NTP to a Ceph Cluster</title>
 
   <para>
@@ -14879,7 +14880,7 @@ systemctl start ceph-mon.target</screen>
    Administration Guide</link>.
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.net.firewall">
+ <sect1 xml:id="storage-bp-net-firewall">
   <title>Firewall Settings for Ceph</title>
 
   <para>
@@ -14904,7 +14905,7 @@ systemctl start ceph-mon.target</screen>
    6800-7300).
   </para>
  </sect1>
- <sect1 xml:id="storage.bp.net.private">
+ <sect1 xml:id="storage-bp-net-private">
   <title>Adding a Private Network to a Running Cluster</title>
 
   <para>
@@ -14954,7 +14955,7 @@ systemctl start ceph-mon.target</screen>
  </sect1>
 </chapter>
  </part>
- <glossary xml:base="admin_glossary.xml" version="5.0" xml:id="gloss.storage.glossary">
+ <glossary xml:base="admin_glossary.xml" version="5.0" xml:id="gloss-storage-glossary">
 
  <title>Glossary</title>
  <info>
@@ -14968,9 +14969,9 @@ systemctl start ceph-mon.target</screen>
    <dm:release>SES2.1</dm:release>
   </dm:docmanager>
  </info>
- <glossdiv xml:id="gloss.storage.general">
+ <glossdiv xml:id="gloss-storage-general">
   <title>General</title>
-  <glossentry xml:id="gloss.storage.adminode"><glossterm>Admin node</glossterm>
+  <glossentry xml:id="gloss-storage-adminode"><glossterm>Admin node</glossterm>
    <glossdef>
     <para>
      The node from which you run the <command>ceph-deploy</command> utility to
@@ -14978,7 +14979,7 @@ systemctl start ceph-mon.target</screen>
     </para>
    </glossdef>
   </glossentry>
-  <glossentry xml:id="gloss.storage.bucket"><glossterm>Bucket</glossterm>
+  <glossentry xml:id="gloss-storage-bucket"><glossterm>Bucket</glossterm>
    <glossdef>
     <para>
      A point which aggregates other nodes into a hierarchy of physical
@@ -14986,7 +14987,7 @@ systemctl start ceph-mon.target</screen>
     </para>
    </glossdef>
   </glossentry>
-  <glossentry xml:id="gloss.storage.crush"><glossterm>CRUSH, CRUSH Map</glossterm>
+  <glossentry xml:id="gloss-storage-crush"><glossterm>CRUSH, CRUSH Map</glossterm>
    <glossdef>
     <para>
      An algorithm that determines how to store and retrieve data by computing
@@ -14996,7 +14997,7 @@ systemctl start ceph-mon.target</screen>
     </para>
    </glossdef>
   </glossentry>
-  <glossentry xml:id="gloss.storage.mon"><glossterm>Monitor node, MON</glossterm>
+  <glossentry xml:id="gloss-storage-mon"><glossterm>Monitor node, MON</glossterm>
    <glossdef>
     <para>
      A cluster node that maintains maps of cluster state, including the monitor
@@ -15004,7 +15005,7 @@ systemctl start ceph-mon.target</screen>
     </para>
    </glossdef>
   </glossentry>
-  <glossentry xml:id="gloss.storage.osd"><glossterm>OSD node</glossterm>
+  <glossentry xml:id="gloss-storage-osd"><glossterm>OSD node</glossterm>
    <glossdef>
     <para>
      A cluster node that stores data, handles data replication, recovery,
@@ -15013,7 +15014,7 @@ systemctl start ceph-mon.target</screen>
     </para>
    </glossdef>
   </glossentry>
-  <glossentry xml:id="gloss.storage.node"><glossterm>Node</glossterm>
+  <glossentry xml:id="gloss-storage-node"><glossterm>Node</glossterm>
    <glossdef>
     <para>
      Any single machine or server in a Ceph cluster.
@@ -15036,7 +15037,7 @@ systemctl start ceph-mon.target</screen>
   </glossentry>
  </glossdiv>
 
- <glossdiv xml:id="gloss.storage.ceph">
+ <glossdiv xml:id="gloss-storage-ceph">
   <title>Ceph Specific Terms</title>
   <glossentry><glossterm>Calamari</glossterm>
    <glossdef>
@@ -15046,7 +15047,7 @@ systemctl start ceph-mon.target</screen>
     </para>
    </glossdef>
   </glossentry>
-  <glossentry xml:id="gloss.storage.ceph_storage_cluster"><glossterm>Ceph Storage Cluster</glossterm>
+  <glossentry xml:id="gloss-storage-ceph-storage-cluster"><glossterm>Ceph Storage Cluster</glossterm>
    <glossdef>
     <para>
      The core set of storage software which stores the user’s data. Such a
@@ -15057,7 +15058,7 @@ systemctl start ceph-mon.target</screen>
     </para>
    </glossdef>
   </glossentry>
-  <glossentry xml:id="gloss.storage.rgw"><glossterm><phrase>RADOS Gateway</phrase></glossterm>
+  <glossentry xml:id="gloss-storage-rgw"><glossterm><phrase>RADOS Gateway</phrase></glossterm>
    <glossdef>
     <para>
      The S3/Swift gateway component for Ceph Object Store.
@@ -15066,7 +15067,7 @@ systemctl start ceph-mon.target</screen>
   </glossentry>
  </glossdiv>
 </glossary>
- <appendix xml:base="admin_sls.xml" version="5.0" xml:id="app.storage.sls">
+ <appendix xml:base="admin_sls.xml" version="5.0" xml:id="app-storage-sls">
  <title>Salt State (SLS) File Example</title>
  <para>
   This example shows a cluster configuration split into several SLS files. You
@@ -15308,7 +15309,7 @@ activate_vdb:
   - ses.common.rgw_key</screen>
  </example>
 </appendix>
- <appendix xml:base="admin_manual-install.xml" version="5.0" xml:id="app.storage.manual_inst">
+ <appendix xml:base="admin_manual-install.xml" version="5.0" xml:id="app-storage-manual-inst">
  <title>Example Procedure of Manual Ceph Installation</title>
  <para>
   The following procedure shows the commands that you need to install Ceph
@@ -15477,7 +15478,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
   </step>
  </procedure>
 </appendix>
- <appendix xml:base="admin_docupdates.xml" version="5.0" xml:id="ap.adm.docupdate">
+ <appendix xml:base="admin_docupdates.xml" version="5.0" xml:id="ap-adm-docupdate">
  <title>Documentation Updates</title>
  <info>
   <dm:docmanager xmlns:dm="urn:x-suse:ns:docmanager">
@@ -15501,32 +15502,32 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
  <itemizedlist mark="bullet" spacing="normal">
   <listitem>
    <para>
-    <xref linkend="sec.adm.docupdates.4maint1" xrefstyle="SectTitleOnPage" role="internalbook"/>
+    <xref linkend="sec-adm-docupdates-4maint1" xrefstyle="SectTitleOnPage" role="internalbook"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="sec.adm.docupdates.4" xrefstyle="SectTitleOnPage" role="internalbook"/>
+    <xref linkend="sec-adm-docupdates-4" xrefstyle="SectTitleOnPage" role="internalbook"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="sec.adm.docupdates.3" xrefstyle="SectTitleOnPage" role="internalbook"/>
+    <xref linkend="sec-adm-docupdates-3" xrefstyle="SectTitleOnPage" role="internalbook"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="sec.adm.docupdates.2" xrefstyle="SectTitleOnPage" role="internalbook"/>
+    <xref linkend="sec-adm-docupdates-2" xrefstyle="SectTitleOnPage" role="internalbook"/>
    </para>
   </listitem>
   <listitem>
    <para>
-    <xref linkend="sec.adm.docupdates.1" xrefstyle="SectTitleOnPage" role="internalbook"/>
+    <xref linkend="sec-adm-docupdates-1" xrefstyle="SectTitleOnPage" role="internalbook"/>
    </para>
   </listitem>
  </itemizedlist>
 
- <sect1 xml:id="sec.adm.docupdates.4maint1">
+ <sect1 xml:id="sec-adm-docupdates-4maint1">
   <title>February, 2017 (Release of SUSE Enterprise Storage 4 Maintenance Update 1)</title>
 
   <variablelist>
@@ -15552,13 +15553,13 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        Added the admin node to the upgrade workflow in <xref linkend="ceph.upgrade.general" role="internalbook"/>
+        Added the admin node to the upgrade workflow in <xref linkend="ceph-upgrade-general" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=1012155"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Rewrote <xref linkend="ceph.operating.services" role="internalbook"/> to avoid globbing
+        Rewrote <xref linkend="ceph-operating-services" role="internalbook"/> to avoid globbing
         services
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=1009500"/>).
        </para>
@@ -15568,7 +15569,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="sec.adm.docupdates.4">
+ <sect1 xml:id="sec-adm-docupdates-4">
   <title>December, 2016 (Release of SUSE Enterprise Storage 4)</title>
 
   <variablelist>
@@ -15585,7 +15586,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       </listitem>
       <listitem>
        <para>
-        Introduced <xref linkend="ceph.oa" role="internalbook"/> (Fate #321085).
+        Introduced <xref linkend="ceph-oa" role="internalbook"/> (Fate #321085).
        </para>
       </listitem>
      </itemizedlist>
@@ -15593,7 +15594,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
    <varlistentry>
 
-    <term><xref linkend="cha.ceph.upgrade" role="internalbook"/>
+    <term><xref linkend="cha-ceph-upgrade" role="internalbook"/>
     </term>
     <listitem>
      <para/>
@@ -15601,7 +15602,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Replaced the old upgrade procedure with
-        <xref linkend="ceph.upgrade.to4" role="internalbook"/>.
+        <xref linkend="ceph-upgrade-to4" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
@@ -15616,7 +15617,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        Extended <xref linkend="ceph.install.crowbar" role="internalbook"/> to include more
+        Extended <xref linkend="ceph-install-crowbar" role="internalbook"/> to include more
         detailed information based on the SUSE OpenStack Cloud documentation
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=1003541"/>).
        </para>
@@ -15624,38 +15625,38 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Increased the memory requirement for an OSD in
-        <xref linkend="sysreq.osd" role="internalbook"/>
+        <xref linkend="sysreq-osd" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982496"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Improved the each node preparation section
-        <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=1005752"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Improved <xref linkend="ceph.install.saltstack" role="internalbook"/>
+        Improved <xref linkend="ceph-install-saltstack" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=993499"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Improved <xref linkend="ceph.install.calamari" role="internalbook"/>
+        Improved <xref linkend="ceph-install-calamari" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=1003529"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Improved <xref linkend="storage.bp.recover.clockskew" role="internalbook"/>
+        Improved <xref linkend="storage-bp-recover-clockskew" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=999856"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Improved <xref linkend="ceph.cephfs.mdf.add" role="internalbook"/>
+        Improved <xref linkend="ceph-cephfs-mdf-add" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=992769"/>).
        </para>
       </listitem>
@@ -15664,7 +15665,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="sec.adm.docupdates.3">
+ <sect1 xml:id="sec-adm-docupdates-3">
   <title>June, 2016 (Release of SUSE Enterprise Storage 3)</title>
 
   <variablelist>
@@ -15675,32 +15676,32 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        Added <xref linkend="app.storage.manual_inst" role="internalbook"/>.
+        Added <xref linkend="app-storage-manual-inst" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="cha.storage.cephx" role="internalbook"/>.
+        Added <xref linkend="cha-storage-cephx" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="app.storage.sls" role="internalbook"/>.
+        Added <xref linkend="app-storage-sls" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="ceph.rgw.fed" role="internalbook"/> (Fate #320602).
+        Added <xref linkend="ceph-rgw-fed" role="internalbook"/> (Fate #320602).
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="ceph.install.saltstack" role="internalbook"/>.
+        Added <xref linkend="ceph-install-saltstack" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="cha.ceph.cephfs" role="internalbook"/> (Fate #318586).
+        Added <xref linkend="cha-ceph-cephfs" role="internalbook"/> (Fate #318586).
        </para>
       </listitem>
      </itemizedlist>
@@ -15708,7 +15709,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
    <varlistentry>
 
-    <term><xref linkend="cha.ceph.install" role="internalbook"/>
+    <term><xref linkend="cha-ceph-install" role="internalbook"/>
     </term>
     <listitem>
      <para/>
@@ -15716,7 +15717,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Improved network recommendation tip in
-        <xref linkend="ceph.install.ceph-deploy.network" role="internalbook"/>.
+        <xref linkend="ceph-install-ceph-deploy-network" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
@@ -15724,19 +15725,19 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
    <varlistentry>
 
-    <term><xref linkend="cha.ceph.iscsi" role="internalbook"/>
+    <term><xref linkend="cha-ceph-iscsi" role="internalbook"/>
     </term>
     <listitem>
      <para/>
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        Added <xref linkend="ceph.iscsi.rbd.optional" role="internalbook"/>.
+        Added <xref linkend="ceph-iscsi-rbd-optional" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="ceph.iscsi.connect.linux.multipath" role="internalbook"/>.
+        Added <xref linkend="ceph-iscsi-connect-linux-multipath" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
@@ -15752,15 +15753,15 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Improved the procedure to set up hot-storage and cold-storage in
-        <xref linkend="ses.tiered.storage" role="internalbook"/> and added
-        <xref linkend="cache.tier.configure" role="internalbook"/>.
+        <xref linkend="ses-tiered-storage" role="internalbook"/> and added
+        <xref linkend="cache-tier-configure" role="internalbook"/>.
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982607"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Added a command to install Ceph on the MDS server in
-        <xref linkend="ceph.cephfs.mdf.add" role="internalbook"/>
+        <xref linkend="ceph-cephfs-mdf-add" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=993820"/>).
        </para>
       </listitem>
@@ -15768,37 +15769,37 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
        <para>
         Added a tip referring to more information about using existing
         partitions for OSDs in
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=992019"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Reordered snapshots-related sections and created
-        <xref linkend="cha.ceph.snapshots" role="internalbook"/> with
-        <xref linkend="cha.ceph.snapshots.rbd" role="internalbook"/> and
-        <xref linkend="cha.ceph.snapshots.pool" role="internalbook"/>
+        <xref linkend="cha-ceph-snapshots" role="internalbook"/> with
+        <xref linkend="cha-ceph-snapshots-rbd" role="internalbook"/> and
+        <xref linkend="cha-ceph-snapshots-pool" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982707"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Mixing installation methods is not supported in
-        <xref linkend="ceph.install.crowbar" role="internalbook"/>
+        <xref linkend="ceph-install-crowbar" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=988038"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Format 1 is no longer the default (in favor of the format 2) when
-        creating RBD volumes in <xref linkend="ceph.iscsi.install" role="internalbook"/>
+        creating RBD volumes in <xref linkend="ceph-iscsi-install" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=987992"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Added note about increasing the ruleset number in
-        <xref linkend="datamgm.rules" role="internalbook"/>
+        <xref linkend="datamgm-rules" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=997051"/>).
        </para>
       </listitem>
@@ -15810,75 +15811,75 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       </listitem>
       <listitem>
        <para>
-        Split <xref linkend="ceph.iscsi.rbd.optional" role="internalbook"/> into
-        <xref linkend="ceph.iscsi.rbd.advanced" role="internalbook"/> and added configuration
+        Split <xref linkend="ceph-iscsi-rbd-optional" role="internalbook"/> into
+        <xref linkend="ceph-iscsi-rbd-advanced" role="internalbook"/> and added configuration
         options description
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=986037"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="op.mixed_ssd_hdd" role="internalbook"/>
+        Added <xref linkend="op-mixed-ssd-hdd" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982375"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Updated minimal recommendations in <xref linkend="sysreq.osd" role="internalbook"/>
+        Updated minimal recommendations in <xref linkend="sysreq-osd" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=981642"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Fixed support information on snapshot cloning in
-        <xref linkend="ceph.snapshoti.layering" role="internalbook"/>
+        <xref linkend="ceph-snapshoti-layering" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982713"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Improved 'bucket' explanation in <xref linkend="datamgm.buckets" role="internalbook"/>
+        Improved 'bucket' explanation in <xref linkend="datamgm-buckets" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=985047"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Clarified non-mixing workload phrase in <xref linkend="sysreq.mon" role="internalbook"/>
+        Clarified non-mixing workload phrase in <xref linkend="sysreq-mon" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982497"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Updated RAM requirement for OSDs in <xref linkend="sysreq.osd" role="internalbook"/>
+        Updated RAM requirement for OSDs in <xref linkend="sysreq-osd" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982496"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Fixed <literal>hit_set_count</literal> default value in
-        <xref linkend="ceph.pools.values" role="internalbook"/> and added note with external link
-        in <xref linkend="ses.tiered.storage" role="internalbook"/>
+        <xref linkend="ceph-pools-values" role="internalbook"/> and added note with external link
+        in <xref linkend="ses-tiered-storage" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982284"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Fixed and improved <command>ceph-deploy</command> command line in
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=981617"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Updated several places to match the current Ceph release in
-        <xref linkend="op.crush.addosd" role="internalbook"/>, <xref linkend="datamgm.rules" role="internalbook"/>, and
-        <xref linkend="datamgm.buckets" role="internalbook"/>
+        <xref linkend="op-crush-addosd" role="internalbook"/>, <xref linkend="datamgm-rules" role="internalbook"/>, and
+        <xref linkend="datamgm-buckets" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=982563"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        In <xref linkend="ceph.pools.values" role="internalbook"/>, added (explanation) of the
+        In <xref linkend="ceph-pools-values" role="internalbook"/>, added (explanation) of the
         following poll parameters: <literal>hashpspool</literal>,
         <literal>expected_num_objects</literal>,
         <literal>cache_target_dirty_high_ratio</literal>,
@@ -15894,28 +15895,28 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="bp.osd_on_exisitng_partitions" role="internalbook"/>
+        Added <xref linkend="bp-osd-on-exisitng-partitions" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=970104"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Added software pattern selection screens in
-        <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=981951"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Removed RAID recommendations for OSD disks placement in
-        <xref linkend="sysreq.osd" role="internalbook"/> and <xref linkend="datamgm.devices" role="internalbook"/>
+        <xref linkend="sysreq-osd" role="internalbook"/> and <xref linkend="datamgm-devices" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=981611"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Updated the default set of CRUSH map's buckets in
-        <xref linkend="datamgm.buckets" role="internalbook"/>
+        <xref linkend="datamgm-buckets" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=981756"/>).
        </para>
       </listitem>
@@ -15928,7 +15929,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Fixed trademarked 3rd party products names and replaced with entities
-        in <xref linkend="cha.ceph.iscsi" role="internalbook"/>
+        in <xref linkend="cha-ceph-iscsi" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=983018"/>).
        </para>
       </listitem>
@@ -15942,7 +15943,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="sec.ceph.tiered.caution" role="internalbook"/>
+        Added <xref linkend="sec-ceph-tiered-caution" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=968290"/>).
        </para>
       </listitem>
@@ -15950,49 +15951,49 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
        <para>
         Recommended to use <command>sudo</command> with the
         <command>ceph</command> command in
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=978075"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Changed the default <literal>min_size</literal> value in
-        <xref linkend="datamgm.rules" role="internalbook"/>
+        <xref linkend="datamgm-rules" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=977556"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Fixed the <literal>master:dns_name_of_salt_master</literal> option in
-        <xref linkend="ceph.install.saltstack" role="internalbook"/>
+        <xref linkend="ceph-install-saltstack" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=977187"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Extended and improved the OSD removal procedure in
-        <xref linkend="storage.bp.disk.del" role="internalbook"/>
+        <xref linkend="storage-bp-disk-del" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=974624"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Prefixed <phrase>RADOS Gateway</phrase> hosts with <literal>rgw.</literal> in
-        <xref linkend="ceph.rgw.cephdeploy.install" role="internalbook"/>
+        <xref linkend="ceph-rgw-cephdeploy-install" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=974472"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Changed the subcommand position in the <command>ceph-deploy calamari
-        connect</command> command in <xref linkend="ceph.install.calamari" role="internalbook"/>
+        connect</command> command in <xref linkend="ceph-install-calamari" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=969836"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Added information about perpetually stuck PGs in
-        <xref linkend="storage.bp.recover.stuckinactive" role="internalbook"/>
+        <xref linkend="storage-bp-recover-stuckinactive" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=968067"/>).
        </para>
       </listitem>
@@ -16001,7 +16002,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="sec.adm.docupdates.2">
+ <sect1 xml:id="sec-adm-docupdates-2">
   <title>January, 2016 (Release of SUSE Enterprise Storage 2.1)</title>
 
   <variablelist>
@@ -16017,14 +16018,14 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       </listitem>
       <listitem>
        <para>
-        Moved <xref linkend="ceph.tier.erasure" role="internalbook"/> from
-        <xref linkend="cha.ceph.tiered" role="internalbook"/> to <xref linkend="cha.ceph.erasure" role="internalbook"/>
+        Moved <xref linkend="ceph-tier-erasure" role="internalbook"/> from
+        <xref linkend="cha-ceph-tiered" role="internalbook"/> to <xref linkend="cha-ceph-erasure" role="internalbook"/>
         so that the information provided follows the right order.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="cha.ceph.iscsi" role="internalbook"/>.
+        Added <xref linkend="cha-ceph-iscsi" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
@@ -16032,21 +16033,21 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
    <varlistentry>
 
-    <term><xref linkend="cha.ceph.install" role="internalbook"/>
+    <term><xref linkend="cha-ceph-install" role="internalbook"/>
     </term>
     <listitem>
      <para/>
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        Added <xref linkend="ceph.install.crowbar" role="internalbook"/>.
+        Added <xref linkend="ceph-install-crowbar" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
         Added a short description of the <option>--master</option> option in
         the <command>ceph-deploy calamari connect</command> command in
-        <xref linkend="ceph.install.calamari" role="internalbook"/>.
+        <xref linkend="ceph-install-calamari" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
@@ -16054,7 +16055,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
    <varlistentry>
 
-    <term><xref linkend="cha.ceph.operating" role="internalbook"/>
+    <term><xref linkend="cha-ceph-operating" role="internalbook"/>
     </term>
     <listitem>
      <para/>
@@ -16062,7 +16063,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Removed the <emphasis>Checking MDS Status</emphasis> section in
-        <xref linkend="ceph.monitor" role="internalbook"/> as MDS is not covered yet.
+        <xref linkend="ceph-monitor" role="internalbook"/> as MDS is not covered yet.
        </para>
       </listitem>
      </itemizedlist>
@@ -16070,14 +16071,14 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
    <varlistentry>
 
-    <term><xref linkend="cha.ceph.kvm" role="internalbook"/>
+    <term><xref linkend="cha-ceph-kvm" role="internalbook"/>
     </term>
     <listitem>
      <para/>
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        Added <xref linkend="ceph.kvm.install" role="internalbook"/>.
+        Added <xref linkend="ceph-kvm-install" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
@@ -16099,7 +16100,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       </listitem>
       <listitem>
        <para>
-        Fixed a typo in <xref linkend="ceph.rgw.manual" role="internalbook"/>
+        Fixed a typo in <xref linkend="ceph-rgw-manual" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=967937"/>)
        </para>
       </listitem>
@@ -16111,32 +16112,32 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       </listitem>
       <listitem>
        <para>
-        Restructured the whole <xref linkend="cha.ceph.gw" role="internalbook"/>, added
-        <xref linkend="ceph.rgw.operating" role="internalbook"/>,
-        <xref linkend="ceph.rgw.access" role="internalbook"/>,
-        <xref linkend="storage.bp.account.s3quota" role="internalbook"/>, and
-        <xref linkend="storage.bp.account.user_pwd" role="internalbook"/>
+        Restructured the whole <xref linkend="cha-ceph-gw" role="internalbook"/>, added
+        <xref linkend="ceph-rgw-operating" role="internalbook"/>,
+        <xref linkend="ceph-rgw-access" role="internalbook"/>,
+        <xref linkend="storage-bp-account-s3quota" role="internalbook"/>, and
+        <xref linkend="storage-bp-account-user-pwd" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946873"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Added links to the extension installation in
-        <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/> and
-        <xref linkend="ceph.install.crowbar.admin_server" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/> and
+        <xref linkend="ceph-install-crowbar-admin-server" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=962085"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Renamed 'Monitoring a cluster' to 'Determining cluster state' in
-        <xref linkend="ceph.monitor" role="internalbook"/>
+        <xref linkend="ceph-monitor" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=958302"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.recover.toomanypgs" role="internalbook"/>.
+        Added <xref linkend="storage-bp-recover-toomanypgs" role="internalbook"/>.
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=948375"/>).
        </para>
       </listitem>
@@ -16150,7 +16151,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Removed FastCGI occurrences and file references in
-        <xref linkend="cha.ceph.gw" role="internalbook"/>
+        <xref linkend="cha-ceph-gw" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946877"/>).
        </para>
       </listitem>
@@ -16164,7 +16165,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Moved the step about checking the firewall status to
-        <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946775"/>).
        </para>
       </listitem>
@@ -16172,7 +16173,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
        <para>
         Inserted information about the need for correct network setup for each
         node in the procedure in
-        <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946778"/>).
        </para>
       </listitem>
@@ -16180,21 +16181,21 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
        <para>
         Extended the information about 'zapping' the previously used disk while
         entirely erasing its content in
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946765"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Moved the tip on the non-default cluster name to the end of
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946773"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Added tip on SSH alias in
-        <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946776"/>).
        </para>
       </listitem>
@@ -16202,7 +16203,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
        <para>
         Removed the last complex <command>zypper rm</command> command from
         Ceph cleaning stage in
-        <xref linkend="ceph.install.ceph-deploy.purge" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-purge" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946762"/>).
        </para>
       </listitem>
@@ -16210,14 +16211,14 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
        <para>
         Suggest to install the <systemitem>romana</systemitem> package instead
         of <systemitem>calamari-clients</systemitem> in
-        <xref linkend="ceph.install.calamari" role="internalbook"/>
+        <xref linkend="ceph-install-calamari" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=944473"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Swapped the order of chapters <xref linkend="cha.ceph.upgrade" role="internalbook"/> and
-        <xref linkend="cha.ceph.install" role="internalbook"/>
+        Swapped the order of chapters <xref linkend="cha-ceph-upgrade" role="internalbook"/> and
+        <xref linkend="cha-ceph-install" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946772"/>).
        </para>
       </listitem>
@@ -16231,9 +16232,9 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
        <para>
         Either erased or made it optional to use <command>ceph-deploy osd
         activate</command> in
-        <xref linkend="storage.bp.inst.cephdeploy_usage" role="internalbook"/>,
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>, and
-        <xref linkend="ses.tiered.storage" role="internalbook"/>
+        <xref linkend="storage-bp-inst-cephdeploy-usage" role="internalbook"/>,
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>, and
+        <xref linkend="ses-tiered-storage" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=946768"/>).
        </para>
       </listitem>
@@ -16242,7 +16243,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
    </varlistentry>
   </variablelist>
  </sect1>
- <sect1 xml:id="sec.adm.docupdates.1">
+ <sect1 xml:id="sec-adm-docupdates-1">
   <title>October, 2015 (Release of SUSE Enterprise Storage 2)</title>
 
   <variablelist>
@@ -16253,22 +16254,22 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        Added <xref linkend="cha.ceph.upgrade" role="internalbook"/>.
+        Added <xref linkend="cha-ceph-upgrade" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="cha.ceph.sysreq" role="internalbook"/>.
+        Added <xref linkend="cha-ceph-sysreq" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="cha.ceph.libvirt" role="internalbook"/>.
+        Added <xref linkend="cha-ceph-libvirt" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="cha.ceph.kvm" role="internalbook"/>.
+        Added <xref linkend="cha-ceph-kvm" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
@@ -16278,7 +16279,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
 
   <variablelist>
    <varlistentry>
-    <term><xref linkend="cha.ceph.install" role="internalbook"/>
+    <term><xref linkend="cha-ceph-install" role="internalbook"/>
     </term>
     <listitem>
      <para/>
@@ -16286,34 +16287,34 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Extended the tip on cleaning the previous Calamari installation in
-        <xref linkend="ceph.install.calamari" role="internalbook"/>.
+        <xref linkend="ceph-install-calamari" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
         Fixed the blocking firewall in the installation procedure in
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=936064"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Shifted the cluster health check in the installation procedure in
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=936067"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Added a tip on disabling requiretty in
-        <xref linkend="ceph.install.ceph-deploy.eachnode" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-eachnode" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=936017"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Fixed the pool names in
-        <xref linkend="ceph.install.ceph-deploy.purge" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-purge" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=936023"/>).
        </para>
       </listitem>
@@ -16321,7 +16322,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
        <para>
         Added <systemitem>ceph</systemitem> to be installed along with
         <systemitem>ceph-deploy</systemitem> in
-        <xref linkend="ceph.install.ceph-deploy.cephdeploy" role="internalbook"/>
+        <xref linkend="ceph-install-ceph-deploy-cephdeploy" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=936020"/>).
        </para>
       </listitem>
@@ -16329,7 +16330,7 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha.ceph.gw" role="internalbook"/>
+    <term><xref linkend="cha-ceph-gw" role="internalbook"/>
     </term>
     <listitem>
      <para/>
@@ -16337,265 +16338,265 @@ systemctl start ceph-mds@mds.<replaceable>rgw_name</replaceable></screen>
       <listitem>
        <para>
         Fixed the <command>systemctl radosgw</command> command in
-        <xref linkend="ses.rgw.config" role="internalbook"/>
+        <xref linkend="ses-rgw-config" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=940483"/>).
        </para>
       </listitem>
       <listitem>
        <para>
         Replaced Apache with the embedded Civetweb, mainly in
-        <xref linkend="ceph.rgw.manual" role="internalbook"/>.
+        <xref linkend="ceph-rgw-manual" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><xref linkend="cha.storage.bestpractice" role="internalbook"/>
+    <term><xref linkend="cha-storage-bestpractice" role="internalbook"/>
     </term>
     <listitem>
      <para/>
      <itemizedlist mark="bullet" spacing="normal">
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.hwreq.replicas" role="internalbook"/>.
+        Added <xref linkend="storage-bp-hwreq-replicas" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc.calamari_addpool" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc-calamari-addpool" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.inst.rgw_client" role="internalbook"/>.
+        Added <xref linkend="storage-bp-inst-rgw-client" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.monitoring.calamari_usage_graphs" role="internalbook"/>.
+        Added <xref linkend="storage-bp-monitoring-calamari-usage-graphs" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
         Added a tip on preventing for full OSDs in
-        <xref linkend="storage.bp.monitoring.fullosd" role="internalbook"/>
+        <xref linkend="storage-bp-monitoring-fullosd" role="internalbook"/>
         (<link xlink:href="https://bugzilla.suse.com/show_bug.cgi?id=930756"/>).
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.report_bug" role="internalbook"/>.
+        Added <xref linkend="storage-bp-report-bug" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc.mng_keyrings" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc-mng-keyrings" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc.create_client_keys" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc-create-client-keys" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.inst.cephdeploy_usage" role="internalbook"/>.
+        Added <xref linkend="storage-bp-inst-cephdeploy-usage" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.net.ntp" role="internalbook"/>.
+        Added <xref linkend="storage-bp-net-ntp" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.tuneups.pg_num" role="internalbook"/>.
+        Added <xref linkend="storage-bp-tuneups-pg-num" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.hwreq.replicas" role="internalbook"/>.
+        Added <xref linkend="storage-bp-hwreq-replicas" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc.unbalanced" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc-unbalanced" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc.sw_upg" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc-sw-upg" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="ses.bp.mindisk" role="internalbook"/>.
+        Added <xref linkend="ses-bp-mindisk" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.tuneups.ssd_tradeoffs" role="internalbook"/>.
+        Added <xref linkend="storage-bp-tuneups-ssd-tradeoffs" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc.add_pgnum" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc-add-pgnum" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="ses.bp.share_ssd_journal" role="internalbook"/>.
+        Added <xref linkend="ses-bp-share-ssd-journal" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.inst.rgw" role="internalbook"/>.
+        Added <xref linkend="storage-bp-inst-rgw" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.monitoring.fullosd" role="internalbook"/>.
+        Added <xref linkend="storage-bp-monitoring-fullosd" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.performance.net_issues" role="internalbook"/>.
+        Added <xref linkend="storage-bp-performance-net-issues" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.account.s3rm" role="internalbook"/>.
+        Added <xref linkend="storage-bp-account-s3rm" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added<xref linkend="storage.bp.account.s3add" role="internalbook"/>.
+        Added<xref linkend="storage-bp-account-s3add" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.tuneups.mix_ssd" role="internalbook"/>.
+        Added <xref linkend="storage-bp-tuneups-mix-ssd" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="ses.bp.ram" role="internalbook"/>.
+        Added <xref linkend="ses-bp-ram" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.account.swiftrm" role="internalbook"/>.
+        Added <xref linkend="storage-bp-account-swiftrm" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.account.swiftadd" role="internalbook"/>.
+        Added <xref linkend="storage-bp-account-swiftadd" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.integration.mount_rbd" role="internalbook"/>.
+        Added <xref linkend="storage-bp-integration-mount-rbd" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.net.firewall" role="internalbook"/>.
+        Added <xref linkend="storage-bp-net-firewall" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc.del_pool" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc-del-pool" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.cluster_mntc.add_pool" role="internalbook"/>.
+        Added <xref linkend="storage-bp-cluster-mntc-add-pool" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.srv_maint.fds_inc" role="internalbook"/>.
+        Added <xref linkend="storage-bp-srv-maint-fds-inc" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.net.private" role="internalbook"/>.
+        Added <xref linkend="storage-bp-net-private" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.integration.xen" role="internalbook"/>.
+        Added <xref linkend="storage-bp-integration-xen" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.srv_maint.rm_server" role="internalbook"/>.
+        Added <xref linkend="storage-bp-srv-maint-rm-server" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.srv_maint.add_server" role="internalbook"/>.
+        Added <xref linkend="storage-bp-srv-maint-add-server" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.inst.add_rm_monitor" role="internalbook"/>.
+        Added <xref linkend="storage-bp-inst-add-rm-monitor" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="ses.bp.numofdisks" role="internalbook"/>.
+        Added <xref linkend="ses-bp-numofdisks" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.inst.add_osd_cephdeploy" role="internalbook"/>.
+        Added <xref linkend="storage-bp-inst-add-osd-cephdeploy" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.inst.add_osd_cephdisk" role="internalbook"/>.
+        Added <xref linkend="storage-bp-inst-add-osd-cephdisk" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.performance.slowosd" role="internalbook"/>.
+        Added <xref linkend="storage-bp-performance-slowosd" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="ses.bp.diskshare" role="internalbook"/>.
+        Added <xref linkend="ses-bp-diskshare" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.recover.clockskew" role="internalbook"/>.
+        Added <xref linkend="storage-bp-recover-clockskew" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.monitoring.journalfails" role="internalbook"/>.
+        Added <xref linkend="storage-bp-monitoring-journalfails" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.monitoring.diskfails" role="internalbook"/>.
+        Added <xref linkend="storage-bp-monitoring-diskfails" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.recover.osddown" role="internalbook"/>.
+        Added <xref linkend="storage-bp-recover-osddown" role="internalbook"/>.
        </para>
       </listitem>
       <listitem>
        <para>
-        Added <xref linkend="storage.bp.recover.stalecalamari" role="internalbook"/>.
+        Added <xref linkend="storage-bp-recover-stalecalamari" role="internalbook"/>.
        </para>
       </listitem>
      </itemizedlist>

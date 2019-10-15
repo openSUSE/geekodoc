@@ -1,32 +1,14 @@
 <?xml version="1.0"?>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="book_suma_reference_manual.xml" version="5.0" xml:lang="en" xml:id="book.suma.reference.manual">
-    <?dbjsp dir="reference/en-US" ?>
-
-    <?dbjsp filename="index.jsp"?>
-
-
-    
-    
-    
-    
-
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base="book_suma_reference_manual.xml" version="5.0" xml:lang="en" xml:id="book-suma-reference-manual">
     <info>
         <title>Reference Manual</title>
-        
-
         <productname><phrase>SUSE Manager</phrase></productname>
         <productnumber><phrase>3</phrase></productnumber>
-
-        <date><?dbtimestamp format="Y-m-d"?>
-</date>
-        <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
- type="text/xml"
- title="Profiling step"?><legalnotice xml:base="copyright_susemanager_cc.xml" version="5.0">
+        <date><?dbtimestamp format="Y-m-d"?></date>
+        <legalnotice xml:base="copyright_susemanager_cc.xml" version="5.0">
  <para>
-  Copyright ©
-<?dbtimestamp format="Y"?>
-
-  <phrase>SUSE</phrase> LLC
+  Copyright ©<?dbtimestamp format="Y"?> <phrase>SUSE</phrase> LLC
  </para>
  <para>
   Copyright © 2011-2014 Red Hat, Inc.
@@ -84,7 +66,7 @@
 
     <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><preface xml:base="reference-intro.xml" version="5.0" xml:id="preface.susemanager.user">
+ title="Profiling step"?><preface xml:base="reference-intro.xml" version="5.0" xml:id="preface-susemanager-user">
  <title>About This Guide</title>
  <info/>
  <para>
@@ -153,7 +135,7 @@
    </listitem>
   </varlistentry>
   <varlistentry>
-   <term><xref linkend="book.suma.reference.manual" role="internalbook"/></term>
+   <term><xref linkend="book-suma-reference-manual" role="internalbook"/></term>
    <listitem>
     <para>
      Reference documentation that covers the Web interface to <phrase><phrase>SUSE</phrase> Manager</phrase>.
@@ -306,12 +288,12 @@
 </preface>
 
     
-    <part xml:id="part.ref.webui">
+    <part xml:id="part-ref-webui">
         <title>Web Interface</title>
 
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-overview.xml" version="5.0" xml:id="ref.webui">
+ title="Profiling step"?><chapter xml:base="reference-webui-overview.xml" version="5.0" xml:id="ref-webui">
  <title>Web Interface — Navigation and Overview</title>
  <info>
   <abstract>
@@ -323,7 +305,7 @@
  
  <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><sect1 xml:base="reference-webui-intro.xml" version="5.0" xml:id="ref.webui.intro">
+ title="Profiling step"?><sect1 xml:base="reference-webui-intro.xml" version="5.0" xml:id="ref-webui-intro">
  <title>Navigation</title>
  
  <indexterm>
@@ -405,7 +387,7 @@
   </mediaobject>
  </figure>
 
- <important xml:id="ref.webui.intro.views">
+ <important xml:id="ref-webui-intro-views">
   <title>Views Depending on User Roles</title>
   <para> This guide covers the administrator user role level, some tabs, pages, and even whole
    categories described here may not be visible to you. Text markers are not used to identify which
@@ -417,7 +399,7 @@
  
 
 
- <sect2 xml:id="ref.webui.intro.categories-pages">
+ <sect2 xml:id="ref-webui-intro-categories-pages">
   <title>Categories and Pages</title>
   
   <indexterm>
@@ -760,7 +742,7 @@
   </itemizedlist>
  </sect2>
 
- <sect2 xml:id="ref.webui.intro.patch-alerts">
+ <sect2 xml:id="ref-webui-intro-patch-alerts">
   <title>Patch Alert Icons</title>
   
   <indexterm>
@@ -816,7 +798,7 @@
     <xref linkend="s3-sm-errata-details" role="internalbook"/> for more information. </para>
  </sect2>
 
- <sect2 xml:id="ref.webui.intro.quick-search">
+ <sect2 xml:id="ref-webui-intro-quick-search">
   <title>Quick Search</title>
   
   <para> In addition to the Advanced Search functionality for Packages, Patches (Errata),
@@ -826,7 +808,7 @@
     <guimenu>Patches</guimenu>) and type a keyword to look for a name match. Click the
     <guimenu>Search</guimenu> button. Your results appear at the bottom of the page. </para>
 
-  <figure xml:id="fig.webui.intro.quick-search">
+  <figure xml:id="fig-webui-intro-quick-search">
    <title>Quick Search in the Top Navigation Bar</title>
    <mediaobject>
     <imageobject role="fo">
@@ -852,14 +834,14 @@
   </note>
   <itemizedlist mark="bullet" spacing="normal">
    <listitem>
-    <para> For advanced System searches, refer to <xref linkend="ref.webui.systems.search" role="internalbook"/>.
+    <para> For advanced System searches, refer to <xref linkend="ref-webui-systems-search" role="internalbook"/>.
     </para>
    </listitem>
    <listitem>
-    <para> For advanced Patch or Errata searches, refer to <xref linkend="ref.webui.patches.search" role="internalbook"/>. </para>
+    <para> For advanced Patch or Errata searches, refer to <xref linkend="ref-webui-patches-search" role="internalbook"/>. </para>
    </listitem>
    <listitem>
-    <para> For advanced Package searches, refer to <xref linkend="ref.webui.channels.search" role="internalbook"/>.
+    <para> For advanced Package searches, refer to <xref linkend="ref-webui-channels-search" role="internalbook"/>.
     </para>
    </listitem>
    <listitem>
@@ -868,7 +850,7 @@
   </itemizedlist>
  </sect2>
 
- <sect2 xml:id="ref.webui.intro.systems-selected">
+ <sect2 xml:id="ref-webui-intro-systems-selected">
   <title>Systems Selected</title>
   <para> On the <guimenu>System Overview</guimenu> page, if you mark the check box next to a system,
    the <guimenu>system selected</guimenu> number on the right area of the top navigation bar
@@ -882,10 +864,10 @@
    exists for this purpose. Select the check boxes next to the systems or groups and click the
     <guimenu>Update List</guimenu> button below the column. Each time the Systems Selected tool at
    the top of the page changes to reflect the new number of systems ready for use in the System Set
-   Manager. Refer to <xref linkend="ref.webui.systems.ssm" role="internalbook"/> for details. </para>
+   Manager. Refer to <xref linkend="ref-webui-systems-ssm" role="internalbook"/> for details. </para>
  </sect2>
 
- <sect2 xml:id="ref.webui.intro.list-nav">
+ <sect2 xml:id="ref-webui-intro-list-nav">
   <title>Lists</title>
   
   <indexterm>
@@ -909,7 +891,7 @@
  
 
  
- <sect1 xml:id="ref.webui.overview">
+ <sect1 xml:id="ref-webui-overview">
   <title>Overview</title>
   
   <indexterm>
@@ -921,13 +903,13 @@
    If you click on the <guimenu>About</guimenu> tab before logging in, you will find documentation
    links, including a search function, and the option to request your login credentials if you
    forgot either password or login. Click on <guimenu>Lookup Login/Password</guimenu>. For more
-   information, see <xref linkend="ref.webui.overview.account" role="internalbook"/>. </para>
+   information, see <xref linkend="ref-webui-overview-account" role="internalbook"/>. </para>
   <para> After logging into the Web interface of <phrase><phrase>SUSE</phrase> Manager</phrase>, the first page to appear is
     <guimenu>Overview</guimenu>. This page contains important information about your systems,
    including summaries of system status, actions, and patch alerts. </para>
 
   <note>
-   <para> If you are new to the <phrase><phrase>SUSE</phrase> Manager</phrase> Web interface, read <xref linkend="ref.webui.intro" role="internalbook"/> to
+   <para> If you are new to the <phrase><phrase>SUSE</phrase> Manager</phrase> Web interface, read <xref linkend="ref-webui-intro" role="internalbook"/> to
     familiarize yourself with the layout and symbols used throughout the interface. </para>
   </note>
 
@@ -948,7 +930,7 @@
    the <menuchoice>
     <guimenu>Overview</guimenu>
     <guimenu>Your Preferences</guimenu>
-   </menuchoice> page. Refer to <xref linkend="ref.webui.overview.prefs" role="internalbook"/> for more information. </para>
+   </menuchoice> page. Refer to <xref linkend="ref-webui-overview-prefs" role="internalbook"/> for more information. </para>
 
   <itemizedlist mark="bullet" spacing="normal">
    <listitem>
@@ -1003,7 +985,7 @@
   </para>
  </sect1>
  
- <sect1 xml:id="ref.webui.overview.account">
+ <sect1 xml:id="ref-webui-overview-account">
   <title>Your Account</title>
   
   <indexterm>
@@ -1030,7 +1012,7 @@
      Login</guimenu> respectively. </para>
   </note>
   
-  <sect2 xml:id="ref.webui.overview.account.addresses">
+  <sect2 xml:id="ref-webui-overview-account-addresses">
    <title>Addresses</title>
    <indexterm>
     <primary>account</primary>
@@ -1044,7 +1026,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.overview.account.email">
+  <sect2 xml:id="ref-webui-overview-account-email">
    <title>Change Email</title>
    <indexterm>
     <primary>email address</primary>
@@ -1064,7 +1046,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.overview.account.credentials">
+  <sect2 xml:id="ref-webui-overview-account-credentials">
    <title>Credentials</title>
    <indexterm>
     <primary>account</primary>
@@ -1074,7 +1056,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.overview.account.deactivate">
+  <sect2 xml:id="ref-webui-overview-account-deactivate">
    <title>Account Deactivation</title>
    <indexterm>
     <primary>account</primary>
@@ -1091,7 +1073,7 @@
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.overview.prefs">
+ <sect1 xml:id="ref-webui-overview-prefs">
   <title>Your Preferences</title>
   
   <indexterm>
@@ -1143,7 +1125,7 @@
    button. </para>
  </sect1>
  
- <sect1 xml:id="ref.webui.overview.locale">
+ <sect1 xml:id="ref-webui-overview-locale">
   <title>Locale Preferences</title>
   <indexterm>
    <primary>package installation</primary>
@@ -1168,13 +1150,13 @@
   
  </sect1>
  
- <sect1 xml:id="ref.webui.overview.org">
+ <sect1 xml:id="ref-webui-overview-org">
   <title>Your Organization</title>
   <para> From the <guimenu>Your Organization</guimenu> page you can modify your organization's
     <guimenu>Configuration</guimenu> and <guimenu>Organization Trusts</guimenu> and manage custom
    Salt states distributed across an organization. </para>
 
-  <sect2 xml:id="ref.webui.overview.org.config">
+  <sect2 xml:id="ref-webui-overview-org-config">
    <title>Configuration</title>
    <para> On the <guimenu>Configuration</guimenu> page modify your personal information, such as
     name, password, and title. To modify any of this information, make the changes in the
@@ -1182,7 +1164,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.overview.org.trust">
+  <sect2 xml:id="ref-webui-overview-org-trust">
    <title>Organization Trusts</title>
 
    <para> The <guimenu>Organization Trusts</guimenu> page displays the trusts established with your
@@ -1199,7 +1181,7 @@
    
   </sect2>
 
-  <sect2 xml:id="ref.webui.overview.org.custom.states">
+  <sect2 xml:id="ref-webui-overview-org-custom-states">
    <title>Custom States</title>
    <para>The <guimenu>Custom States</guimenu> page displays states which have been created and added
     using the <guimenu>Salt</guimenu> &gt; <guimenu>State Catalog</guimenu>. From this page you can
@@ -1245,7 +1227,7 @@
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-systems.xml" version="5.0" xml:id="ref.webui.systems">
+ title="Profiling step"?><chapter xml:base="reference-webui-systems.xml" version="5.0" xml:id="ref-webui-systems">
  <title>Systems</title>
  <info/>
  
@@ -1257,7 +1239,7 @@
    <guimenu>Systems</guimenu> category and links appear. Here you can select systems to perform
   actions on them and create system profiles. </para>
  
- <sect1 xml:id="ref.webui.systems.overview">
+ <sect1 xml:id="ref-webui-systems-overview">
   <title>Overview</title>
   
   <indexterm>
@@ -1282,13 +1264,13 @@
    identifies group status and displays the number of systems contained. Then, clicking on the
    number of systems takes you to the <guimenu>Systems</guimenu> tab of the <guimenu>System Group
     Details</guimenu> page, while clicking on the group name takes you to the
-    <guimenu>Details</guimenu> tab for that system group. Refer to <xref linkend="ref.webui.systems.systemgroups.details" role="internalbook"/> for more information. </para>
+    <guimenu>Details</guimenu> tab for that system group. Refer to <xref linkend="ref-webui-systems-systemgroups-details" role="internalbook"/> for more information. </para>
 
   <para> You can also click on <guimenu>Use in SSM</guimenu> in the <guimenu>System Groups</guimenu>
-   section to go directly to the <guimenu>System Set Manager</guimenu>. Refer to <xref linkend="ref.webui.systems.ssm" role="internalbook"/> for more information. </para>
+   section to go directly to the <guimenu>System Set Manager</guimenu>. Refer to <xref linkend="ref-webui-systems-ssm" role="internalbook"/> for more information. </para>
  </sect1>
  
- <sect1 xml:id="ref.webui.systems.systems">
+ <sect1 xml:id="ref-webui-systems-systems">
   <title>Systems</title>
   
   <indexterm>
@@ -1320,7 +1302,7 @@
     <para> Select box: Systems without a system type cannot be selected. To select systems, mark the
      appropriate check boxes. Selected systems are added to the <guimenu>System Set
       Manager</guimenu>, where actions can be carried out simultaneously on all systems in the set.
-     Refer to <xref linkend="ref.webui.systems.ssm" role="internalbook"/> for details. </para>
+     Refer to <xref linkend="ref-webui-systems-ssm" role="internalbook"/> for details. </para>
    </listitem>
    <listitem>
     <para>
@@ -1475,7 +1457,7 @@
    <listitem>
     <para>
      <guimenu>Base Channel</guimenu>: The primary channel for the system based on its operating
-     system. Refer to <xref linkend="ref.webui.channels.software" role="internalbook"/> for more information. </para>
+     system. Refer to <xref linkend="ref-webui-channels-software" role="internalbook"/> for more information. </para>
    </listitem>
    <listitem>
     <para>
@@ -1490,7 +1472,7 @@
   </para>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.all">
+  <sect2 xml:id="ref-webui-systems-systems-all">
    <title>All</title>
    <para> The <guimenu>All</guimenu> page contains the default set of your systems. It displays
     every system you have permission to manage. You have permission if you are the only user in your
@@ -1499,7 +1481,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.physical">
+  <sect2 xml:id="ref-webui-systems-systems-physical">
    <title>Physical Systems</title>
    <para> To reach this page, select the <guimenu>Systems</guimenu> tab, followed by the
      <guimenu>Systems</guimenu> subtab from the left navigation bar, and finally select
@@ -1509,7 +1491,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.virtual">
+  <sect2 xml:id="ref-webui-systems-systems-virtual">
    <title>Virtual Systems</title>
    <para> To reach this page, select the <guimenu>Systems</guimenu> tab, followed by the
      <guimenu>Systems</guimenu> subtab from the left navigation bar, and finally select
@@ -1552,28 +1534,28 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.baremetal">
+  <sect2 xml:id="ref-webui-systems-systems-baremetal">
    <title>Bare Metal Systems</title>
    <para> Here, all unprovisioned (bare-metal) systems with hardware details are listed. For more
     information on bare-metal systems, see <xref linkend="s3-sattools-config-bare-metal" role="internalbook"/>. </para>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.ood">
+  <sect2 xml:id="ref-webui-systems-systems-ood">
    <title>Out of Date</title>
    <para> The <guimenu>Out of Date</guimenu> page displays all systems where applicable patch alerts
     have not been applied. </para>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.reboot">
+  <sect2 xml:id="ref-webui-systems-systems-reboot">
    <title>Requiring Reboot</title>
    <para> Systems listed here need rebooting. Click on the name for details, where you can also
     schedule a reboot. </para>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.non-compliant">
+  <sect2 xml:id="ref-webui-systems-systems-non-compliant">
    <title>Non-compliant Systems</title>
    <para> Non-compliant systems have packages installed which are not available from <phrase><phrase>SUSE</phrase> Manager</phrase>.
      <guimenu>Packages</guimenu> shows how many installed packages are not available in the channels
@@ -1581,7 +1563,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.wst">
+  <sect2 xml:id="ref-webui-systems-systems-wst">
    <title>Without System Type</title>
    <para> The <guimenu>Without System Type</guimenu> page displays systems that have ...
     
@@ -1589,14 +1571,14 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.ungrp">
+  <sect2 xml:id="ref-webui-systems-systems-ungrp">
    <title>Ungrouped</title>
    <para> The <guimenu>Ungrouped</guimenu> page displays systems not yet assigned to a specific
     system group. </para>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.inact">
+  <sect2 xml:id="ref-webui-systems-systems-inact">
    <title>Inactive</title>
    <para> The <guimenu>Inactive</guimenu> page displays systems that have not checked in with
     <phrase><phrase>SUSE</phrase> Manager</phrase> for 24 hours or more. Checking in means that YaST Online Update on <phrase>SUSE Linux Enterprise</phrase> or Red Hat
@@ -1640,7 +1622,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.rregistered">
+  <sect2 xml:id="ref-webui-systems-systems-rregistered">
    <title>Recently Registered</title>
    <para> The <guimenu>Recently Registered</guimenu> page displays any systems that have been
     registered in a given period. Use the drop-down menu to specify the period in days, weeks, 30-
@@ -1648,14 +1630,14 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.proxy">
+  <sect2 xml:id="ref-webui-systems-systems-proxy">
    <title>Proxy</title>
    <para> The <guimenu>Proxy</guimenu> page displays the <phrase><phrase><phrase>SUSE</phrase> Manager</phrase> Proxy</phrase> Server systems registered
     with your <phrase><phrase>SUSE</phrase> Manager</phrase> server. </para>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.dup">
+  <sect2 xml:id="ref-webui-systems-systems-dup">
    <title>Duplicate Systems</title>
    <para> The <guimenu>Duplicate Systems</guimenu> page lists current systems and any active and
     inactive entitlements associated with them. Active entitlements are in gray, while inactive
@@ -1676,7 +1658,7 @@
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systems.currency">
+  <sect2 xml:id="ref-webui-systems-systems-currency">
    <title>System Currency</title>
    <para> The System Currency Report displays an overview of severity scores of patches relevant to
     the system. The weighting is defined via the <guimenu>System Details</guimenu> page. The default
@@ -1685,7 +1667,7 @@
     <phrase><phrase>SUSE</phrase> Manager</phrase>. </para>
   </sect2>
   
-  <sect2 xml:id="ref.webui.systems.systems.types">
+  <sect2 xml:id="ref-webui-systems-systems-types">
    <title>System Types</title>
    <para> System Types define the set of functionalities available for each system in <phrase><phrase>SUSE</phrase> Manager</phrase> such
     as the ability of installing software or creating guest virtual machines. </para>
@@ -1843,7 +1825,7 @@
         <para> Locking a system <emphasis>does not</emphasis> restrict the number of users who can
          access the system via the Web interface. If you wish to restrict access to the system,
          associate that system with a System Group and assign a System Group Administrator to it.
-         Refer to <xref linkend="ref.webui.systems.systemgroups" role="internalbook"/> for more information about System
+         Refer to <xref linkend="ref-webui-systems-systemgroups" role="internalbook"/> for more information about System
          Groups. </para>
        </important>
        <para> It is also possible to lock multiple systems via the System Set Manager. Refer to
@@ -2069,7 +2051,7 @@
     <note>
      <title>Setting Properties for Multiple Systems</title>
      <para> Many of these properties can be set for multiple systems in one go via the System Set
-      Manager interface. For details, see <xref linkend="ref.webui.systems.ssm" role="internalbook"/>. </para>
+      Manager interface. For details, see <xref linkend="ref-webui-systems-ssm" role="internalbook"/>. </para>
     </note>
    </sect3>
    <sect3 xml:id="s5-sm-system-details-remote">
@@ -2111,7 +2093,7 @@
     <para> Once the setup is complete, refresh the page in order to view the text fields for remote
      commands. Identify a specific user, group, and timeout period, as well as the script to run.
      Select a date and time to execute the command, then click <guimenu>Schedule</guimenu> or add
-     the remote command to an action chain. For further information on action chains, refer to <xref linkend="ref.webui.schedule.chains" role="internalbook"/>. </para>
+     the remote command to an action chain. For further information on action chains, refer to <xref linkend="ref-webui-schedule-chains" role="internalbook"/>. </para>
    </sect3>
    <sect3 xml:id="s5-sm-system-details-react">
     <title> System Details  &gt;  Details 
@@ -2201,7 +2183,7 @@
       <guimenu>Custom Info</guimenu> is structured, formalized, and can be searched. Before you can
      provide custom information about a system, you must have <guimenu>Custom Information
       Keys</guimenu>. Click on <guimenu>Custom System Info</guimenu> in the left navigation bar.
-     Refer to <xref linkend="ref.webui.systems.cust-info" role="internalbook"/> for instructions. </para>
+     Refer to <xref linkend="ref-webui-systems-cust-info" role="internalbook"/> for instructions. </para>
     <para> Once you have created one or more keys, you may assign values for this system by
      selecting the <guimenu>Create Value</guimenu> link. Click the name of the key in the resulting
      list and enter a value for it in the <guimenu>Description</guimenu> field, then click the
@@ -2225,7 +2207,7 @@
     <title> System Details  &gt;  Software
       &gt;  Patches </title>
     <para> This subtab contains a list of patch (errata) alerts applicable to the system. Refer to
-      <xref linkend="ref.webui.intro.patch-alerts" role="internalbook"/> for meanings of the icons on this tab. To apply
+      <xref linkend="ref-webui-intro-patch-alerts" role="internalbook"/> for meanings of the icons on this tab. To apply
      updates, select them and click the <guimenu>Apply Patches</guimenu> button. Double-check the
      updates to be applied on the confirmation page, then click the <guimenu>Confirm</guimenu>
      button. The action is added to the <guimenu>Pending Actions</guimenu> list under
@@ -2250,7 +2232,7 @@
      <primary><phrase><phrase>SUSE</phrase> Manager</phrase> Administrator</primary>
      <secondary>Updating package list</secondary></indexterm>
     <para> Manage the software packages on the system. Most of the following actions can also be
-     performed via action chains. For further information on action chains, refer to <xref linkend="ref.webui.schedule.chains" role="internalbook"/>. </para>
+     performed via action chains. For further information on action chains, refer to <xref linkend="ref-webui-schedule-chains" role="internalbook"/>. </para>
     <warning>
      <para> When new packages or updates are installed on the client via <phrase><phrase>SUSE</phrase> Manager</phrase>, any licenses
       (EULAs) requiring agreement before installation are automatically accepted. </para>
@@ -2382,7 +2364,7 @@
       Details</guimenu> page. To modify the child channels associated with this system, use the
      check boxes next to the channels and click the <guimenu>Change Subscriptions</guimenu> button.
      You will receive a success message or be notified of any errors. To change the system's base
-     channel, select the new one from the drop-down menu and confirm. Refer to <xref linkend="ref.webui.channels.software" role="internalbook"/> for more information. </para>
+     channel, select the new one from the drop-down menu and confirm. Refer to <xref linkend="ref-webui-channels-software" role="internalbook"/> for more information. </para>
    </sect3>
    <sect3 xml:id="s5-sm-system-details-sp-migration">
     <title> System Details  &gt;  Software
@@ -2472,7 +2454,7 @@
     </menuchoice> subtabs. </para>
    <note>
     <para> To manage the configuration of a system, it must have the latest
-      <package>rhncfg*</package> packages installed. Refer to <xref linkend="ref.webui.config.preparing" role="internalbook"/> for instructions on enabling and disabling scheduled
+      <package>rhncfg*</package> packages installed. Refer to <xref linkend="ref-webui-config-preparing" role="internalbook"/> for instructions on enabling and disabling scheduled
      actions for a system. </para>
    </note>
    <para> This section is available to normal users with access to systems that have configuration
@@ -2663,13 +2645,13 @@
      The <guimenu>Schedule</guimenu> subtab allows you to configure and schedule an autoinstallation
      for this system.
 
-     For background information about autoinstallation, see <xref linkend="ref.webui.systems.autoinst" role="internalbook"/>.
+     For background information about autoinstallation, see <xref linkend="ref-webui-systems-autoinst" role="internalbook"/>.
     </para>
     <para> In the <guimenu>Schedule</guimenu> subtab, schedule the selected system for
      autoinstallation. Choose from the list of available profiles. </para>
     <note>
      <para> You must first create a profile before it appears on this subtab. If you have not
-      created any profiles, refer to <xref linkend="ref.webui.systems.autoinst.profiles.create" role="internalbook"/>
+      created any profiles, refer to <xref linkend="ref-webui-systems-autoinst-profiles-create" role="internalbook"/>
       before scheduling an autoinstallation for a system. </para>
     </note>
     <para> To alter autoinstallation settings, click on the <guimenu>Advanced
@@ -2743,7 +2725,7 @@ GATEWAY=192.168.0.1</screen>
      once:</para>
     <procedure>
      <step>
-      <para> Add the respective systems to the system set manager as described in <xref linkend="ref.webui.systems.ssm" role="internalbook"/>. </para>
+      <para> Add the respective systems to the system set manager as described in <xref linkend="ref-webui-systems-ssm" role="internalbook"/>. </para>
      </step>
      <step>
       <para> Click <guimenu>Manage</guimenu> (in the upper right corner), then <menuchoice>
@@ -2897,7 +2879,7 @@ GATEWAY=192.168.0.1</screen>
      from groups. Non-admins just see a <guimenu>Review this system's group membership</guimenu>
      page. To remove the system from one or more groups, select the respective check boxes of these
      groups and click the <guimenu>Leave Selected Groups</guimenu> button. To see the
-      <guimenu>System Group Details</guimenu>page, click on the group's name. Refer to <xref linkend="ref.webui.systems.systemgroups.details" role="internalbook"/> for more information. </para>
+      <guimenu>System Group Details</guimenu>page, click on the group's name. Refer to <xref linkend="ref-webui-systems-systemgroups-details" role="internalbook"/> for more information. </para>
    </sect3>
    <sect3 xml:id="s5-sm-system-details-groups-join">
     <title> System Details  &gt;  Groups 
@@ -2914,7 +2896,7 @@ GATEWAY=192.168.0.1</screen>
    <title> System Details  &gt;  Audit
     </title>
    <para> Via the <guimenu>Audit</guimenu> tab, view OpenSCAP scan results or schedule scans. For
-    more information on auditing and OpenSCAP, refer to <xref linkend="ref.webui.audit" role="internalbook"/>. </para>
+    more information on auditing and OpenSCAP, refer to <xref linkend="ref-webui-audit" role="internalbook"/>. </para>
    
   </sect2>
   
@@ -3048,7 +3030,7 @@ GATEWAY=192.168.0.1</screen>
 
 
  
- <sect1 xml:id="ref.webui.systems.systemgroups">
+ <sect1 xml:id="ref-webui-systems-systemgroups">
   <title>System Groups</title>
   
   <indexterm>
@@ -3076,18 +3058,18 @@ GATEWAY=192.168.0.1</screen>
 
   <orderedlist spacing="normal">
    <listitem>
-    <para> Create system groups. (Refer to <xref linkend="ref.webui.systems.systemgroups.create" role="internalbook"/>.)
+    <para> Create system groups. (Refer to <xref linkend="ref-webui-systems-systemgroups-create" role="internalbook"/>.)
     </para>
    </listitem>
    <listitem>
-    <para> Add systems to system groups. (Refer to <xref linkend="ref.webui.systems.systemgroups.add" role="internalbook"/>.) </para>
+    <para> Add systems to system groups. (Refer to <xref linkend="ref-webui-systems-systemgroups-add" role="internalbook"/>.) </para>
    </listitem>
    <listitem>
     <para> Remove systems from system groups. (Refer to <xref linkend="s3-sm-system-details" role="internalbook"/>.)
     </para>
    </listitem>
    <listitem>
-    <para> Assign system group permissions to users. (Refer to <xref linkend="ref.webui.users" role="internalbook"/>.)
+    <para> Assign system group permissions to users. (Refer to <xref linkend="ref-webui-users" role="internalbook"/>.)
     </para>
    </listitem>
   </orderedlist>
@@ -3107,14 +3089,14 @@ GATEWAY=192.168.0.1</screen>
      select the relevant groups and click the <guimenu>Work with Intersection</guimenu> button. To
      add all systems of all selected groups, click the <guimenu>Work with Union</guimenu> button.
      Each system will show up once, regardless of the number of groups to which it belongs. Refer to
-      <xref linkend="ref.webui.systems.ssm" role="internalbook"/> for details. </para>
+      <xref linkend="ref-webui-systems-ssm" role="internalbook"/> for details. </para>
    </listitem>
    <listitem>
     <para>
      <guimenu>Updates</guimenu> — Shows which type of patch alerts are applicable to the group or
      confirms that all systems are up-to-date. Clicking on a group's status icon takes you to the
       <guimenu>Patch</guimenu> tab of its <guimenu>System Group Details</guimenu> page. Refer to
-      <xref linkend="ref.webui.systems.systemgroups.details" role="internalbook"/> for more information. </para>
+      <xref linkend="ref-webui-systems-systemgroups-details" role="internalbook"/> for more information. </para>
     <para> The status icons call for differing degrees of attention: </para>
     <itemizedlist mark="bullet" spacing="normal">
      <listitem>
@@ -3171,27 +3153,27 @@ GATEWAY=192.168.0.1</screen>
      <guimenu>Group Name</guimenu> — The name of the group as configured during its creation. The
      name should be explicit enough to distinguish from other groups. Clicking on the name of a
      group takes you to the <guimenu>Details</guimenu> tab of its <guimenu>System Group
-      Details</guimenu> page. Refer to <xref linkend="ref.webui.systems.systemgroups.details" role="internalbook"/> for
+      Details</guimenu> page. Refer to <xref linkend="ref-webui-systems-systemgroups-details" role="internalbook"/> for
      more information. </para>
    </listitem>
    <listitem>
     <para>
      <guimenu>Systems</guimenu> — Total number of systems in the group. Clicking on the number takes
      you to the <guimenu>Systems</guimenu> tab of the <guimenu>System Group Details</guimenu> page
-     for the group. Refer to <xref linkend="ref.webui.systems.systemgroups.details" role="internalbook"/> for more
+     for the group. Refer to <xref linkend="ref-webui-systems-systemgroups-details" role="internalbook"/> for more
      information. </para>
    </listitem>
    <listitem>
     <para>
      <guimenu>Use in SSM</guimenu> — Clicking the <guimenu>Use in SSM</guimenu> link in this column
      loads all and only the systems in the selected group and launches the <guimenu>System Set
-      Manager</guimenu> immediately. Refer to <xref linkend="ref.webui.systems.ssm" role="internalbook"/> for more
+      Manager</guimenu> immediately. Refer to <xref linkend="ref-webui-systems-ssm" role="internalbook"/> for more
      information. </para>
    </listitem>
   </itemizedlist>
 
   
-  <sect2 xml:id="ref.webui.systems.systemgroups.create">
+  <sect2 xml:id="ref-webui-systems-systemgroups-create">
    <title>Creating Groups</title>
    <indexterm>
     <primary><phrase><phrase>SUSE</phrase> Manager</phrase> Administrator</primary>
@@ -3203,7 +3185,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systemgroups.add">
+  <sect2 xml:id="ref-webui-systems-systemgroups-add">
    <title>Adding and Removing Systems in Groups</title>
    <indexterm>
     <primary><phrase><phrase>SUSE</phrase> Manager</phrase> Administrator</primary>
@@ -3217,7 +3199,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.systemgroups.details">
+  <sect2 xml:id="ref-webui-systems-systemgroups-details">
    <title>System Group Details</title>
    <indexterm>
     <primary><phrase><phrase>SUSE</phrase> Manager</phrase> Administrator</primary>
@@ -3227,7 +3209,7 @@ GATEWAY=192.168.0.1</screen>
      <guimenu>Delete Group</guimenu> deletes the System Group and should be used with caution.
     Clicking <guimenu>Work With Group</guimenu> loads the group's systems and launches the
      <guimenu>System Set Manager</guimenu> immediately just like the <guimenu>Use Group</guimenu>
-    button from the <guimenu>System Groups</guimenu> list. Refer to <xref linkend="ref.webui.systems.ssm" role="internalbook"/> for more information. </para>
+    button from the <guimenu>System Groups</guimenu> list. Refer to <xref linkend="ref-webui-systems-ssm" role="internalbook"/> for more information. </para>
    <para> The <guimenu>System Group Details</guimenu> page is split into the following tabs: </para>
    <sect3 xml:id="s4-sm-system-group-details-details">
     <title> System Group Details  &gt;  Details
@@ -3252,7 +3234,7 @@ GATEWAY=192.168.0.1</screen>
      To remove systems from the group, select the appropriate check boxes and click the
       <guimenu>Remove Systems</guimenu> button on the bottom of the page. Clicking it does not
      delete systems from <phrase><phrase>SUSE</phrase> Manager</phrase> entirely. This is done through the <guimenu>System Set
-      Manager</guimenu> or <guimenu>System Details</guimenu> pages. Refer to <xref linkend="ref.webui.systems.ssm" role="internalbook"/> or <xref linkend="s3-sm-system-details" role="internalbook"/>, respectively.
+      Manager</guimenu> or <guimenu>System Details</guimenu> pages. Refer to <xref linkend="ref-webui-systems-ssm" role="internalbook"/> or <xref linkend="s3-sm-system-details" role="internalbook"/>, respectively.
     </para>
    </sect3>
    <sect3 xml:id="s4-sm-system-group-details-target">
@@ -3329,7 +3311,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.systems.ssm">
+ <sect1 xml:id="ref-webui-systems-ssm">
   <title><guimenu>System Set Manager</guimenu></title>
   
   <indexterm>
@@ -3743,7 +3725,7 @@ GATEWAY=192.168.0.1</screen>
   </orderedlist>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.overview">
+  <sect2 xml:id="ref-webui-systems-ssm-overview">
    <title> System Set Manager  &gt;  Overview
     
    </title>
@@ -3752,7 +3734,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.systems">
+  <sect2 xml:id="ref-webui-systems-ssm-systems">
    <title> System Set Manager  &gt;  Systems
     
    </title>
@@ -3762,7 +3744,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.patches">
+  <sect2 xml:id="ref-webui-systems-ssm-patches">
    <title> System Set Manager  &gt;  Patches
     
    </title>
@@ -3772,7 +3754,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.packages">
+  <sect2 xml:id="ref-webui-systems-ssm-packages">
    <title> System Set Manager  &gt;  Packages
     
    </title>
@@ -3823,7 +3805,7 @@ GATEWAY=192.168.0.1</screen>
 
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.groups">
+  <sect2 xml:id="ref-webui-systems-ssm-groups">
    <title> System Set Manager  &gt;  Groups
     
    </title>
@@ -3836,7 +3818,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.channels">
+  <sect2 xml:id="ref-webui-systems-ssm-channels">
    <title> System Set Manager  &gt;  Channels
     
    </title>
@@ -3870,7 +3852,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.config">
+  <sect2 xml:id="ref-webui-systems-ssm-config">
    <title> System Set Manager  &gt;  Configuration
     
    </title>
@@ -3881,13 +3863,13 @@ GATEWAY=192.168.0.1</screen>
     </menuchoice> tab, the subtabs here can be used to subscribe the selected systems to
     configuration channels and deploy and compare the configuration files on the systems. The
     channels are created in the <guimenu>Manage Config Channels</guimenu> interface within the
-     <guimenu>Channels</guimenu> category. Refer to <xref linkend="ref.webui.config.overview" role="internalbook"/> for
+     <guimenu>Channels</guimenu> category. Refer to <xref linkend="ref-webui-config-overview" role="internalbook"/> for
     channel creation instructions. </para>
    <para> To manage the configuration of a system, install the latest <filename>rhncfg*</filename>
-    packages. Refer to <xref linkend="ref.webui.config.preparing" role="internalbook"/> for instructions on enabling and
+    packages. Refer to <xref linkend="ref-webui-config-preparing" role="internalbook"/> for instructions on enabling and
     disabling scheduled actions for a system. </para>
    
-   <sect3 xml:id="ref.webui.systems.ssm.config.deploy">
+   <sect3 xml:id="ref-webui-systems-ssm-config-deploy">
     <title> System Set Manager  &gt;  Configuration
       &gt;  Deploy Files 
     </title>
@@ -3901,7 +3883,7 @@ GATEWAY=192.168.0.1</screen>
      deployed. Newer versions created after scheduling are disregarded. </para>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.config.verify">
+   <sect3 xml:id="ref-webui-systems-ssm-config-verify">
     <title> System Set Manager  &gt;  Configuration
       &gt;  Compare Files 
     </title>
@@ -3924,7 +3906,7 @@ GATEWAY=192.168.0.1</screen>
      </menuchoice> tab. </para>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.config.subs">
+   <sect3 xml:id="ref-webui-systems-ssm-config-subs">
     <title> System Set Manager  &gt;  Configuration
       &gt;  Subscribe to Channels 
     </title>
@@ -3984,7 +3966,7 @@ GATEWAY=192.168.0.1</screen>
     </para>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.config.unsubs">
+   <sect3 xml:id="ref-webui-systems-ssm-config-unsubs">
     <title> System Set Manager  &gt;  Configuration
       &gt;  Unsubscribe from Channels 
     </title>
@@ -3993,7 +3975,7 @@ GATEWAY=192.168.0.1</screen>
     </para>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.config.enable">
+   <sect3 xml:id="ref-webui-systems-ssm-config-enable">
     <title> System Set Manager  &gt;  Configuration
       &gt;  Enable Configuration 
     </title>
@@ -4033,14 +4015,14 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.provision">
+  <sect2 xml:id="ref-webui-systems-ssm-provision">
    
    <title> System Set Manager  &gt;  Provisioning
     
    </title>
    <para> Set the options for provisioning systems via the following subtabs. </para>
    
-   <sect3 xml:id="ref.webui.systems.ssm.provision-autoinst">
+   <sect3 xml:id="ref-webui-systems-ssm-provision-autoinst">
     <title> System Set Manager  &gt;  Provisioning
       &gt;  Autoinstallation 
     </title>
@@ -4085,7 +4067,7 @@ GATEWAY=192.168.0.1</screen>
       <guimenu>System Set Manager</guimenu> page. </para>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.provision.tag">
+   <sect3 xml:id="ref-webui-systems-ssm-provision-tag">
     <title> System Set Manager  &gt;  Provisioning
       &gt;  Tag Systems 
     </title>
@@ -4095,7 +4077,7 @@ GATEWAY=192.168.0.1</screen>
      button. </para>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.provision.roll">
+   <sect3 xml:id="ref-webui-systems-ssm-provision-roll">
     <title> System Set Manager  &gt;  Provisioning
       &gt;  Rollback 
     </title>
@@ -4104,7 +4086,7 @@ GATEWAY=192.168.0.1</screen>
       <guimenu>Rollback Systems</guimenu> button. </para>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.provision.remote">
+   <sect3 xml:id="ref-webui-systems-ssm-provision-remote">
     <title> System Set Manager  &gt;  Provisioning
       &gt;  Remote Command 
     </title>
@@ -4115,14 +4097,14 @@ GATEWAY=192.168.0.1</screen>
      the command and click <guimenu>Schedule</guimenu>. </para>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.provision.pm-config">
+   <sect3 xml:id="ref-webui-systems-ssm-provision-pm-config">
     <title> System Set Manager  &gt;  Provisioning
       &gt;  Power Management Configuration 
     </title>
     <para/>
    </sect3>
    
-   <sect3 xml:id="ref.webui.systems.ssm.provision.pm-op">
+   <sect3 xml:id="ref-webui-systems-ssm-provision-pm-op">
     <title> System Set Manager  &gt;  Provisioning
       &gt;  Power Management Operation 
     </title>
@@ -4131,7 +4113,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.audit">
+  <sect2 xml:id="ref-webui-systems-ssm-audit">
    <title> System Set Manager  &gt;  Audit
     
    </title>
@@ -4140,11 +4122,11 @@ GATEWAY=192.168.0.1</screen>
    Format</quote>. Enter the command and command-line arguments, as well
    as the path to the XCCDF document. Then schedule the scan. All target
    systems are listed below with a flag whether they support OpenSCAP
-   scans. For more details on OpenSCAP and audits, refer to <xref linkend="ref.webui.audit" role="internalbook"/>. </para>
+   scans. For more details on OpenSCAP and audits, refer to <xref linkend="ref-webui-audit" role="internalbook"/>. </para>
   </sect2>
 
   
-  <sect2 xml:id="ref.webui.systems.ssm.misc">
+  <sect2 xml:id="ref-webui-systems-ssm-misc">
    <title> System Set Manager  &gt;  Misc 
    </title>
    <para> On the <guimenu>Misc</guimenu> page, you can modify <guimenu>Custom System
@@ -4204,13 +4186,13 @@ GATEWAY=192.168.0.1</screen>
      Systems</guimenu> link to select these systems for reboot.
     </para>
     <para>
-     To cancel a reboot action, see <xref linkend="ref.webui.schedule.pending" role="internalbook"/>.
+     To cancel a reboot action, see <xref linkend="ref-webui-schedule-pending" role="internalbook"/>.
     </para>
    </sect3>
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.systems.search">
+ <sect1 xml:id="ref-webui-systems-search">
   <title>Advanced Search</title>
   
   <indexterm>
@@ -4250,10 +4232,10 @@ GATEWAY=192.168.0.1</screen>
    box. </para>
 
   <para> The results appear at the bottom of the page. For details on how to use the resulting
-   system list, refer to <xref linkend="ref.webui.systems.systems" role="internalbook"/>. </para>
+   system list, refer to <xref linkend="ref-webui-systems-systems" role="internalbook"/>. </para>
  </sect1>
  
- <sect1 xml:id="ref.webui.systems.activ-keys">
+ <sect1 xml:id="ref-webui-systems-activ-keys">
   <title>Activation Keys</title>
   
   <indexterm>
@@ -4299,7 +4281,7 @@ GATEWAY=192.168.0.1</screen>
     <primary>account</primary>
     <secondary>creating</secondary></indexterm>
    <para> To create an activation key: </para>
-   <procedure xml:id="pro.ref.manager.activationkey">
+   <procedure xml:id="pro-ref-manager-activationkey">
     <title>Creating Activation Keys</title>
     <step>
      <para> Select <guimenu>Systems</guimenu> from the top navigation bar then <guimenu>Activation
@@ -4379,7 +4361,7 @@ GATEWAY=192.168.0.1</screen>
     </step>
    </procedure>
    <para> To create more activation keys, repeat the steps above. </para>
-   <figure xml:id="fig_s1_sm_systems_akeys">
+   <figure xml:id="fig-s1-sm-systems-akeys">
     <title>Activation Keys</title>
     <mediaobject>
      <imageobject role="fo">
@@ -4392,13 +4374,13 @@ GATEWAY=192.168.0.1</screen>
     </mediaobject>
    </figure>
    <para> After creating the unique key, it appears in the list of activation keys along with the
-    number of times it has been used (see <xref linkend="fig_s1_sm_systems_akeys" role="internalbook"/>). Only
+    number of times it has been used (see <xref linkend="fig-s1-sm-systems-akeys" role="internalbook"/>). Only
     Activation Key Administrators can see this list. At this point, you can configure the key
     further, for example, associate the key with child channels (e.g., the Tools child channel),
     packages (e.g., the <package>rhncfg-actions</package> package) and groups. Systems
     registered with the key get automatically subscribed to them. </para>
    <para> To change the settings of a key, click the key's description in the list to display its
-     <guimenu>Details</guimenu> page (see <xref linkend="fig_s1_sm_systems_akey_details" role="internalbook"/>). Via
+     <guimenu>Details</guimenu> page (see <xref linkend="fig-s1-sm-systems-akey-details" role="internalbook"/>). Via
     additional tabs you can select child channels, packages, configuration channels, group
     membership and view activated systems. Modify the appropriate tab then click the <guimenu>Update
      Activation Key</guimenu> button. To disassociate channels and groups from a key, deselect them
@@ -4406,7 +4388,7 @@ GATEWAY=192.168.0.1</screen>
     key entirely, click the <guimenu>Delete Key</guimenu> link in the upper right corner of the
      <guimenu>Details</guimenu> page. In the upper right corner find also the <guimenu>Clone
      Key</guimenu> link. </para>
-   <figure xml:id="fig_s1_sm_systems_akey_details">
+   <figure xml:id="fig-s1-sm-systems-akey-details">
     <title>Activation Key Details With Subtabs</title>
     <mediaobject>
      <imageobject role="fo">
@@ -4501,7 +4483,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.systems.profiles">
+ <sect1 xml:id="ref-webui-systems-profiles">
   <title>Stored Profiles</title>
   
   <indexterm>
@@ -4534,7 +4516,7 @@ GATEWAY=192.168.0.1</screen>
   </para>
  </sect1>
  
- <sect1 xml:id="ref.webui.systems.cust-info">
+ <sect1 xml:id="ref-webui-systems-cust-info">
   <title>Custom System Info</title>
   
   <indexterm>
@@ -4557,7 +4539,7 @@ GATEWAY=192.168.0.1</screen>
  </sect1>
  <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><sect1 xml:base="reference-webui-systems-autoinstallation.xml" version="5.0" xml:id="ref.webui.systems.autoinst">
+ title="Profiling step"?><sect1 xml:base="reference-webui-systems-autoinstallation.xml" version="5.0" xml:id="ref-webui-systems-autoinst">
  <title>Autoinstallation</title>
 
  <note>
@@ -4613,11 +4595,11 @@ GATEWAY=192.168.0.1</screen>
   AutoYaST profiles.
 
   Before explaining the various automated installation options on this
-  page, the next two sections provide an introduction to AutoYaST (<xref linkend="ref.webui.systems.autoinst.ay-intro" role="internalbook"/>) and Kickstart (<xref linkend="ref.webui.systems.autoinst.kick-intro" role="internalbook"/>).
+  page, the next two sections provide an introduction to AutoYaST (<xref linkend="ref-webui-systems-autoinst-ay-intro" role="internalbook"/>) and Kickstart (<xref linkend="ref-webui-systems-autoinst-kick-intro" role="internalbook"/>).
  </para>
 
 
- <sect2 xml:id="ref.webui.systems.autoinst.ay-intro">
+ <sect2 xml:id="ref-webui-systems-autoinst-ay-intro">
   <title>Introduction to AutoYaST</title>
   <remark role="needinfo">
     2011-01-19 - ke: do we want to enhance this intro?
@@ -4825,7 +4807,7 @@ label autoyast
     <citetitle><phrase>SUSE Linux Enterprise</phrase> Deployment Guide</citetitle>.
    </para>
    <para>
-    Starting with <xref linkend="ref.webui.systems.autoinst.profiles" role="internalbook"/>, AutoYaST
+    Starting with <xref linkend="ref-webui-systems-autoinst-profiles" role="internalbook"/>, AutoYaST
     options available from
     <menuchoice><guimenu>Systems</guimenu><guimenu>Kickstart</guimenu></menuchoice>
     are described.
@@ -4836,7 +4818,7 @@ label autoyast
 
 
 
- <sect2 xml:id="ref.webui.systems.autoinst.kick-intro">
+ <sect2 xml:id="ref-webui-systems-autoinst-kick-intro">
   <title>Introduction to Kickstart</title>
   <remark role="needinfo">
     2011-01-19 - ke: do we want to keep this intro and the following sections?
@@ -5075,7 +5057,7 @@ kernel vmlinuz
 
 
 
-    <sect2 xml:id="ref.webui.systems.autoinst.profiles">
+    <sect2 xml:id="ref-webui-systems-autoinst-profiles">
      <title>Autoinstallation &gt; Profiles (Kickstart and AutoYaST)</title>
      
   <figure>
@@ -5105,7 +5087,7 @@ kernel vmlinuz
 
 
 
- <sect3 xml:id="ref.webui.systems.autoinst.profiles.create">
+ <sect3 xml:id="ref-webui-systems-autoinst-profiles-create">
 
   <title>Create a New Kickstart Profile</title>
   <para>
@@ -5135,7 +5117,7 @@ kernel vmlinuz
      Select an <guimenu>Autoinstallable Tree</guimenu> for this profile. The
      <guimenu>Autoinstallable Tree</guimenu> drop-down menu is only
      populated if one or more distributions have been created for the
-     selected base channel (see <xref linkend="ref.webui.systems.autoinst.distribution" role="internalbook"/>).
+     selected base channel (see <xref linkend="ref-webui-systems-autoinst-distribution" role="internalbook"/>).
     </para>
    </step>
    <step>
@@ -5633,7 +5615,7 @@ volgroup myvg pv.01 logvol / --vgname=myvg --name=rootvol --size=1000 --grow</sc
     If you have previously created a file preservation list, include this
     list as part of the Kickstart. This will protect the listed files
     from being over-written during the installation process. Refer to
-    <xref linkend="ref.webui.systems.autoinst.preserve" role="internalbook"/> for information on how to
+    <xref linkend="ref-webui-systems-autoinst-preserve" role="internalbook"/> for information on how to
     create a file preservation list.
    </para>
   </sect4>
@@ -5856,7 +5838,7 @@ volgroup myvg pv.01 logvol / --vgname=myvg --name=rootvol --size=1000 --grow</sc
 
 
 
- <sect3 xml:id="ref.webui.systems.autoinst.profiles.upload">
+ <sect3 xml:id="ref-webui-systems-autoinst-profiles-upload">
   <title>Upload Kickstart/AutoYaST File</title>
   <para>
    Click on the <guimenu>Upload Kickstart/Autoyast File</guimenu> link
@@ -5877,7 +5859,7 @@ volgroup myvg pv.01 logvol / --vgname=myvg --name=rootvol --size=1000 --grow</sc
      Select an <guimenu>Autoinstallable Tree</guimenu> for this profile. The
      <guimenu>Autoinstallable Tree</guimenu> drop-down menu is only
      populated if one or more distributions have been created for the
-     selected base channel (see <xref linkend="ref.webui.systems.autoinst.distribution" role="internalbook"/>).
+     selected base channel (see <xref linkend="ref-webui-systems-autoinst-distribution" role="internalbook"/>).
     </para>
    </step>
    <step>
@@ -5934,7 +5916,7 @@ volgroup myvg pv.01 logvol / --vgname=myvg --name=rootvol --size=1000 --grow</sc
   </sect3>
  </sect2>
 
- <sect2 xml:id="ref.webui.systems.autoinst.bare-metal">
+ <sect2 xml:id="ref-webui-systems-autoinst-bare-metal">
   <title>
    Autoinstallation
 
@@ -5951,7 +5933,7 @@ volgroup myvg pv.01 logvol / --vgname=myvg --name=rootvol --size=1000 --grow</sc
   </para>
  </sect2>
 
- <sect2 xml:id="ref.webui.systems.autoinst.keys">
+ <sect2 xml:id="ref-webui-systems-autoinst-keys">
   <title>
    Autoinstallation
 
@@ -5987,7 +5969,7 @@ volgroup myvg pv.01 logvol / --vgname=myvg --name=rootvol --size=1000 --grow</sc
  </sect2>
 
 
- <sect2 xml:id="ref.webui.systems.autoinst.distribution">
+ <sect2 xml:id="ref-webui-systems-autoinst-distribution">
  
   <title>
    Autoinstallation
@@ -6135,7 +6117,7 @@ GATEWAY=192.168.0.1</screen>
   </sect3>
  </sect2>
 
- <sect2 xml:id="ref.webui.systems.autoinst.preserve">
+ <sect2 xml:id="ref-webui-systems-autoinst-preserve">
   <title>
    Autoinstallation
 
@@ -6168,7 +6150,7 @@ GATEWAY=192.168.0.1</screen>
   <para>
    When finished, you may include the file preservation list in the
    Kickstart profile to be used on systems containing those files. Refer
-   to <xref linkend="ref.webui.systems.autoinst.profiles.create" role="internalbook"/> for
+   to <xref linkend="ref-webui-systems-autoinst-profiles-create" role="internalbook"/> for
    precise steps.
   </para>
  </sect2>
@@ -6176,7 +6158,7 @@ GATEWAY=192.168.0.1</screen>
 
 
 
- <sect2 xml:id="ref.webui.systems.autoinst.snippet">
+ <sect2 xml:id="ref-webui-systems-autoinst-snippet">
   <title>
    Autoinstallation
 
@@ -6252,19 +6234,19 @@ GATEWAY=192.168.0.1</screen>
  </sect2>
 </sect1>
  
- <sect1 xml:id="ref.webui.systems.crashes">
+ <sect1 xml:id="ref-webui-systems-crashes">
   <title>Software Crashes</title>
   <para/>
  </sect1>
  
- <sect1 xml:id="ref.webui.systems.virt-host-managers">
+ <sect1 xml:id="ref-webui-systems-virt-host-managers">
   <title>Virtual Host Managers</title>
   <para/>
  </sect1>
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-salt.xml" version="5.0" xml:id="ref.webui.salt">
+ title="Profiling step"?><chapter xml:base="reference-webui-salt.xml" version="5.0" xml:id="ref-webui-salt">
 
     <title>Salt</title>
 
@@ -6279,7 +6261,7 @@ GATEWAY=192.168.0.1</screen>
             Commands</guimenu> to execute remote commands on your Salt Minions. You may also define
         a <guimenu>States Catalog</guimenu> for creating a collection of salt system states. </para>
 
-    <sect1 xml:id="ref.webui.salt.onboarding">
+    <sect1 xml:id="ref-webui-salt-onboarding">
         <title>Onboarding</title>
         <para> The <guimenu>Onboarding</guimenu> page provides a summary of your minions, including
             their names, fingerprints, current state, and actions you may perform on them. </para>
@@ -6302,7 +6284,7 @@ GATEWAY=192.168.0.1</screen>
 
     </sect1>
 
-    <sect1 xml:id="ref.webui.bootstrapping.salt.minions">
+    <sect1 xml:id="ref-webui-bootstrapping-salt-minions">
         <title>Bootstrapping Salt Minions</title>
         <para>The <guimenu>Salt</guimenu> &gt; <guimenu>Bootstrapping</guimenu> page allows you to
             bootstrap Salt minions from the WebUI.</para>
@@ -6378,7 +6360,7 @@ GATEWAY=192.168.0.1</screen>
             you can find your new minion located under the <guimenu>Systems</guimenu> tab.</para>
     </sect1>
 
-    <sect1 xml:id="ref.webui.salt.remote.commands">
+    <sect1 xml:id="ref-webui-salt-remote-commands">
         <title>Remote Commands</title>
         <para>The remote commands page allows you to execute and run commands from the <phrase><phrase>SUSE</phrase> Manager</phrase>
             server on minions. </para>
@@ -6421,7 +6403,7 @@ GATEWAY=192.168.0.1</screen>
 
     </sect1>
 
-    <sect1 xml:id="ref.webui.salt.states.catalog">
+    <sect1 xml:id="ref-webui-salt-states-catalog">
         <title>States Catalog</title>
         <para>Selecting <menuchoice>
                 <guimenu>Salt</guimenu>
@@ -6496,7 +6478,7 @@ GATEWAY=192.168.0.1</screen>
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-patches.xml" version="5.0" xml:id="ref.webui.patches">
+ title="Profiling step"?><chapter xml:base="reference-webui-patches.xml" version="5.0" xml:id="ref-webui-patches">
  <title>Patches</title>
  <info/>
  
@@ -6594,7 +6576,7 @@ GATEWAY=192.168.0.1</screen>
   <link xlink:href="https://www.suse.com/support/security/"/>.
  </para>
 
- <sect1 xml:id="ref.webui.patches.relevant">
+ <sect1 xml:id="ref-webui-patches-relevant">
   <title>Relevant Patches</title>
   <indexterm>
    <primary>Web UI</primary>
@@ -6638,7 +6620,7 @@ GATEWAY=192.168.0.1</screen>
   </para>
  </sect1>
  
- <sect1 xml:id="ref.webui.patches.all">
+ <sect1 xml:id="ref-webui-patches-all">
   <title>All Patches</title>
   
   <indexterm>
@@ -6725,7 +6707,7 @@ GATEWAY=192.168.0.1</screen>
       and time for the patch to be applied. Default is the current
       date. Click the <guimenu>Confirm</guimenu> button.  You
       can follow the progress of the patch application via the
-      <guimenu>Pending Actions</guimenu> list. Refer to <xref linkend="ref.webui.schedule" role="internalbook"/> for more details.
+      <guimenu>Pending Actions</guimenu> list. Refer to <xref linkend="ref-webui-schedule" role="internalbook"/> for more details.
      </para>
     </listitem>
    </itemizedlist>
@@ -6843,7 +6825,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
  </sect1>
 
- <sect1 xml:id="ref.webui.patches.search">
+ <sect1 xml:id="ref-webui-patches-search">
 
 
   <title>Advanced Search</title><indexterm>
@@ -6943,7 +6925,7 @@ GATEWAY=192.168.0.1</screen>
   </itemizedlist>
  </sect1>
  
- <sect1 xml:id="ref.webui.patches.manage">
+ <sect1 xml:id="ref-webui-patches-manage">
   <title>Manage Patches</title>
   <indexterm>
 
@@ -7036,7 +7018,7 @@ GATEWAY=192.168.0.1</screen>
   <para>
     <phrase><phrase>SUSE</phrase> Manager</phrase> administrators can also create patches by cloning an
     existing one. Cloning preserves package associations and simplifies
-    issuing patches. See <xref linkend="ref.webui.patches.clone" role="internalbook"/> for
+    issuing patches. See <xref linkend="ref-webui-patches-clone" role="internalbook"/> for
     instructions.
    </para>
    <para>
@@ -7145,7 +7127,7 @@ GATEWAY=192.168.0.1</screen>
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.patches.clone">
+ <sect1 xml:id="ref-webui-patches-clone">
   <title>Cloning Patches</title>
   <indexterm>
    <primary>Web UI</primary>
@@ -7177,7 +7159,7 @@ GATEWAY=192.168.0.1</screen>
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-channels.xml" version="5.0" xml:id="ref.webui.channels">
+ title="Profiling step"?><chapter xml:base="reference-webui-channels.xml" version="5.0" xml:id="ref-webui-channels">
 
  <title>Channels</title>
  <info/>
@@ -7199,7 +7181,7 @@ GATEWAY=192.168.0.1</screen>
  <remark>Once DEV is complete for channel management chapter add a link here</remark>
  
 
- <sect1 xml:id="ref.webui.channels.software">
+ <sect1 xml:id="ref-webui-channels-software">
   <title>Software Channels</title>
   
   <indexterm>
@@ -7458,7 +7440,7 @@ Text from the rh docs:
      can manage any channel. As a <phrase><phrase>SUSE</phrase> Manager</phrase> administrator you can change
      roles for specific users by clicking on the name. For more information
      on user management and the <guimenu>User Details</guimenu> page, see
-     <xref linkend="ref.webui.users" role="internalbook"/>.
+     <xref linkend="ref-webui-users" role="internalbook"/>.
     </para>
    </sect3>
    <sect3 xml:id="s4-sm-channel-details-errata">
@@ -7524,7 +7506,7 @@ Text from the rh docs:
   </sect2>
  </sect1>
 
- <sect1 xml:id="ref.webui.channels.search">
+ <sect1 xml:id="ref-webui-channels-search">
   <title>Package Search</title>
   
   <indexterm>
@@ -7653,7 +7635,7 @@ Text from the rh docs:
   </para>
  </sect1>
 
- <sect1 xml:id="ref.webui.channels.manage">
+ <sect1 xml:id="ref-webui-channels-manage">
   <title>Manage Software Channels</title>
   
   <indexterm>
@@ -7885,7 +7867,7 @@ Text from the rh docs:
  </sect1>
  
  
- <sect1 xml:id="ref.webui.channels.mapping">
+ <sect1 xml:id="ref-webui-channels-mapping">
   <title>Distribution Channel Mapping</title>
   
   <para/>
@@ -7893,13 +7875,13 @@ Text from the rh docs:
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-audit.xml" version="5.0" xml:id="ref.webui.audit">
+ title="Profiling step"?><chapter xml:base="reference-webui-audit.xml" version="5.0" xml:id="ref-webui-audit">
  <title>Audit</title>
  <info/>
  <para> Select the <guimenu>Audit</guimenu> tab from the top navigation bar to audit your managed
   systems. </para>
  
- <sect1 xml:id="ref.webui.audit.cve">
+ <sect1 xml:id="ref-webui-audit-cve">
   <title>CVE Audit</title>
 
   
@@ -8159,7 +8141,7 @@ Text from the rh docs:
  </sect1>
 
 
- <sect1 xml:id="ref.webui.audit.subscription">
+ <sect1 xml:id="ref-webui-audit-subscription">
   <title><guimenu>Subscription Matching</guimenu></title>
 
   <para>To match subscriptions with your systems utilize the new subscription-matcher tool. It
@@ -8289,7 +8271,7 @@ Text from the rh docs:
 
   </sect2>
 
-  <sect2 xml:id="ref.webui.audit.submatch.unmatched.systems">
+  <sect2 xml:id="ref-webui-audit-submatch-unmatched-systems">
    <title>Unmatched Systems</title>
    <para>Selecting the <menuchoice>
      <guimenu>Subscription Matching</guimenu>
@@ -8336,7 +8318,7 @@ Text from the rh docs:
 
   </sect2>
 
-  <sect2 xml:id="ref.webui.audit.submatch.sub.pinning">
+  <sect2 xml:id="ref-webui-audit-submatch-sub-pinning">
    <title>Subscription Pinning</title>
    <para>The Subscription Pinning feature allows a user to instruct the subscription-matcher to
     favour matching a specific subscription with a given system or group of systems. This is
@@ -8404,7 +8386,7 @@ Text from the rh docs:
     system.</para>
   </sect2>
 
-  <sect2 xml:id="ref.webui.audit.submatch.submatch.messages">
+  <sect2 xml:id="ref-webui-audit-submatch-submatch-messages">
    <title>Subscription Matching Messages</title>
    <para>You can review all messages related to <literal>Subscription Matching</literal> from the <menuchoice>
      <guimenu>Subscription Matching</guimenu>
@@ -8423,7 +8405,7 @@ Text from the rh docs:
    </figure>
   </sect2>
 
-  <sect2 xml:id="ref.webui.audit.submatch.vhm">
+  <sect2 xml:id="ref-webui-audit-submatch-vhm">
    <title>Virtual Host Managers</title>
 
    <para>A pre-requirement for matching subscriptions with systems is to have complete information
@@ -8575,7 +8557,7 @@ Text from the rh docs:
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.audit.openscap">
+ <sect1 xml:id="ref-webui-audit-openscap">
   <title>OpenSCAP</title>
 
   <para>
@@ -9440,7 +9422,7 @@ Profiles: SLES12-Default</screen>
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-configuration.xml" version="5.0" xml:id="ref.webui.config">
+ title="Profiling step"?><chapter xml:base="reference-webui-configuration.xml" version="5.0" xml:id="ref-webui-config">
 
  <title>Configuration</title>
  <info/>
@@ -9457,7 +9439,7 @@ Profiles: SLES12-Default</screen>
   only.
  </para>
 
- <sect1 xml:id="ref.webui.config.preparing">
+ <sect1 xml:id="ref-webui-config-preparing">
   <title>Preparing Systems for Config Management</title><indexterm>
 
   <primary>changing email address</primary>
@@ -9504,7 +9486,7 @@ Profiles: SLES12-Default</screen>
 
  </sect1>
 
- <sect1 xml:id="ref.webui.config.overview">
+ <sect1 xml:id="ref-webui-config-overview">
   <title>Overview</title>
 
   <para>
@@ -9611,7 +9593,7 @@ Profiles: SLES12-Default</screen>
   </variablelist>
  </sect1>
 
- <sect1 xml:id="ref.webui.config.channels">
+ <sect1 xml:id="ref-webui-config-channels">
   <title>Configuration Channels</title>
   
   <indexterm>
@@ -9946,7 +9928,7 @@ Profiles: SLES12-Default</screen>
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.config.files">
+ <sect1 xml:id="ref-webui-config-files">
   <title>Configuration Files</title>
 
   <para>
@@ -10185,7 +10167,7 @@ ip_address=177.18.54.7</screen>
   </sect2>
  </sect1>
 
- <sect1 xml:id="ref.webui.config.systems">
+ <sect1 xml:id="ref-webui-config-systems">
   <title>Systems</title>
 
   <para>
@@ -10244,7 +10226,7 @@ ip_address=177.18.54.7</screen>
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-schedule.xml" version="5.0" xml:id="ref.webui.schedule">
+ title="Profiling step"?><chapter xml:base="reference-webui-schedule.xml" version="5.0" xml:id="ref-webui-schedule">
 
  <title>Schedule</title>
  <info/>
@@ -10325,7 +10307,7 @@ ip_address=177.18.54.7</screen>
   status.
  </para>
 
- <sect1 xml:id="ref.webui.schedule.pending">
+ <sect1 xml:id="ref-webui-schedule-pending">
   <title>Pending Actions</title>
   
   <indexterm>
@@ -10358,7 +10340,7 @@ ip_address=177.18.54.7</screen>
 
  </sect1>
 
- <sect1 xml:id="ref.webui.schedule.fail">
+ <sect1 xml:id="ref-webui-schedule-fail">
   <title>Failed Actions</title><indexterm>
 
   <primary><phrase><phrase>SUSE</phrase> Manager</phrase> Administrator</primary>
@@ -10371,7 +10353,7 @@ ip_address=177.18.54.7</screen>
   </para>
 
  </sect1>
- <sect1 xml:id="ref.webui.schedule.compl">
+ <sect1 xml:id="ref-webui-schedule-compl">
   <title>Completed Actions</title>
   
   <indexterm>
@@ -10397,7 +10379,7 @@ ip_address=177.18.54.7</screen>
   </para>
  </sect1>
 
- <sect1 xml:id="ref.webui.schedule.chains">
+ <sect1 xml:id="ref-webui-schedule-chains">
   <title>Action Chains</title>
   
   <indexterm>
@@ -10545,7 +10527,7 @@ ip_address=177.18.54.7</screen>
   </para>
  </sect1>
  
- <sect1 xml:id="ref.webui.schedule.list">
+ <sect1 xml:id="ref-webui-schedule-list">
   <title>Actions List</title>
   
   <indexterm>
@@ -10701,7 +10683,7 @@ Package List
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-users.xml" version="5.0" xml:id="ref.webui.users">
+ title="Profiling step"?><chapter xml:base="reference-webui-users.xml" version="5.0" xml:id="ref-webui-users">
  <title>Users</title>
  <info/><indexterm>
  <primary>users</primary></indexterm><indexterm>
@@ -10732,12 +10714,12 @@ Package List
   each subtab.
  </para>
 
- <sect1 xml:id="ref.webui.users.list">
+ <sect1 xml:id="ref-webui-users-list">
   <title><guimenu>User List</guimenu></title>
   <para/>
 
 
- <sect2 xml:id="ref.webui.users.list.active">
+ <sect2 xml:id="ref-webui-users-list-active">
 
 
   <title><guimenu>User List</guimenu> &gt; <guimenu>Active</guimenu></title>
@@ -10798,7 +10780,7 @@ Package List
 
  </sect2>
 
- <sect2 xml:id="ref.webui.users.list.deact">
+ <sect2 xml:id="ref-webui-users-list-deact">
   <title><guimenu>User List</guimenu> &gt; <guimenu>Deactivated</guimenu></title>
 
   <para>
@@ -10811,7 +10793,7 @@ Package List
   </para>
  </sect2>
 
- <sect2 xml:id="ref.webui.users.list.all">
+ <sect2 xml:id="ref-webui-users-list-all">
   <title><guimenu>User List</guimenu> &gt; <guimenu>All</guimenu></title>
 
   <para>
@@ -10925,7 +10907,7 @@ Package List
    </procedure>
    <para>
     For instructions to deactivate your own account, refer to
-    <xref linkend="ref.webui.overview.account.deactivate" role="internalbook"/>.
+    <xref linkend="ref-webui-overview-account-deactivate" role="internalbook"/>.
    </para>
    <sect3 xml:id="s4-usr-active-details-details">
     <title><guimenu>User Details</guimenu> &gt; <guimenu>Details</guimenu></title><indexterm>
@@ -10971,7 +10953,7 @@ Package List
        <phrase><phrase>SUSE</phrase> Manager</phrase> administrators may exist. Go to
        <menuchoice><guimenu>Admin</guimenu><guimenu>Users</guimenu></menuchoice>
        and click the check box in the <guimenu><phrase><phrase>SUSE</phrase> Manager</phrase> Admin?</guimenu>
-       row.  For more information, see <xref linkend="ref.webui.admin.users" role="internalbook"/>.
+       row.  For more information, see <xref linkend="ref-webui-admin-users" role="internalbook"/>.
       </para>
       <para>
        A <guimenu><phrase><phrase>SUSE</phrase> Manager</phrase> Administrator</guimenu> can create foreign
@@ -10988,7 +10970,7 @@ Package List
        activation key, configuration, channel, and system group
        administrator.  <guimenu>Organization Administrator</guimenu> is
        not entitled to perform actions that belong to the
-       <guimenu>Admin</guimenu> tab (see <xref linkend="ref.webui.admin" role="internalbook"/>).
+       <guimenu>Admin</guimenu> tab (see <xref linkend="ref-webui-admin" role="internalbook"/>).
       </para>
      </listitem>
      <listitem>
@@ -11047,7 +11029,7 @@ Package List
     <title><guimenu>User Details</guimenu> &gt; <guimenu>System Groups</guimenu></title>
     <para>
      This tab displays a list of system groups the user may administer;
-     for more information about system groups, see <xref linkend="ref.webui.systems.systemgroups" role="internalbook"/>.  <phrase><phrase>SUSE</phrase> Manager</phrase>
+     for more information about system groups, see <xref linkend="ref-webui-systems-systemgroups" role="internalbook"/>.  <phrase><phrase>SUSE</phrase> Manager</phrase>
      administrators can set this user's access permissions to each
      system group. Check or uncheck the box to the left of the system
      group and click the <guimenu>Update Permissions</guimenu> button to
@@ -11171,23 +11153,23 @@ Package List
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.users.sgc">
+ <sect1 xml:id="ref-webui-users-sgc">
   <title><guimenu>System Group Configuration</guimenu></title>
   <para>
    System Groups help when diferrent users shall administer different
    groups of systems within one organization.
   </para>
- <sect2 xml:id="ref.webui.users.sgc.cfg">
+ <sect2 xml:id="ref-webui-users-sgc-cfg">
   <title><guimenu>System Group Configuration</guimenu> &gt; <guimenu>Configuration</guimenu></title>
   <para>Enable <guimenu>Create a user default System
   Group</guimenu> and confirm with <guimenu>Update</guimenu>.</para>
   <para>
    Assign such a group to systems via the
    <menuchoice><guimenu>Groups</guimenu><guimenu>Join</guimenu></menuchoice>
-   subtab of systems details page.  For more information, see <xref linkend="s5-sm-system-details-groups-join" role="internalbook"/> or <xref linkend="ref.webui.systems.systemgroups.details" role="internalbook"/>.
+   subtab of systems details page.  For more information, see <xref linkend="s5-sm-system-details-groups-join" role="internalbook"/> or <xref linkend="ref-webui-systems-systemgroups-details" role="internalbook"/>.
   </para>
  </sect2>
-  <sect2 xml:id="ref.webui.users.sgc.extauth">
+  <sect2 xml:id="ref-webui-users-sgc-extauth">
    <title><guimenu>System Group Configuration</guimenu> &gt; <guimenu>External Authentication</guimenu></title>
    <para>
     Allows to create an external group with the <guimenu>Create External
@@ -11204,7 +11186,7 @@ Package List
 </chapter>
         <?xml-stylesheet href="urn:x-suse:xslt:profiling:docbook50-profile.xsl" 
  type="text/xml"
- title="Profiling step"?><chapter xml:base="reference-webui-admin.xml" version="5.0" xml:id="ref.webui.admin">
+ title="Profiling step"?><chapter xml:base="reference-webui-admin.xml" version="5.0" xml:id="ref-webui-admin">
  <title>Admin</title>
  <info/>
  <para>
@@ -11214,7 +11196,7 @@ Package List
   <guimenu>Admin</guimenu> page.
  </para>
 
- <sect1 xml:id="ref.webui.admin.wizard">
+ <sect1 xml:id="ref-webui-admin-wizard">
   <title><guimenu>Admin</guimenu> &gt; <guimenu>Setup Wizard</guimenu></title>
 
   <para>
@@ -11321,7 +11303,7 @@ Package List
   
  </sect1>
 
- <sect1 xml:id="ref.webui.admin.org">
+ <sect1 xml:id="ref-webui-admin-org">
   <title><guimenu>Admin</guimenu> &gt; <guimenu>Organizations</guimenu></title>
 
   <para>
@@ -11356,7 +11338,7 @@ Package List
     List of all the users of an organization. You can can modify the user
     details if you are logged into that organization and have organization
     administrator privileges.
-    For mor information, see <xref linkend="ref.webui.admin.users" role="internalbook"/>.
+    For mor information, see <xref linkend="ref-webui-admin-users" role="internalbook"/>.
    </para>
   </sect2>
 
@@ -11418,7 +11400,7 @@ stagingContentWindow=24</screen>
  
  
 
- <sect1 xml:id="ref.webui.admin.users">
+ <sect1 xml:id="ref-webui-admin-users">
   <title><guimenu>Admin</guimenu> &gt; <guimenu>Users</guimenu></title>
 
   <para>
@@ -11441,7 +11423,7 @@ stagingContentWindow=24</screen>
 
  </sect1>
 
- <sect1 xml:id="ref.webui.admin.config">
+ <sect1 xml:id="ref-webui-admin-config">
   <title><guimenu>Admin</guimenu> &gt; <guimenu><phrase><phrase>SUSE</phrase> Manager</phrase> Configuration</guimenu></title>
 
   <para>
@@ -11646,7 +11628,7 @@ stagingContentWindow=24</screen>
   </sect2>
  </sect1>
  
- <sect1 xml:id="ref.webui.admin.iss">
+ <sect1 xml:id="ref-webui-admin-iss">
   <title><guimenu>Admin</guimenu> &gt; <guimenu>ISS Configuration</guimenu></title>
 
   <para>
@@ -11778,7 +11760,7 @@ stagingContentWindow=24</screen>
   </sect2>
  </sect1>
 
- <sect1 xml:id="ref.webui.admin.schedules">
+ <sect1 xml:id="ref-webui-admin-schedules">
   <title><guimenu>Admin</guimenu> &gt; <guimenu>Task Schedules</guimenu></title>
 
   <para>
@@ -11877,7 +11859,7 @@ stagingContentWindow=24</screen>
       on the <guimenu>CVE Audit</guimenu> page. Search results in the
       <guimenu>CVE Audit</guimenu> page are updated to the last run of this
       schedule). For more information, see
-      <xref linkend="ref.webui.audit.cve" role="internalbook"/>.
+      <xref linkend="ref-webui-audit-cve" role="internalbook"/>.
      </para>
     </listitem>
    </varlistentry>
@@ -11901,7 +11883,7 @@ stagingContentWindow=24</screen>
       up packages that need updates for each server. Also, this sends
       notification emails to users that might be interested in certain
       patches. For more information on patches, see
-      <xref linkend="ref.webui.patches" role="internalbook"/>.
+      <xref linkend="ref-webui-patches" role="internalbook"/>.
      </para>
     </listitem>
    </varlistentry>
@@ -12018,7 +12000,7 @@ stagingContentWindow=24</screen>
   </variablelist>
  </sect1>
 
- <sect1 xml:id="ref.webui.admin.status">
+ <sect1 xml:id="ref-webui-admin-status">
   <title><guimenu>Admin</guimenu> &gt; <guimenu>Task Engine Status</guimenu></title>
 
   <para>
@@ -12028,7 +12010,7 @@ stagingContentWindow=24</screen>
   </para>
  </sect1>
 
- <sect1 xml:id="ref.webui.admin.logs">
+ <sect1 xml:id="ref-webui-admin-logs">
   <title><guimenu>Admin</guimenu> &gt; <guimenu>Show Tomcat Logs</guimenu></title>
 
   <para>
@@ -12072,7 +12054,7 @@ stagingContentWindow=24</screen>
   <title><phrase><phrase>SUSE</phrase> Manager</phrase> Reference Guide</title>
 
   <para>
-   <xref linkend="book.suma.reference.manual" role="internalbook"/>
+   <xref linkend="book-suma-reference-manual" role="internalbook"/>
    explains the Web interface and its features in detail.
   </para>
  </sect1>
