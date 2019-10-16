@@ -10,14 +10,16 @@ documentation.
 
 There are two incarnations of the SUSE schema:
 
-* `geekodoc5.rnc`
-   This is the main file where development is taking place. This file
-   depends on `docbookxi.rnc` (version 5.1). It doesn't work without
-   this file.
+* `geekodoc-v1.rnc`, `geekodoc-v2.rnc`
+   These are the main files where development is taking place. 
+   GeekoDoc v1 depends on `docbookxi.rnc` (version 5.1) whereas for
+   GeekoDoc v2 it depends on `dbitsxi.rnc` (version 5.2).
+   Don't use this in a production environment.
 
-* `geekodoc5-flat.rnc`
-   This file is generated. It doesn't contain any dependency to DocBook
-   5.1 anymore. If you need a file which is self-contained, use this.
+* `geekodoc-v1-flat.rnc`, `geekodoc-v2-flat.rnc`
+   These files are (auto-)generated. It doesn't contain any dependencies
+   to DocBook 5.x anymore.
+   Use this when writing your documents.
 
 The schema itself is delivered both as RNC (compact RELAX NG) and as RNG
 (XML).

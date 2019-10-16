@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.2" xml:id="art.wrong.id">
+   <title>Attribute xml:id contains dots</title>
+   <para/>
+</article>

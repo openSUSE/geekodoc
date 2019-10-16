@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" xml:lang="en" xml:id="article-lists">
+ <title>Test Article for Images</title>
+ <figure>
+  <title>A Title for a Figure Without ID</title>
+  <mediaobject>
+   <imageobject>
+    <imagedata fileref="non-image.png"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+ <figure xml:id="a-figure">
+  <title>A Title for a Figure Without ID</title>
+  <mediaobject>
+   <imageobject>
+    <imagedata fileref="non-image.png"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+ <figure>
+  <title>A Title for a Figure With Lowercase format Attribute</title>
+  <mediaobject>
+   <imageobject>
+    <imagedata fileref="non-image.png" format="png"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+ <figure>
+  <title>A Title for a Figure With Uppercase format Attribute</title>
+  <mediaobject>
+   <imageobject>
+    <imagedata fileref="non-image.png" format="PNG"/>
+   </imageobject>
+  </mediaobject>
+ </figure>
+</article>

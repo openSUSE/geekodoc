@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
-<article xmlns="http://docbook.org/ns/docbook" 
- xmlns:its="http://www.w3.org/2005/11/its"
- xml:lang="en" xml:id="article-lists">
- <title>Test Article for its:translate</title>
- <para its:translate="yes">Text to be translated</para>
- <screen its:translate="yes">Text to be not translated</screen>
-</article>

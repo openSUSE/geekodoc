@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Local XML Catalog file for GeekoDoc
+
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+
+    <system systemId="docbookxi.rnc" uri="../../external/docbook5/docbookxi.rnc"/>
+    <system systemId="db52itsxi.rnc" uri="../../external/docbook5/db52itsxi.rnc"/>
+    <system systemId="its.rnc" uri="./its.rnc"/>
+    <system systemId="transclusion.rnc" uri="./transclusion.rnc"/>
+    <uri name="docbookxi.rnc" uri="../../external/docbook5/docbookxi.rnc"/>
+    <uri name="its.rnc" uri="./its.rnc"/>
+    <uri name="transclusion.rnc" uri="./transclusion.rnc"/>
+</catalog>

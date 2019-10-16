@@ -1,5 +1,43 @@
 ------------------------------------------------------------------
-Fri Feb 01 14:48:00 UTC 2018 - toms@opensuse.org
+Fri Aug 27 11:45:00 UTC 2021 - toms@opensuse.org
+
+Release 2.0.0
+
+This release contains a first distinction between GeekoDoc v1
+and GeekoDoc v2.
+
+GeekoDoc v1 is frozen, only bugfixes will be integrated. Its main purpose
+is to validate old maintenance branches which weren't updated.
+
+GeekoDoc v2 contains further changes and is based on the dbits schema
+(DocBook5 + ITS).
+
+Common changes:
+ * Revamp directory structure and introduce geekodoc/rng/<GDVER>_<DBVER>
+   DBVER is the DocBook5 version which GeekoDoc is based upon (currently
+   it's 5.2 at the time of writing)
+   GDVER is the GeekoDoc version (1 or 2)
+ * Add test cases for both GeekoDoc versions
+
+GeekoDoc v1:
+ * Describe installation on Debian/Ubuntu (#85)
+ * Fix #69: reduce content model of replaceable (#71)
+ * Fix #64: disallow empty sections (#72)
+ * Fix #59: Reduce content model of command (#66)
+ * Fix #63: restrict content model of book
+ * Fix #61: remove depth attribute on imagedata
+
+GeekoDoc v2:
+ * Use all the changes from GeekoDoc v1
+ * Fix #73: Restrict xml:id/linkend to alphanum + "-" (#75)
+ * Release GeekoDoc 2.0.0 (#76)
+ * Use dbitsxi.rnc (DocBook 5.2b10a5) as a basis, instead of
+   docbookxi.rnc for GeekoDoc v1.
+   This is needed for translation purposes.
+
+
+------------------------------------------------------------------
+Fri Feb 01 14:48:00 UTC 2019 - toms@opensuse.org
 
 Release 1.0.4
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" xml:lang="en" xml:id="article-admons">
+ <title>Test Article for Admonitions</title>
+ <note>
+  <title>Note Title</title>
+  <para>bla</para>
+ </note>
+ <note>
+  <para>Bla</para>
+ </note>
+ <important>
+  <title>Important Title</title>
+  <para>bla</para>
+ </important>
+ <important>
+  <para>bla</para>
+ </important>
+ <tip>
+  <title>Tip Title</title>
+  <para>bla</para>
+ </tip>
+ <tip>
+  <para>bla</para>
+ </tip>
+ <warning>
+  <title>Warning Title</title>
+  <para>bla</para>
+ </warning>
+ <warning>
+  <para>bla</para>
+ </warning>
+</article>
