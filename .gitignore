@@ -1,28 +1,29 @@
 # Ignore DocBook5 schema
 
-geekodoc/rng/docbookxi.rnc
-geekodoc/rng/docbookxi.rng
-geekodoc/rng/its.rng
+geekodoc/rng/docbookxi.rn[cg]
+geekodoc/rng/*.rng
 geekodoc/rng/*.srng
 geekodoc/rng/catalog.dtd
-geekodoc/rng/geekodoc5*.rng
-geekodoc/tests/*/*.err
-geekodoc/tests/last-test-run-errors
+#
+geekodoc/rng/5.1_?/docbookxi.rn[cg]
+geekodoc/rng/5.1_?/transclusion.rng
+geekodoc/rng/5.1_?/its.rng
+geekodoc/rng/5.1_?/geekodoc*.rng
+
+tests/*/*.err
+tests/last-test-run-errors
+geekodoc/rng/5.1_?/*.rni
 
 build/
+.build/
 autom4te.cache/
 # Makefile
 
 # Generated files, not to be added
 config.log
 config.status
-novdoc/rng/novdocx.rng
-novdoc/rng/novdocxi.rng
-novdoc/rng/novdocx-core.rnc
-novdoc/rng/novdocx-core.rng
-novdoc/rng/novdocxi-flat.rnc
-novdoc/rng/novdocxi-flat.rng
-geekodoc/rng/transclusion.rng
+
+
 
 # Editor backups
 \#*#

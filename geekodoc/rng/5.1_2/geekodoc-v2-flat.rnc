@@ -3,10 +3,9 @@ namespace ctrl = "http://nwalsh.com/xmlns/schema-control/"
 default namespace db = "http://docbook.org/ns/docbook"
 namespace html = "http://www.w3.org/1999/xhtml"
 namespace its = "http://www.w3.org/2005/11/its"
-namespace local = "http://www.w3.org/2001/XInclude/local-attributes"
+namespace local = ""
 namespace locattr = "http://www.w3.org/2001/XInclude/local-attributes"
 namespace mml = "http://www.w3.org/1998/Math/MathML"
-namespace ns1 = ""
 namespace rng = "http://relaxng.org/ns/structure/1.0"
 namespace s = "http://purl.oclc.org/dsdl/schematron"
 namespace svg = "http://www.w3.org/2000/svg"
@@ -14,78 +13,14 @@ namespace trans = "http://docbook.org/ns/transclusion"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Define some namespaces for Schematron
+# ======== Schematron namespaces
 
 s:ns [ uri = "http://docbook.org/ns/docbook" prefix = "db" ]
 s:ns [ uri = "http://www.w3.org/1999/xlink" prefix = "xlink" ]
 s:ns [ uri = "http://www.w3.org/2005/11/its" prefix = "its" ]
-# Constants
-suse.schema.version = "5.1-subset GeekoDoc-1.0.4"
-#
-div {
-  div {
-    div {
-      db.trans.idfixup.attribute =
-
-        ## Defines a value to be appended to all ID values on the element
-        attribute trans:fixup {
-
-          ## The suffix property is set to an empty string.
-          "none"
-          |
-            ## The suffix property is set to the concatenation of the inherited
-            ## suffix value and the value specified in the trans:suffix attribute.
-            "suffix"
-          |
-            ## The suffix property is set to a unique value for each element.
-            "auto"
-        }
-      db.trans.suffix.attribute =
-
-        ## This attribute defines the value of the suffix property used when trans:idfixup="suffix".
-        [ a:defaultValue = "" ] attribute trans:suffix { text }
-      db.trans.linkscope.attribute =
-
-        ## Defines how to correct ID references
-        [ a:defaultValue = "near" ]
-        attribute trans:linkscope {
-
-          ## No adjustment is made.
-          "user"
-          |
-            ## Each ID reference is adjusted to point to the closest element that has a matching ID.
-            "near"
-          |
-            ## Each ID reference is adjusted to point to the first element in document order that has a matching ID.
-            "global"
-          |
-            ## The value of the suffix property is added to every ID reference as a suffix.
-            "local"
-        }
-      db.xi.trans.attlist =
-        db.trans.idfixup.attribute?
-        & db.trans.suffix.attribute?
-        & db.trans.linkscope.attribute?
-    }
-  }
-}
-#
-div {
-  div {
-    its-translate.type =
-
-      ## The nodes need to be translated
-      "yes"
-      |
-        ## The nodes must not be translated
-        "no"
-    its-attribute.translate =
-
-      ## The Translate data category information to be attached to the current node
-      attribute its:translate { its-translate.type }
-  }
-}
-# XInclude 1.1
+# ======== Constants
+suse.schema.version = "5.1-subset GeekoDoc-2.0.0"
+# ======== XInclude
 div {
   db.xi.href.attribute =
 
@@ -124,7 +59,448 @@ div {
     ## Generalization of the xpointer attribute. Include only partial structure from source
     attribute fragid { text }
 }
+div {
+  div {
+    db.set.components |= db.xi.include
+    db.divisions |= db.xi.include
+    db.components |= db.xi.include
+    db.toplevel.sections |=
+      (db.section | db.xi.include)+ | (db.simplesect | db.xi.include)+
+    db.recursive.sections |=
+      (db.section | db.xi.include)+ | (db.simplesect | db.xi.include)+
+    db.part.components |= db.xi.include
+    db.reference.components |= db.xi.include
+    db.all.blocks |= db.xi.include
+    db.all.inlines |= db.xi.include
+    db._text |= db.xi.include
+    db.info.elements |= db.xi.include
+    db.imagedata.svg.content |= db.xi.include
+    db.imagedata.mathml.content |= db.xi.include
+    db.equation.content |= db.xi.include+
+    db.inlineequation.content |= db.xi.include+
+    db.imageobject.content |= db.xi.include
+    ctrl:conditional [
+      pattern = "db.refentry"
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.toplevel.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.refentry" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.recursive.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.refentry" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.toplevel.refsection"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.refentry" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.secondlevel.refsection"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.refentry" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    ctrl:conditional [
+      pattern = "db.refsect1"
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.toplevel.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.refsect1" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.recursive.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.refsect1" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.toplevel.refsection"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.refsect1" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.secondlevel.refsection"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.refsect2" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    ctrl:conditional [
+      pattern = "db.sect1"
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.toplevel.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.sect1" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.sect1.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.sect2" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.sect2.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.sect3" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.sect3.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.sect4" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.sect4.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.sect5" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "        "
+      rng:define [
+        name = "db.sect5.sections"
+        combine = "choice"
+        "\x{a}" ~
+        "          "
+        rng:oneOrMore [
+          "\x{a}" ~
+          "            "
+          rng:choice [
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.simplesect" ]
+            "\x{a}" ~
+            "              "
+            rng:ref [ name = "db.xi.include" ]
+            "\x{a}" ~
+            "            "
+          ]
+          "\x{a}" ~
+          "          "
+        ]
+        "\x{a}" ~
+        "        "
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    # ======================================================================
+    [ db:refname [ "xi:include" ] db:refpurpose [ "An XInclude" ] ]
+    div {
+      db.xi.include =
+        element xi:include { db.xi.include.attlist, db.xi.fallback? }
+    }
+    # ======================================================================
+    [
+      db:refname [ "xi:fallback" ]
+      db:refpurpose [ "An XInclude fallback" ]
+    ]
+    div {
+      # The fallback element has no attributes
+      db.xi.fallback =
+        element xi:fallback {
+          db.all.blocks+ | db.all.inlines+ | db._any*
+        }
+    }
+  }
+  db.any.other.attribute =
+    attribute * - (locattr:*
+                   | trans:*
+                   | local:*
+                   | xlink:*
+                   | xml:*
+                   | its:*) { text }
+  db.xi.include.attlist =
+    db.xi.href.attribute?
+    & db.xi.parse.attribute?
+    & db.xi.xpointer.attribute?
+    & db.xi.fragid.attribute?
+    & db.xi.encoding.attribute?
+    & db.xi.accept.attribute?
+    & db.xi.accept-language.attribute?
+    & db.xi.set-xml-id.attribute?
+    & # & db.xi.trans.attlist?
+      db.any.other.attribute*
+}
 # ======== Our own patterns
+div {
+  db.extension.inlines = notAllowed
+  db.extension.blocks = notAllowed
+}
 div {
   db.entry.model =
     # This pattern is used to restrict the <entry> element
@@ -276,12 +652,12 @@ div {
 # include "http://docbook.org/xml/5.1/rng/docbook.rnc"
 div {
   [
-    # This file is part of DocBook XInclude V5.1
+    # This file is part of DocBook ITS V5.1
     #
-    # Copyright 1992-2015 HaL Computer Systems, Inc.,
+    # Copyright 2007-2015 HaL Computer Systems, Inc.,
     # O'Reilly & Associates, Inc., ArborText, Inc., Fujitsu Software
-    # Corporation, Norman Walsh, Sun Microsystems, Inc., and the
-    # Organization for the Advancement of Structured Information
+    # Corporation, Norman Walsh, Jirka Kosek, Sun Microsystems, Inc.,
+    # and the Organization for the Advancement of Structured Information
     # Standards (OASIS).
     #
     # Permission to use, copy, modify and distribute the DocBook schema
@@ -316,9 +692,9 @@ div {
     ]
     s:ns [ prefix = "html" uri = "http://www.w3.org/1999/xhtml" ]
     s:ns [ prefix = "xlink" uri = "http://www.w3.org/1999/xlink" ]
-    s:ns [ prefix = "xi" uri = "http://www.w3.org/2001/XInclude" ]
     s:ns [ prefix = "mml" uri = "http://www.w3.org/1998/Math/MathML" ]
     s:ns [ prefix = "svg" uri = "http://www.w3.org/2000/svg" ]
+    s:ns [ prefix = "its" uri = "http://www.w3.org/2005/11/its" ]
   ]
   div {
     start =
@@ -387,12 +763,6 @@ div {
 
         ## Any attribute, including any attribute in any namespace.
         attribute * { text }
-      db._any =
-
-        ## Any element from almost any namespace
-        element * - (db:* | html:*) {
-          (db._any.attribute | text | db._any)*
-        }
     }
     db.arch.attribute =
 
@@ -846,12 +1216,7 @@ div {
       | db.titleonlyreq.info
     db._info.title.forbidden = db.titleforbidden.info?
     db.all.inlines =
-      (text
-       | db.ubiq.inlines
-       | db.general.inlines
-       | db.domain.inlines
-       | db.extension.inlines)
-      | db.xi.include
+      text | db.ubiq.inlines | db.general.inlines | db.domain.inlines
     db.general.inlines =
       db.publishing.inlines
       | db.product.inlines
@@ -911,12 +1276,8 @@ div {
     db.indexing.inlines = notAllowed | db.indexterm
     db.link.inlines =
       (db.xref | db.link | db.olink | db.anchor) | db.biblioref
-    db.extension.inlines = notAllowed
     db.para.blocks = db.anchor | db.para | db.formalpara | db.simpara
-    db.all.blocks =
-      (db.nopara.blocks | db.para.blocks | db.extension.blocks)
-      | db.annotation
-      | db.xi.include
+    db.all.blocks = (db.nopara.blocks | db.para.blocks) | db.annotation
     db.formal.blocks = (db.example | db.figure | db.table) | db.equation
     db.informal.blocks =
       (db.informalexample | db.informalfigure | db.informaltable)
@@ -943,8 +1304,7 @@ div {
       (db.screen | db.literallayout)
       | (db.programlistingco | db.screenco)
       | (db.programlisting | db.synopsis)
-    db.extension.blocks = notAllowed
-    db.info.extension = db._any
+    db.info.extension = db._any | (its-rules | its-standoff)
     db.info.elements =
       (db.abstract
        | db.address
@@ -990,7 +1350,6 @@ div {
          | db.biblioset)
       | db.itermset
       | (db.productname | db.productnumber)
-      | db.xi.include
     db.bibliographic.elements =
       db.info.elements
       | db.publishing.inlines
@@ -2229,10 +2588,7 @@ div {
       db.audioobject.info = db._info.title.forbidden
     }
     db.imageobject.content =
-      db.imagedata+
-      | db.imagedata.mathml
-      | db.imagedata.svg+
-      | db.xi.include
+      db.imagedata+ | db.imagedata.mathml | db.imagedata.svg+
     div {
       db.imageobject.role.attribute = attribute role { text }
       db.imageobject.attlist =
@@ -3759,32 +4115,22 @@ div {
       ((db.section+, db.simplesect*) | db.simplesect+)
       | (db.sect1+, db.simplesect*)
       | db.refentry+
-      | ((db.section | db.xi.include)+
-         | (db.simplesect | db.xi.include)+)
-      | (db.refentry | db.xi.include)+
-      | (db.refsect1 | db.xi.include)+
-      | (db.sect1 | db.xi.include)+
     db.toplevel.blocks.or.sections =
       (db.all.blocks+, db.toplevel.sections?) | db.toplevel.sections
     db.recursive.sections =
       ((db.section+, db.simplesect*) | db.simplesect+)
       | db.refentry+
-      | ((db.section | db.xi.include)+
-         | (db.simplesect | db.xi.include)+)
-      | (db.refentry | db.xi.include)+
-      | (db.refsect1 | db.xi.include)+
     db.recursive.blocks.or.sections =
       (db.all.blocks+, db.recursive.sections?) | db.recursive.sections
-    db.divisions = db.part | db.reference | db.xi.include
+    db.divisions = db.part | db.reference
     db.components =
-      (db.dedication
-       | db.acknowledgements
-       | db.preface
-       | db.chapter
-       | db.appendix
-       | db.article
-       | db.colophon)
-      | db.xi.include
+      db.dedication
+      | db.acknowledgements
+      | db.preface
+      | db.chapter
+      | db.appendix
+      | db.article
+      | db.colophon
     db.navigation.components =
       notAllowed | db.glossary | db.bibliography | db.index | db.toc
     db.component.contentmodel =
@@ -3793,7 +4139,7 @@ div {
       db.navigation.components*
     db.setindex.components = notAllowed | db.setindex
     db.toc.components = notAllowed | db.toc
-    db.set.components = (db.set | db.book | db.article) | db.xi.include
+    db.set.components = db.set | db.book | db.article
     div {
       db.set.status.attribute = db.status.attribute
       db.set.role.attribute = attribute role { text }
@@ -3952,7 +4298,6 @@ div {
     db.part.components =
       (db.navigation.components | db.components)
       | (db.refentry | db.reference)
-      | db.xi.include
     db.part.contentmodel = db.part.components+ | db.topic+
     div {
       db.part.status.attribute = db.status.attribute
@@ -4456,56 +4801,39 @@ div {
         & db.xlink.from.attribute?
         & db.xlink.to.attribute?
     }
-    db.sect1.sections =
-      ((db.sect2+, db.simplesect*) | db.simplesect+)
-      | (db.sect2 | db.xi.include)+
+    db.sect1.sections = (db.sect2+, db.simplesect*) | db.simplesect+
     div {
       db.sect1.status.attribute = db.status.attribute
       db.sect1.role.attribute = attribute role { text }
       db.sect1.info = db._info.title.req
     }
-    db.sect2.sections =
-      ((db.sect3+, db.simplesect*) | db.simplesect+)
-      | (db.sect3 | db.xi.include)+
+    db.sect2.sections = (db.sect3+, db.simplesect*) | db.simplesect+
     div {
       db.sect2.status.attribute = db.status.attribute
       db.sect2.role.attribute = attribute role { text }
       db.sect2.info = db._info.title.req
     }
-    db.sect3.sections =
-      ((db.sect4+, db.simplesect*) | db.simplesect+)
-      | (db.sect4 | db.xi.include)+
+    db.sect3.sections = (db.sect4+, db.simplesect*) | db.simplesect+
     div {
       db.sect3.status.attribute = db.status.attribute
       db.sect3.role.attribute = attribute role { text }
       db.sect3.info = db._info.title.req
     }
-    db.sect4.sections =
-      ((db.sect5+, db.simplesect*) | db.simplesect+)
-      | (db.sect5 | db.xi.include)+
+    db.sect4.sections = (db.sect5+, db.simplesect*) | db.simplesect+
     div {
       db.sect4.status.attribute = db.status.attribute
       db.sect4.role.attribute = attribute role { text }
       db.sect4.info = db._info.title.req
     }
-    db.sect5.sections =
-      db.simplesect+ | (db.simplesect | db.xi.include)+
+    db.sect5.sections = db.simplesect+
     div {
       db.sect5.status.attribute = db.status.attribute
       db.sect5.role.attribute = attribute role { text }
       db.sect5.info = db._info.title.req
     }
-    db.toplevel.refsection =
-      db.refsection+
-      | db.refsect1+
-      | (db.refentry | db.xi.include)+
-      | (db.refsect1 | db.xi.include)+
-    db.secondlevel.refsection =
-      db.refsection+
-      | db.refsect2+
-      | (db.refentry | db.xi.include)+
-      | (db.refsect2 | db.xi.include)+
-    db.reference.components = db.refentry | db.xi.include
+    db.toplevel.refsection = db.refsection+ | db.refsect1+
+    db.secondlevel.refsection = db.refsection+ | db.refsect2+
+    db.reference.components = db.refentry
     div {
       db.reference.status.attribute = db.status.attribute
       db.reference.role.attribute = attribute role { text }
@@ -7371,11 +7699,9 @@ div {
     }
     db.math.inlines = db.inlineequation
     db.equation.content =
-      (db.mediaobject+ | db.mathphrase+) | db._any.mml+ | db.xi.include+
+      (db.mediaobject+ | db.mathphrase+) | db._any.mml+
     db.inlineequation.content =
-      (db.inlinemediaobject+ | db.mathphrase+)
-      | db._any.mml+
-      | db.xi.include+
+      (db.inlinemediaobject+ | db.mathphrase+) | db._any.mml+
     div {
       db.equation.role.attribute = attribute role { text }
       db.equation.label.attribute = db.label.attribute
@@ -7405,7 +7731,7 @@ div {
         & db.common.attributes
         & db.common.linking.attributes
     }
-    db.imagedata.mathml.content = db._any.mml | db.xi.include
+    db.imagedata.mathml.content = db._any.mml
     div {
       db.imagedata.mathml.role.attribute = attribute role { text }
       db.imagedata.mathml.attlist =
@@ -7464,7 +7790,7 @@ div {
         ## Any element from the MathML namespace
         element mml:* { (db._any.attribute | text | db._any)* }
     }
-    db.imagedata.svg.content = db._any.svg | db.xi.include
+    db.imagedata.svg.content = db._any.svg
     div {
       db.imagedata.svg.role.attribute = attribute role { text }
       db.imagedata.svg.attlist =
@@ -8047,6 +8373,9 @@ div {
 
         ## Identifies the non-standard action in some unspecified way.
         attribute otheraction { text }
+      db.keycombo.action.attrib =
+        db.keycombo.action-enum.attribute
+        | db.keycombo.action-other.attributes
       db.keycombo.role.attribute = attribute role { text }
       db.keycombo.attlist =
         db.keycombo.role.attribute?
@@ -9449,21 +9778,836 @@ div {
           db.navigation.components*
         }
     }
-    div {
-      db.xi.include =
+    db._any =
+      element * - (db:* | html:* | its:*) {
+        (attribute * { text }
+         | text
+         | db._any)*
+      }
+    # Include base ITS schema
 
-        ## An XInclude
-        element xi:include { db.xi.include.attlist, db.xi.fallback? }
-    }
-    div {
-      # The fallback element has no attributes
-      db.xi.fallback =
+    ## Version of ITS
+    its-version.type = xsd:string { pattern = "[0-9]+\.[0-9]+" }
 
-        ## An XInclude fallback
-        element xi:fallback {
-          db.all.blocks+ | db.all.inlines+ | db._any*
-        }
-    }
+    ## The query language to be used for processing the rules
+    its-queryLanguage.type = "xpath" | "css" | text
+    its-absolute-selector.type =
+
+      ## Absolute selector
+      string
+    its-relative-selector.type =
+
+      ## Relative selector
+      string
+    its-xpath-expression.type = string
+    its-confidence.type =
+      xsd:double { minInclusive = "0" maxInclusive = "1" }
+
+    ## The Translate data category information to be attached to the current node
+    its-translate.type =
+
+      ## The nodes need to be translated
+      "yes"
+      |
+        ## The nodes must not be translated
+        "no"
+    its-locNote.type = string
+
+    ## The type of localization note
+    its-locNoteType.type =
+
+      ## Localization note is an alert
+      "alert"
+      |
+        ## Localization note is a description
+        "description"
+    its-locNoteRef.type = xsd:anyURI
+    its-termInfoRef.type = xsd:anyURI
+
+    ## Indicates a term locally
+    its-term.type =
+
+      ## The value 'yes' means that this is a term
+      "yes"
+      |
+        ## The value 'no' means that this is not a term
+        "no"
+    its-termConfidence.type = its-confidence.type
+
+    ## The text direction for the context
+    its-dir.type =
+
+      ## Left-to-right text
+      "ltr"
+      |
+        ## Right-to-left text
+        "rtl"
+      |
+        ## Left-to-right override
+        "lro"
+      |
+        ## Right-to-left override
+        "rlo"
+
+    ## States whether current context is regarded as "within text"
+    its-withinText.type =
+
+      ## The element and its content are part of the flow of its parent element
+      "yes"
+      |
+        ## The element splits the text flow of its parent element and its content is an independent text flow
+        "no"
+      |
+        ## The element is part of the flow of its parent element, its content is an independent flow
+        "nested"
+
+    ## A comma separated list of mappings between values in the content
+    ## and workflow specific values. The values may contain spaces; in
+    ## that case they MUST be delimited by quotation marks.
+    its-domainMapping.type = string
+    its-taConfidence.type = its-confidence.type
+    its-taClassRefPointer.type = its-relative-selector.type
+    its-taClassRef.type = xsd:anyURI
+    its-taIdentRef.type = xsd:anyURI
+    its-taIdent.type = string
+    its-taSource.type = string
+    its-taIdentPointer.type = its-relative-selector.type
+    its-taIdentRefPointer.type = its-relative-selector.type
+    its-taSourcePointer.type = its-relative-selector.type
+    its-localeFilterList.type = string
+    its-localeFilterType.type = "include" | "exclude"
+    its-provenanceRecordsRef.type = xsd:anyURI
+    its-person.type = string
+    its-personRef.type = xsd:anyURI
+    its-org.type = string
+    its-orgRef.type = xsd:anyURI
+    its-tool.type = string
+    its-toolRef.type = xsd:anyURI
+    its-revPerson.type = string
+    its-revPersonRef.type = xsd:anyURI
+    its-revOrg.type = string
+    its-revOrgRef.type = xsd:anyURI
+    its-revTool.type = string
+    its-revToolRef.type = xsd:anyURI
+    its-provRef.type = list { xsd:anyURI+ }
+    its-locQualityIssuesRef.type = xsd:anyURI
+    its-locQualityIssueType.type =
+      "terminology"
+      | "mistranslation"
+      | "omission"
+      | "untranslated"
+      | "addition"
+      | "duplication"
+      | "inconsistency"
+      | "grammar"
+      | "legal"
+      | "register"
+      | "locale-specific-content"
+      | "locale-violation"
+      | "style"
+      | "characters"
+      | "misspelling"
+      | "typographical"
+      | "formatting"
+      | "inconsistent-entities"
+      | "numbers"
+      | "markup"
+      | "pattern-problem"
+      | "whitespace"
+      | "internationalization"
+      | "length"
+      | "non-conformance"
+      | "uncategorized"
+      | "other"
+    its-locQualityIssueComment.type = string
+    its-locQualityIssueSeverity.type =
+      xsd:double { minInclusive = "0" maxInclusive = "100" }
+    its-locQualityIssueProfileRef.type = xsd:anyURI
+    its-locQualityIssueEnabled.type = "yes" | "no"
+    its-locQualityRatingScore.type =
+      xsd:double { minInclusive = "0" maxInclusive = "100" }
+    its-locQualityRatingVote.type = xsd:integer
+    its-locQualityRatingScoreThreshold.type =
+      xsd:double { minInclusive = "0" maxInclusive = "100" }
+    its-locQualityRatingVoteThreshold.type = xsd:integer
+    its-locQualityRatingProfileRef.type = xsd:anyURI
+    its-mtConfidence.type = its-confidence.type
+    its-allowedCharacters.type = string
+    its-storageSize.type = xsd:nonNegativeInteger
+    its-storageEncoding.type = string
+    its-lineBreakType.type = "cr" | "lf" | "crlf"
+    its-annotatorsRef.type = string
+    its-attribute.translate =
+      attribute its:translate { its-translate.type }
+    its-attribute.translate.nons =
+      attribute translate { its-translate.type }
+    its-attribute.dir.nons = attribute dir { its-dir.type }
+    its-attribute.locNote = attribute its:locNote { its-locNote.type }
+    its-attribute.locNote.nons = attribute locNote { its-locNote.type }
+    its-attribute.locNoteType =
+      attribute its:locNoteType { its-locNoteType.type }
+    its-attribute.locNoteType.nons =
+      attribute locNoteType { its-locNoteType.type }
+    its-attribute.locNoteRef =
+      attribute its:locNoteRef { its-locNoteRef.type }
+    its-attribute.locNoteRef.nons =
+      attribute locNoteRef { its-locNoteRef.type }
+    its-attribute.termInfoRef =
+      attribute its:termInfoRef { its-termInfoRef.type }
+    its-attribute.termInfoRef.nons =
+      attribute termInfoRef { its-termInfoRef.type }
+    its-attribute.term = attribute its:term { its-term.type }
+    its-attribute.term.nons = attribute term { its-term.type }
+    its-attribute.termConfidence =
+      attribute its:termConfidence { its-termConfidence.type }
+    its-attribute.termConfidence.nons =
+      attribute termConfidence { its-termConfidence.type }
+    its-attribute.withinText =
+      attribute its:withinText { its-withinText.type }
+    its-attribute.withinText.nons =
+      attribute withinText { its-withinText.type }
+    its-attribute.domainMapping.nons =
+      attribute domainMapping { its-domainMapping.type }
+    its-attribute.taConfidence =
+      attribute its:taConfidence { its-taConfidence.type }
+    its-attribute.taConfidence.nons =
+      attribute taConfidence { its-taConfidence.type }
+    its-attribute.taClassRef =
+      attribute its:taClassRef { its-taClassRef.type }
+    its-attribute.taClassRef.nons =
+      attribute taClassRef { its-taClassRef.type }
+    its-attribute.taIdent = attribute its:taIdent { its-taIdent.type }
+    its-attribute.taIdent.nons = attribute taIdent { its-taIdent.type }
+    its-attribute.taIdentRef =
+      attribute its:taIdentRef { its-taIdentRef.type }
+    its-attribute.taIdentRef.nons =
+      attribute taIdentRef { its-taIdentRef.type }
+    its-attribute.taSource =
+      attribute its:taSource { its-taSource.type }
+    its-attribute.taSource.nons =
+      attribute taSource { its-taSource.type }
+    its-attribute.localeFilterList =
+      attribute its:localeFilterList { its-localeFilterList.type }
+    its-attribute.localeFilterList.nons =
+      attribute localeFilterList { its-localeFilterList.type }
+    its-attribute.localeFilterType =
+      attribute its:localeFilterType { its-localeFilterType.type }
+    its-attribute.localeFilterType.nons =
+      attribute localeFilterType { its-localeFilterType.type }
+    its-attribute.person = attribute its:person { its-person.type }
+    its-attribute.person.nons = attribute person { its-person.type }
+    its-attribute.personRef =
+      attribute its:personRef { its-personRef.type }
+    its-attribute.personRef.nons =
+      attribute personRef { its-personRef.type }
+    its-attribute.org = attribute its:org { its-org.type }
+    its-attribute.org.nons = attribute org { its-org.type }
+    its-attribute.orgRef = attribute its:orgRef { its-orgRef.type }
+    its-attribute.orgRef.nons = attribute orgRef { its-orgRef.type }
+    its-attribute.tool = attribute its:tool { its-tool.type }
+    its-attribute.tool.nons = attribute tool { its-tool.type }
+    its-attribute.toolRef = attribute its:toolRef { its-toolRef.type }
+    its-attribute.toolRef.nons = attribute toolRef { its-toolRef.type }
+    its-attribute.revPerson =
+      attribute its:revPerson { its-revPerson.type }
+    its-attribute.revPerson.nons =
+      attribute revPerson { its-revPerson.type }
+    its-attribute.revPersonRef =
+      attribute its:revPersonRef { its-revPersonRef.type }
+    its-attribute.revPersonRef.nons =
+      attribute revPersonRef { its-revPersonRef.type }
+    its-attribute.revOrg = attribute its:revOrg { its-revOrg.type }
+    its-attribute.revOrg.nons = attribute revOrg { its-revOrg.type }
+    its-attribute.revOrgRef =
+      attribute its:revOrgRef { its-revOrgRef.type }
+    its-attribute.revOrgRef.nons =
+      attribute revOrgRef { its-revOrgRef.type }
+    its-attribute.revTool = attribute its:revTool { its-revTool.type }
+    its-attribute.revTool.nons = attribute revTool { its-revTool.type }
+    its-attribute.revToolRef =
+      attribute its:revToolRef { its-revToolRef.type }
+    its-attribute.revToolRef.nons =
+      attribute revToolRef { its-revToolRef.type }
+    its-attribute.provRef = attribute its:provRef { its-provRef.type }
+    its-attribute.provRef.nons = attribute provRef { its-provRef.type }
+    its-attribute.provenanceRecordsRef =
+      attribute its:provenanceRecordsRef {
+        its-provenanceRecordsRef.type
+      }
+    its-attribute.provenanceRecordsRef.nons =
+      attribute provenanceRecordsRef { its-provenanceRecordsRef.type }
+    its-attribute.locQualityIssuesRef =
+      attribute its:locQualityIssuesRef { its-locQualityIssuesRef.type }
+    its-attribute.locQualityIssuesRef.nons =
+      attribute locQualityIssuesRef { its-locQualityIssuesRef.type }
+    its-attribute.locQualityIssueType =
+      attribute its:locQualityIssueType { its-locQualityIssueType.type }
+    its-attribute.locQualityIssueType.nons =
+      attribute locQualityIssueType { its-locQualityIssueType.type }
+    its-attribute.locQualityIssueComment =
+      attribute its:locQualityIssueComment {
+        its-locQualityIssueComment.type
+      }
+    its-attribute.locQualityIssueComment.nons =
+      attribute locQualityIssueComment {
+        its-locQualityIssueComment.type
+      }
+    its-attribute.locQualityIssueSeverity =
+      attribute its:locQualityIssueSeverity {
+        its-locQualityIssueSeverity.type
+      }
+    its-attribute.locQualityIssueSeverity.nons =
+      attribute locQualityIssueSeverity {
+        its-locQualityIssueSeverity.type
+      }
+    its-attribute.locQualityIssueProfileRef =
+      attribute its:locQualityIssueProfileRef {
+        its-locQualityIssueProfileRef.type
+      }
+    its-attribute.locQualityIssueProfileRef.nons =
+      attribute locQualityIssueProfileRef {
+        its-locQualityIssueProfileRef.type
+      }
+    its-attribute.locQualityIssueEnabled =
+      attribute its:locQualityIssueEnabled {
+        its-locQualityIssueEnabled.type
+      }
+    its-attribute.locQualityIssueEnabled.nons =
+      attribute locQualityIssueEnabled {
+        its-locQualityIssueEnabled.type
+      }
+    its-attribute.locQualityRatingScore =
+      attribute its:locQualityRatingScore {
+        its-locQualityRatingScore.type
+      }
+    its-attribute.locQualityRatingScore.nons =
+      attribute locQualityRatingScore { its-locQualityRatingScore.type }
+    its-attribute.locQualityRatingVote =
+      attribute its:locQualityRatingVote {
+        its-locQualityRatingVote.type
+      }
+    its-attribute.locQualityRatingVote.nons =
+      attribute locQualityRatingVote { its-locQualityRatingVote.type }
+    its-attribute.locQualityRatingScoreThreshold =
+      attribute its:locQualityRatingScoreThreshold {
+        its-locQualityRatingScoreThreshold.type
+      }
+    its-attribute.locQualityRatingScoreThreshold.nons =
+      attribute locQualityRatingScoreThreshold {
+        its-locQualityRatingScoreThreshold.type
+      }
+    its-attribute.locQualityRatingVoteThreshold =
+      attribute its:locQualityRatingVoteThreshold {
+        its-locQualityRatingVoteThreshold.type
+      }
+    its-attribute.locQualityRatingVoteThreshold.nons =
+      attribute locQualityRatingVoteThreshold {
+        its-locQualityRatingVoteThreshold.type
+      }
+    its-attribute.locQualityRatingProfileRef =
+      attribute its:locQualityRatingProfileRef {
+        its-locQualityRatingProfileRef.type
+      }
+    its-attribute.locQualityRatingProfileRef.nons =
+      attribute locQualityRatingProfileRef {
+        its-locQualityRatingProfileRef.type
+      }
+    its-attribute.mtConfidence =
+      attribute its:mtConfidence { its-mtConfidence.type }
+    its-attribute.mtConfidence.nons =
+      attribute mtConfidence { its-mtConfidence.type }
+    its-attribute.allowedCharacters =
+      attribute its:allowedCharacters { its-allowedCharacters.type }
+    its-attribute.allowedCharacters.nons =
+      attribute allowedCharacters { its-allowedCharacters.type }
+    its-attribute.storageSize =
+      attribute its:storageSize { its-storageSize.type }
+    its-attribute.storageSize.nons =
+      attribute storageSize { its-storageSize.type }
+    its-attribute.storageEncoding =
+      attribute its:storageEncoding { its-storageEncoding.type }
+    its-attribute.storageEncoding.nons =
+      attribute storageEncoding { its-storageEncoding.type }
+    its-attribute.lineBreakType =
+      attribute its:lineBreakType { its-lineBreakType.type }
+    its-attribute.lineBreakType.nons =
+      attribute lineBreakType { its-lineBreakType.type }
+    its-attribute.annotatorsRef =
+      attribute its:annotatorsRef { its-annotatorsRef.type }
+    its-attribute.annotatorsRef.nons =
+      attribute annotatorsRef { its-annotatorsRef.type }
+    its-attribute.version =
+
+      ## Version of ITS
+      attribute its:version { its-version.type }
+    its-attribute.version.nons =
+
+      ## Version of ITS
+      attribute version { its-version.type }
+    its-attribute.queryLanguage.nons =
+      attribute queryLanguage { its-queryLanguage.type }
+    its-attribute.xlink.href = attribute xlink:href { xsd:anyURI }
+    its-attribute.xlink.type = attribute xlink:type { "simple" }
+    its-attribute.selector =
+      attribute selector { its-absolute-selector.type }
+    its-foreign-attribute = attribute * - local:* { text }
+    its-foreign-no-xml-id-attribute =
+      attribute * - (local:* | xml:id) { text }
+    its-foreign-no-xlink-attribute =
+      attribute * - (local:* | xlink:*) { text }
+    its-any-attribute = attribute * { text }
+    its-any-element =
+      element * { (its-any-attribute* | text | its-any-element)* }
+    its-rules =
+
+      ## Container for global rules
+      element its:rules { its-rules.content, its-rules.attributes }
+    its-rules.content =
+      its-param*,
+      (its-translateRule
+       | its-locNoteRule
+       | its-termRule
+       | its-dirRule
+       | its-langRule
+       | its-withinTextRule
+       | its-domainRule
+       | its-textAnalysisRule
+       | its-localeFilterRule
+       | its-provRule
+       | its-locQualityIssueRule
+       | its-mtConfidenceRule
+       | its-externalResourceRefRule
+       | its-targetPointerRule
+       | its-idValueRule
+       | its-preserveSpaceRule
+       | its-allowedCharactersRule
+       | its-storageSizeRule
+       | its-foreign-element)*
+    its-rules.attributes =
+      its-attribute.version.nons,
+      (its-attribute.xlink.href, its-attribute.xlink.type?)?,
+      its-attribute.queryLanguage.nons?,
+      its-foreign-no-xlink-attribute*
+    its-param =
+
+      ## Declaration of variable used in selectors
+      element its:param { its-param.content, its-param.attributes }
+    its-param.content = text
+    its-param.attributes =
+      attribute name { xsd:string },
+      its-foreign-attribute*
+    its-local.attributes =
+      its-attribute.translate?
+      & its-attribute.dir?
+      & ((its-attribute.locNote | its-attribute.locNoteRef),
+         its-attribute.locNoteType?)?
+      & (its-attribute.term,
+         its-attribute.termInfoRef?,
+         its-attribute.termConfidence?)?
+      & its-attribute.withinText?
+      & (its-attribute.taConfidence?
+         & (its-attribute.taClassRef?
+            & ((its-attribute.taSource, its-attribute.taIdent)
+               | its-attribute.taIdentRef)?))?
+      & (its-attribute.localeFilterList,
+         its-attribute.localeFilterType?)?
+      & (((its-attribute.person | its-attribute.personRef)?
+          & (its-attribute.org | its-attribute.orgRef)?
+          & (its-attribute.tool | its-attribute.toolRef)?
+          & (its-attribute.revPerson | its-attribute.revPersonRef)?
+          & (its-attribute.revOrg | its-attribute.revOrgRef)?
+          & (its-attribute.revTool | its-attribute.revToolRef)?
+          & its-attribute.provRef?)
+         | its-attribute.provenanceRecordsRef)?
+      & (its-attribute.locQualityIssuesRef
+         | ((its-attribute.locQualityIssueType?
+             & its-attribute.locQualityIssueComment?)
+            & its-attribute.locQualityIssueSeverity?
+            & its-attribute.locQualityIssueProfileRef?
+            & its-attribute.locQualityIssueEnabled?))?
+      & (((its-attribute.locQualityRatingScore,
+           its-attribute.locQualityRatingScoreThreshold?)
+          | (its-attribute.locQualityRatingVote,
+             its-attribute.locQualityRatingVoteThreshold?)),
+         its-attribute.locQualityRatingProfileRef?)?
+      & its-attribute.mtConfidence?
+      & its-attribute.allowedCharacters?
+      & (its-attribute.storageSize,
+         its-attribute.storageEncoding?,
+         its-attribute.lineBreakType?)?
+      & its-attribute.annotatorsRef?
+    its-local.nons.attributes =
+      its-attribute.translate.nons?
+      & its-attribute.dir.nons?
+      & ((its-attribute.locNote.nons | its-attribute.locNoteRef.nons),
+         its-attribute.locNoteType.nons?)?
+      & (its-attribute.term.nons,
+         its-attribute.termInfoRef.nons?,
+         its-attribute.termConfidence.nons?)?
+      & its-attribute.withinText.nons?
+      & (its-attribute.taConfidence.nons?
+         & (its-attribute.taClassRef.nons?
+            & ((its-attribute.taSource.nons, its-attribute.taIdent.nons)
+               | its-attribute.taIdentRef.nons)?))?
+      & (its-attribute.localeFilterList.nons,
+         its-attribute.localeFilterType.nons?)?
+      & (((its-attribute.person.nons | its-attribute.personRef.nons)?
+          & (its-attribute.org.nons | its-attribute.orgRef.nons)?
+          & (its-attribute.tool.nons | its-attribute.toolRef.nons)?
+          & (its-attribute.revPerson.nons
+             | its-attribute.revPersonRef.nons)?
+          & (its-attribute.revOrg.nons | its-attribute.revOrgRef.nons)?
+          & (its-attribute.revTool.nons
+             | its-attribute.revToolRef.nons)?
+          & its-attribute.provRef.nons?)
+         | its-attribute.provenanceRecordsRef.nons)?
+      & (its-attribute.locQualityIssuesRef.nons
+         | ((its-attribute.locQualityIssueType.nons?
+             & its-attribute.locQualityIssueComment.nons?)
+            & its-attribute.locQualityIssueSeverity.nons?
+            & its-attribute.locQualityIssueProfileRef.nons?
+            & its-attribute.locQualityIssueEnabled.nons?))?
+      & (((its-attribute.locQualityRatingScore.nons,
+           its-attribute.locQualityRatingScoreThreshold.nons?)
+          | (its-attribute.locQualityRatingVote.nons,
+             its-attribute.locQualityRatingVoteThreshold.nons?)),
+         its-attribute.locQualityRatingProfileRef.nons?)?
+      & its-attribute.mtConfidence.nons?
+      & its-attribute.allowedCharacters.nons?
+      & (its-attribute.storageSize.nons,
+         its-attribute.storageEncoding.nons?,
+         its-attribute.lineBreakType.nons?)?
+      & its-attribute.annotatorsRef.nons?
+    its-span =
+
+      ## Inline element to contain ITS information
+      element its:span { its-span.content, its-span.attributes }
+    its-span.content = (text | its-span)*
+    its-span.attributes =
+      its-local.nons.attributes & its-foreign-attribute*
+    its-translateRule =
+
+      ## Rule about the Translate data category
+      element its:translateRule {
+        its-translateRule.content, its-translateRule.attributes
+      }
+    its-translateRule.content = empty
+    its-translateRule.attributes =
+      its-attribute.selector,
+      its-attribute.translate.nons,
+      its-foreign-attribute*
+    its-locNoteRule =
+
+      ## Rule about the Localization Note data category
+      element its:locNoteRule {
+        its-attribute.selector,
+        its-attribute.locNoteType.nons,
+        (its-locNote
+         | its-attribute.locNotePointer.nons
+         | its-attribute.locNoteRef.nons
+         | its-attribute.locNoteRefPointer.nons),
+        its-foreign-attribute*
+      }
+    its-attribute.locNotePointer.nons =
+      attribute locNotePointer { its-relative-selector.type }
+    its-attribute.locNoteRefPointer.nons =
+      attribute locNoteRefPointer { its-relative-selector.type }
+    its-locNote =
+
+      ## Localization note
+      element its:locNote {
+        its-locNote.content, its-locNote.attributes
+      }
+    its-locNote.content = (text | its-span)*
+    its-locNote.attributes =
+      its-local.nons.attributes, its-foreign-attribute*
+    its-termRule =
+
+      ## Rule about the Terminology data category
+      element its:termRule {
+        its-termRule.content, its-termRule.attributes
+      }
+    its-termRule.content = empty
+    its-termRule.attributes =
+      its-attribute.selector,
+      its-attribute.term.nons,
+      (its-attribute.termInfoPointer.nons
+       | its-attribute.termInfoRef.nons
+       | its-attribute.termInfoRefPointer.nons)?,
+      its-foreign-attribute*
+    its-attribute.termInfoPointer.nons =
+      attribute termInfoPointer { its-relative-selector.type }
+    its-attribute.termInfoRefPointer.nons =
+      attribute termInfoRefPointer { its-relative-selector.type }
+    its-dirRule =
+
+      ## Rule about the Directionality data category
+      element its:dirRule {
+        its-dirRule.content, its-dirRule.attributes
+      }
+    its-dirRule.content = empty
+    its-dirRule.attributes =
+      its-attribute.selector,
+      its-attribute.dir.nons,
+      its-foreign-attribute*
+    its-langRule =
+
+      ## Rule about the Language Information data category
+      element its:langRule {
+        its-langRule.content, its-langRule.attributes
+      }
+    its-langRule.content = empty
+    its-langRule.attributes =
+      its-attribute.selector,
+      its-attribute.langPointer.nons,
+      its-foreign-attribute*
+    its-attribute.langPointer.nons =
+      attribute langPointer { its-relative-selector.type }
+    its-withinTextRule =
+
+      ## Rule about the Elements Within Text data category
+      element its:withinTextRule {
+        its-withinTextRule.content, its-withinTextRule.attributes
+      }
+    its-withinTextRule.content = empty
+    its-withinTextRule.attributes =
+      its-attribute.selector,
+      its-attribute.withinText.nons,
+      its-foreign-attribute*
+    its-domainRule =
+
+      ## Rule about the Domain data category
+      element its:domainRule {
+        its-domainRule.content, its-domainRule.attributes
+      }
+    its-domainRule.content = empty
+    its-domainRule.attributes =
+      its-attribute.selector,
+      its-attribute.domainPointer.nons,
+      its-attribute.domainMapping.nons?,
+      its-foreign-attribute*
+    its-attribute.domainPointer.nons =
+      attribute domainPointer { its-relative-selector.type }
+    its-textAnalysisRule =
+
+      ## Rule about the Disambiguation data category
+      element its:textAnalysisRule {
+        its-textAnalysisRule.content, its-textAnalysisRule.attributes
+      }
+    its-textAnalysisRule.content = empty
+    its-textAnalysisRule.attributes =
+      its-attribute.selector,
+      its-attribute.taClassRefPointer.nons?,
+      ((its-attribute.taSourcePointer.nons,
+        its-attribute.taIdentPointer.nons)
+       | its-attribute.taIdentRefPointer.nons)?,
+      its-foreign-attribute*
+    its-attribute.taClassRefPointer.nons =
+      attribute taClassRefPointer { its-taClassRefPointer.type }
+    its-attribute.taIdentPointer.nons =
+      attribute taIdentPointer { its-taIdentPointer.type }
+    its-attribute.taSourcePointer.nons =
+      attribute taSourcePointer { its-taSourcePointer.type }
+    its-attribute.taIdentRefPointer.nons =
+      attribute taIdentRefPointer { its-taIdentRefPointer.type }
+    its-localeFilterRule =
+
+      ## Rule about the LocaleFilter data category
+      element its:localeFilterRule {
+        its-localeFilterRule.content, its-localeFilterRule.attributes
+      }
+    its-localeFilterRule.content = empty
+    its-localeFilterRule.attributes =
+      its-attribute.selector,
+      its-attribute.localeFilterList.nons,
+      its-attribute.localeFilterType.nons?,
+      its-foreign-attribute*
+    its-provRule =
+
+      ## Rule about the Provenance data category
+      element its:provRule {
+        its-provRule.content, its-provRule.attributes
+      }
+    its-provRule.content = empty
+    its-provRule.attributes =
+      its-attribute.selector,
+      its-attribute.provenanceRecordsRefPointer.nons,
+      its-foreign-attribute*
+    its-attribute.provenanceRecordsRefPointer.nons =
+      attribute provenanceRecordsRefPointer {
+        its-relative-selector.type
+      }
+    its-externalResourceRefRule =
+
+      ## Rule about the External Resource data category
+      element its:externalResourceRefRule {
+        its-externalResourceRefRule.content,
+        its-externalResourceRefRule.attributes
+      }
+    its-externalResourceRefRule.content = empty
+    its-externalResourceRefRule.attributes =
+      its-attribute.selector,
+      its-attribute.externalResourceRefPointer.nons,
+      its-foreign-attribute*
+    its-attribute.externalResourceRefPointer.nons =
+      attribute externalResourceRefPointer {
+        its-relative-selector.type
+      }
+    its-targetPointerRule =
+
+      ## Rule about the Target Pointer data category
+      element its:targetPointerRule {
+        its-targetPointerRule.content, its-targetPointerRule.attributes
+      }
+    its-targetPointerRule.content = empty
+    its-targetPointerRule.attributes =
+      its-attribute.selector,
+      its-attribute.targetPointer.nons,
+      its-foreign-attribute*
+    its-attribute.targetPointer.nons =
+      attribute targetPointer { its-relative-selector.type }
+    its-idValueRule =
+
+      ## Rule about the Id Value data category
+      element its:idValueRule {
+        its-idValueRule.content, its-idValueRule.attributes
+      }
+    its-idValueRule.content = empty
+    its-idValueRule.attributes =
+      its-attribute.selector,
+      its-attribute.idValue.nons,
+      its-foreign-attribute*
+    its-attribute.idValue.nons =
+      attribute idValue { its-xpath-expression.type }
+    its-preserveSpaceRule =
+
+      ## Rule about the Preserve Space data category
+      element its:preserveSpaceRule {
+        its-preserveSpaceRule.content, its-preserveSpaceRule.attributes
+      }
+    its-preserveSpaceRule.content = empty
+    its-preserveSpaceRule.attributes =
+      its-attribute.selector,
+      its-attribute.space.nons,
+      its-foreign-attribute*
+    its-attribute.space.nons =
+      attribute space { "default" | "preserve" }
+    its-locQualityIssueRule =
+
+      ## Rule about the Localization Quality Issue data category
+      element its:locQualityIssueRule {
+        its-locQualityIssueRule.content,
+        its-locQualityIssueRule.attributes
+      }
+    its-locQualityIssueRule.content = empty
+    its-locQualityIssueRule.attributes =
+      its-attribute.selector,
+      ((its-attribute.locQualityIssuesRef.nons
+        | its-attribute.locQualityIssuesRefPointer.nons)
+       | ((its-attribute.locQualityIssueType.nons
+           | its-attribute.locQualityIssueComment.nons)+,
+          its-attribute.locQualityIssueSeverity.nons?,
+          its-attribute.locQualityIssueProfileRef.nons?,
+          its-attribute.locQualityIssueEnabled.nons?)),
+      its-foreign-attribute*
+    its-attribute.locQualityIssuesRefPointer.nons =
+      attribute locQualityIssuesRefPointer {
+        its-relative-selector.type
+      }
+    its-mtConfidenceRule =
+
+      ## Rule about the MT Confidence data category
+      element its:mtConfidenceRule {
+        its-mtConfidenceRule.content, its-mtConfidenceRule.attributes
+      }
+    its-mtConfidenceRule.content = empty
+    its-mtConfidenceRule.attributes =
+      its-attribute.selector,
+      its-attribute.mtConfidence.nons,
+      its-foreign-attribute*
+    its-allowedCharactersRule =
+
+      ## Rule about the Allowed Characters data category
+      element its:allowedCharactersRule {
+        its-allowedCharactersRule.content,
+        its-allowedCharactersRule.attributes
+      }
+    its-allowedCharactersRule.content = empty
+    its-allowedCharactersRule.attributes =
+      its-attribute.selector,
+      (its-attribute.allowedCharacters.nons
+       | its-attribute.allowedCharactersPointer.nons),
+      its-foreign-attribute*
+    its-attribute.allowedCharactersPointer.nons =
+      attribute allowedCharactersPointer { its-relative-selector.type }
+    its-storageSizeRule =
+
+      ## Rule about the Allowed Characters data category
+      element its:storageSizeRule {
+        its-storageSizeRule.content, its-storageSizeRule.attributes
+      }
+    its-storageSizeRule.content = empty
+    its-storageSizeRule.attributes =
+      its-attribute.selector,
+      (its-attribute.storageSize.nons
+       | its-attribute.storageSizePointer.nons),
+      (its-attribute.storageEncoding.nons
+       | its-attribute.storageEncodingPointer.nons)?,
+      its-attribute.lineBreakType.nons?,
+      its-foreign-attribute*
+    its-attribute.storageSizePointer.nons =
+      attribute storageSizePointer { its-relative-selector.type }
+    its-attribute.storageEncodingPointer.nons =
+      attribute storageEncodingPointer { its-relative-selector.type }
+    its-standoff = its-provenanceRecords | its-locQualityIssues
+    its-provenanceRecords =
+
+      ## Standoff markup for Provenance data category
+      element its:provenanceRecords {
+        its-provenanceRecord+,
+        attribute xml:id { xsd:ID },
+        its-attribute.version.nons?,
+        its-foreign-no-xml-id-attribute*
+      }
+    its-provenanceRecord =
+
+      ## Provenance record used in Provenance standoff markup
+      element its:provenanceRecord { its-provenanceRecord.attributes }
+    its-provenanceRecord.attributes =
+      (its-attribute.person.nons | its-attribute.personRef.nons)?
+      & (its-attribute.org.nons | its-attribute.orgRef.nons)?
+      & (its-attribute.tool.nons | its-attribute.toolRef.nons)?
+      & (its-attribute.revPerson.nons
+         | its-attribute.revPersonRef.nons)?
+      & (its-attribute.revOrg.nons | its-attribute.revOrgRef.nons)?
+      & (its-attribute.revTool.nons | its-attribute.revToolRef.nons)?
+      & its-attribute.provRef.nons?
+      & its-foreign-attribute*
+    its-locQualityIssues =
+
+      ## Standoff markup for Localization Quality Issue data category
+      element its:locQualityIssues {
+        its-locQualityIssue+,
+        attribute xml:id { xsd:ID },
+        its-attribute.version.nons?,
+        its-foreign-no-xml-id-attribute*
+      }
+    its-locQualityIssue =
+
+      ## Issue recorded in Localization Quality standoff markup
+      element its:locQualityIssue { its-locQualityIssue.attributes }
+    its-locQualityIssue.attributes =
+      its-attribute.locQualityIssueType.nons?
+      & its-attribute.locQualityIssueComment.nons?
+      & its-attribute.locQualityIssueSeverity.nons?
+      & its-attribute.locQualityIssueProfileRef.nons?
+      & its-attribute.locQualityIssueEnabled.nons?
+      & its-foreign-attribute*
+    its-attribute.dir = empty
+    its-foreign-element =
+      element * - its:* {
+        (its-foreign-no-xml-id-attribute* | text | its-foreign-element)*
+      }
   }
   # Redefine element pattern as notAllowed here as they are not needed:
   #
@@ -9840,6 +10984,8 @@ div {
   # Disallow mediaobject in certain contexts
   db.graphic.blocks = notAllowed
   # ======== Removed Attribute
+  # Issue 61:
+  # Remove imagedata/@depth attribute
   db.imagedata.depth.attribute = empty
   db.rdfalite.attributes = empty
   db.xlink.attributes = empty
@@ -10017,6 +11163,9 @@ div {
     & db.cmdsynopsis.sepchar.attribute?
     & db.cmdsynopsis.cmdlength.attribute?
     & db.cmdsynopsis.label.attribute?
+  # Issue 55:
+  # Issue #39/#55:
+  # disallow xml:id on child elements of table
   db.colspec.attlist =
     db.colspec.role.attribute?
     & db.common.base.attributes
@@ -10132,6 +11281,8 @@ div {
     & db.common.base.attributes
     & db.common.linking.attributes
     & db.valign.attribute?
+  # Issue #39:
+  # disallow xml:id on child elements of table
   db.cals.thead.attlist =
     db.cals.thead.role.attribute?
     & db.common.base.attributes
@@ -10214,6 +11365,8 @@ div {
     & db.synopsis.label.attribute?
   db.task.attlist = db.task.role.attribute? & db.common.attributes
   db.tip.attlist = db.tip.role.attribute? & db.common.attributes
+  # Issue #39:
+  # disallow xml:id on child elements of table
   db.tgroup.attlist =
     db.tgroup.role.attribute?
     & db.common.base.attributes
@@ -10233,6 +11386,7 @@ div {
   db.warning.attlist = db.warning.role.attribute? & db.common.attributes
   # ========= Changed or Redefinied Attributes
   div {
+    # Issue #73
     # Restrict ID/IDREF to numbers, digits and "-" only
     db.linkend.attribute =
 
@@ -10337,6 +11491,8 @@ div {
         (db.jobtitle | db.orgname | (db.jobtitle & db.orgname))
       }
   }
+  # book
+  # Issue #63: restrict content model of book
   div {
     db.book.components =
       # (db.navigation.components | db.components | db.divisions)* | db.topic*
@@ -10347,6 +11503,7 @@ div {
       (db.navigation.components | db.appendix | db.xi.include)*
   }
   # command
+  # Issue #59: Reduce content model of command
   div {
     db.command =
 
@@ -10568,9 +11725,12 @@ div {
       }
   }
   # keycombo
-  div {
-    db.keycombo.action.attrib = empty
-  }
+  # Issue #50:
+  # Remove action in keycombo
+  #  div {
+  #    db.keycombo.action.attrib = empty
+  #  }
+
   # para
   div {
     # Disallow xml:id in paras
@@ -10649,15 +11809,6 @@ div {
       ## A question in a QandASet
       element question { db.question.attlist, db.para, db.all.blocks* }
   }
-  # replaceable
-  div {
-    db.replaceable =
-
-      ## Content that may or must be replaced by the user
-      element replaceable {
-        db.replaceable.attlist, (text | db.emphasis | db.phrase)*
-      }
-  }
   # result: restrict content model and allow only certain elements
   div {
     db.result =
@@ -10676,7 +11827,18 @@ div {
          | db.simplelist)+
       }
   }
+  # replaceable
+  # Issue #69: reduce content model of replaceable
+  div {
+    db.replaceable =
+
+      ## Content that may or must be replaced by the user
+      element replaceable {
+        db.replaceable.attlist, (text | db.emphasis | db.phrase)*
+      }
+  }
   # sect1, sect2, sect3, section
+  # Issue #64: disallow empty sections
   div {
     db.sect1 =
 
@@ -10867,6 +12029,8 @@ div {
         db.varlistentry+
       }
   }
+  # Issue #51:
+  # Reduce content model in screen
   # screen/programlisting content model
   db.verbatim.inlines =
     text
@@ -10892,26 +12056,4 @@ div {
     | db.uri
     | db.varname
     | db.xref
-  # XIncludes 1.1
-  # see https://www.w3.org/TR/xinclude-11/
-  #
-  db.any.other.attribute =
-    attribute * - (local:*
-                   | trans:*
-                   | ns1:*
-                   | xlink:*
-                   | xml:*
-                   | its:*) { text }
-  db.xi.include.attlist =
-    db.xi.href.attribute?
-    & # (db.xi.href-empty.attribute | db.xi.href-uri.attribute)? &
-      db.xi.parse.attribute?
-    & db.xi.xpointer.attribute?
-    & db.xi.fragid.attribute?
-    & db.xi.encoding.attribute?
-    & db.xi.accept.attribute?
-    & db.xi.accept-language.attribute?
-    & db.xi.set-xml-id.attribute?
-    & db.any.other.attribute*
-    & db.xi.trans.attlist?
 }

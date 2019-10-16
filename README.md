@@ -141,3 +141,19 @@ $ rng2vim geekodoc5-flat.rng geekodoc
 ```
 
 The file `geekodoc.vim` can be used with vim.
+
+
+## Creating an Archive for Open Build Server
+
+If you develop on GeekoDoc and would like to create an archive file
+for OBS, use the following steps:
+
+1. Configure first the `bzip` command (this has to be done only once):
+
+       $ git config tar.tar.bz2.command "bzip2 -c"
+
+2. Create an archive:
+
+       $ git archive --format=tar.bz2 --prefix=geekodoc-2.0.0/ -o /tmp/geekodoc-2.0.01.tar.bz2 HEAD
+
+3. Copy the archive into your OBS directory.

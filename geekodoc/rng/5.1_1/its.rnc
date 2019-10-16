@@ -1,0 +1,16 @@
+#
+# This schema integrates ITS 2.0 markup (http://www.w3.org/TR/its20/)
+# into DocBook schema (http://docbook.org)
+
+namespace its = "http://www.w3.org/2005/11/its"
+
+its-translate.type =
+  ## The nodes need to be translated
+  "yes"
+  |
+  ## The nodes must not be translated
+  "no"
+
+its-attribute.translate =
+   ## The Translate data category information to be attached to the current node
+   attribute its:translate { its-translate.type }
