@@ -19,6 +19,10 @@ SCHEMA=$(readlink -f ${SCHEMA})
 ERRORS=0
 ERRORFILE=${PROGDIR}/last-test-run-errors
 
+# Which versions of Geekodoc should be tested?
+# valid: 1, 2, both
+GEEKODOC="both"
+
 SUCCESS=0
 FAILURE=1
 
@@ -77,6 +81,9 @@ Usage:
 
 Options:
    -h, --help  Shows this help message
+   -g VERSION, --geekodoc VERSION
+               Choose Geekodoc version to test. Valid values are
+               "1", "2", or "both" (default)
    -V VALIDATOR, --validator VALIDATOR
                Choose to validate either with "jing" or "xmllint"
    -t, --test  Choose the test category:
@@ -145,7 +152,7 @@ function test_files() {
 
 # -----
 #
-ARGS=$(getopt -o h,V:,t:,n -l help,validator:,test:,nomake -n "$PROG" -- "$@")
+ARGS=$(getopt -o g:,h,V:,t:,n -l geekodoc:,help,validator:,test:,nomake -n "$PROG" -- "$@")
 eval set -- "$ARGS"
 while true ; do
     case "$1" in
@@ -182,6 +189,17 @@ while true ; do
                 ;;
               *)
                 logerror "Expected 'all', 'bad', or 'good' for option $1"
+                exit 1
+                ;;
+            esac
+            ;;
+        -g|--geekodoc)
+            case "$2" in
+              1|2|both)
+                GEEKODOC="$2"
+                ;;
+              *)
+                logerror "Expected '1', '2', or 'both' for --geekodoc, but got $2"
                 exit 1
                 ;;
             esac
