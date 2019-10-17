@@ -98,7 +98,7 @@ ALL_TRANS := $(GEEKODOC1_PATH)/transclusion.rnc $(GEEKODOC2_PATH)/transclusion.r
 
 ALL_OTHER := $(ALL_DOCBOOK) $(ALL_ITS) $(ALL_TRANS)
 
-ALL_GEEKDOC := $(GEEKODOC1_FLAT_RNC) $(GEEKODOC2_FLAT_RNC)
+ALL_GEEKODOC := $(GEEKODOC1_FLAT_RNC) $(GEEKODOC2_FLAT_RNC)
 
 
 # == More Targets
@@ -108,7 +108,7 @@ ALL_RNC := $(GEEKODOC1_FLAT_RNC) $(GEEKODOC2_FLAT_RNC)
 
 
 .PHONY: all clean
-all:    $(ALL_GEEKDOC) $(ALL_OTHER)
+all:    $(ALL_GEEKODOC) $(ALL_OTHER)
 
 clean:
 	@rm -v $(ALL_OTHER) $(ALL_RNG) $(ALL_RNI) $(ALL_RNC) \
@@ -116,7 +116,7 @@ clean:
 	2>/dev/null || true
 
 
-$(TARGETS): % : $(ALL_GEEKDOC)
+$(TARGETS): % : $(ALL_GEEKODOC)
 	@echo "Building targets: $< => $@"
 
 
