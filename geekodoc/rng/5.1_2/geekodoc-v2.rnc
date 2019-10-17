@@ -1,0 +1,14 @@
+#
+# GeekoDoc v2 Schema
+#
+# See http://docbook.org/docs/howto
+#
+# This schema is a customization of DocBook for SUSE documents
+#
+# Author: Thomas Schraitle, 2015-2019
+#
+
+
+include "geekodoc-v1.rnc" {
+
+}
