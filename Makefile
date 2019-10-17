@@ -8,7 +8,7 @@
 #    * its.rnc
 #      integration of ITS 2.0 markup, see http://www.w3.org/TR/its20/
 #    * docbook.rnc
-#      well, our main schema file
+#      the upstream schema file
 #
 # Process Flow
 #  geekodoc-v?.rnc # (1)
@@ -17,15 +17,15 @@
 #            +--> geekodoc-v?-flat.rng # (4)
 #                 +--> geekodoc-v?-flat.rnc # (5)
 #
-# (1) This is our main file; all changes goes here
+# (1) This is our main file; all changes to the upstream schema go here
 # (2) We need to create the XML format (RNG) first to process it with
 #     our XML tools
 # (3) The flat.rni file contains the "raw" representation of the
 #     schema in one file; it is an intermediate file and is automatically
 #     removed
-# (4) Some cleanup applied to flat.rni creates the flat.rng
-# (5) The end result which is independant from any DocBook or Geekodoc
-#     resources
+# (4) Apply cleanups to flat.rni to create flat.rng
+# (5) The end result, which can be used independently from DocBook or Geekodoc
+#     source files
 #
 # Author:
 #   Thomas Schraitle <toms@opensuse.org>
@@ -150,15 +150,10 @@ $(ALL_TRANS): $(GEEKODOC_RNG_DIR)/transclusion.rnc
 	@cp $< $@
 
 #
-# HINT:
-# The DocBook project delivered some broken file in regards
-# to Schematron patterns.
-# This have been fixed in OBS, but just in case we still
-# get an old, unfixed DocBook, we apply the stylesheet
-# (see openSUSE/geekodoc#22)
-#
-# From here we can create the RNC. Here it is a visual
-# presentation of the process flow:
+# The DocBook projects upstream schema includes broken Schematron patterns.
+# This is fixed in the OBS-packaged version of the schema, but if we
+# get an old, unfixed DocBook, apply the stylesheet
+# (see openSUSE/geekodoc#22). We use this process flow:
 #
 # DB5 RNG --[XSLT]--> DB5 RNG2 --[trang]--> DB5 RNC
 #
