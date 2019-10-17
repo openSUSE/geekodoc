@@ -8,23 +8,32 @@
 # * bad are tests which MUST FAIL, otherwise it is an error
 #
 # Author: Thomas Schraitle
-# Date:   2016-2018
+# Date:   2016-2020
+
+# set -x
 
 VALIDATOR="xmllint"
 PROG=${0##*/}
 PROGDIR=${0%/*}
+
 # Needed to be able to run it from different directories
-SCHEMA=${PROGDIR}/../rng/geekodoc5-flat.rng
-SCHEMA=$(readlink -f ${SCHEMA})
+GEEKODOC_V1="${PROGDIR}/../build/geekodoc/rng/5.1_1/geekodoc-v1-flat.rng"
+GEEKODOC_V1=$(readlink -f "${GEEKODOC_V1}")
+GEEKODOC_V2="${PROGDIR}/../build/geekodoc/rng/5.1_2/geekodoc-v2-flat.rng"
+GEEKODOC_V2=$(readlink -f "${GEEKODOC_V2}")
+
+# SCHEMA=${PROGDIR}/../rng/geekodoc5-flat.rng
+# SCHEMA=$(readlink -f ${SCHEMA})
 ERRORS=0
-ERRORFILE=${PROGDIR}/last-test-run-errors
+ERRORFILE="${PROGDIR}/last-test-run-errors"
+
+# Which versions of Geekodoc should be tested?
+# valid: 1, 2, both
+GEEKODOC="both"
 
 SUCCESS=0
 FAILURE=1
 
-MAKE=1
-
-TEST_CATEGORY=all
 
 export LANG=C
 
@@ -70,62 +79,64 @@ function validator() {
 
 function print_help {
     cat <<EOF_helptext
-Run all the test cases using ${SCHEMA}
+Run all the test cases using GeekoDoc schema v1 and v2
 
 Usage:
    ${PROG} [-h|--help] [OPTIONS]
 
 Options:
    -h, --help  Shows this help message
+   -g VERSION, --geekodoc VERSION
+               Choose Geekodoc version to test. Valid values are
+               "1", "2", or "both" (default)
    -V VALIDATOR, --validator VALIDATOR
                Choose to validate either with "jing" or "xmllint"
-   -t, --test  Choose the test category:
-               * 'bad' check only tests which are expected to fail
-               * 'good' check only tests which are expected to succeed
-               * 'all' chooses both (default)
-   -n, --noremake Do not run make on the geekodoc/rng/ directory
-               (useful for running this in the RPM %check section)
 EOF_helptext
 }
 
 
 function test_check()
 {
-    local TEST=$1
-    local RESULT=$2
+    local TEST="$1"
+    local RESULT="$2"
     local RESULTSTR=
 
     RESULTSTR="\e[1;32mPASSED\e[0m"
-    case "$1" in
+    case "$TEST" in
         good)
             if [[ ! "$RESULT" == '' ]]; then
                 RESULTSTR="\e[1;31mFAILED\e[0m"
-                ERRORS=$(($ERRORS + 1))
+                ERRORS=$((ERRORS + 1))
             fi
             ;;
         bad)
             if [[ "$RESULT" == '' ]]; then
                 RESULTSTR="\e[1;31mFAILED\e[0m"
-                ERRORS=$(($ERRORS + 1))
+                ERRORS=$((ERRORS + 1))
             fi
             ;;
         *)
             ;;
     esac
-    echo -e $RESULTSTR
+    echo -e "$RESULTSTR"
 }
 
 function test_files() {
     local DIR=$1
     local CHECK=$2
+    local SCHEMA=${3:?GeekoDoc schema not set}
     local GOOD_OR_BAD=${DIR##*/}
     local result
-    local resultstr
-    local re='^[0-9]+$'
+
+    # Skip, if directory is empty
+    if ! find "$DIR" -mindepth 1 -name \*.xml | read; then
+       logwarn "No XML files found in $DIR, skipping"
+       return
+    fi
 
     for xmlfile in $DIR/*.xml; do
        loginfo -n "Validating '$xmlfile'... "
-       wellformedness=$(xmllint --noout --noent $xmlfile 2>&1)
+       wellformedness=$(xmllint --noout --noent "$xmlfile" 2>&1)
        if [[ ! $wellformedness == '' ]]; then
            # In this case, we always want to say "FAILED", so this usage is correct.
            # (But we are abusing the existing test_check() function somewhat.)
@@ -133,19 +144,43 @@ function test_files() {
            echo -e "$wellformedness"
            logerror --fatal "Test case is not well-formed: '$xmlfile'. Quitting."
        fi
-       result=$(validator $SCHEMA $xmlfile)
-       test_check $GOOD_OR_BAD "$result"
+       result=$(validator "$SCHEMA" "$xmlfile")
+       test_check "$GOOD_OR_BAD" "$result"
        if [[ ! "$result" == '' ]]; then
            [[ $GOOD_OR_BAD == 'good' ]] && echo -e "$result"
-           echo "###### Errors in '$xmlfile' ######" >> $ERRORFILE
-           echo -e "\n$result\n\n" >> $ERRORFILE
+           echo "###### Errors in '$xmlfile' ######" >> "$ERRORFILE"
+           echo -e "\n$result\n\n" >> "$ERRORFILE"
        fi
     done
 }
 
+
+function validate_against()
+{
+    local msg="$1"
+    local ver="$2"
+    local geekodoc_ver="$3"
+    loginfo "### $msg $ver"
+    test_files "$PROGDIR/$ver/good" test_check_good "$geekodoc_ver"
+    echo "----------------------------------"
+    test_files "$PROGDIR/$ver/bad" test_check_bad "$geekodoc_ver"
+}
+
+
+function validate_against_v1()
+{
+    validate_against "Testing GeekoDoc" "v1" "$GEEKODOC_V1"
+}
+
+
+function validate_against_v2()
+{
+    validate_against "Testing GeekoDoc" "v2" "$GEEKODOC_V2"
+}
+
 # -----
 #
-ARGS=$(getopt -o h,V:,t:,n -l help,validator:,test:,nomake -n "$PROG" -- "$@")
+ARGS=$(getopt -o g:,h,V: -l geekodoc:,help,validator: -n "$PROG" -- "$@")
 eval set -- "$ARGS"
 while true ; do
     case "$1" in
@@ -167,28 +202,17 @@ while true ; do
             esac
             shift 2
             ;;
-        -t|--test)
+        -g|--geekodoc)
             case "$2" in
-              all)
-                # don't do anything, this is the default
-                ;;
-              bad|good)
-                TEST_CATEGORY=$2
-                shift 2
-                ;;
-              -*)
-                # another option, don't use it
-                shift 1
+              1|2|both|b)
+                GEEKODOC="$2"
                 ;;
               *)
-                logerror "Expected 'all', 'bad', or 'good' for option $1"
+                logerror "Expected '1', '2', or 'both'/'b' for --geekodoc, but got $2"
                 exit 1
                 ;;
             esac
-            ;;
-        -n|--nomake)
-            MAKE=0
-            shift
+            shift 2
             ;;
         --)
             shift
@@ -197,35 +221,39 @@ while true ; do
     esac
 done
 
-if [[ $MAKE -eq 1 ]]; then
-  loginfo "Making flat GeekoDoc..."
-  make -C "$PROGDIR/../rng" > /dev/null
-  [[ ! $? -eq 0 ]] && logerror --fatal "Make error. Quitting."
-else
-  loginfo "Not making flat GeekoDoc"
+
+if [[ ! -e $GEEKODOC_V1 ]]; then
+    logerror --fatal "No flat GeekoDoc v1 schema available. Use the build.sh script."
+fi
+if [[ ! -e $GEEKODOC_V2 ]]; then
+    logerror --fatal "No flat GeekoDoc v2 schema available. Use the build.sh script."
 fi
 
+
 loginfo "Using validator '$VALIDATOR'"
-loginfo "Selected category: '$TEST_CATEGORY'"
+loginfo "Test GeekoDoc version(s): $GEEKODOC"
 
-rm -r "$ERRORFILE" 2> /dev/null
+[[ -e "$ERRORFILE" ]] && rm -r "$ERRORFILE" 2> /dev/null
 
-case "$TEST_CATEGORY" in
-  all)
-    test_files $PROGDIR/good test_check_good
-    echo "----------------------------------"
-    test_files $PROGDIR/bad test_check_bad
-    ;;
-  good)
-    test_files $PROGDIR/good test_check_good
-    ;;
-  bad)
-    test_files $PROGDIR/bad test_check_bad
-    ;;
+case "$GEEKODOC" in
+    both|b)
+        validate_against_v1
+        validate_against_v2
+        ;;
+    1)
+        validate_against_v1
+        ;;
+    2)
+        validate_against_v2
+        ;;
+    *)
+        logerror "Expected '1', '2', or 'both'/'b' for --geekodoc, but got $1"
+        ;;
 esac
 
 
-echo
+
+# echo
 loginfo "Find all validation errors in $ERRORFILE"
 if [ 0 -eq "$ERRORS" ]; then
     loginfo "Found\e[1;32m $ERRORS errors\e[0m. Congratulations! :-)"
