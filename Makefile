@@ -38,7 +38,7 @@
 # * python3-rnginline (from obs://devel:languages:python/python3-rnginline)
 
 
-.SUFFIXES: .rnc rng
+#.SUFFIXES: .rnc .rng
 
 # === Directories
 GEEKODOC_DIR := geekodoc
@@ -48,8 +48,7 @@ GEEKODOC2_PATH := $(GEEKODOC_RNG_DIR)/5.1_2
 XSLT_DIR := $(GEEKODOC_DIR)/xsl
 
 # == DocBook RELAX NGs
-DOCBOOKXI_RNC_PATH  := /usr/share/xml/docbook/schema/rng/5.1/docbookxi.rnc
-DOCBOOKXI_RNG_PATH  := $(patsubst %.rnc, %.rng, $(DOCBOOKXI_RNC_PATH))
+DOCBOOKXI_RNG_PATH  := /usr/share/xml/docbook/schema/rng/5.1/docbookxi.rnc
 DOCBOOKXI_RNC := $(notdir $(DOCBOOKXI_RNC_PATH))
 DOCBOOKXI_RNG := $(notdir $(DOCBOOKXI_RNG_PATH))
 
@@ -116,8 +115,8 @@ clean:
 	2>/dev/null || true
 
 
-$(TARGETS): % : $(ALL_GEEKODOC)
-	@echo "Building targets: $< => $@"
+#$(TARGETS): % : $(ALL_GEEKODOC)
+#	@echo "Building targets: $< => $@"
 
 
 # ----------------------
@@ -142,11 +141,11 @@ $(TARGETS): % : $(ALL_GEEKODOC)
 	@sed -i -r 's_\s+$$__' $@
 
 $(ALL_ITS): $(GEEKODOC_RNG_DIR)/its.rnc
-	@echo "* Copying ITS schema  $< -> $@"
+	@echo "* Copying ITS schema $< -> $@"
 	@cp $< $@
 
 $(ALL_TRANS): $(GEEKODOC_RNG_DIR)/transclusion.rnc
-	@echo "* Copying Transclusion schema  $< -> $@"
+	@echo "* Copying Transclusion schema $< -> $@"
 	@cp $< $@
 
 #
@@ -167,7 +166,7 @@ $(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNC): $(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNG)
 	trang $< $@
 
 $(ALL_DOCBOOK): $(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNC)
-	@echo "* Copying DocBook schema  $< -> $@"
+	@echo "* Copying DocBook schema $< -> $@"
 	@cp $< $@
 
 
