@@ -37,82 +37,96 @@
 # * docbook_5 (from obs://Publishing)
 # * python3-rnginline (from obs://devel:languages:python/python3-rnginline)
 
+BUILD_DIR := build/
+VERSIONS := 1.0-db5.1 2.0-db5.1
+DIRS :=
+
+
+.PHONY: all
+all: geekodoc51-1
+
+PHONY: geekodoc51-1
+geekodoc51-1: directories
+	@echo 'This is GeekoDoc'
+
+directories:
+  mkdir -p $(BUILD_DIR)
+
+
+PHONY: clean
+clean:
+	@rm -rfv $(BUILD_DIR) 2> /dev/null || true
 
 #.SUFFIXES: .rnc .rng
 
 # === Directories
-GEEKODOC_DIR := geekodoc
-GEEKODOC_RNG_DIR := $(GEEKODOC_DIR)/rng
-GEEKODOC1_PATH := $(GEEKODOC_RNG_DIR)/5.1_1
-GEEKODOC2_PATH := $(GEEKODOC_RNG_DIR)/5.1_2
-XSLT_DIR := $(GEEKODOC_DIR)/xsl
+#GEEKODOC_DIR := geekodoc
+#GEEKODOC_RNG_DIR := $(GEEKODOC_DIR)/rng
+#GEEKODOC1_PATH := $(GEEKODOC_RNG_DIR)/5.1_1
+#GEEKODOC2_PATH := $(GEEKODOC_RNG_DIR)/5.1_2
+#XSLT_DIR := $(GEEKODOC_DIR)/xsl
 
-# == DocBook RELAX NGs
-DOCBOOKXI_RNG_PATH  := /usr/share/xml/docbook/schema/rng/5.1/docbookxi.rnc
-DOCBOOKXI_RNC := $(notdir $(DOCBOOKXI_RNC_PATH))
-DOCBOOKXI_RNG := $(notdir $(DOCBOOKXI_RNG_PATH))
+## == DocBook RELAX NGs
+#DOCBOOKXI_RNG_PATH  := /usr/share/xml/docbook/schema/rng/5.1/docbookxi.rng
+#DOCBOOKXI_RNC := $(notdir $(DOCBOOKXI_RNC_PATH))
+#DOCBOOKXI_RNG := $(notdir $(DOCBOOKXI_RNG_PATH))
 
-# === Naming
-# The naming was quite bad, so geekodoc5 version 1 refers to DocBook5,
-# not Geekodoc v5;
-# we'll provide a compatibility link from geekodoc-v1 -> geekodoc5
-GEEKODOC1_NAME := geekodoc-v1
-# Here it contains the "real" version:
-GEEKODOC2_NAME := geekodoc-v2
-# The RNG filename to validate with:
-RELAXNG_RNG := relaxng.rng
+## === Naming
+## The naming was quite bad, so geekodoc5 version 1 refers to DocBook5,
+## not Geekodoc v5;
+## we'll provide a compatibility link from geekodoc-v1 -> geekodoc5
+#GEEKODOC1_NAME := geekodoc-v1
+## Here it contains the "real" version:
+#GEEKODOC2_NAME := geekodoc-v2
+## The RNG filename to validate with:
+#RELAXNG_RNG := relaxng.rng
 
 # GEEKODOC1_DB_LINK := $(GEEKODOC1_PATH)/$(notdir $(DOCBOOKXI_RNC_PATH))
 # GEEKODOC2_DB_LINK := $(GEEKODOC2_PATH)/$(notdir $(DOCBOOKXI_RNC_PATH))
 
 # === Files
-SCH_FIX := $(XSLT_DIR)/sch-fix.xsl
+#SCH_FIX := $(XSLT_DIR)/sch-fix.xsl
 
-RELAXNG_BASE := $(GEEKODOC_RNG_DIR)/$(RELAXNG_RNG)
+#RELAXNG_BASE := $(GEEKODOC_RNG_DIR)/$(RELAXNG_RNG)
 
-GEEKODOC1_BASE := $(GEEKODOC1_PATH)/$(GEEKODOC1_NAME)
-GEEKODOC2_BASE := $(GEEKODOC2_PATH)/$(GEEKODOC2_NAME)
+#GEEKODOC1_BASE := $(GEEKODOC1_PATH)/$(GEEKODOC1_NAME)
+#GEEKODOC2_BASE := $(GEEKODOC2_PATH)/$(GEEKODOC2_NAME)
 
-GEEKODOC1_RNC := $(GEEKODOC1_BASE).rnc
-GEEKODOC1_FLAT_RNC := $(GEEKODOC1_BASE)-flat.rnc
-GEEKODOC1_FLAT_RNG := $(patsubst %.rnc, %.rng, $(GEEKODOC1_FLAT_RNC))
-GEEKODOC1_FLAT_RNI := $(patsubst %.rnc, %.rni, $(GEEKODOC1_FLAT_RNC))
-GEEKODOC2_RNC := $(GEEKODOC2_BASE).rnc
-GEEKODOC2_FLAT_RNC := $(GEEKODOC2_BASE)-flat.rnc
-GEEKODOC2_FLAT_RNG := $(patsubst %.rnc, %.rng, $(GEEKODOC2_FLAT_RNC))
-GEEKODOC2_FLAT_RNI := $(patsubst %.rnc, %.rni, $(GEEKODOC2_FLAT_RNC))
-GEEKODOC1_RNG := $(GEEKODOC1_BASE).rng
-GEEKODOC2_RNG := $(GEEKODOC2_BASE).rng
+#GEEKODOC1_RNC := $(GEEKODOC1_BASE).rnc
+#GEEKODOC1_FLAT_RNC := $(GEEKODOC1_BASE)-flat.rnc
+#GEEKODOC1_FLAT_RNG := $(patsubst %.rnc, %.rng, $(GEEKODOC1_FLAT_RNC))
+#GEEKODOC1_FLAT_RNI := $(patsubst %.rnc, %.rni, $(GEEKODOC1_FLAT_RNC))
+#GEEKODOC1_RNG := $(GEEKODOC1_BASE).rng
 
 
 # == Targets
 # Our targets we need to build:
 # TARGETS := $(GEEKODOC1_FLAT_RNC) $(GEEKODOC2_FLAT_RNC) $(DOCBOOKXI_RNC)
 
-ALL_DOCBOOK := $(GEEKODOC1_PATH)/$(DOCBOOKXI_RNC) \
-               $(GEEKODOC2_PATH)/$(DOCBOOKXI_RNC)
+#ALL_DOCBOOK := $(GEEKODOC1_PATH)/$(DOCBOOKXI_RNC) \
+#               $(GEEKODOC2_PATH)/$(DOCBOOKXI_RNC)
 
-ALL_ITS := $(GEEKODOC1_PATH)/its.rnc $(GEEKODOC2_PATH)/its.rnc
-ALL_TRANS := $(GEEKODOC1_PATH)/transclusion.rnc $(GEEKODOC2_PATH)/transclusion.rnc
+#ALL_ITS := $(GEEKODOC1_PATH)/its.rnc $(GEEKODOC2_PATH)/its.rnc
+#ALL_TRANS := $(GEEKODOC1_PATH)/transclusion.rnc $(GEEKODOC2_PATH)/transclusion.rnc
 
-ALL_OTHER := $(ALL_DOCBOOK) $(ALL_ITS) $(ALL_TRANS)
+#ALL_OTHER := $(ALL_DOCBOOK) $(ALL_ITS) $(ALL_TRANS)
 
-ALL_GEEKODOC := $(GEEKODOC1_FLAT_RNC) $(GEEKODOC2_FLAT_RNC)
-
-
-# == More Targets
-ALL_RNI := $(GEEKODOC1_FLAT_RNI) $(GEEKODOC2_FLAT_RNI)
-ALL_RNG := $(GEEKODOC1_FLAT_RNG) $(GEEKODOC2_FLAT_RNG)
-ALL_RNC := $(GEEKODOC1_FLAT_RNC) $(GEEKODOC2_FLAT_RNC)
+#ALL_GEEKODOC := $(GEEKODOC1_FLAT_RNC) $(GEEKODOC2_FLAT_RNC)
 
 
-.PHONY: all clean
-all:    $(ALL_GEEKODOC) $(ALL_OTHER)
+## == More Targets
+#ALL_RNI := $(GEEKODOC1_FLAT_RNI) $(GEEKODOC2_FLAT_RNI)
+#ALL_RNG := $(GEEKODOC1_FLAT_RNG) $(GEEKODOC2_FLAT_RNG)
+#ALL_RNC := $(GEEKODOC1_FLAT_RNC) $(GEEKODOC2_FLAT_RNC)
 
-clean:
-	@rm -v $(ALL_OTHER) $(ALL_RNG) $(ALL_RNI) $(ALL_RNC) \
-	$(GEEKODOC1_RNG) $(GEEKODOC2_RNG) \
-	2>/dev/null || true
+
+#.PHONY: all clean
+#all:    $(ALL_GEEKODOC) $(ALL_OTHER)
+
+#clean:
+#	@rm -v $(ALL_OTHER) $(ALL_RNG) $(ALL_RNI) $(ALL_RNC) \
+#	$(GEEKODOC1_RNG) $(GEEKODOC2_RNG) \
+#	2>/dev/null || true
 
 
 #$(TARGETS): % : $(ALL_GEEKODOC)
@@ -121,78 +135,49 @@ clean:
 
 # ----------------------
 
-%.rng: %.rnc  $(ALL_ITS) $(ALL_TRANS)
-	@echo "* Converting RNG $< -> RNC $@"
-	@trang $< $@
+#%.rng: %.rnc $(ALL_ITS) $(ALL_TRANS)
+#	@echo "* Converting RNC $< -> RNG $@"
+#	@trang $< $@
 
 
-%-flat.rni: %.rng
-	@echo "* Flattening $< -> $@"
-	rnginline $< $@
+#%-flat.rni: %.rng
+#	@echo "* Flattening $< -> $@"
+#	rnginline $< $@
 
-.INTERMEDIATE: %-flat.rni
-%-flat.rng: %-flat.rni
-	@echo '* Cleaning up schema contents $< -> $@'
-	xmllint -o $@ --nsclean --format $<
+#.INTERMEDIATE: %-flat.rni
+#%-flat.rng: %-flat.rni
+#	@echo '* Cleaning up schema contents $< -> $@'
+#	xmllint -o $@ --nsclean --format $<
 
-%-flat.rnc: %-flat.rng
-	@echo "* Converting $< -> $@"
-	trang $< $@
-	@sed -i -r 's_\s+$$__' $@
+#%-flat.rnc: %-flat.rng
+#	@echo "* Converting $< -> $@"
+#	trang $< $@
+#	@sed -i -r 's_\s+$$__' $@
 
-$(ALL_ITS): $(GEEKODOC_RNG_DIR)/its.rnc
-	@echo "* Copying ITS schema $< -> $@"
-	@cp $< $@
+#$(ALL_ITS): $(GEEKODOC_RNG_DIR)/its.rnc
+#	@echo "* Copying ITS schema $< -> $@"
+#	@cp $< $@
 
-$(ALL_TRANS): $(GEEKODOC_RNG_DIR)/transclusion.rnc
-	@echo "* Copying Transclusion schema $< -> $@"
-	@cp $< $@
+#$(ALL_TRANS): $(GEEKODOC_RNG_DIR)/transclusion.rnc
+#	@echo "* Copying Transclusion schema $< -> $@"
+#	@cp $< $@
 
-#
-# The DocBook projects upstream schema includes broken Schematron patterns.
-# This is fixed in the OBS-packaged version of the schema, but if we
-# get an old, unfixed DocBook, apply the stylesheet
-# (see openSUSE/geekodoc#22). We use this process flow:
-#
-# DB5 RNG --[XSLT]--> DB5 RNG2 --[trang]--> DB5 RNC
-#
+##
+## The DocBook projects upstream schema includes broken Schematron patterns.
+## This is fixed in the OBS-packaged version of the schema, but if we
+## get an old, unfixed DocBook, apply the stylesheet
+## (see openSUSE/geekodoc#22). We use this process flow:
+##
+## DB5 RNG --[XSLT]--> DB5 RNG2 --[trang]--> DB5 RNC
+##
 
-$(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNG): $(DOCBOOKXI_RNG_PATH)
-	@echo "* Fixing DocBook RNG schema..."
-	xsltproc --output $@ $(SCH_FIX) $<
+#$(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNG): $(DOCBOOKXI_RNG_PATH)
+#	@echo "* Fixing DocBook RNG schema..."
+#	xsltproc --output $@ $(SCH_FIX) $<
 
-$(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNC): $(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNG)
-	@echo "* Converting DocBook $< -> $@"
-	trang $< $@
+#$(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNC): $(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNG)
+#	@echo "* Converting DocBook $< -> $@"
+#	trang $< $@
 
-$(ALL_DOCBOOK): $(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNC)
-	@echo "* Copying DocBook schema $< -> $@"
-	@cp $< $@
-
-
-### Old part, will be removed
-# == Old variables
-# SUSESCHEMA := geekodoc5
-# SUSESCHEMA_RNC := $(SUSESCHEMA)-flat.rnc
-# SUSESCHEMA_RNG := $(patsubst %.rnc, %.rng, $(SUSESCHEMA_RNC))
-#
-# # .INTERMEDIATE: $(SUSESCHEMA).rng
-# $(SUSESCHEMA).rng: $(SUSESCHEMA).rnc $(DOCBOOKXI_RNC)
-# 	@echo "* Converting $< -> $@"
-# 	trang $< $@
-#
-# .INTERMEDIATE: $(SUSESCHEMA)-flat.rni
-# $(SUSESCHEMA)-flat.rni: $(SUSESCHEMA).rng
-# 	@echo "* Flattening $< -> $@"
-# 	rnginline $< $@
-#
-# # .INTERMEDIATE: $(SUSESCHEMA)-flat.rng
-# $(SUSESCHEMA_RNG): $(SUSESCHEMA)-flat.rni
-# 	@echo '* Cleaning up schema contents $< -> $@'
-# 	xmllint -o $@ --nsclean --format $<
-#
-# $(SUSESCHEMA_RNC): $(SUSESCHEMA_RNG)
-# 	@echo "* Converting $< -> $@"
-# 	trang $< $@
-# 	@sed -i -r 's_\s+$$__' $@
-#
+#$(ALL_DOCBOOK): $(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNC)
+#	@cp $< $@
