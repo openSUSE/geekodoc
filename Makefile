@@ -1,4 +1,3 @@
-#
 # Makefile to create "flat" RELAX NG schemas
 #
 # Dependencies
@@ -10,12 +9,12 @@
 #    * docbook.rnc
 #      the upstream schema file
 #
-# Process Flow
-#  geekodoc-v?.rnc # (1)
-#  +--> geekodoc-v?.rng #(2)
-#       +--> geekodoc-v?-flat.rni # (3)
-#            +--> geekodoc-v?-flat.rng # (4)
-#                 +--> geekodoc-v?-flat.rnc # (5)
+# Process
+#  geekodoc.rnc # (1)
+#  +--> geekodoc.rng #(2)
+#       +--> geekodoc-flat.rni # (3)
+#            +--> geekodoc-flat.rng # (4)
+#                 +--> geekodoc-flat.rnc # (5)
 #
 # (1) This is our main file; all changes to the upstream schema go here
 # (2) We need to create the XML format (RNG) first to process it with
@@ -27,37 +26,58 @@
 # (5) The end result, which can be used independently from DocBook or Geekodoc
 #     source files
 #
-# Author:
+# Authors:
 #   Thomas Schraitle <toms@opensuse.org>
+#   Stefan Knorr <sknorr@suse.de>
 # Date:
-#   ?-2019
+#   2015-2020
 #
-# Requirements
+# Requirements:
 # * trang
 # * docbook_5 (from obs://Publishing)
 # * python3-rnginline (from obs://devel:languages:python/python3-rnginline)
 
-BUILD_DIR := build/
-VERSIONS := 1.0-db5.1 2.0-db5.1
-DIRS :=
+BUILD_DIR  := build/
+BUILD_GD   := $(BUILD_DIR)/geekodoc/
+BUILD_TEMP := $(BUILD_DIR)/geekodoc_temp/
+
+VERSIONS   := 1.0-db5.1 2.0-db5.1
 
 
 .PHONY: all
-all: geekodoc51-1
+all: $(VERSIONS)
 
-PHONY: geekodoc51-1
-geekodoc51-1: directories
-	@echo 'This is GeekoDoc'
+.PHONY: $(VERSIONS)
+$(VERSIONS): $(BUILD_GD)/$@/geekodoc-flat.rnc $(BUILD_GD)/$@/geekodoc-flat.rng | $(BUILD_GD)/$@
 
-directories:
-  mkdir -p $(BUILD_DIR)
+$(BUILD_GD)/*:
+	mkdir -p $@
+
+$(BUILD_TEMP)/%.rng: %.rnc $(ALL_ITS) $(ALL_TRANS)
+	@echo "* Converting RNC $< -> RNG $@"
+	@trang $< $@
+
+
+%-flat.rni: %.rng
+	@echo "* Flattening $< -> $@"
+	rnginline $< $@
+
+.INTERMEDIATE: %-flat.rni
+%-flat.rng: %-flat.rni
+	@echo '* Cleaning up schema contents $< -> $@'
+	xmllint -o $@ --nsclean --format $<
+
+%-flat.rnc: %-flat.rng
+	@echo "* Converting $< -> $@"
+	trang $< $@
+	@sed -i -r 's_\s+$$__' $@
+
+
 
 
 PHONY: clean
 clean:
 	@rm -rfv $(BUILD_DIR) 2> /dev/null || true
-
-#.SUFFIXES: .rnc .rng
 
 # === Directories
 #GEEKODOC_DIR := geekodoc
@@ -173,7 +193,7 @@ clean:
 
 #$(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNG): $(DOCBOOKXI_RNG_PATH)
 #	@echo "* Fixing DocBook RNG schema..."
-#	xsltproc --output $@ $(SCH_FIX) $<
+#	xsltproc --output $@ bin/schema-fix.xsl $<
 
 #$(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNC): $(GEEKODOC_RNG_DIR)/$(DOCBOOKXI_RNG)
 #	@echo "* Converting DocBook $< -> $@"

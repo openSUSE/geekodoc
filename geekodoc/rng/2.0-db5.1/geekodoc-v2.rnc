@@ -9,6 +9,6 @@
 #
 
 
-include "geekodoc-v1.rnc" {
+include "../1.0-db5.1/geekodoc-v1.rnc" {
 
 }
