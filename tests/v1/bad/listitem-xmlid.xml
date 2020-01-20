@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v1.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+  <title/>
+  <orderedlist>
+    <listitem xml:id="xxx" >
+      <para/>
+    </listitem>
+  </orderedlist>
+</article>

@@ -1694,6 +1694,15 @@ include "db52itsxi.rnc"
       }
   }
 
+  # Issue #80:
+  # Disallow xml:id on listitems
+  db.listitem.attlist =
+    db.listitem.role.attribute?
+    # db.common.attributes without
+    #  db.xml.id.attribute? and db.common.linking.attributes
+    & db.common.base.attributes
+    & db.annotations.attribute?
+
   # Issue #51:
   # Reduce content model in screen
   # screen/programlisting content model
