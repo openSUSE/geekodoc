@@ -37,20 +37,19 @@
 # * docbook_5 (from obs://Publishing)
 # * python3-rnginline (from obs://devel:languages:python/python3-rnginline)
 
-BUILD_DIR  := build/
-BUILD_GD   := $(BUILD_DIR)/geekodoc/
-BUILD_TEMP := $(BUILD_DIR)/geekodoc_temp/
+BUILD_DIR  := build
+BUILD_GD   := $(BUILD_DIR)/geekodoc
 
-VERSIONS   := 1.0-db5.1 2.0-db5.1
+VERSIONS   := geekodoc-v-1.0-db5.1 geekodoc-v-2.0-db5.1
 
 
 .PHONY: all
 all: $(VERSIONS)
 
 .PHONY: $(VERSIONS)
-$(VERSIONS): $(BUILD_GD)/$@/geekodoc-flat.rnc $(BUILD_GD)/$@/geekodoc-flat.rng | $(BUILD_GD)/$@
+$(VERSIONS):geekodoc-v-%: $(BUILD_GD)/%/geekodoc.rnc | $(BUILD_GD)/%
 
-$(BUILD_GD)/*:
+$(BUILD_GD) $(BUILD_TEMP):%:
 	mkdir -p $@
 
 $(BUILD_TEMP)/%.rng: %.rnc $(ALL_ITS) $(ALL_TRANS)
@@ -62,12 +61,12 @@ $(BUILD_TEMP)/%.rng: %.rnc $(ALL_ITS) $(ALL_TRANS)
 	@echo "* Flattening $< -> $@"
 	rnginline $< $@
 
-.INTERMEDIATE: %-flat.rni
-%-flat.rng: %-flat.rni
+.INTERMEDIATE: $(BUILD_GD)/%.rni
+$(BUILD_GD)/*/*.rng:%.rng: $(BUILD_GD)/%.rni
 	@echo '* Cleaning up schema contents $< -> $@'
 	xmllint -o $@ --nsclean --format $<
 
-%-flat.rnc: %-flat.rng
+$(BUILD_GD)/*/*.rnc:build/geekodoc/1.0-db5.1/%.rnc: %.rng
 	@echo "* Converting $< -> $@"
 	trang $< $@
 	@sed -i -r 's_\s+$$__' $@
