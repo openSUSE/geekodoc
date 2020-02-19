@@ -12,7 +12,7 @@ env:
 # command to install dependencies
 before_install:
   # - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev libxml2-utils xsltproc jing trang make
+  - sudo apt-get install -y libxml2-dev libxml2-utils xsltproc jing trang make tree
   # docbook5-xml
   - cat /etc/os-release
 
@@ -20,9 +20,13 @@ install:
   - pip install rnginline
   # Workaround to download DocBook 5.1 schema directly
   - sudo mkdir -p /usr/share/xml/docbook/schema/rng/5.1/
-  - sudo wget -P /usr/share/xml/docbook/schema/rng/5.1/ http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rng
-  - make VERBOSE=1 -C geekodoc/rng
+  - sudo wget -P /usr/share/xml/docbook/schema/rng/5.1/ http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rnc http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/docbookxi.rng http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/dbits.rnc http://docs.oasis-open.org/docbook/docbook/v5.1/cos01/schemas/rng/dbits.rng
+
 
 # commands to run tests
 script:
-    - ./geekodoc/tests/run-tests.sh -V jing
+    - ./build.sh -vvv
+    - ./tests/run-tests.sh -V jing
+
+after_failure:
+    - tree build/
