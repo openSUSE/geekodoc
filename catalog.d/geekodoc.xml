@@ -2,30 +2,48 @@
 
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
   <group id="geekodoc">
-    <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5.rnc"
-     uri="../geekodoc/rng/geekodoc5.rnc"/>
-    <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5-flat.rnc"
-     uri="../geekodoc/rng/geekodoc5-flat.rnc"/>
-    <uri
-     name="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5.rnc"
-     uri="../geekodoc/rng/geekodoc5.rnc"/>
-    <uri
-     name="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5-flat.rnc"
-     uri="../geekodoc/rng/geekodoc5-flat.rnc"/>
-    <uri name="urn:x-suse:rng:geekodoc5.rnc" uri="../geekodoc/rng/geekodoc5-flat.rnc"/>
-    <uri name="urn:x-suse:rng:geekodoc5-flat.rnc" uri="../geekodoc/rng/geekodoc5-flat.rnc"/>
+    <!-- Old system identifiers -->
+    <rewriteSystem
+       systemIdStartString="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/"
+       rewritePrefix="../geekodoc/rng/5.1_1/"/>
+    <rewriteURI
+       uriStartString="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/"
+       rewritePrefix="../geekodoc/rng/5.1_1/"/>
 
-    <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5.rng"
-     uri="../geekodoc/rng/geekodoc5.rng"/>
-    <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5-flat.rng"
-     uri="../geekodoc/rng/geekodoc5-flat.rng"/>
-    <uri
-     name="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5.rng"
-     uri="../geekodoc/rng/geekodoc5.rng"/>
-    <uri
-    name="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5-flat.rng"
-     uri="../geekodoc/rng/geekodoc5-flat.rng"/>
-    <uri name="urn:x-suse:rng:geekodoc5.rng" uri="../geekodoc/rng/geekodoc5-flat.rng"/>
-    <uri name="urn:x-suse:rng:geekodoc5-flat.rng" uri="../geekodoc/rng/geekodoc5-flat.rng"/>
+    <uri name="urn:x-suse:rng:geekodoc5.rnc"      uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rnc"/>
+    <system systemId="urn:x-suse:rng:geekodoc5.rnc" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rnc"/>
+    <uri name="urn:x-suse:rng:geekodoc5-flat.rnc" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rnc"/>
+    <system systemId="urn:x-suse:rng:geekodoc5-flat.rnc" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rnc"/>
+    <uri name="urn:x-suse:rng:geekodoc5.rng"      uri="../geekodoc/rng/5.1_1/geekodoc-v1.rng"/>
+    <system systemId="urn:x-suse:rng:geekodoc5.rng" uri="../geekodoc/rng/5.1_1/geekodoc-v1.rng"/>
+    <uri name="urn:x-suse:rng:geekodoc5-flat.rng" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rng"/>
+    <system systemId="urn:x-suse:rng:geekodoc5-flat.rng" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rng"/>
+
+    <!-- GeekoDoc v1 -->
+    <rewriteSystem
+       systemIdStartString="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/v1/"
+       rewritePrefix="../geekodoc/rng/5.1_1/"/>
+
+    <uri name="urn:x-suse:rnc:v1:geekodoc"      uri="../geekodoc/rng/5.1_1/geekodoc-v1.rnc"/>
+    <system systemId="urn:x-suse:rnc:v1:geekodoc" uri="../geekodoc/rng/5.1_1/geekodoc-v1.rnc"/>
+    <uri name="urn:x-suse:rnc:v1:geekodoc-flat" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rnc"/>
+    <system systemId="urn:x-suse:rnc:v1:geekodoc-flat" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rnc"/>
+    <uri name="urn:x-suse:rng:v1:geekodoc"      uri="../geekodoc/rng/5.1_1/geekodoc-v1.rng"/>
+    <system systemId="urn:x-suse:rng:v1:geekodoc" uri="../geekodoc/rng/5.1_1/geekodoc-v1.rng"/>
+    <uri name="urn:x-suse:rng:v1:geekodoc-flat" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rng"/>
+    <system systemId="urn:x-suse:rng:v1:geekodoc-flat" uri="../geekodoc/rng/5.1_1/geekodoc-v1-flat.rng"/>
+
+    <!-- GeekoDoc v2 -->
+    <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/v2/geekodoc5.rnc"
+     uri="../geekodoc/rng/5.1_2/geekodoc-v2-flat.rnc"/>
+
+    <uri name="urn:x-suse:rnc:v2:geekodoc"      uri="../geekodoc/rng/5.1_2/geekodoc-v2.rnc"/>
+    <system systemId="urn:x-suse:rnc:v2:geekodoc" uri="../geekodoc/rng/5.1_2/geekodoc-v2.rnc"/>
+    <uri name="urn:x-suse:rnc:v2:geekodoc-flat" uri="../geekodoc/rng/5.1_2/geekodoc-v2-flat.rnc"/>
+    <system systemId="urn:x-suse:rnc:v2:geekodoc-flat" uri="../geekodoc/rng/5.1_2/geekodoc-v2.rnc"/>
+    <uri name="urn:x-suse:rng:v2:geekodoc"      uri="../geekodoc/rng/5.1_2/geekodoc-v2.rng"/>
+    <system systemId="urn:x-suse:rng:v2:geekodoc" uri="./geekodoc/rng/5.1_2/geekodoc-v2.rng"/>
+    <uri name="urn:x-suse:rng:v2:geekodoc-flat" uri="../geekodoc/rng/5.1_2/geekodoc-v2-flat.rng"/>
+    <system systemId="urn:x-suse:rng:v2:geekodoc-flat" uri="../geekodoc/rng/5.1_2/geekodoc-v2-flat.rng"/>
   </group>
 </catalog>

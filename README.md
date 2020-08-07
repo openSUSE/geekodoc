@@ -8,14 +8,57 @@
 GeekoDoc is a RELAX NG schema and a subset of DocBook 5. Currently, it can be
 used in two variants:
 
-1. As the file `geekodoc5.rn{c,g}` which is based on `docbookxi.rn{c,g}`. In
+1. As the file `geekodoc-v?.rn{c,g}` which is based on `docbookxi.rn{c,g}`. In
    other words, the GeekoDoc schema cannot life without the DocBook schema.
-2. As a single`geekodoc5-flat.rn{c,g}`. This file is independant from the
+2. As a single`geekodoc-v?-flat.rn{c,g}`. This file is independant from the
    DocBook schema and can be used without having DocBook 5 installed on
    your system.
 
 Both variants contain the same structure, elements, and attributes. They
 serve different purposes.
+
+
+## Available GeekoDoc Versions
+
+Currently, to support legacy documentation, we split the GeekoDoc schema into
+two versions:
+
+* **Version 1** this is the legacy version.
+* **Version 2** this is where all the new features are added.
+
+The two versions can be accessed by its URI.
+
+* Version 1 URIs
+
+  These URIs are deprecated and shouldn't be use for new documents.
+  General syntax is:
+
+       urn:x-suse:rng:FILE
+
+  The following URIs are defined:
+
+      urn:x-suse:rng:geekodoc5.rnc
+      urn:x-suse:rng:geekodoc5-flat.rnc
+      urn:x-suse:rng:geekodoc5.rng
+      urn:x-suse:rng:geekodoc5-flat.rng
+
+* Version 2 URIs
+
+  These are the new URIs which can be used for old and new versions of GeekoDoc.
+  The new URIs distinguish between GeekoDoc versions. The general syntax is:
+
+      urn:x-suse:FORMAT:VERSION:SCHEMA
+
+  * FORMAT: can be "rnc" or "rng"
+  * VERSION: can be "v1" or "v2"
+  * SCHEMA: normal ("geekodoc") or flat ("geekodoc-flat")
+
+  The following URIs are defined:
+
+      urn:x-suse:rnc:v1:geekodoc
+      urn:x-suse:rnc:v1:geekodoc-flat
+      urn:x-suse:rng:v1:geekodoc
+      urn:x-suse:rng:v1:geekodoc-flat
 
 
 ## Creating Flat GeekoDoc
