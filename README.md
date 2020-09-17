@@ -85,6 +85,49 @@ The executable can be found in `.env3/bin/rnginline`.
 3. Run `make`.
 
 
+### Installing it on Debian/Ubuntu
+
+To install GeekoDoc on Debian or Ubuntu from scratch, do the following steps:
+
+1. [Create a virtual Python environment with rnginline](#Installing-rnginline-using-a-Python-Virtual-Environment).
+
+2. [Create a Flat Geekodoc Schema](#Creating-a-Flat-GeekoDoc-Schema)
+
+3. Copy the XML catalog file to the standard location:
+
+       $ cp -v catalog.d/geekodoc.xml /etc/xml/geekodoc.xml
+
+4. Adapt the paths in the catalog file:
+
+       $ sed -i 's#"\.\./#"/usr/share/xml/#' /etc/xml/geekodoc.xml
+
+5. Create the target directory and copy the schema files:
+
+       $ mkdir -p /usr/share/xml/rng
+       $ cp -v geekodoc/rng/*-flat.rn? /usr/share/xml/rng
+
+6. Adapt the main XML catalog:
+
+       $ sudo xmlcatalog --noout --add delegateSystem \
+           https://github.com/openSUSE/geekodoc/ /etc/xml/geekodoc.xml /etc/xml/catalog
+       $ sudo xmlcatalog --noout --add delegateURI "urn:x-suse:rng:" \
+           /etc/xml/geekodoc.xml /etc/xml/catalog
+       $ sudo xmlcatalog --noout --add delegateSystem "urn:x-suse:rng:" \
+           /etc/xml/geekodoc.xml /etc/xml/catalog
+
+7. Test the installation:
+
+       $ xmlcatalog /etc/xml/catalog \
+           https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5-flat.rnc \
+           urn:x-suse:rng:geekodoc5.rng
+
+   You should get something like this:
+
+        /usr/share/xml/geekodoc/rng/geekodoc5-flat.rnc
+        No entry for SYSTEM urn:x-suse:rng:geekodoc5.rng
+        /usr/share/xml/geekodoc/rng/geekodoc5-flat.rng
+
+
 ## Supporting Vim
 
 To work with RELAX NG and vim, you need a `.vim` file. This file
