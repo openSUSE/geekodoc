@@ -454,10 +454,6 @@ div {
 
       ## Points to the element whose content is to be used as the text of the link
       attribute endterm { xsd:IDREF }
-    db.linkend.attribute =
-
-      ## Points to an internal link target by identifying the value of its xml:id attribute
-      attribute linkend { xsd:IDREF }
     db.linkends.attribute =
 
       ## Points to one or more internal link targets by identifying the value of their xml:id attributes
@@ -531,10 +527,6 @@ div {
       & db.xlink.title.attribute?
       & db.xlink.show.attribute?
       & db.xlink.actuate.attribute?
-    db.xml.id.attribute =
-
-      ## Identifies the unique ID value of the element
-      attribute xml:id { xsd:ID }
     db.xml.lang.attribute =
 
       ## Specifies the natural language of the element and its descendants
@@ -10239,7 +10231,24 @@ div {
     & db.spacing.attribute?
     & db.variablelist.termlength.attribute?
   db.warning.attlist = db.warning.role.attribute? & db.common.attributes
-  # ========= Changed attributes
+  # ========= Changed or Redefinied Attributes
+  div {
+    # Restrict ID/IDREF to numbers, digits and "-" only
+    db.linkend.attribute =
+
+      ## Points to an internal link target by identifying the value of its xml:id attribute
+      ## valid value is numbers, digits and "-" only
+      attribute linkend {
+        xsd:IDREF { pattern = "[\-0-9a-zA-Z]+" }
+      }
+    db.xml.id.attribute =
+
+      ## Identifies the unique ID value of the element
+      ## valid value is numbers, digits and "-" only
+      attribute xml:id {
+        xsd:ID { pattern = "[\-0-9a-zA-Z]+" }
+      }
+  }
   # Introduce optional its:translate attribute:
   db.common.base.attributes =
     db.version.attribute?
