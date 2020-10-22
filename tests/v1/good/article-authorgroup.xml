@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+ <info>
+  <title>Test: authorgroup</title>
+  <authorgroup>
+   <author>
+    <personname>
+     <firstname>Tux</firstname>
+     <surname>Penguin</surname>
+    </personname>
+    <email>tux@example.org</email>
+    <!--<affiliation>
+     <!-\-<jobtitle>Ice breaker</jobtitle>-\->
+     <!-\-<orgname>Icelandic Coporation Inc.</orgname>-\->
+    </affiliation>-->
+   </author>
+  </authorgroup>
+ </info>
+ <para>Bla</para>
+ <table>
+  <title></title>
+  <tgroup cols="2">
+   <tbody>
+    <row>
+     <entry></entry>
+    </row>
+   </tbody>
+  </tgroup>
+ </table>
+</article>

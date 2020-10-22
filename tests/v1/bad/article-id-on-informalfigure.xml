@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+ <title>Test xml:id on an informalfigure</title>
+ <informalfigure xml:id="should-not-be-there">
+  <mediaobject>
+   <imageobject>
+    <imagedata fileref="foo.png"/>
+   </imageobject>
+  </mediaobject>
+ </informalfigure>
+</article>

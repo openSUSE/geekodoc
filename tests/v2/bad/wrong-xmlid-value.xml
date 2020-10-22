@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/home/toms/repos/GH/opensuse/geekodoc/geekodoc/rng/5.1_1/xmlid-test.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.2" xml:id="art.wrong.id">
+   <title>Attribute xml:id contains dots</title>
+   <para/>
+</article>

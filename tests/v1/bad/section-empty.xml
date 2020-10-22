@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<!--
+Issue #64: disallow empty sections
+
+-->
+<sect1 xmlns="http://docbook.org/ns/docbook" version="5.1">
+ <title>Empty Section</title>
+</sect1>
