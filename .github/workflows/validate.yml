@@ -1,0 +1,26 @@
+name: "Validating GeekoDoc"
+
+on: push
+
+jobs:
+  validate:
+    name: "Test GeekoDoc"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          path: main
+
+      - name: Checkout rnginline
+        uses: actions/checkout@v2
+        with:
+          repository: h4l/rnginline
+          path: rnginline
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install libxml2-utils trang
+          echo "----"
+          ls
