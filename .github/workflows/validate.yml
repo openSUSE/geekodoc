@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          path: main
 
       - name: Checkout rnginline
         uses: actions/checkout@v2
@@ -30,7 +28,7 @@ jobs:
           whereis rnginline
 
       - name: Building GeekoDoc
-        run: ./main/build.sh -vvv
+        run: ./build.sh -vvv
 
       - name: Testing GeekoDoc
-        run:  ./main/tests/run-tests.sh
+        run:  ./tests/run-tests.sh
