@@ -21,11 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get install libxml2-utils trang
+          sudo apt-get install libxml2-utils trang python3-wheel
 
       - name: Preparing rnginline
+
         run: |
-          (cd rnginline; pip install -e .)
+          (cd rnginline; pip3 install -e .)
           pwd
           ls
 
