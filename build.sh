@@ -47,22 +47,22 @@ RESET="\e[0m"
 
 # --- Global variables
 ME="${0##*/}"
-VERBOSITY=0
+VERBOSITY=2
 LOGGING_LEVEL="DEBUG"
 declare -A LOGLEVELS=([DEBUG]=0 [INFO]=1 [WARN]=2 [ERROR]=3)
 declare -A LEVEL2LOG=([0]="ERROR" [1]="WARN" [2]="INFO" [3]="DEBUG")
 declare -A LOGCOLORS=([DEBUG]=$CYAN [INFO]=$BOLD [WARN]=$YELLOW [ERROR]=$RED)
 
 # -- Paths
-DOCBOOKXI_URI="http://www.oasis-open.org/docbook/xml/5.1/rng/docbookxi.rnc"
-DOCBOOKXI_RNC_PATH="/usr/share/xml/docbook/schema/rng/5.1/docbookxi.rnc"
-DBITS_RNC_PATH="/usr/share/xml/docbook/schema/rng/5.1/dbits.rnc"
 GEEKODOC_DIR="geekodoc"
 GEEKODOC_RNG_DIR=${GEEKODOC_DIR}/rng
 GEEKODOC1_PATH=${GEEKODOC_RNG_DIR}/5.1_1
 GEEKODOC2_PATH=${GEEKODOC_RNG_DIR}/5.1_2
 # XSLT_DIR=${GEEKODOC_DIR}/xsl
 BUILD_DIR="build"
+DIST_DIR="dist"
+EXTERNAL_DIR="external"
+DOCBOOK5_SRC_DIR="$EXTERNAL_DIR/docbook5"
 
 # === Naming
 # The naming was unfortunate, so geekodoc5 version 1 refers to DocBook5,
@@ -126,8 +126,9 @@ SYNOPSIS
 OPTIONS
   -v, -vv, -vvv   Log level, the more you add, the more messages
                   you get. Restricted to -vvv (=DEBUG)
+                  (default: ${VERBOSITY})
   -b DIR, --builddir=DIR
-                  Set the directory where to build (default: ".build")
+                  Set the directory where to build (default: "${BUILD_DIR}")
                   HINT:
                   If the given directory already exists, it's renamed
                   with the "old" command.
@@ -153,61 +154,24 @@ function requires {
     loginfo "All requirements are ok."
 }
 
-function get_docbook5_path {
-    local path
-    local res
-    loginfo "Retrieve XML catalog entry..."
-
-    path=$(xmlcatalog /etc/xml/catalog "$DOCBOOKXI_URI")
-    res=$?
-    logdebug "Detected OS '$ID'..."
-
-    if [ 0 -gt "$res" ]; then
-        # error, could not be found, so fall back
-        case $ID in
-          opensuse*|sle*)
-            path="/usr/share/xml/docbook/schema/rng/5.1/docbookxi.rnc"
-            ;;
-          debian*|ubuntu*)
-            path="/usr/share/xml/docbook/schema/rng/5.1/docbookxi.rnc"
-            ;;
-          fedora|redhat*)
-            path="/usr/share/xml/docbook5/schema/rng/5.1/docbookxi.rnc"
-            ;;
-          *)
-            exit_on_error "Couldn't find OS $ID..."
-            ;;
-        esac
-        DOCBOOKXI_URI="$path"
-        logdebug "Use $path"
-    else
-        # success, use the result, but cut off the "file://" schema
-        path="${path#file://*}"
-    fi
-    logdebug "Use '$path' path for DocBook5"
-}
-
 function create_build_env {
     loginfo "Create build environment..."
     # Dir structure
     if [[ -n $BUILD_DIR ]] && [[ -d $BUILD_DIR ]]; then
-       rm -rf $BUILD_DIR 2>/dev/null
+       rm -rf $BUILD_DIR $DIST_DIR 2>/dev/null
     fi
-    mkdir -p $BUILD_DIR
+    mkdir -p $BUILD_DIR $DIST_DIR/{$GEEKODOC1_PATH,$GEEKODOC1_PATH}
+
     [[ -d $BUILD_DIR/$GEEKODOC1_PATH ]] || mkdir -p $BUILD_DIR/$GEEKODOC1_PATH
     [[ -d $BUILD_DIR/$GEEKODOC2_PATH ]] || mkdir -p $BUILD_DIR/$GEEKODOC2_PATH
 
     cp $GEEKODOC1_PATH/*.rnc $BUILD_DIR/$GEEKODOC1_PATH
     cp $GEEKODOC2_PATH/*.rnc $BUILD_DIR/$GEEKODOC2_PATH
     # Copy DocBook5 schema for GeekoDoc v1
-    cp $DOCBOOKXI_RNC_PATH $BUILD_DIR/$GEEKODOC1_PATH
+    cp $DOCBOOK5_SRC_DIR/*.rnc $BUILD_DIR/$GEEKODOC1_PATH
 
     # Copy DocBook5 schema and ITS for GeekoDoc v2
-    cp $DOCBOOKXI_RNC_PATH $BUILD_DIR/$GEEKODOC2_PATH
-    pushd $BUILD_DIR/$GEEKODOC2_PATH
-    ln -s $DBITS_RNC_PATH
-    # cp $DBITS_RNC_PATH $BUILD_DIR/$GEEKODOC2_PATH
-    popd
+    cp $DOCBOOK5_SRC_DIR/*.rnc $BUILD_DIR/$GEEKODOC2_PATH
 
     logdebug "Build environment created."
 }
@@ -268,7 +232,7 @@ function copy_flat_rnc {
     for f in $files; do
         rnc="$f-flat.rnc"
         target="${f#$BUILD_DIR/}"
-        target="${target%/*}"
+        target="$DIST_DIR/${target%/*}"
         logdebug "Copy $rnc -> $target"
         sed -i 's/[[:blank:]]*$//' "$rnc"
         cp "$rnc" "$target"
@@ -299,15 +263,16 @@ while true; do
   esac
 done
 
+
 # Fall back to 3 (=DEBUG) if we got more than 4
 [[ $VERBOSITY -ge 3 ]] && VERBOSITY=3
 LOGGING_LEVEL=${LEVEL2LOG[$VERBOSITY]}
+
 
 # -- Process
 files="$BUILD_DIR/$GEEKODOC1_PATH/$GEEKODOC1_NAME \
        $BUILD_DIR/$GEEKODOC2_PATH/$GEEKODOC2_NAME"
 requires "$files"
-get_docbook5_path
 create_build_env "$files"
 rnc_to_rng "$files"
 make_flat "$files"
