@@ -15,9 +15,9 @@ tests/last-test-run-errors
 geekodoc/rng/5.1_?/*.rni
 
 build/
-.build/
 autom4te.cache/
 # Makefile
+dist/
 
 # Generated files, not to be added
 config.log
