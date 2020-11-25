@@ -10,7 +10,7 @@ used in two variants:
 
 1. As the file `geekodoc-v?.rn{c,g}` which is based on `docbookxi.rn{c,g}`. In
    other words, the GeekoDoc schema cannot life without the DocBook schema.
-2. As a single`geekodoc-v?-flat.rn{c,g}`. This file is independant from the
+2. As a single`geekodoc-v?-flat.rn{c,g}`. This file is independent from the
    DocBook schema and can be used without having DocBook 5 installed on
    your system.
 
@@ -20,13 +20,12 @@ serve different purposes.
 
 ## Available GeekoDoc Versions
 
-Currently, to support legacy documentation, we split the GeekoDoc schema into
-two versions:
+To support legacy documentation, there are two GeekoDoc schema versions:
 
 * **Version 1** this is the legacy version.
 * **Version 2** this is where all the new features are added.
 
-The two versions can be accessed by its URI.
+Select the version you want using the appropriate URI.
 
 * Version 1 URIs
 
@@ -186,7 +185,7 @@ $ rng2vim geekodoc5-flat.rng geekodoc
 The file `geekodoc.vim` can be used with vim.
 
 
-## Creating an Archive for Open Build Server
+## Creating an Archive for Open Build Service
 
 If you develop on GeekoDoc and would like to create an archive file
 for OBS, use the following steps:
