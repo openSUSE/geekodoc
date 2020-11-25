@@ -26,9 +26,8 @@ jobs:
       - name: Preparing rnginline
 
         run: |
-          (cd rnginline; pip3 install -e .)
-          pwd
-          ls
+          (cd rnginline; sudo pip3 install -e .)
+          whereis rnginline
 
       - name: Building GeekoDoc
         run: ./main/build.sh -vvv
