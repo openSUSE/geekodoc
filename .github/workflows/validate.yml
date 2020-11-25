@@ -22,5 +22,15 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get install libxml2-utils trang
-          echo "----"
+
+      - name: Preparing rnginline
+        run: |
+          (cd rnginline; pip install -e .)
+          pwd
           ls
+
+      - name: Building GeekoDoc
+        run: ./build.sh -vvv
+
+      - name: Testing GeekoDoc
+        run:  ./tests/run-tests.sh
