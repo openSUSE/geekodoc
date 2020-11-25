@@ -30,7 +30,7 @@ jobs:
           ls
 
       - name: Building GeekoDoc
-        run: ./build.sh -vvv
+        run: ./main/build.sh -vvv
 
       - name: Testing GeekoDoc
-        run:  ./tests/run-tests.sh
+        run:  ./main/tests/run-tests.sh
