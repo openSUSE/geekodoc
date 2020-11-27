@@ -60,6 +60,15 @@ Select the version you want using the appropriate URI.
       urn:x-suse:rng:v1:geekodoc-flat
 
 
+## Using GeekoDoc with DAPS
+
+To use GeekoDoc for validating your XML documents with DAPS, add the
+following line in your `~/.config/daps/dapsrc` and replace `<URI>`
+with one of the URIs above:
+
+    DOCBOOK5_RNG_URI="<URI>"
+
+
 ## Creating Flat GeekoDoc
 
 Creating the flat GeekoDoc schema requires the `rnginline` tool at
