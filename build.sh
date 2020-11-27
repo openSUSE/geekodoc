@@ -32,6 +32,11 @@
 # Author: Thomas Schraitle
 # Date:  Oct 2020
 
+# Add some precautions:
+# Exit when the script tries to use undeclared variables.
+set -o nounset
+
+
 # --- color codes
 RED="\e[1;31m"
 # VIOLET="\e[35m"
@@ -129,9 +134,6 @@ OPTIONS
                   (default: ${VERBOSITY})
   -b DIR, --builddir=DIR
                   Set the directory where to build (default: "${BUILD_DIR}")
-                  HINT:
-                  If the given directory already exists, it's renamed
-                  with the "old" command.
 EOF
 }
 
@@ -145,7 +147,7 @@ function requires {
 
     for script in $SCRIPTS; do
         res=$(command -v "$script" )
-        if [ 1 -eq "$?" ]; then
+        if [[ "$?" -eq 1 ]]; then
             exit_on_error "'$script' not found."
         else
            logdebug "$res found"
@@ -157,21 +159,18 @@ function requires {
 function create_build_env {
     loginfo "Create build environment..."
     # Dir structure
-    if [[ -n $BUILD_DIR ]] && [[ -d $BUILD_DIR ]]; then
+    if [[ -d $BUILD_DIR ]]; then
        rm -rf $BUILD_DIR $DIST_DIR 2>/dev/null
     fi
-    mkdir -p $BUILD_DIR $DIST_DIR/{$GEEKODOC1_PATH,$GEEKODOC1_PATH}
+    mkdir -p {$BUILD_DIR,$DIST_DIR}/{$GEEKODOC1_PATH,$GEEKODOC2_PATH}
 
-    [[ -d $BUILD_DIR/$GEEKODOC1_PATH ]] || mkdir -p $BUILD_DIR/$GEEKODOC1_PATH
-    [[ -d $BUILD_DIR/$GEEKODOC2_PATH ]] || mkdir -p $BUILD_DIR/$GEEKODOC2_PATH
-
-    cp $GEEKODOC1_PATH/*.rnc $BUILD_DIR/$GEEKODOC1_PATH
-    cp $GEEKODOC2_PATH/*.rnc $BUILD_DIR/$GEEKODOC2_PATH
+    cp $GEEKODOC1_PATH/*.rnc $BUILD_DIR/$GEEKODOC1_PATH/
+    cp $GEEKODOC2_PATH/*.rnc $BUILD_DIR/$GEEKODOC2_PATH/
     # Copy DocBook5 schema for GeekoDoc v1
-    cp $DOCBOOK5_SRC_DIR/*.rnc $BUILD_DIR/$GEEKODOC1_PATH
+    cp $DOCBOOK5_SRC_DIR/*.rnc $BUILD_DIR/$GEEKODOC1_PATH/
 
     # Copy DocBook5 schema and ITS for GeekoDoc v2
-    cp $DOCBOOK5_SRC_DIR/*.rnc $BUILD_DIR/$GEEKODOC2_PATH
+    cp $DOCBOOK5_SRC_DIR/*.rnc $BUILD_DIR/$GEEKODOC2_PATH/
 
     logdebug "Build environment created."
 }
@@ -253,6 +252,7 @@ while true; do
     -b|--builddir)
         BUILD_DIR="$2"
         shift 2
+        [[ -z $BUILD_DIR ]] && exit_on_error "Need an argument for -b/--builddir"
         ;;
     -v)
         VERBOSITY=$((VERBOSITY+1))
