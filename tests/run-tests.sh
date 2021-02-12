@@ -29,7 +29,7 @@ ERRORFILE="${PROGDIR}/last-test-run-errors"
 
 # Which versions of Geekodoc should be tested?
 # valid: 1, 2, both
-GEEKODOC="both"
+GEEKODOC="all"
 
 SUCCESS=0
 FAILURE=1
@@ -204,7 +204,7 @@ while true ; do
             ;;
         -g|--geekodoc)
             case "$2" in
-              1|2|both|b)
+              1|2|all|a)
                 GEEKODOC="$2"
                 ;;
               *)
