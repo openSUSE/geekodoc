@@ -79,7 +79,7 @@ function validator() {
 
 function print_help {
     cat <<EOF_helptext
-Run all the test cases using GeekoDoc schema v1 and v2
+Run test cases for GeekoDoc schema v1 and v2
 
 Usage:
    ${PROG} [-h|--help] [OPTIONS]

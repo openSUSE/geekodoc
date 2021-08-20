@@ -12,7 +12,7 @@ There are two incarnations of the SUSE schema:
 
 * `geekodoc-v1.rnc`, `geekodoc-v2.rnc`
    These are the main files where development is taking place. 
-   GeekoDoc v1 depends on `docbookxi.rnc` (version 5.1) whereas for
+   GeekoDoc v1 depends on `docbookxi.rnc` (version 5.1) whereas
    GeekoDoc v2 it depends on `dbitsxi.rnc` (version 5.2).
    Don't use this in a production environment.
 
