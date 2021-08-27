@@ -135,6 +135,9 @@ div {
      "DIA" |
      ## Format of the dia tool
      "dia" |
+     ## Format of the ditaa tool
+     "DITAA" |
+     "ditaa" |
      ## LibreOffice illustration format
      "ODG" |
      ## LibreOffice illustration format
