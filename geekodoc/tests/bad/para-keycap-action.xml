@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
-<para xmlns="http://docbook.org/ns/docbook">
- <keycombo action="press">
-  <keycap function="alt"/>
-  <keycap>F2</keycap>
- </keycombo>
-</para>

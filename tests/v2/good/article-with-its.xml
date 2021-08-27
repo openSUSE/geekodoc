@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article [
+  <!ENTITY path "/usr/share/xml/docbook/">
+]>
+<?xml-model href="file:/home/toms/repos/GH/opensuse/geekodoc/build/geekodoc/rng/5.1_2/dbits.rnc" type="application/relax-ng-compact-syntax"?>
+<article version="5.1" xml:lang="en"
+   xmlns="http://docbook.org/ns/docbook"
+   xmlns:db="http://docbook.org/ns/docbook"
+   xmlns:its="http://www.w3.org/2005/11/its">
+   <info>
+      <title>Hello from DocBook ITS</title>
+      <its:rules version="2.0">
+<!--         <its:withinTextRule selector="//db:para | //db:simpara" withinText="yes"/>-->
+         <!--  -->
+         <its:langRule selector="/db:*" langPointer="@xml:lang"/>
+         <!-- Blocks -->
+         <its:translateRule selector="//db:screen|//db:programlisting" translate="no"/>
+         <!-- Inlines -->
+         <its:translateRule selector="//db:abbrev | //db:acronym" translate="no"/>
+         <its:translateRule selector="//db:envar" translate="no"/>
+         <its:translateRule selector="//db:filename" translate="no"/>
+         <its:translateRule selector="//db:replaceable" translate="no"/>
+         <its:preserveSpaceRule selector="//db:screen|//db:programlisting" space="preserve"/>
+         <!--  -->
+         <its:locNoteRule selector="//db:replaceable[@role='path']" locNoteType="description">
+            <its:locNote>The variable {0} should be A, AA, BB, or CC.</its:locNote>
+         </its:locNoteRule>
+         <!--  -->
+         <its:termRule selector="//db:glossentry/db:glossterm" term="yes"/>
+         <its:termRule selector="//db:glossentry/glossseealso" term="yes"/>
+         <!--  -->
+         <its:externalResourceRefRule
+            selector="//db:imagedata | //db:audiodata | //db:videodata"
+            externalResourceRefPointer="@fileref"/>
+      </its:rules>
+   </info>
+   <para>
+      The quick brown fox jumps over the lazy dog.
+   </para>
+   <para>
+      Install it from <filename>/install</filename> and you are happy.
+      It will be installed under <filename>&path;</filename>.
+   </para>
+   <screen>Hello world!</screen>
+   <para>
+      <replaceable role="path">PATH/{0}</replaceable>
+   </para>
+</article>

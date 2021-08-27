@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" xml:lang="en" xml:id="article-base">
+ <title>Test Article with cover</title>
+ <info>
+  <cover>
+   <mediaobject>
+    <imageobject>
+     <imagedata fileref="foo.png"/>
+    </imageobject>
+   </mediaobject>
+  </cover>
+ </info>
+ <para>The quick brown fox jumps over the lazy dog.</para>
+</article>

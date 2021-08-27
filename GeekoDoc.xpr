@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns="\QGeekoDoc.xpr\E" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options>
+            <serialized xml:space="preserve">
+                <serializableOrderedMap>
+                    <entry>
+                        <String>catalog.verbose.level</String>
+                        <Integer>1</Integer>
+                    </entry>
+                    <entry>
+                        <String>catalogs.v5</String>
+                        <String-array>
+                            <String>${pdu}/geekodoc/rng/catalog.xml</String>
+                        </String-array>
+                    </entry>
+                    <entry>
+                        <String>enable.project.master.files.support</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.xml.catalog.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>prefer</String>
+                        <String>system</String>
+                    </entry>
+                </serializableOrderedMap>
+            </serialized>
+        </options>
+    </meta>
+    <projectTree name="GeekoDoc.xpr">
+        <folder masterFiles="true" name="Master Files">
+            <file name="geekodoc/rng/1_5.1/geekodoc-v1.rnc"/>
+            <file name="geekodoc/rng/2_5.2/geekodoc-v2.rnc"/>
+        </folder>
+        <folder path="."/>
+    </projectTree>
+</project>

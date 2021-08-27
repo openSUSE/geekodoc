@@ -1,27 +1,70 @@
-# SUSE Schemas
-
-[![Build Status](https://travis-ci.org/openSUSE/geekodoc.svg?branch=develop)](https://travis-ci.org/openSUSE/geekodoc)
+# GeekoDoc
 
 
-## GeekoDoc
+[![Validating GeekoDoc](https://github.com/openSUSE/geekodoc/actions/workflows/validate.yml/badge.svg)](https://github.com/openSUSE/geekodoc/actions/workflows/validate.yml)
 
-GeekoDoc is a RELAX NG schema and a subset of DocBook 5. Currently, it can be
-used in two variants:
 
-1. As the file `geekodoc5.rn{c,g}` which is based on `docbookxi.rn{c,g}`. In
-   other words, the GeekoDoc schema cannot life without the DocBook schema.
-2. As a single`geekodoc5-flat.rn{c,g}`. This file is independant from the
-   DocBook schema and can be used without having DocBook 5 installed on
-   your system.
+## What is GeekoDoc?
 
-Both variants contain the same structure, elements, and attributes. They
-serve different purposes.
+GeekoDoc is a RELAX NG schema and a subset of DocBook 5. It restricts the
+content model of some elements and attributes to make it easier to
+write documents.
+
+Valid GeekoDoc documents are also valid DocBook 5 documents.
+
+
+## GeekoDoc Versions
+
+GeekoDoc comes in two versions that are currently very similar.
+Their main difference is that GeekoDoc 2 restricts `xml:id` attributes
+to a more SEO-friendly subset of characters. More changes are to be
+expected in the future.
+
+In general, we recommend using GeekoDoc 2 for all new projects.
+
+* GeekoDoc 1: available via the URI `urn:x-suse:rng:v1:geekodoc-flat`
+* GeekoDoc 2: available via the URI `urn:x-suse:rng:v2:geekodoc-flat`
+
+## Additional versions of GeekoDoc
+
+* New, versioned URIs:
+  * Available for GeekoDoc 1 and GeekoDoc 2
+  * General syntax: `urn:x-suse:FORMAT:VERSION:SCHEMA`
+    * FORMAT: can be `rnc` or `rng`
+    * VERSION: can be `v1` or `v2`
+    * SCHEMA: `geekodoc-flat`
+  * Includes the following URIs:
+
+        urn:x-suse:rnc:v1:geekodoc-flat
+        urn:x-suse:rng:v1:geekodoc-flat
+        urn:x-suse:rnc:v2:geekodoc-flat
+        urn:x-suse:rng:v2:geekodoc-flat
+
+* Old, unversioned URIs (do not use for new projects):
+  * Only available for GeekoDoc 1
+  * General syntax: `urn:x-suse:rng:FILE`
+  * Includes the following URIs:
+
+        urn:x-suse:rng:geekodoc5.rnc
+        urn:x-suse:rng:geekodoc5-flat.rnc
+        urn:x-suse:rng:geekodoc5.rng
+        urn:x-suse:rng:geekodoc5-flat.rng
+
+## Using GeekoDoc with DAPS
+
+To use GeekoDoc for validating your XML documents with DAPS, add the
+following line in your `~/.config/daps/dapsrc` and replace `<URI>`
+with one of the URIs above:
+
+    DOCBOOK5_RNG_URI="<URI>"
+
+It is possible to add the previous line into a DC file.
 
 
 ## Creating Flat GeekoDoc
 
-Creating the flat GeekoDoc schema requires the `rnginline` tool at
-https://github.com/h4l/rnginline/
+Creating the flat GeekoDoc schema requires the `rnginline` tool from
+https://github.com/h4l/rnginline/.
 
 Use one of the following methods to install `rnginline`:
 
@@ -29,17 +72,25 @@ Use one of the following methods to install `rnginline`:
 * Install it in a Python virtual environment
 
 
-### Installing rnginline from RPM Package
+### Installing rnginline from RPM Package on openSUSE
 
 The following procedure can be used for the latest openSUSE Leap release:
 
-1. Add the repository:
+1. Add the `devel:languages:python` repository:
 
-   ```
-   $ sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/python/openSUSE_Leap_\$releasever/devel:languages:python.repo
-   ```
+   * for openSUSE Leap:
 
-2. Install it:
+     ```
+     $ sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/python/openSUSE_Leap_\$releasever/devel:languages:python.repo
+     ```
+
+   * for openSUSE Tumbleweed:
+
+     ```
+     $ sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/python/openSUSE_Tumbleweed/devel:languages:python.repo
+     ```
+
+2. Install the package:
 
    ```
    $ sudo zypper in python3-rnginline
@@ -51,6 +102,11 @@ The executable can be found in `/usr/bin/rnginline`.
 ### Installing rnginline using a Python Virtual Environment
 
 1. Install the RPM packages `python3-devel`, `libxml2-devel`, and `libxslt-devel`.
+   On openSUSE, run:
+
+   ```
+   $ sudo zypper in python3-devel libxml2-devel libxslt-devel
+   ```
 
 2. Create a Python3 virtual environment:
 
@@ -64,7 +120,7 @@ The executable can be found in `/usr/bin/rnginline`.
    $ source .env3/bin/activate
    ```
 
-   => You should see a changed prompt (look for the "(.env3)" part).
+   You should see a changed prompt (look for the `(.env3)` part).
 
 3. Install the `rnginline` library from PyPi:
 
@@ -80,9 +136,9 @@ The executable can be found in `.env3/bin/rnginline`.
 
 1. Update your GitHub repository.
 
-2. Change the directory to `geekodoc/rng`.
+2. Run `./build.sh`.
 
-3. Run `make`.
+3. Find the built schema in `dist/geekodoc/rng/`.
 
 
 ### Installing it on Debian/Ubuntu
@@ -119,7 +175,11 @@ To install GeekoDoc on Debian or Ubuntu from scratch, do the following steps:
 
        $ xmlcatalog /etc/xml/catalog \
            https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/geekodoc5-flat.rnc \
-           urn:x-suse:rng:geekodoc5.rng
+           urn:x-suse:rng:geekodoc5.rng \
+           urn:x-suse:rnc:v1:geekodoc-flat \
+           urn:x-suse:rng:v1:geekodoc-flat \
+           urn:x-suse:rnc:v2:geekodoc-flat \
+           urn:x-suse:rng:v2:geekodoc-flat
 
    You should get something like this:
 
@@ -141,3 +201,18 @@ $ rng2vim geekodoc5-flat.rng geekodoc
 ```
 
 The file `geekodoc.vim` can be used with vim.
+
+
+## Creating an Archive for Open Build Service
+
+If you develop on GeekoDoc and would like to create an archive file
+for OBS, use the following steps:
+
+1. Configure first the `bzip` command (this has to be done only once):
+
+       $ git config tar.tar.bz2.command "bzip2 -c"
+
+2. Create an archive and save it in your OBS directory (`OBSDIR`):
+
+       $ git archive --format=tar.bz2 --prefix=geekodoc-2.0.1/ -o <OBSDIR>/geekodoc-2.0.1.tar.bz2 HEAD
+

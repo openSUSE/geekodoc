@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v2-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook"
+ xmlns:db="http://docbook.org/ns/docbook"
+ xmlns:its="http://www.w3.org/2005/11/its"
+ xml:lang="en" xml:id="article-lists">
+ <title>Test Article for its:translate</title>
+ <info>
+  <!-- For more information: https://www.w3.org/TR/its/ -->
+  <its:rules version="2.0">
+   <its:translateRule selector="//db:screen" translate="no"/>
+  </its:rules>
+ </info>
+ <para its:translate="yes">Text to be translated</para>
+ <screen its:translate="yes">Text to be not translated</screen>
+</article>
