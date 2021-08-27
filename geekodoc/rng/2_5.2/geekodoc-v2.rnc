@@ -135,22 +135,10 @@ div {
      "DIA" |
      ## Format of the dia tool
      "dia" |
-     ## Encapsulated PostScript
-     "EPS" |
-     ## Encapsulated PostScript
-     "eps" |
-     ## Format of the xfig tool
-     "FIG" |
-     ## Format of the xfig tool
-     "fig" |
      ## LibreOffice illustration format
      "ODG" |
      ## LibreOffice illustration format
      "odg" |
-     ## Portable Document Format
-     "PDF" |
-     ## Portable Document Format
-     "pdf" |
      ## Portable Network Graphics
      "PNG" |
      ## Portable Network Graphics
