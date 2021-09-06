@@ -176,6 +176,15 @@ div {
   #  | linespecific
 }
 
+div {
+  # Issue #90: Restrict character set of profiling attributes
+  db.profiling.pattern =
+    xsd:string {
+      pattern = "([\.\-_0-9a-z]+)(;[\.\-_0-9a-z]+)*"
+    }
+}
+
+
 # Use a catalog entry to resolve this:
 include "db52itsxi.rnc"
 {
@@ -1089,6 +1098,42 @@ include "db52itsxi.rnc"
      ## valid value is numbers, digits and "-" only
      attribute xml:id {
        xsd:ID { pattern = "[\-0-9a-zA-Z]+"} }
+  }
+
+  div
+  { # Issue #90: Restrict character set of profiling attributes
+    db.arch.attribute |=
+      attribute arch { db.profiling.pattern }
+
+    db.audience.attribute |=
+      attribute audience { db.profiling.pattern }
+
+    db.condition.attribute |=
+      attribute condition { db.profiling.pattern }
+
+    db.conformance.attribute |=
+      attribute conformance { db.profiling.pattern }
+
+    db.os.attribute |=
+      attribute os { db.profiling.pattern }
+
+    db.outputformat.attribute |=
+      attribute outputformat { db.profiling.pattern }
+
+    db.revision.attribute |=
+      attribute revision { db.profiling.pattern }
+
+    db.security.attribute |=
+      attribute security { db.profiling.pattern }
+
+    db.userlevel.attribute |=
+      attribute userlevel { db.profiling.pattern }
+
+    db.vendor.attribute |=
+      attribute vendor { db.profiling.pattern }
+
+    db.wordsize.attribute |=
+      attribute wordsize { db.profiling.pattern }
   }
 
   # Introduce optional its:translate attribute and

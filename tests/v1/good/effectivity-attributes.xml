@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../dist/geekodoc/rng/1_5.1/geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xml:lang="en" xml:id="effectivity-attributes">
+  <title>Effectivity attributes for GeekoDoc v1</title>
+
+  <para arch="i386;i486"/>
+  <para arch="a"/>
+  <para arch="aa;bb"/>
+  <para arch="x86_64;a-b;a_b"/>
+  <para arch="x86_64-foo"/>
+  
+  <para audience="a;b;c"/>
+  <para audience="expert;admin"/>
+  
+  <para condition="condition1"/>
+  <para condition="cond1;cond2"/>
+
+  <para conformance="lsb"/>
+  <para conformance="lsb;systemd"/>
+
+  <para os="someattr"/>
+  <para os="sles;osuse"/>
+
+  <para outputformat="html"/>
+  <para outputformat="html;pdf"/>
+
+  <para revision="1.0"/>
+  <para revision="1.0;1.1"/>
+
+  <para security="high"/>
+  <para security="high;medium"/>
+
+  <para userlevel="advanced"/>
+  <para userlevel="advanced;medium"/>
+
+  <para vendor="vendor1"/>
+  <para vendor="vendor1;vendor2"/>
+
+  <para wordsize="32bit"/>
+  <para wordsize="32bit;64bit"/>
+
+</article>

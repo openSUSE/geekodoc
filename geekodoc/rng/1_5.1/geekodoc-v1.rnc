@@ -214,6 +214,16 @@ div {
   #  | SVG | PDF | SWF
   #  | linespecific
 }
+
+div {
+  # Issue #90: Restrict character set of profiling attributes
+  db.profiling.pattern =
+    xsd:string {
+      pattern = "([\-\._0-9a-zA-Z]+;)*([\-\._0-9a-zA-Z]+)"
+    }
+}
+
+
 # Use a catalog entry to resolve this:
 # include "http://docbook.org/xml/5.1/rng/docbook.rnc"
 include "docbookxi.rnc"
@@ -1113,7 +1123,42 @@ include "docbookxi.rnc"
     & db.common.attributes
 
 
-  #========= Changed or Redefinied Attributes
+  #========= Changed or Redefined Attributes
+  div
+  { # Issue #90: Restrict character set of profiling attributes
+    db.arch.attribute |=
+      attribute arch { db.profiling.pattern }
+
+    db.audience.attribute |=
+      attribute audience { db.profiling.pattern }
+
+    db.condition.attribute |=
+      attribute condition { db.profiling.pattern }
+
+    db.conformance.attribute |=
+      attribute conformance { db.profiling.pattern }
+
+    db.os.attribute |=
+      attribute os { db.profiling.pattern }
+
+    db.outputformat.attribute |=
+      attribute outputformat { db.profiling.pattern }
+
+    db.revision.attribute |=
+      attribute revision { db.profiling.pattern }
+
+    db.security.attribute |=
+      attribute security { db.profiling.pattern }
+
+    db.userlevel.attribute |=
+      attribute userlevel { db.profiling.pattern }
+
+    db.vendor.attribute |=
+      attribute vendor { db.profiling.pattern }
+
+    db.wordsize.attribute |=
+      attribute wordsize { db.profiling.pattern }
+  }
 
   # Introduce optional its:translate attribute:
   db.common.base.attributes =

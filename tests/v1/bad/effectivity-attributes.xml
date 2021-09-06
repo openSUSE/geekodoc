@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../dist/geekodoc/rng/1_5.1/geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.2"
+ xml:lang="en" xml:id="effectivity-attributes">
+  <title>Effectivity attributes for GeekoDoc v1</title>
+
+  <para arch="i386;"/>
+  <para arch="A"/>
+  <para arch="aa,bb"/>
+  <para arch="x86_64 a-b,a_b"/>
+  <para arch="aaa ;  "/>
+
+</article>
