@@ -184,6 +184,10 @@ function rnc_to_rng {
        rng="$f.rng"
        logdebug "Converting $rnc -> $rng"
        trang "$rnc" "$rng"
+
+       if [[ "$?" -ne 0 ]]; then
+         exit_on_error "Conversion from $rnc -> $rng failed"
+       fi
     done
 }
 
@@ -196,6 +200,9 @@ function make_flat {
       rni="$f-flat.rni"
       logdebug "Converting $rng -> $rni"
       rnginline "$rng" "$rni"
+      if [[ "$?" -ne 0 ]]; then
+        exit_on_error "Conversion from $rng -> $rni failed"
+      fi
     done
 }
 
@@ -209,6 +216,9 @@ function cleanup_xml {
       rni="$f-flat.rni"
       logdebug "Cleanup $rni -> $rng"
       xmllint -o "$rng" --nsclean --format "$rni"
+      if [[ "$?" -ne 0 ]]; then
+        exit_on_error "Cleanup of $rni failed"
+      fi
     done
 }
 
@@ -221,6 +231,9 @@ function rngflat_to_rnc {
       rnc="$f-flat.rnc"
       logdebug "Cleanup $rng -> $rnc"
       trang "$rng" "$rnc"
+      if [[ "$?" -ne 0 ]]; then
+        exit_on_error "Conversion from $rng -> $rnc failed"
+      fi
     done
 }
 
