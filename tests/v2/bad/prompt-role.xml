@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+ <title>Check for prompts with roles that are not <quote>root</quote> or <quote>user</quote></title>
+ <sect1>
+  <title/>
+  <para/>
+  <screen><prompt role="rootprompt">root #</prompt></screen>
+  <screen><prompt role="falafel">falafel #</prompt></screen>
+ </sect1>
+</article>
