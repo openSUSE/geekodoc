@@ -1117,6 +1117,11 @@ include "db52itsxi.rnc"
     attribute entityref { xsd:ENTITY }
    )
 
+  # restrict prompts only allowing root/user/custom prompts ("root" and
+  # "user" are currently in use, "custom" is not but is defined in the
+  # stylesheets)
+  db.prompt.role.attribute = attribute role { "root" | "user" | "custom" }
+
   # Disallow xml:id
   db.entry.attlist =
     db.entry.role.attribute?
