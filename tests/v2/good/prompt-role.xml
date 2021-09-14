@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../rng/geekodoc5-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+ <title>Check for prompts with role <quote>root</quote>, <quote>user</quote>, or <quote>custom</quote></title>
+ <sect1>
+  <title/>
+  <para/>
+  <screen><prompt role="root">root #</prompt></screen>
+  <screen><prompt role="user">me &gt;</prompt></screen>
+  <screen><prompt role="custom">ok ?</prompt></screen>
+ </sect1>
+</article>
