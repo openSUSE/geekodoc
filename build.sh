@@ -52,6 +52,7 @@ RESET="\e[0m"
 
 # --- Global variables
 ME="${0##*/}"
+MYDIR=$(realpath $(dirname "$0"))
 VERBOSITY=2
 LOGGING_LEVEL="DEBUG"
 declare -A LOGLEVELS=([DEBUG]=0 [INFO]=1 [WARN]=2 [ERROR]=3)
@@ -283,6 +284,8 @@ LOGGING_LEVEL=${LEVEL2LOG[$VERBOSITY]}
 
 
 # -- Process
+cd "$MYDIR"
+
 files="$BUILD_DIR/$GEEKODOC1_PATH/$GEEKODOC1_NAME \
        $BUILD_DIR/$GEEKODOC2_PATH/$GEEKODOC2_NAME"
 requires "$files"
