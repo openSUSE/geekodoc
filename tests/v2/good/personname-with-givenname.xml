@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v2-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.2">
+  <title>Good names</title>
+  <info>
+    <author>
+      <personname>
+        <firstname>Tux</firstname>
+        <surname>Penguin</surname>
+      </personname>
+    </author>
+    <author>
+      <personname>
+        <givenname>Geeko</givenname>
+        <givenname>Gecko</givenname>
+        <surname>Chamaeleon</surname>
+        <lineage>Jr.</lineage>
+      </personname>
+    </author>
+  </info>
+  <para/>
+</article>

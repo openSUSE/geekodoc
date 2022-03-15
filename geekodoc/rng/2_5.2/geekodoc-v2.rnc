@@ -279,7 +279,7 @@ include "db52itsxi.rnc"
   db.guisubmenu = notAllowed
   db.hardware = notAllowed
   # db.holder = notAllowed
-  db.honorific = notAllowed
+  # db.honorific = notAllowed
   # db.imagedata = notAllowed
   # db.imageobject = notAllowed
   db.imageobjectco = notAllowed
@@ -309,7 +309,7 @@ include "db52itsxi.rnc"
   db.label = notAllowed
   # db.legalnotice = notAllowed
   db.lhs = notAllowed
-  db.lineage = notAllowed
+  # db.lineage = notAllowed
   db.lineannotation = notAllowed
   # db.link = notAllowed
   # db.listitem = notAllowed
@@ -1441,17 +1441,24 @@ include "db52itsxi.rnc"
   }
 
   # personname
+  # Issue #83: Allow givenname, lineage, and honorific
   div {
     # Removed text
     db.personname =
     ## The personal name of an individual
     element personname {
       db.personname.attlist,
-      (db.honorific
-      | db.firstname
-      | db.surname
-      | db.lineage
-      | db.othername)+
+      ( (db.honorific
+          | db.firstname
+          | db.surname
+          | db.lineage
+          | db.othername)+
+       | (db.honorific
+          | db.givenname
+          | db.surname
+          | db.lineage
+          | db.othername)+
+        )
     }
     db.person.author.contentmodel =
       db.personname,
