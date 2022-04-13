@@ -1,4 +1,11 @@
 ------------------------------------------------------------------
+Wed Apr 13 16:40:00 UTC 2022 - toms@opensuse.org
+
+Release 2.1.0
+
+* Support videoobject and videodata (#95)
+
+------------------------------------------------------------------
 Fri Aug 27 11:45:00 UTC 2021 - toms@opensuse.org
 
 Release 2.0.0
