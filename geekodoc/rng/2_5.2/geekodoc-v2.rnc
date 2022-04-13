@@ -339,6 +339,7 @@ include "db52itsxi.rnc"
   db.msgset = notAllowed
   db.msgsub = notAllowed
   # db.msgtext = notAllowed
+  # db.multimediaparam = notAllowed
   db.nonterminal = notAllowed
   # db.note = notAllowed
   db.olink = notAllowed
@@ -485,8 +486,8 @@ include "db52itsxi.rnc"
   # db.variablelist = notAllowed
   # db.varlistentry = notAllowed
   # db.varname = notAllowed
-  db.videodata = notAllowed
-  db.videoobject = notAllowed
+  # db.videodata = notAllowed
+  # db.videoobject = notAllowed
   db.void = notAllowed
   db.volumenum = notAllowed
   # db.warning = notAllowed
