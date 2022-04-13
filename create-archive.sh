@@ -1,0 +1,93 @@
+#!/bin/bash
+#
+# Create an archive of project directory for OBS
+# 
+# Author: Tom Schraitle, 2022
+
+
+set -o errexit
+set -o pipefail
+set -o nounset
+# set -o xtrace
+
+ME="${0##*/}"
+OUTDIR="/tmp"
+SUFFIX=".tar.bz2"
+
+function exit_on_error {
+    echo "ERROR: ${1}" >&2
+    exit 1;
+}
+
+function usage {
+    cat << EOF
+Create archive of Geekodoc Schema
+
+SYNOPSIS
+  $ME [OPTIONS] [VERSION]
+  $ME -h|--help
+
+OPTIONS
+  -h, --help        Output this help text.
+  --outdir=OUTDIR   Store archive in OUTDIR
+
+ARGUMENTS
+  VERSION           Use this version to create the archive
+                    If omitted, the version is retrieved through "git describe"
+                    Any "v" prefix is removed.
+
+EXAMPLES:
+    1. $ME
+       creates an archive and stores it under $OUTDIR
+
+    2. $ME --outdir=/local/geekdoc
+       creates an archive and stores it under /local/geekodoc
+
+    3. $ME v3.0.0
+       creates an archive /tmp/geekodoc-3.0.0.tar.bz2
+EOF
+}
+
+# -- CLI parsing
+ARGS=$(getopt -o h -l help,outdir: -n "$ME" -- "$@")
+eval set -- "$ARGS"
+while true; do
+  case "$1" in
+    --help|-h)
+        usage
+        exit 0
+        shift
+        ;;
+    --outdir)
+        OUTDIR="$2"
+        if [ ! -d "$OUTDIR" ]; then
+           mkdir -p "$OUTDIR"
+        fi
+        shift 2
+        ;;
+    --) shift ; break ;;
+    *) exit_on_error "Wrong parameter: $1" ;;
+  esac
+done
+
+# Remove last slash and expand ~ with $HOME
+OUTDIR=${OUTDIR%*/}
+OUTDIR=${OUTDIR/#\~/$HOME}
+
+# Get version from git: 
+VERSION=$(git describe)
+
+# Overwrite VERSION with first argument
+if [ "$#" -ne 0 ]; then
+   VERSION="$1"
+fi
+
+# Remove "v" prefix:
+VERSION=${VERSION#v*}
+FILE="${OUTDIR}/geekodoc-${VERSION}${SUFFIX}"
+echo "Generating version ${FILE@Q}..."
+
+git archive --worktree-attributes --format=${SUFFIX#.*} \
+    --prefix="geekodoc-${VERSION}/" \
+    --output="${FILE}" \
+    HEAD
