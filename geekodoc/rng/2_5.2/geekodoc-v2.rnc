@@ -5,7 +5,7 @@
 #
 # This schema is a customization of DocBook for SUSE documents
 #
-# Author: Thomas Schraitle, 2015-2021
+# Author: Thomas Schraitle, 2015-2022
 #
 default namespace db = "http://docbook.org/ns/docbook"
 datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
