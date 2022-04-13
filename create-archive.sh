@@ -13,6 +13,7 @@ set -o nounset
 ME="${0##*/}"
 OUTDIR="/tmp"
 SUFFIX=".tar.bz2"
+FROM="HEAD"
 
 function exit_on_error {
     echo "ERROR: ${1}" >&2
@@ -29,7 +30,10 @@ SYNOPSIS
 
 OPTIONS
   -h, --help        Output this help text.
-  --outdir=OUTDIR   Store archive in OUTDIR
+  --outdir=OUTDIR   Store archive in OUTDIR (default ${OUTDIR@Q})
+  -f FROM, --from=FROM
+                    The tree or commit to produce an archive for
+                    (default ${FROM@Q})
 
 ARGUMENTS
   VERSION           Use this version to create the archive
@@ -49,7 +53,7 @@ EOF
 }
 
 # -- CLI parsing
-ARGS=$(getopt -o h -l help,outdir: -n "$ME" -- "$@")
+ARGS=$(getopt -o h,f: -l help,from:,outdir: -n "$ME" -- "$@")
 eval set -- "$ARGS"
 while true; do
   case "$1" in
@@ -57,6 +61,10 @@ while true; do
         usage
         exit 0
         shift
+        ;;
+    -f|--from)
+        FROM="$2"
+        shift 2
         ;;
     --outdir)
         OUTDIR="$2"
@@ -90,4 +98,4 @@ echo "Generating version ${FILE@Q}..."
 git archive --worktree-attributes --format=${SUFFIX#.*} \
     --prefix="geekodoc-${VERSION}/" \
     --output="${FILE}" \
-    HEAD
+    "$FROM"
