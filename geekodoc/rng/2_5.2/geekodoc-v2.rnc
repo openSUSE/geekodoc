@@ -126,6 +126,55 @@ div {
      & db.xlink.actuate.attribute?
 }
 
+div {
+
+  db.format.enumeration =
+     ## Allowed formats for SUSE documentation
+     (
+     ## Format of the dia tool
+     "DIA" |
+     ## Format of the dia tool
+     "dia" |
+     ## Encapsulated PostScript
+     "EPS" |
+     ## Encapsulated PostScript
+     "eps" |
+     ## Format of the xfig tool
+     "FIG" |
+     ## Format of the xfig tool
+     "fig" |
+     ## LibreOffice illustration format
+     "ODG" |
+     ## LibreOffice illustration format
+     "odg" |
+     ## Portable Document Format
+     "PDF" |
+     ## Portable Document Format
+     "pdf" |
+     ## Portable Network Graphics
+     "PNG" |
+     ## Portable Network Graphics
+     "png" |
+     ## Joint Photography Experts Group format
+     "JPG" |
+     ## Joint Photography Experts Group format
+     "jpg" |
+     ## Joint Photographic Experts Group
+     "JPEG" |
+     ## Joint Photographic Experts Group
+     "jpeg" |
+     ## Scalable Vector Graphics
+     "SVG" |
+     ## Scalable Vector Graphics
+     "svg")
+  # The original list from the DocBook 4.5 DTD was:
+  # "BMP| CGM-CHAR | CGM-BINARY | CGM-CLEAR | DITROFF | DVI
+  #  | EPS | EQN | FAX | GIF | GIF87a | GIF89a
+  #  | JPG | JPEG | IGES | PCX
+  #  | PIC | PNG | PS | SGML | TBL | TEX | TIFF | WMF | WPG
+  #  | SVG | PDF | SWF
+  #  | linespecific
+}
 
 div {
   # Issue #90: Restrict character set of profiling attributes
@@ -1104,6 +1153,8 @@ include "db52itsxi.rnc"
       & (its-local.attributes & its-attribute.version?)
 
   db.common.data.attributes =
+   ## Specifies the format of the data
+   attribute format { db.format.enumeration }?,
    (
     ## Indentifies the location of the data by URI
     attribute fileref { xsd:anyURI }
