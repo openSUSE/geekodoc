@@ -1,9 +1,19 @@
 ------------------------------------------------------------------
 Wed Apr 13 16:40:00 UTC 2022 - toms@opensuse.org
 
+Release 2.1.1
+
+* Revert removal of format attribute in imagedata (#102)
+
+------------------------------------------------------------------
+Wed Apr 13 16:40:00 UTC 2022 - toms@opensuse.org
+
 Release 2.1.0
 
-* Support videoobject and videodata (#95)
+* Support videoobject and videodata (#95, #101)
+* disallow xml:id on listitems (#82)
+* Feature/prompt role (#94)
+* Restrict char set of prof attributes (#92)
 
 ------------------------------------------------------------------
 Fri Aug 27 11:45:00 UTC 2021 - toms@opensuse.org
