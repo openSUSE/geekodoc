@@ -322,7 +322,7 @@ include "db52itsxi.rnc"
   db.group = notAllowed
   db.guibutton = notAllowed
   db.guiicon = notAllowed
-  db.guilabel = notAllowed
+  # db.guilabel = notAllowed
   # db.guimenu = notAllowed
   db.guimenuitem = notAllowed
   db.guisubmenu = notAllowed
