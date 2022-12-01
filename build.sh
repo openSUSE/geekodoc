@@ -69,6 +69,9 @@ BUILD_DIR="build"
 DIST_DIR="dist"
 EXTERNAL_DIR="external"
 DOCBOOK5_SRC_DIR="$EXTERNAL_DIR/docbook5"
+RNG_SRC_DIR="$EXTERNAL_DIR/relaxng"
+RELAXNG_SCHEMA="$RNG_SRC_DIR/relaxng.rng"
+
 
 # === Naming
 # The naming was unfortunate, so geekodoc5 version 1 refers to DocBook5,
@@ -117,6 +120,7 @@ function exit_on_error {
     exit 1;
 }
 
+
 # Include some OS specific variables:
 source /etc/os-release || exit_on_error "File /etc/os-release not found"
 
@@ -140,20 +144,20 @@ EOF
 
 function requires {
     loginfo "Check requirements..."
-# * trang
-# * python3-rnginline (from obs://devel:languages:python/python3-rnginline)
-# * docbook_5 (from obs://Publishing)
-    local SCRIPTS="trang rnginline"
-    local res
+    # * trang
+    # * jing
+    # * python3-rnginline (from obs://devel:languages:python/python3-rnginline)
+    # * docbook_5 (from obs://Publishing)
+    local SCRIPTS="trang jing rnginline"
 
-    for script in $SCRIPTS; do
-        res=$(command -v "$script" )
-        if [[ "$?" -eq 1 ]]; then
-            exit_on_error "'$script' not found."
-        else
-           logdebug "$res found"
-        fi
+    for prog in $SCRIPTS; do
+      if ! command -v $prog >/dev/null; then
+        logerror "Command $prog not found."
+        exit 10
+      fi
+      logdebug "$prog found"
     done
+
     loginfo "All requirements are ok."
 }
 
@@ -253,6 +257,22 @@ function copy_flat_rnc {
     done
 }
 
+
+function validate_result {
+    local files="$1"
+
+    loginfo "Validate GeekoDoc result..."
+    for f in $files; do
+       rng="$f.rng"
+       logdebug "Validating $rng..."
+       jing "$RELAXNG_SCHEMA" "$rng"
+
+       if [[ "$?" -ne 0 ]]; then
+         exit_on_error "Validation of $rng failed."
+       fi
+    done
+}
+
 # -- CLI parsing
 ARGS=$(getopt -o h,:v,b: -l help,builddir: -n "$ME" -- "$@")
 eval set -- "$ARGS"
@@ -284,7 +304,7 @@ LOGGING_LEVEL=${LEVEL2LOG[$VERBOSITY]}
 
 
 # -- Process
-cd "$MYDIR"
+cd "$MYDIR" || exit_on_error "Directory $MYDIR doesn't exist."
 
 files="$BUILD_DIR/$GEEKODOC1_PATH/$GEEKODOC1_NAME \
        $BUILD_DIR/$GEEKODOC2_PATH/$GEEKODOC2_NAME"
@@ -294,6 +314,7 @@ rnc_to_rng "$files"
 make_flat "$files"
 cleanup_xml "$files"
 rngflat_to_rnc "$files"
+validate_result "$files"
 copy_flat_rnc "$files"
 
 loginfo "Finished."

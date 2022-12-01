@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get install libxml2-utils trang python3-setuptools python3-wheel
+          sudo apt-get install libxml2-utils trang jing python3-setuptools python3-wheel
 
       - name: Preparing rnginline
 
