@@ -2,7 +2,7 @@
 #
 # Create an archive of project directory for OBS
 # 
-# Author: Tom Schraitle, 2022
+# Author: Tom Schraitle, 2022-2023
 
 
 set -o errexit

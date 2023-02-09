@@ -1,4 +1,14 @@
 ------------------------------------------------------------------
+Wed Feb 09 14:30:00 UTC 2022 - toms@opensuse.org
+
+Release 2.2.0
+
+* Base GeekoDoc2 on DocBook 5.2CR5
+* Reduce transclusion.rnc for GeekoDoc1
+  Remove some patterns which are already defined in DocBook 5.2CR5
+
+
+------------------------------------------------------------------
 Wed Apr 13 16:40:00 UTC 2022 - toms@opensuse.org
 
 Release 2.1.1
