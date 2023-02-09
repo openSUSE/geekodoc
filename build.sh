@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2020-2021 SUSE Linux GmbH
+# Copyright 2020-2023 SUSE Linux GmbH
 #
 # Dependencies
 #  Our main files are geekodoc-v?.rnc. It depends on:

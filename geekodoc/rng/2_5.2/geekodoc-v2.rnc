@@ -36,7 +36,7 @@ s:ns [ uri = "http://www.w3.org/2005/11/its"  prefix = "its" ]
 
 
 #======== Constants
-suse.schema.version = "5.2-subset GeekoDoc-2"
+suse.schema.version = "5.2CR5-subset GeekoDoc-2"
 
 
 #======== Our own patterns
