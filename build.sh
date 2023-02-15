@@ -66,6 +66,7 @@ GEEKODOC_DIR="geekodoc"
 GEEKODOC_RNG_DIR=${GEEKODOC_DIR}/rng
 GEEKODOC1_PATH=${GEEKODOC_RNG_DIR}/1_5.1
 GEEKODOC2_PATH=${GEEKODOC_RNG_DIR}/${LATEST_VERSION}
+
 # XSLT_DIR=${GEEKODOC_DIR}/xsl
 BUILD_DIR="build"
 DIST_DIR="dist"
@@ -81,7 +82,7 @@ RELAXNG_SCHEMA="$RNG_SRC_DIR/relaxng.rng"
 # we'll provide a compatibility link from geekodoc-v1 -> geekodoc5
 GEEKODOC1_NAME="geekodoc-v1"
 GEEKODOC2_NAME="geekodoc-v2"
-
+GEEKODOC2_LINK_NAME="geekodoc-latest"
 
 # -- Functions
 function logger() {
@@ -279,6 +280,10 @@ function create_latest_link {
   loginfo "Creating symbolic link ${LATEST_VERSION} -> latest"
   ln -frs ${BUILD_DIR}/${GEEKODOC_RNG_DIR}/${LATEST_VERSION} \
          ${BUILD_DIR}/${GEEKODOC_RNG_DIR}/latest
+  ln -frs ${BUILD_DIR}/${GEEKODOC2_PATH}/${GEEKODOC2_NAME}-flat.rng \
+         ${BUILD_DIR}/${GEEKODOC_RNG_DIR}/${GEEKODOC2_LINK_NAME}-flat.rng
+  ln -frs ${BUILD_DIR}/${GEEKODOC2_PATH}/${GEEKODOC2_NAME}-flat.rnc \
+         ${BUILD_DIR}/${GEEKODOC_RNG_DIR}/${GEEKODOC2_LINK_NAME}-flat.rnc
 }
 
 # -- CLI parsing
