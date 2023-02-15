@@ -59,11 +59,13 @@ declare -A LOGLEVELS=([DEBUG]=0 [INFO]=1 [WARN]=2 [ERROR]=3)
 declare -A LEVEL2LOG=([0]="ERROR" [1]="WARN" [2]="INFO" [3]="DEBUG")
 declare -A LOGCOLORS=([DEBUG]=$CYAN [INFO]=$BOLD [WARN]=$YELLOW [ERROR]=$RED)
 
+LATEST_VERSION="2_5.2"
+
 # -- Paths
 GEEKODOC_DIR="geekodoc"
 GEEKODOC_RNG_DIR=${GEEKODOC_DIR}/rng
 GEEKODOC1_PATH=${GEEKODOC_RNG_DIR}/1_5.1
-GEEKODOC2_PATH=${GEEKODOC_RNG_DIR}/2_5.2
+GEEKODOC2_PATH=${GEEKODOC_RNG_DIR}/${LATEST_VERSION}
 # XSLT_DIR=${GEEKODOC_DIR}/xsl
 BUILD_DIR="build"
 DIST_DIR="dist"
@@ -273,6 +275,12 @@ function validate_result {
     done
 }
 
+function create_latest_link {
+  loginfo "Creating symbolic link ${LATEST_VERSION} -> latest"
+  ln -frs ${BUILD_DIR}/${GEEKODOC_RNG_DIR}/${LATEST_VERSION} \
+         ${BUILD_DIR}/${GEEKODOC_RNG_DIR}/latest
+}
+
 # -- CLI parsing
 ARGS=$(getopt -o h,:v,b: -l help,builddir: -n "$ME" -- "$@")
 eval set -- "$ARGS"
@@ -316,5 +324,6 @@ cleanup_xml "$files"
 rngflat_to_rnc "$files"
 validate_result "$files"
 copy_flat_rnc "$files"
+create_latest_link
 
 loginfo "Finished."
