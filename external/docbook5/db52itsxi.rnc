@@ -7,12 +7,13 @@ namespace local = ""
 namespace mml = "http://www.w3.org/1998/Math/MathML"
 namespace rng = "http://relaxng.org/ns/structure/1.0"
 namespace s = "http://purl.oclc.org/dsdl/schematron"
+namespace src = "http://nwalsh.com/xmlns/litprog/fragment"
 namespace svg = "http://www.w3.org/2000/svg"
 namespace trans = "http://docbook.org/ns/transclusion"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# This file is part of DocBook ITS XInclude V5.2b10a5
+# This file is part of DocBook ITS XInclude V5.2CR5
 # 
 # Copyright 2007-2020 HaL Computer Systems, Inc.,
 # O'Reilly & Associates, Inc., ArborText, Inc., Fujitsu Software
@@ -50,6 +51,7 @@ s:ns [ prefix = "its" uri = "http://www.w3.org/2005/11/its" ]
 s:ns [ prefix = "mml" uri = "http://www.w3.org/1998/Math/MathML" ]
 s:ns [ prefix = "rng" uri = "http://relaxng.org/ns/structure/1.0" ]
 s:ns [ prefix = "s" uri = "http://purl.oclc.org/dsdl/schematron" ]
+s:ns [ prefix = "src" uri = "http://nwalsh.com/xmlns/litprog/fragment" ]
 s:ns [ prefix = "svg" uri = "http://www.w3.org/2000/svg" ]
 s:ns [ prefix = "trans" uri = "http://docbook.org/ns/transclusion" ]
 s:ns [ prefix = "xi" uri = "http://www.w3.org/2001/XInclude" ]
@@ -83,7 +85,8 @@ start =
      | db.revhistory
      | db.simpara
      | db.step
-     | db.stepalternatives)
+     | db.stepalternatives
+     | db.info)
   | (db.partintro | db.simplesect)
   | db.annotation
   | (db.sect1 | db.sect2 | db.sect3 | db.sect4 | db.sect5)
@@ -108,16 +111,13 @@ start =
   | (db.qandadiv | db.qandaentry | db.qandaset)
   | (db.equation | db.informalequation)
   | db.cmdsynopsis
-  | (db.synopsis.blocks
-     | db.funcsynopsisinfo
-     | db.classsynopsisinfo
-     | db.programmingsynopsis)
+  | (db.synopsis.blocks | db.funcsynopsisinfo | db.classsynopsisinfo)
   | db.admonition.blocks
   | db.topic
 div {
   db._any.attribute =
     
-    ## Any attribute, including any attribute in any namespace.
+    ## Any attribute, including any attribute in any namespace
     attribute * { text }
 }
 db.arch.attribute =
@@ -154,7 +154,7 @@ db.userlevel.attribute =
   attribute userlevel { text }
 db.vendor.attribute =
   
-  ## Indicates the computer vendor to which the element applies.
+  ## Indicates the computer vendor to which the element applies
   attribute vendor { text }
 db.wordsize.attribute =
   
@@ -414,6 +414,7 @@ db.common.base.attributes =
   & db.effectivity.attributes
   & db.rdfalite.attributes
   & db.common.transclusion.attributes
+  & db._any_other.attribute*
   & (its-local.attributes & its-attribute.version?)
 db.common.attributes =
   db.xml.id.attribute?
@@ -446,7 +447,7 @@ db.verbatim.continuation.enumeration =
     "restarts"
 db.verbatim.continuation.attribute =
   
-  ## Determines whether line numbering continues from the previous element or restarts.
+  ## Determines whether line numbering continues from the previous element or restarts
   attribute continuation { db.verbatim.continuation.enumeration }
 db.verbatim.linenumbering.enumeration =
   
@@ -457,19 +458,19 @@ db.verbatim.linenumbering.enumeration =
     "unnumbered"
 db.verbatim.linenumbering.attribute =
   
-  ## Determines whether lines are numbered.
+  ## Determines whether lines are numbered
   attribute linenumbering { db.verbatim.linenumbering.enumeration }
 db.verbatim.startinglinenumber.attribute =
   
-  ## Specifies the initial line number.
+  ## Specifies the initial line number
   attribute startinglinenumber { xsd:integer }
 db.verbatim.language.attribute =
   
-  ## Identifies the language (i.e. programming language) of the verbatim content.
+  ## Identifies the language (i.e. programming language) of the verbatim content
   attribute language { text }
 db.verbatim.xml.space.attribute =
   
-  ## Can be used to indicate explicitly that whitespace in the verbatim environment is preserved. Whitespace must always be preserved in verbatim environments whether this attribute is specified or not.
+  ## Can be used to indicate explicitly that whitespace in the verbatim environment is preserved. Whitespace must always be preserved in verbatim environments whether this attribute is specified or not
   attribute xml:space {
     
     ## Whitespace must be preserved.
@@ -514,7 +515,7 @@ db.pgwide.attribute =
   attribute pgwide { db.pgwide.enumeration }
 db.language.attribute =
   
-  ## Identifies the language (i.e. programming language) of the content.
+  ## Identifies the language (i.e. programming language) of the content
   attribute language { text }
 db.performance.enumeration =
   
@@ -525,7 +526,7 @@ db.performance.enumeration =
     "required"
 db.performance.attribute =
   
-  ## Specifies if the content is required or optional.
+  ## Specifies if the content is required or optional
   attribute performance { db.performance.enumeration }
 db.floatstyle.attribute =
   
@@ -965,6 +966,18 @@ div {
   db.info =
     
     ## A wrapper for information about a component or other block
+    [
+      s:pattern [
+        s:title [ "Root must have version" ]
+        s:rule [
+          context = "/db:info"
+          s:assert [
+            test = "@version"
+            "If this element is the root element, it must have a version attribute."
+          ]
+        ]
+      ]
+    ]
     element info { db.info.attlist, (db._title & db.info.elements*) }
 }
 div {
@@ -974,6 +987,18 @@ div {
   db.titlereq.info =
     
     ## A wrapper for information about a component or other block with a required title
+    [
+      s:pattern [
+        s:title [ "Root must have version" ]
+        s:rule [
+          context = "/db:info"
+          s:assert [
+            test = "@version"
+            "If this element is the root element, it must have a version attribute."
+          ]
+        ]
+      ]
+    ]
     element info {
       db.titlereq.info.attlist, (db._title.req & db.info.elements*)
     }
@@ -985,6 +1010,18 @@ div {
   db.titleonly.info =
     
     ## A wrapper for information about a component or other block with only a title
+    [
+      s:pattern [
+        s:title [ "Root must have version" ]
+        s:rule [
+          context = "/db:info"
+          s:assert [
+            test = "@version"
+            "If this element is the root element, it must have a version attribute."
+          ]
+        ]
+      ]
+    ]
     element info {
       db.titleonly.info.attlist, (db._title.only & db.info.elements*)
     }
@@ -996,6 +1033,18 @@ div {
   db.titleonlyreq.info =
     
     ## A wrapper for information about a component or other block with only a required title
+    [
+      s:pattern [
+        s:title [ "Root must have version" ]
+        s:rule [
+          context = "/db:info"
+          s:assert [
+            test = "@version"
+            "If this element is the root element, it must have a version attribute."
+          ]
+        ]
+      ]
+    ]
     element info {
       db.titleonlyreq.info.attlist,
       (db._title.onlyreq & db.info.elements*)
@@ -1008,6 +1057,18 @@ div {
   db.titleforbidden.info =
     
     ## A wrapper for information about a component or other block without a title
+    [
+      s:pattern [
+        s:title [ "Root must have version" ]
+        s:rule [
+          context = "/db:info"
+          s:assert [
+            test = "@version"
+            "If this element is the root element, it must have a version attribute."
+          ]
+        ]
+      ]
+    ]
     element info { db.titleforbidden.info.attlist, db.info.elements* }
 }
 div {
@@ -1717,7 +1778,7 @@ div {
     attribute continuation { db.orderedlist.continuation.enumeration }
   db.orderedlist.startingnumber.attribute =
     
-    ## Specifies the initial line number.
+    ## Specifies the initial line number
     attribute startingnumber { xsd:integer }
   db.orderedlist.inheritnum.enumeration =
     
@@ -1890,7 +1951,7 @@ div {
       "inline"
   db.simplelist.type.attribute =
     
-    ## Specifies the type of list presentation.
+    ## Specifies the type of list presentation
     [ a:defaultValue = "vert" ]
     attribute type { db.simplelist.type.enumeration }
   db.simplelist.columns.attribute =
@@ -4146,10 +4207,26 @@ div {
 }
 div {
   db.citetitle.pubwork.enumeration = db.pubwork.enumeration
-  db.citetitle.pubwork.attribute =
+  db.citetitle.pubwork-enum.attribute =
     
     ## Identifies the nature of the publication being cited
     attribute pubwork { db.citetitle.pubwork.enumeration }
+  db.citetitle.pubwork-other.attribute =
+    
+    ## Identifies the nature of some other kind of publication being cited
+    attribute otherpubwork { xsd:NMTOKEN }
+  db.citetitle.pubwork-other.attributes =
+    
+    ## Identifies that this is some other kind of publication being cited
+    attribute pubwork {
+      
+      ## Indicates that the published work is some 'other' kind.
+      "other"
+    }
+    & db.citetitle.pubwork-other.attribute
+  db.citetitle.pubwork.attribute =
+    db.citetitle.pubwork-enum.attribute
+    | db.citetitle.pubwork-other.attributes
   db.citetitle.role.attribute = attribute role { text }
   db.citetitle.attlist =
     db.citetitle.role.attribute?
@@ -4971,7 +5048,7 @@ div {
   db.annotation.role.attribute = attribute role { text }
   db.annotation.annotates.attribute =
     
-    ## Identifies one ore more elements to which this annotation applies
+    ## Identifies one or more elements to which this annotation applies
     attribute annotates { text }
   db.annotation.attlist =
     db.annotation.role.attribute?
@@ -7753,7 +7830,7 @@ div {
     & db.charoff.attribute?
     & db.column-spec.attributes?
     & db.entrytbl.tgroupstyle.attribute?
-    & db.entrytbl.cols.attribute?
+    & db.entrytbl.cols.attribute
     & db.colsep.attribute?
     & db.rowsep.attribute?
     & db.align.attribute?
@@ -9921,6 +9998,10 @@ div {
     ## Indicates the displayed length of the command; this information may be used to intelligently indent command synopses which extend beyond one line
     attribute cmdlength { text }
   db.cmdsynopsis.label.attribute = db.label.attribute
+  db.cmdsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.cmdsynopsis.attlist =
     db.cmdsynopsis.role.attribute?
     & db.common.attributes
@@ -9928,6 +10009,7 @@ div {
     & db.cmdsynopsis.sepchar.attribute?
     & db.cmdsynopsis.cmdlength.attribute?
     & db.cmdsynopsis.label.attribute?
+    & db.cmdsynopsis.packageref.attribute?
   db.cmdsynopsis.info = db._info.title.forbidden
   db.cmdsynopsis =
     
@@ -10086,8 +10168,6 @@ db.programming.inlines =
   | db.buildtarget
   | db.oo.inlines
   | db.templatename
-  | db.namespace
-  | db.namespacename
   | db.macroname
   | db.unionname
   | db.enumname
@@ -10104,15 +10184,10 @@ db.synopsis.blocks =
    | db.fieldsynopsis
    | db.enumsynopsis
    | db.typedefsynopsis
-   | db.namespacesynopsis
+   | db.packagesynopsis
    | db.macrosynopsis
    | db.unionsynopsis)
   | db.cmdsynopsis
-db.programmingsynopsis =
-  db.namespacesynopsis
-  | db.macrosynopsis
-  | db.typedefsynopsis
-  | db.enumsynopsis
 div {
   db.synopsis.role.attribute = attribute role { text }
   db.synopsis.label.attribute = db.label.attribute
@@ -10156,11 +10231,16 @@ div {
 div {
   db.funcsynopsis.info = db._info.title.forbidden
   db.funcsynopsis.role.attribute = attribute role { text }
+  db.funcsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.funcsynopsis.attlist =
     db.funcsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
+    & db.funcsynopsis.packageref.attribute?
   db.funcsynopsis =
     
     ## The syntax summary for a function definition
@@ -10347,12 +10427,17 @@ div {
     
     ## Specifies the nature of the synopsis
     attribute class { db.classsynopsis.class.enumeration }
+  db.classsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.classsynopsis.attlist =
     db.classsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
     & db.classsynopsis.class.attribute?
+    & db.classsynopsis.packageref.attribute?
   db.classsynopsis =
     
     ## The syntax summary for a class definition
@@ -10419,7 +10504,10 @@ div {
     
     ## A class in an object-oriented programming language
     element ooclass {
-      db.ooclass.attlist, (db.package | db.modifier)*, db.classname
+      db.ooclass.attlist,
+      (db.package | db.modifier)*,
+      db.classname,
+      db.modifier*
     }
 }
 div {
@@ -10434,7 +10522,8 @@ div {
     element oointerface {
       db.oointerface.attlist,
       (db.package | db.modifier)*,
-      db.interfacename
+      db.interfacename,
+      db.modifier*
     }
 }
 div {
@@ -10449,7 +10538,8 @@ div {
     element ooexception {
       db.ooexception.attlist,
       (db.package | db.modifier)*,
-      db.exceptionname
+      db.exceptionname,
+      db.modifier*
     }
 }
 db.modifier.xml.space.attribute =
@@ -10509,11 +10599,16 @@ div {
 div {
   db.fieldsynopsis.info = db._info.title.forbidden
   db.fieldsynopsis.role.attribute = attribute role { text }
+  db.fieldsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.fieldsynopsis.attlist =
     db.fieldsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
+    & db.fieldsynopsis.packageref.attribute?
   db.fieldsynopsis =
     
     ## The name of a field in a class definition
@@ -10536,6 +10631,7 @@ div {
       db.modifier*,
       (db.type | db.templatename)*,
       db.varname,
+      db.modifier*,
       db.initializer?,
       db.synopsisinfo*
     }
@@ -10557,11 +10653,16 @@ div {
 div {
   db.constructorsynopsis.info = db._info.title.forbidden
   db.constructorsynopsis.role.attribute = attribute role { text }
+  db.constructorsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.constructorsynopsis.attlist =
     db.constructorsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
+    & db.constructorsynopsis.packageref.attribute?
   db.constructorsynopsis =
     
     ## A syntax summary for a constructor
@@ -10584,6 +10685,7 @@ div {
       db.modifier*,
       db.methodname?,
       ((db.methodparam | db.group.methodparam)+ | db.void?),
+      db.modifier*,
       db.exceptionname*,
       db.synopsisinfo*
     }
@@ -10591,11 +10693,16 @@ div {
 div {
   db.destructorsynopsis.info = db._info.title.forbidden
   db.destructorsynopsis.role.attribute = attribute role { text }
+  db.destructorsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.destructorsynopsis.attlist =
     db.destructorsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
+    & db.destructorsynopsis.packageref.attribute?
   db.destructorsynopsis =
     
     ## A syntax summary for a destructor
@@ -10618,6 +10725,7 @@ div {
       db.modifier*,
       db.methodname?,
       ((db.methodparam | db.group.methodparam)+ | db.void?),
+      db.modifier*,
       db.exceptionname*,
       db.synopsisinfo*
     }
@@ -10625,11 +10733,16 @@ div {
 div {
   db.methodsynopsis.info = db._info.title.forbidden
   db.methodsynopsis.role.attribute = attribute role { text }
+  db.methodsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.methodsynopsis.attlist =
     db.methodsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
+    & db.methodsynopsis.packageref.attribute?
   db.methodsynopsis =
     
     ## A syntax summary for a method
@@ -10817,45 +10930,26 @@ div {
     }
 }
 div {
-  db.namespace.role.attribute = attribute role { text }
-  db.namespace.attlist =
-    db.namespace.role.attribute?
-    & db.common.attributes
-    & db.common.linking.attributes
-  db.namespace =
+  db.packagesynopsis.info = db._info.title.forbidden
+  db.packagesynopsis.role.attribute = attribute role { text }
+  db.packagesynopsis.packageref.attribute =
     
-    ## The definition of a name space, which may be more than a name
-    element namespace {
-      db.namespace.attlist, db.modifier*, db.namespacename, db.modifier*
-    }
-}
-div {
-  db.namespacename.role.attribute = attribute role { text }
-  db.namespacename.attlist =
-    db.namespacename.role.attribute?
-    & db.common.attributes
-    & db.common.linking.attributes
-  db.namespacename =
-    
-    ## The name of a name space
-    element namespacename { db.namespacename.attlist, db._text }
-}
-div {
-  db.namespacesynopsis.info = db._info.title.forbidden
-  db.namespacesynopsis.role.attribute = attribute role { text }
-  db.namespacesynopsis.attlist =
-    db.namespacesynopsis.role.attribute?
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
+  db.packagesynopsis.attlist =
+    db.packagesynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
-  db.namespacesynopsis =
+    & db.packagesynopsis.packageref.attribute?
+  db.packagesynopsis =
     
-    ## The syntax summary for a name space definition
+    ## The syntax summary for a package definition
     [
       s:pattern [
         s:title [ "Root must have version" ]
         s:rule [
-          context = "/db:namespacesynopsis"
+          context = "/db:packagesynopsis"
           s:assert [
             test = "@version"
             "If this element is the root element, it must have a version attribute."
@@ -10863,14 +10957,14 @@ div {
         ]
       ]
     ]
-    element namespacesynopsis {
-      db.namespacesynopsis.attlist,
-      db.namespacesynopsis.info,
+    element packagesynopsis {
+      db.packagesynopsis.attlist,
+      db.packagesynopsis.info,
       db.synopsisinfo*,
-      (db.package | db.modifier)*,
-      (db.namespace | db.namespacename),
-      (db.package | db.modifier)*,
-      db.synopsisinfo*
+      db.modifier*,
+      db.package,
+      db.modifier*,
+      (db.synopsis.blocks | db.synopsisinfo)*
     }
 }
 div {
@@ -10887,11 +10981,16 @@ div {
 div {
   db.macrosynopsis.info = db._info.title.forbidden
   db.macrosynopsis.role.attribute = attribute role { text }
+  db.macrosynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.macrosynopsis.attlist =
     db.macrosynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
+    & db.macrosynopsis.packageref.attribute?
   db.macrosynopsis =
     
     ## The syntax summary for a macro definition (code-generating function)
@@ -10981,12 +11080,17 @@ div {
     
     ## Indicates how the value of a union is specified.
     attribute ordered { db.enumsynopsis.ordered.enumeration }
+  db.unionsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.unionsynopsis.attlist =
     db.unionsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
     & db.unionsynopsis.ordered.attribute?
+    & db.unionsynopsis.packageref.attribute?
   db.unionsynopsis =
     
     ## The syntax summary for a union-of-types definition
@@ -11089,12 +11193,17 @@ div {
     
     ## Indicates how the value of an enumeration is specified.
     attribute ordered { db.enumsynopsis.ordered.enumeration }
+  db.enumsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.enumsynopsis.attlist =
     db.enumsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
     & db.enumsynopsis.ordered.attribute?
+    & db.enumsynopsis.packageref.attribute?
   db.enumsynopsis =
     
     ## The syntax summary for an enumerated-type definition
@@ -11115,7 +11224,7 @@ div {
       db.enumsynopsis.info,
       db.synopsisinfo*,
       (db.package | db.modifier)*,
-      db.enumname?,
+      (db.enumname, db.modifier*)?,
       db.enumitem+,
       db.synopsisinfo*
     }
@@ -11134,11 +11243,16 @@ div {
 div {
   db.typedefsynopsis.info = db._info.title.forbidden
   db.typedefsynopsis.role.attribute = attribute role { text }
+  db.typedefsynopsis.packageref.attribute =
+    
+    ## Identifies the package to which this synopsis (logically) belongs
+    attribute packageref { text }
   db.typedefsynopsis.attlist =
     db.typedefsynopsis.role.attribute?
     & db.common.attributes
     & db.common.linking.attributes
     & db.language.attribute?
+    & db.typedefsynopsis.packageref.attribute?
   db.typedefsynopsis =
     
     ## The syntax summary for a type-alias definition
@@ -11918,10 +12032,13 @@ div {
 div {
   db.any.other.attribute = attribute * - local:* { text }
   db.xi.include.attlist =
-    attribute href { xsd:anyURI }?,
+    attribute href {
+      xsd:anyURI { pattern = "[^#]+" }
+    }?,
     [ a:defaultValue = "xml" ] attribute parse { "xml" | "text" }?,
     attribute xpointer { text }?,
     attribute fragid { text }?,
+    attribute set-xml-id { text }?,
     attribute encoding { text }?,
     attribute accept { text }?,
     attribute accept-language { text }?,
@@ -11943,6 +12060,12 @@ db._any =
     (attribute * { text }
      | text
      | db._any)*
+  }
+db._any_other.attribute =
+  
+  ## Any attribute in an other explicit namespace.
+  attribute * - (db:* | xml:* | xlink:* | trans:* | its:* | local:*) {
+    text
   }
 # Include base ITS schema
 
