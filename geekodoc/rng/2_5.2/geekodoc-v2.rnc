@@ -1737,7 +1737,7 @@ include "db52itsxi.rnc"
       element calloutlist {
         db.calloutlist.attlist,
         db.calloutlist.info,
-        # db.para.blocks*,
+        db.para.blocks*,
         db.callout+
       }
 
@@ -1746,7 +1746,7 @@ include "db52itsxi.rnc"
       element itemizedlist {
         db.itemizedlist.attlist,
         db.itemizedlist.info,
-        # db.para.blocks*,
+        db.para.blocks*,
         db.listitem+
       }
 
@@ -1755,7 +1755,7 @@ include "db52itsxi.rnc"
       element orderedlist {
         db.orderedlist.attlist,
         db.orderedlist.info,
-        # db.para.blocks*,
+        db.para.blocks*,
         db.listitem+
       }
 
@@ -1764,7 +1764,7 @@ include "db52itsxi.rnc"
       element variablelist {
         db.variablelist.attlist,
         db.variablelist.info,
-        # db.para.blocks*,
+        db.para.blocks*,
         db.varlistentry+
       }
   }
