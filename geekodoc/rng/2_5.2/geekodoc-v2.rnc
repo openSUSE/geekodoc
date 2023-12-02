@@ -1124,6 +1124,21 @@ include "db52itsxi.rnc"
      attribute xml:id {
        xsd:ID { pattern = "[\-0-9a-zA-Z]+"} }
   }
+  
+  # Issue 103
+  # Validate the width attribute which consists of a number followed by a unit.
+  # Not allowed is only the number without the unit
+  div {
+    db.width.attribute =
+      ## Specifies the width of the element
+      ## Only values with units are possible, single values are forbidden
+      ## Allowed units are %, mm, cm, in, and *
+      attribute width {
+        xsd:string {
+          pattern = "([0-9]|[1-9][0-9]+)(%|mm|cm|in|\*)"
+          }
+        }
+  }
 
   div
   { # Issue #90: Restrict character set of profiling attributes

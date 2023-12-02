@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="geekodoc-v2-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article version="5.1-subset GeekoDoc-2.0.0" xml:lang="en"
+   xmlns="http://docbook.org/ns/docbook"
+   xmlns:db="http://docbook.org/ns/docbook"
+   xmlns:xi="http://www.w3.org/2001/XInclude"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:its="http://www.w3.org/2005/11/its">
+   <title>Test issue #103</title>
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="00%"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="05in"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="5"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="-50mm"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+
+</article>
