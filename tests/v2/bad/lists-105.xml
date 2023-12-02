@@ -1,0 +1,32 @@
+<?xml-model href="geekodoc-v2-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.2">
+  <title>Testing Issue #105</title>
+
+  <itemizedlist>
+    <caution>
+      <para>Caution is not allowed</para>
+    </caution>
+    <listitem>
+      <para />
+    </listitem>
+  </itemizedlist>
+
+  <orderedlist>
+    <note>
+      <para>Note is not allowed</para>
+    </note>
+    <listitem>
+      <para/>
+    </listitem>
+  </orderedlist>
+
+  <variablelist>
+    <screen>A screen is not allowed</screen>
+    <varlistentry>
+      <term>A term</term>
+      <listitem>
+        <para/>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</article>

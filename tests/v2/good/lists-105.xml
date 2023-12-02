@@ -1,0 +1,41 @@
+<?xml-model href="geekodoc-v2-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.2">
+  <title>Testing Issue #105</title>
+  <itemizedlist>
+    <title>A title</title>
+    <para>A paragraph</para>
+    <listitem>
+      <para/>
+    </listitem>
+  </itemizedlist>
+
+  <itemizedlist>
+    <title>A title</title>
+    <para>A paragraph</para>
+    <formalpara>
+      <title>A formalpara title</title>
+      <para/>
+    </formalpara>
+    <listitem>
+      <para/>
+    </listitem>
+  </itemizedlist>
+
+  <orderedlist>
+    <para>A paragraph</para>
+    <listitem>
+      <para/>
+    </listitem>
+  </orderedlist>
+
+  <variablelist>
+    <para>A paragraph</para>
+    <varlistentry>
+      <term>A term</term>
+      <listitem>
+        <para/>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+</article>
