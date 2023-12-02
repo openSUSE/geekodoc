@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="geekodoc-v1-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="geekodoc-v2-flat.rnc" type="application/relax-ng-compact-syntax"?>
 <article xmlns="http://docbook.org/ns/docbook" xml:lang="en" xml:id="article-admons">
  <title>Test Article for Admonitions</title>
  <note>
