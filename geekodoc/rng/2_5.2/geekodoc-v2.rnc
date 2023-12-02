@@ -1182,9 +1182,9 @@ include "db52itsxi.rnc"
    (
     ## Indentifies the location of the data by URI
     attribute fileref { xsd:anyURI }
-    |
-    ## Identifies the location of the data by external identifier (entity name)
-    attribute entityref { xsd:ENTITY }
+    # |
+    # ## Identifies the location of the data by external identifier (entity name)
+    # attribute entityref { xsd:ENTITY }
    )
 
   # restrict prompts only allowing root/user/custom prompts ("root" and

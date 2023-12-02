@@ -1,0 +1,16 @@
+<?xml-model href="geekodoc-v2-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<!DOCTYPE article
+[
+  <!ENTITY image SYSTEM "image.png" NDATA PNG>
+]>
+<article xmlns="http://docbook.org/ns/docbook" xml:lang="en" xml:id="article-admons">
+ <title>Test Article for entityref attribute</title>
+  <informalfigure>
+    <mediaobject>
+      <imageobject>
+        <!-- error: element "imagedata" missing required attribute "fileref" -->
+        <imagedata format="PNG" entityref="image"/>
+      </imageobject>
+    </mediaobject>
+  </informalfigure>
+</article>
