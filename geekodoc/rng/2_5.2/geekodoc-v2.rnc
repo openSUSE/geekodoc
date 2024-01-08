@@ -1127,15 +1127,19 @@ include "db52itsxi.rnc"
   
   # Issue 103
   # Validate the width attribute which consists of a number followed by a unit.
-  # Not allowed is only the number without the unit
+  #
+  # Not allowed is:
+  #  - a number without the unit
+  #  - a zero width, be it 0UNIT or 0.0UNIT. Allowed is 0.xUNIT whereas 9 >= x >= 1
+  #  - a leading zero like 05UNIT
   div {
     db.width.attribute =
       ## Specifies the width of the element
-      ## Only values with units are possible, single values are forbidden
-      ## Allowed units are %, mm, cm, in, and *
+      ## Only a float with a unit are possible, single floats are forbidden
+      ## Allowed units are %, mm, cm, in, em, and *
       attribute width {
         xsd:string {
-          pattern = "([0-9]|[1-9][0-9]+)(%|mm|cm|in|\*)"
+          pattern = "(0\.[0-9]|[1-9][0-9]*(\.[0-9])?)(%|mm|cm|in|em|\*)"
           }
         }
   }

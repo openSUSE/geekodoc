@@ -1,4 +1,14 @@
 ------------------------------------------------------------------
+Sat Dec 02 08:17:00 UTC 2023 - toms@opensuse.org
+
+Release 2.3.0
+
+* Disable unnecessary DocBook 5.2 elements (#116, #110)
+* Add para between list title and following list element (#117, #105)
+* Remove entityref from {audio,image,text,video}data (#117)
+* Validate with attribute (number + unit) (#119, #103)
+
+------------------------------------------------------------------
 Wed Feb 09 14:30:00 UTC 2022 - toms@opensuse.org
 
 Release 2.2.0

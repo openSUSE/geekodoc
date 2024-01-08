@@ -10,14 +10,21 @@
    <informalfigure>
       <mediaobject>
          <imageobject>
-            <imagedata fileref="image.png" width="60%"/>
+            <imagedata fileref="image.png" width="9%"/>
          </imageobject>
       </mediaobject>
    </informalfigure>
    <informalfigure>
       <mediaobject>
          <imageobject>
-            <imagedata fileref="image.png" width="9%"/>
+            <imagedata fileref="image.png" width="9.5%"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="60%"/>
          </imageobject>
       </mediaobject>
    </informalfigure>
@@ -26,6 +33,13 @@
       <mediaobject>
          <imageobject>
             <imagedata fileref="image.png" width="5in"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="5.3in"/>
          </imageobject>
       </mediaobject>
    </informalfigure>
@@ -47,6 +61,13 @@
    <informalfigure>
       <mediaobject>
          <imageobject>
+            <imagedata fileref="image.png" width="5.7cm"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
             <imagedata fileref="image.png" width="12cm"/>
          </imageobject>
       </mediaobject>
@@ -62,9 +83,16 @@
    <informalfigure>
       <mediaobject>
          <imageobject>
+            <imagedata fileref="image.png" width="5.2mm"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
             <imagedata fileref="image.png" width="120mm"/>
          </imageobject>
       </mediaobject>
    </informalfigure>
-   
+ 
 </article>

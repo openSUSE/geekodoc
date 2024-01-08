@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="geekodoc-v2-flat.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="/usr/share/xml/geekodoc/rng/geekodoc-latest-flat.rnc" type="application/relax-ng-compact-syntax"?>
 <article version="5.1-subset GeekoDoc-2.0.0" xml:lang="en"
    xmlns="http://docbook.org/ns/docbook"
    xmlns:db="http://docbook.org/ns/docbook"
@@ -35,6 +35,14 @@
       <mediaobject>
          <imageobject>
             <imagedata fileref="image.png" width="-50mm"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="03.5mm"/>
          </imageobject>
       </mediaobject>
    </informalfigure>
