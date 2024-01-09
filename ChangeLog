@@ -1,4 +1,11 @@
 ------------------------------------------------------------------
+Tue Jan 09 13:28:00 UTC 2024 - toms@opensuse.org
+
+Release 2.3.1
+* Add test case for width with em unit (#121)
+* Regenerate archive
+
+------------------------------------------------------------------
 Sat Dec 02 08:17:00 UTC 2023 - toms@opensuse.org
 
 Release 2.3.0
