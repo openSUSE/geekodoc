@@ -94,5 +94,20 @@
          </imageobject>
       </mediaobject>
    </informalfigure>
- 
+
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="5em"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+   <informalfigure>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="image.png" width="5.5em"/>
+         </imageobject>
+      </mediaobject>
+   </informalfigure>
+
 </article>
