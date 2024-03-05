@@ -57,6 +57,8 @@
     <!-- GeekoDoc v2 -->
     <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/v2/geekodoc5-flat.rnc"
          uri="../geekodoc/rng/2_5.2/geekodoc-v2-flat.rnc"/>
+    <system systemId="https://github.com/openSUSE/geekodoc/raw/master/geekodoc/rng/v2/geekodoc5-flat.rng"
+         uri="../geekodoc/rng/2_5.2/geekodoc-v2-flat.rng"/>
 
 
     <uri name="urn:x-suse:rnc:v2:geekodoc-flat"
