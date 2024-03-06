@@ -1,2 +1,0 @@
-misc:Depends=xml-core (>= 0.14)
-misc:Pre-Depends=

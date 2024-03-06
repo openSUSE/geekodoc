@@ -1,7 +1,0 @@
-geekodoc for Debian
-------------------
-
-* several wheel python modules are needed to build the package properly,
-  see the `pypi` subdirectory
-
- -- Tomáš Bažant <tbazant@suse.cz>  Fri, 08 Dec 2023 14:47:25 +0100
