@@ -1,0 +1,5 @@
+# Automatically added by dh_installxmlcatalogs/UNDECLARED
+if [ "$1" = "purge" ]; then
+	rm -f /etc/xml/geekodoc.xml /etc/xml/geekodoc.xml.old
+fi
+# End automatically added section

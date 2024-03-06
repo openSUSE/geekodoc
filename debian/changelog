@@ -1,0 +1,17 @@
+geekodoc (2.3.2-0) unstable; urgency=medium
+
+  * Added geekodoc v2 RNG file mapping.
+
+ -- Tomáš Bažant <tbazant@suse.cz>  Tue, 05 Mar 2024 17:28:25 +0100
+
+geekodoc (2.3.1-0) unstable; urgency=medium
+
+  * Updating to the latest version 2.3.1.
+
+ -- Tomáš Bažant <tbazant@suse.cz>  Tue, 05 Mar 2024 13:37:40 +0100
+
+geekodoc (2.2.2-2) unstable; urgency=medium
+
+  * Initial release. Properly repackaged.
+
+ -- Tomáš Bažant <tbazant@suse.cz>  Fri, 08 Dec 2023 14:47:25 +0100

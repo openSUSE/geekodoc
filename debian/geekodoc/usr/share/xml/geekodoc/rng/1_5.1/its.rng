@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  
+  This schema integrates ITS 2.0 markup (http://www.w3.org/TR/its20/)
+  into DocBook schema (http://docbook.org)
+-->
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:its="http://www.w3.org/2005/11/its" xmlns="http://relaxng.org/ns/structure/1.0">
+  <define name="its-translate.type">
+    <choice>
+      <value>yes</value>
+      <a:documentation>The nodes need to be translated</a:documentation>
+      <value>no</value>
+      <a:documentation>The nodes must not be translated</a:documentation>
+    </choice>
+  </define>
+  <define name="its-attribute.translate">
+    <attribute name="its:translate">
+      <a:documentation>The Translate data category information to be attached to the current node</a:documentation>
+      <ref name="its-translate.type"/>
+    </attribute>
+  </define>
+</grammar>

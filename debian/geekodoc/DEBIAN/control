@@ -1,0 +1,13 @@
+Package: geekodoc
+Version: 2.3.2-0
+Architecture: all
+Maintainer: Tomáš Bažant <tbazant@suse.cz>
+Installed-Size: 6348
+Depends: xml-core (>= 0.14)
+Section: doc
+Priority: optional
+Homepage: https://github.com/openSUSE/geekodoc
+Description: A RELAX NG schema and a subset of DocBook 5.
+ It restricts the content model of some elements and attributes to make it
+ easier to write documents.Valid GeekoDoc documents are also valid DocBook 5
+ documents.

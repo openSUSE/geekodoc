@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installxmlcatalogs/UNDECLARED
+if [ "$1" = "configure" ]; then
+	update-xmlcatalog --sort --add --type system --id "https://github.com/openSUSE/geekodoc/" --package geekodoc --local /usr/share/xml/geekodoc/catalog-geekodoc.xml
+	update-xmlcatalog --sort --add --type system --id "urn:x-suse:rnc:v1:geekodoc-flat" --package geekodoc --local /usr/share/xml/geekodoc/catalog-geekodoc.xml
+	update-xmlcatalog --sort --add --type system --id "urn:x-suse:rnc:v2:geekodoc-flat" --package geekodoc --local /usr/share/xml/geekodoc/catalog-geekodoc.xml
+	update-xmlcatalog --sort --add --type system --id "urn:x-suse:rng:v1:geekodoc-flat" --package geekodoc --local /usr/share/xml/geekodoc/catalog-geekodoc.xml
+	update-xmlcatalog --sort --add --type system --id "urn:x-suse:rng:v2:geekodoc-flat" --package geekodoc --local /usr/share/xml/geekodoc/catalog-geekodoc.xml
+
+	update-xmlcatalog --sort --add --type system --id "https://github.com/openSUSE/geekodoc/" --package geekodoc --root
+	update-xmlcatalog --sort --add --type system --id "urn:x-suse:rnc:v1:geekodoc-flat" --package geekodoc --root
+	update-xmlcatalog --sort --add --type system --id "urn:x-suse:rnc:v2:geekodoc-flat" --package geekodoc --root
+	update-xmlcatalog --sort --add --type system --id "urn:x-suse:rng:v1:geekodoc-flat" --package geekodoc --root
+	update-xmlcatalog --sort --add --type system --id "urn:x-suse:rng:v2:geekodoc-flat" --package geekodoc --root
+
+fi
+# End automatically added section

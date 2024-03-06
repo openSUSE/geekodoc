@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  
+  DocBook 5.1 Transclusion Schema (Simple)
+  
+  Namespace for DocBook Transclusions
+  See http://docbook.org/docs/transclusion/
+-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <div>
+    <define name="db.xi.trans.attlist">
+      <interleave>
+        <optional>
+          <ref name="db.trans.idfixup.attribute"/>
+        </optional>
+        <optional>
+          <ref name="db.trans.suffix.attribute"/>
+        </optional>
+        <optional>
+          <ref name="db.trans.linkscope.attribute"/>
+        </optional>
+      </interleave>
+    </define>
+  </div>
+</grammar>

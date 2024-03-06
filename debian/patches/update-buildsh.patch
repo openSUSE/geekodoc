@@ -1,0 +1,20 @@
+--- a/build.sh
++++ b/build.sh
+@@ -151,7 +151,7 @@
+     # * jing
+     # * python3-rnginline (from obs://devel:languages:python/python3-rnginline)
+     # * docbook_5 (from obs://Publishing)
+-    local SCRIPTS="trang jing rnginline"
++    local SCRIPTS="trang jing .venv/bin/rnginline"
+ 
+     for prog in $SCRIPTS; do
+       if ! command -v $prog >/dev/null; then
+@@ -207,7 +207,7 @@
+       rng="$f.rng"
+       rni="$f-flat.rni"
+       logdebug "Converting $rng -> $rni"
+-      rnginline "$rng" "$rni"
++      .venv/bin/rnginline "$rng" "$rni"
+       if [[ "$?" -ne 0 ]]; then
+         exit_on_error "Conversion from $rng -> $rni failed"
+       fi
