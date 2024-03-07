@@ -1,3 +1,16 @@
+geekodoc (2.3.2-2) UNRELEASED; urgency=medium
+
+  * aligned symlinks for rng and rnc files and directories
+  * limited the number of distributed schema files
+
+ -- Tomáš Bažant <tbazant@suse.cz>  Thu, 07 Mar 2024 13:56:34 +0100
+
+geekodoc (2.3.2-1) unstable; urgency=medium
+
+  * small text-flow improvements
+
+ -- Tomáš Bažant <tbazant@suse.cz>  Thu, 07 Mar 2024 12:00:55 +0100
+
 geekodoc (2.3.2-0) unstable; urgency=medium
 
   * Added geekodoc v2 RNG file mapping.
