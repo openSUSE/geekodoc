@@ -22,5 +22,5 @@ Depends:
  ${misc:Depends},
 Description: A RELAX NG schema and a subset of DocBook 5.
  It restricts the content model of some elements and attributes to make it
- easier to write documents.Valid GeekoDoc documents are also valid DocBook 5
+ easier to write documents. Valid GeekoDoc documents are also valid DocBook 5
  documents.
