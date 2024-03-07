@@ -1,0 +1,5 @@
+#build/geekodoc/rng usr/share/xml/geekodoc
+build/geekodoc/rng/1_5.1/geekodoc-v1-flat.rnc /usr/share/xml/geekodoc/rng/1_5.1/
+build/geekodoc/rng/1_5.1/geekodoc-v1-flat.rng /usr/share/xml/geekodoc/rng/1_5.1/
+build/geekodoc/rng/2_5.2/geekodoc-v2-flat.rnc /usr/share/xml/geekodoc/rng/2_5.2/
+build/geekodoc/rng/2_5.2/geekodoc-v2-flat.rng /usr/share/xml/geekodoc/rng/2_5.2/

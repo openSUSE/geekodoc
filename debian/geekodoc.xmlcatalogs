@@ -1,0 +1,7 @@
+local;catalog.d/geekodoc.xml;/usr/share/xml/geekodoc/catalog-geekodoc.xml
+
+root-and-package;system;https://github.com/openSUSE/geekodoc/;/usr/share/xml/geekodoc/catalog-geekodoc.xml
+root-and-package;system;urn:x-suse:rnc:v1:geekodoc-flat;/usr/share/xml/geekodoc/catalog-geekodoc.xml
+root-and-package;system;urn:x-suse:rnc:v2:geekodoc-flat;/usr/share/xml/geekodoc/catalog-geekodoc.xml
+root-and-package;system;urn:x-suse:rng:v1:geekodoc-flat;/usr/share/xml/geekodoc/catalog-geekodoc.xml
+root-and-package;system;urn:x-suse:rng:v2:geekodoc-flat;/usr/share/xml/geekodoc/catalog-geekodoc.xml
