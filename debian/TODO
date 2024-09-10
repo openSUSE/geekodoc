@@ -1,0 +1,3 @@
+* Try building `python3 -m venv .venv` with `--system-site-packages`,
+  update the `control` file with dependencies and possibly remove one
+  or more python wheel packges in favour of system ones

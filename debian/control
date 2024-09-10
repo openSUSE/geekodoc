@@ -1,0 +1,26 @@
+Source: geekodoc
+Section: doc
+Priority: optional
+Maintainer: Tomáš Bažant <tbazant@suse.cz>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ xml-core,
+ python3-venv,
+ libxslt-dev,
+ python3-dev,
+ jing,
+ trang,
+ libxml2-utils
+Standards-Version: 4.6.2
+Homepage: https://github.com/openSUSE/geekodoc
+
+Package: geekodoc
+Architecture: all
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: A RELAX NG schema and a subset of DocBook 5.
+ It restricts the content model of some elements and attributes to make it
+ easier to write documents. Valid GeekoDoc documents are also valid DocBook 5
+ documents.
