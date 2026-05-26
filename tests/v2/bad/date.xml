@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/home/toms/repos/GH/opensuse/geekodoc/geekodoc/rng/2_5.2/geekodoc-v2.rnc" type="application/relax-ng-compact-syntax"?>
+<article xmlns="http://docbook.org/ns/docbook">
+  <title>Validating a <tag>date</tag> tag with ISO date</title>
+  <info>
+    <date>2025-08-00</date>
+    <date>2025-98-0</date>
+  </info>
+  <para></para>
+</article>
