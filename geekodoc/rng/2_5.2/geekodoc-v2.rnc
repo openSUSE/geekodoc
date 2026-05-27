@@ -572,6 +572,9 @@ include "db52itsxi.rnc"
   #======== General Patterns
   db.cover.contentmodel = db.mediaobject+
 
+  # ISO date
+  db.date.contentmodel = xsd:date { pattern = "[0-9]{4}-[0-9]{2}-[0-9]{2}" }
+
   db.nopara.blocks =
     db.list.blocks
      | db.formal.blocks
@@ -1812,6 +1815,5 @@ include "db52itsxi.rnc"
 
 
 # Redefine content model here:
-
 
 # --- EOF ---
